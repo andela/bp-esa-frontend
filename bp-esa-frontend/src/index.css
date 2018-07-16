@@ -1,0 +1,122 @@
+/* Styling the NavBar/Footer component */
+.navbar, .footer {
+    padding: 15px;
+    background-color: #3359df;
+    color: white;
+}
+
+.navbar div.logo img{
+    padding-left: 20px;
+    width: 80px;
+    height: auto;
+}
+
+.navbar div.user_image {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    text-align: center;
+    background-color: #eeeeee;
+}
+
+.footer {
+    text-align: center;
+    width: 100%;
+}
+
+/* Styling the SideBar component */
+.col-sm-2 .sidebar{
+    background-color: #eeeeee; 
+    height: 88vh;
+    line-height: 250%;
+    padding: 25px;
+}
+
+.sidebar a {
+    text-decoration: none;
+    color: black;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+/* Styling the ReportPage component */
+.report_page {
+    padding: 25px;
+    height: 88vh;
+    position: relative;
+}
+
+form input[type="search"] {
+    width: 50%;
+    padding:10px;
+    font-style: normal;
+    font-weight: normal;
+}
+@import "//netdna.bootstrapcdn.com/font-awesome/3.0/css/font-awesome.css";
+
+form input[type="search"]::-webkit-input-placeholder { 
+font-family: FontAwesome;
+font-weight: normal;
+overflow: visible;
+vertical-align: top;
+display: inline-block !important;
+padding-left: 5px;
+padding-top: 2px;
+}
+
+form input[type="search"]::-moz-placeholder  { 
+font-family: FontAwesome;
+font-weight: normal;
+overflow: visible;
+vertical-align: top;
+display: inline-block !important;
+padding-left: 5px;
+padding-top: 2px;
+}
+
+form input[type="search"]:-ms-input-placeholder  { 
+font-family: FontAwesome;
+font-weight: normal;
+overflow: visible;
+vertical-align: top;
+display: inline-block !important;
+padding-left: 5px;
+padding-top: 2px;
+}
+
+table .report_table, th, td {
+    border: 1px solid black;
+    padding: 15px;
+}
+
+.report_table {
+    width: 95%;
+}
+
+.pagination_container {
+    position: absolute;
+    bottom: 10%;
+    left: 30%;
+}
+
+.pagination {
+    display: inline-block;
+    text-align: center;
+}
+
+.pagination a {
+    color: black;
+    float: left;
+    padding: 8px 16px;
+    text-decoration: none;
+}
+
+.pagination a.active {
+    background-color:#3359df;
+    color: white;
+}
+
