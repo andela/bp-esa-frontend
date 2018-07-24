@@ -24,6 +24,85 @@
     width: 100%;
 }
 
+/* Styling the Login component */
+.login_page {
+  background: #4058c3;
+  /* background: linear-gradient( #4058c3, white); */
+  height: 100vh;
+  width: 100%;
+  position: absolute;
+}
+
+.login_details {
+  background-color: #405add;
+  position: relative;
+  text-align: center;
+  padding: 10% 5%;
+  height: 100vh;
+  width: 30%;
+  margin: auto;
+  color: white;
+  box-shadow: inset -3px 0 1px 0 rgba(34,34,34,.327), -3px 0 1px 0 rgba(34,34,34,.327);
+}
+
+.login_logo {
+  display: inline-block;
+  position:relative;
+}
+
+.login_logo div {
+    color: #fff;
+    font-size: 100px;
+    position: absolute;
+    top: 55%;
+    left: 50%;
+    transform: translate(-50%,-60%);
+}
+
+.login_logo img {
+  width: 150px;;
+  height: auto;
+}
+
+img.logo {
+    -webkit-animation: spin 30s linear infinite;
+    -moz-animation: spin 30s linear infinite;
+    -ms-animation: spin 30s linear infinite;
+    animation: spin 30s linear infinite;
+}
+
+.login_title {
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+
+.login_title h1 {
+  font-size: 3vw;
+  font-weight: normal;
+  color: #fff;
+  text-align: center;
+  margin-bottom: 10%
+}
+
+.login_link {
+    background-color: #fff;
+    border-radius: 3%;
+    margin: 0px;
+    padding: 10px;
+    width: fit-content;
+    display: flex;
+}
+
+.login_link img {
+  width: 5%;
+  margin-right: 20px;
+}
+
+.login_link a {
+    color: #aaa;
+    font-size: 0.5vw;
+}
+
 /* Styling the SideBar component */
 .col-sm-2 .sidebar{
     background-color: #eeeeee; 
