@@ -2,6 +2,7 @@ import React, {Component } from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
 import Login from './components/login';
+import Dashboard from './components/dashboard';
 import ReportPage from './components/reportPage';
 import Navbar from './components/layout/navbar';
 import Sidebar from './components/layout/sidebar';
@@ -22,7 +23,10 @@ class App extends Component {
                     <Sidebar />
                   </Col>
                   <Col sm={10}>
-                    <Route exact path="/" component={ReportPage} />
+                    <Route exact path="/slack-report" component={ReportPage} />
+                    <Route exact path="/freckle-report" component={ReportPage} />
+                    <Route exact path="/email-report" component={ReportPage} />
+                    <Route exact path="/" component={Dashboard} />
                   </Col>
                 </Row>
               </Switch>

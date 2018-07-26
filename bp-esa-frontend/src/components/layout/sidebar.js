@@ -5,11 +5,11 @@ class SideBar extends Component {
     return(
       <div className="sidebar">
           <ul>
-              <li><a href="#">DASHBOARD</a></li>
-              <li><a href="#">SLACK</a></li>
-              <li><a href="#">FRECKLE</a></li>
-              <li><a href="#">EMAIL</a></li>
-              <li><a href="#">GENERAL</a></li>
+              <li><a href="/">DASHBOARD</a></li>
+              <li><a href="/slack-report">SLACK</a></li>
+              <li><a href="/freckle-report">FRECKLE</a></li>
+              <li><a href="/email-report">EMAIL</a></li>
+              <li><a href="/overview">GENERAL</a></li>
             </ul>
       </div>
     );

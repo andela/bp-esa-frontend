@@ -19,6 +19,10 @@
     background-color: #eeeeee;
 }
 
+.navbar h1 {
+    font-size: 1.5vw;
+}
+
 .footer {
     text-align: center;
     width: 100%;
@@ -106,7 +110,7 @@ img.logo {
 /* Styling the SideBar component */
 .col-sm-2 .sidebar{
     background-color: #eeeeee; 
-    height: 88vh;
+    min-height: 88vh;
     line-height: 250%;
     padding: 25px;
 }
@@ -122,22 +126,31 @@ ul {
     padding: 0;
 }
 
-/* Styling the ReportPage component */
-.report_page {
+/* Styling the ReportPage and Dashboard component */
+.report_page, .dashboard {
     padding: 25px;
-    height: 88vh;
+    min-height: 88vh;
     position: relative;
 }
 
+.dashboard h1, .report_page h1{
+    font-size: 1.5vw;
+}
+
+/* Styling the Filters component */
+#filterForm {
+    margin-top: 2%;
+}
+
 form input[type="search"] {
-    width: 50%;
+    width: 80%;
     padding:10px;
     font-style: normal;
     font-weight: normal;
 }
 @import "//netdna.bootstrapcdn.com/font-awesome/3.0/css/font-awesome.css";
 
-form input[type="search"]::-webkit-input-placeholder { 
+#filterForm input[type="search"]::-webkit-input-placeholder { 
 font-family: FontAwesome;
 font-weight: normal;
 overflow: visible;
@@ -147,7 +160,7 @@ padding-left: 5px;
 padding-top: 2px;
 }
 
-form input[type="search"]::-moz-placeholder  { 
+#filterForm input[type="search"]::-moz-placeholder  { 
 font-family: FontAwesome;
 font-weight: normal;
 overflow: visible;
@@ -157,7 +170,7 @@ padding-left: 5px;
 padding-top: 2px;
 }
 
-form input[type="search"]:-ms-input-placeholder  { 
+#filterForm input[type="search"]:-ms-input-placeholder  { 
 font-family: FontAwesome;
 font-weight: normal;
 overflow: visible;
@@ -165,6 +178,24 @@ vertical-align: top;
 display: inline-block !important;
 padding-left: 5px;
 padding-top: 2px;
+}
+
+.custom-select-input-filter-form {
+    width: 20%;
+    display: flex;
+}
+
+.custom-select-input-filter-form :first-child {
+    margin-right: 20px;
+}
+
+.moreFilters {
+    display: flex;
+    width: 80%;
+}
+
+.moreFilters :first-child {
+    margin-right: 5px;
 }
 
 table .report_table, th, td {
@@ -174,6 +205,7 @@ table .report_table, th, td {
 
 .report_table {
     width: 95%;
+    margin-top: 3%;
 }
 
 .pagination_container {
