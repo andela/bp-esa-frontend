@@ -1,13 +1,11 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import ReportPage from '../../components/reportPage';
+import Filters from '../../components/filters';
 
 const props = {
-    match: { path: ''},
-    filterCriteria: [],
+    filterCriteria: []
 }
-
 it('renders without crashing', () => {
-    const wrapper = shallow(<ReportPage {...props}/>);
+    const wrapper = shallow(<Filters {...props} />);
     expect(wrapper).toMatchSnapshot();
 });
