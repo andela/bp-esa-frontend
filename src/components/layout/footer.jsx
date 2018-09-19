@@ -1,12 +1,13 @@
-import React, { Component } from 'react';
+import React from 'react';
 
-class Footer extends Component {
+class Footer extends React.PureComponent {
   render() {
-    return(
+    return (
       <div className="footer">
         <p>FOOTER</p>
       </div>
     );
-  }  
+  }
 }
+
 export default Footer;

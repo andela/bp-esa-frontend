@@ -1,18 +1,18 @@
-import React, { Component } from 'react';
+import React from 'react';
 import FilterSearchForm from './filterSearchForm';
 
-class ReportPage extends Component {
+class ReportPage extends React.PureComponent {
   render() {
     const filterCriteria = [
       { name: 'date', display: 'Date/month (is a range)' },
-      { name: 'partner', display: 'Partner'},
-      { name: 'developer', display: 'Developer name'},
-      { name: 'status', display: 'Status'},
-      { name: 'addition', display: 'Addition'},
-      { name: 'removal', display: 'Removal'},
-      { name: 'channel', display: 'Channel'}
+      { name: 'partner', display: 'Partner' },
+      { name: 'developer', display: 'Developer name' },
+      { name: 'status', display: 'Status' },
+      { name: 'addition', display: 'Addition' },
+      { name: 'removal', display: 'Removal' },
+      { name: 'channel', display: 'Channel' },
     ];
-    return(
+    return (
       <div className="report_page">
         <FilterSearchForm filterCriteria={filterCriteria} />
         <table className="report_table">
@@ -24,15 +24,16 @@ class ReportPage extends Component {
             <th>STATUS</th>
           </tr>
           <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
+            <td />
+            <td />
+            <td />
+            <td />
+            <td />
           </tr>
         </table>
         <div className="pagination_container">
           <div className="pagination">
+            {/* eslint-disable jsx-a11y/anchor-is-valid */}
             <a href="#">&laquo;</a>
             <a className="active" href="#">1</a>
             <a href="#">2</a>
