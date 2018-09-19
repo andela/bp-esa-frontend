@@ -1,0 +1,52 @@
+#header {
+  background-color: rgb(51, 89, 223);
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  align-items: center;
+  height: 7vh;
+  padding: 30px;
+
+  .brand {
+    a {
+      text-decoration: none;
+    }
+    .logo {
+      width: 35px;
+    }
+    .text {
+      margin-left: 10px;
+      color: white;
+      font-size: 20px;
+    }
+  }
+  .signout {
+    margin-right: 30px;
+    position: relative;
+    a {
+      color: white;
+      text-decoration: none;
+    }
+    .signout-dropdown {
+      opacity: 0;
+      position: absolute;
+      left: -30px;
+      width: 100px;
+      color: black;
+      background-color: white;
+      padding: 5px;
+      border-radius: 3px;   
+      box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.12);
+      transition: all 0.3s;
+      &.visible {
+        opacity: 1;
+      }
+    }
+    
+    &:hover {
+      i.fa-user-circle {
+        color:rgba(255,255,255,.8);
+      }
+    }
+  }
+}
