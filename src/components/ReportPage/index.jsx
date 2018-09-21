@@ -1,17 +1,84 @@
 import React, { PureComponent } from 'react';
 import Header from '../Header';
+import Filter from '../Filter';
+import * as constants from '../constants';
 import mockReport from '../../mocks/mockReport';
 import './styles.scss';
 
+/* eslint-disable class-methods-use-this */
 class ReportPage extends PureComponent {
   constructor() {
     super();
     this.state = {
       reportData: mockReport,
+      filters: [],
+      filteredReport: [],
     };
   }
 
-  /* eslint-disable class-methods-use-this */
+  componentDidUpdate(prevProps, prevState) {
+    const { filters } = this.state;
+    if (prevState.filters !== filters) {
+      this.filterReports();
+    }
+  }
+
+  setFilters = (filter, action) => {
+    const { filters: previousFilters } = this.state;
+    if (action === 'add_filter') {
+      this.setState({
+        filters: [
+          ...previousFilters,
+          filter,
+        ],
+      });
+    } else if (action === 'remove_filter') {
+      const filterToMutate = [...previousFilters];
+      filterToMutate.splice(filterToMutate.indexOf(filter), 1);
+      this.setState({
+        filters: filterToMutate,
+      });
+    }
+  }
+
+  runFilters(report) {
+    const { filters } = this.state;
+    return filters.every((filterTerm) => {
+      switch (filterTerm) {
+        case constants.FAILED_AUTOMATIONS:
+          return (!report.slackAutomation.success
+            || !report.freckleAutomation.success
+            || !report.emailAutomation.success
+          );
+        case constants.SUCCESSFUL_AUTOMATIONS:
+          return (report.slackAutomation.success
+            && report.freckleAutomation.success
+            && report.emailAutomation.success
+          );
+        case constants.FAILED_SLACK_AUTOMATIONS:
+          return (!report.slackAutomation.success);
+        case constants.FAILED_FRECKLE_AUTOMATIONS:
+          return (!report.freckleAutomation.success);
+        case constants.FAILED_EMAIL_AUTOMATIONS:
+          return (!report.emailAutomation.success);
+        case constants.SUCCESSFUL_SLACK_AUTOMATIONS:
+          return (report.slackAutomation.success);
+        case constants.SUCCESSFUL_FRECKLE_AUTOMATIONS:
+          return (report.freckleAutomation.success);
+        case constants.SUCCESSFUL_EMAIL_AUTOMATIONS:
+          return (report.emailAutomation.success);
+        default:
+          return false;
+      }
+    });
+  }
+
+  filterReports() {
+    const { reportData } = this.state;
+    const filteredReport = reportData.filter(report => this.runFilters(report));
+    this.setState({ filteredReport });
+  }
+
   renderAutomationStatus(automationStatus) {
     return (
       automationStatus ? (
@@ -27,9 +94,21 @@ class ReportPage extends PureComponent {
     );
   }
 
+  renderFilters() {
+    return constants.filters.map(filter => (
+      <Filter
+        key={filter.id}
+        title={filter.title}
+        options={filter.options}
+        handleFilterChange={this.setFilters}
+      />
+    ));
+  }
+
   renderTableRows() {
-    const { reportData } = this.state;
-    return reportData.map((report, index) => (
+    const { filters, filteredReport, reportData } = this.state;
+    const reports = filters.length ? filteredReport : reportData;
+    return reports.map((report, index) => (
       <tr key={report.id}>
         <td className="numbering">{index + 1}</td>
         <td className="column1">{report.date}</td>
@@ -49,6 +128,10 @@ class ReportPage extends PureComponent {
       <div>
         <Header />
         <div id="report-page">
+          <div className="filter-box">
+            <p>Filters</p>
+            {this.renderFilters()}
+          </div>
           <div className="table-header">
             <table className="report-table">
               <thead>
