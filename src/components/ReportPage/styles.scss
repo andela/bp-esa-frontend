@@ -1,0 +1,60 @@
+#report-page {
+  padding: 0 30px 0 30px;
+  font-family: 'Open Sans', sans-serif;
+  .table-header table {
+    margin-top: 15px;
+    thead tr {
+      background-color: #385de0;
+      color: white;
+    }
+  }
+  .table-body {
+    height: 85vh;
+    overflow: scroll;
+    padding: 1px;
+    tr {
+      font-size: 15px;
+      td {
+        color: #808080;
+        &:hover {
+          border: 1px solid #7b93ea;
+        }
+        &.numbering:hover {
+          border: none;
+        }
+        .fa-info-circle {
+          font-size: 18px;
+          margin-left: 5px;
+          &.success {
+            color: #385de0;
+          }
+          &.failed {
+            color: #ff4d4d;
+          }
+        }
+      }
+      &:nth-child(odd) {
+        background-color: #f5f5f5;
+      }
+      &:hover {
+        background-color: #f5f5f5;
+        td {
+          color: black;
+        }
+        cursor: pointer;
+      }
+    }
+  }
+  table.report-table {
+    border-collapse: collapse;
+    table-layout: fixed;
+    width: 100%;
+    &, tr, th, td {
+      border: none;
+      text-transform: capitalize;
+    }
+    .numbering {
+      width: 40px;
+    }
+  }
+}
