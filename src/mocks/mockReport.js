@@ -21,10 +21,10 @@ export default [
     partnerName: 'ESA',
     type: 'Onboarding',
     slackAutomation: {
-      success: true,
+      success: false,
     },
     freckleAutomation: {
-      success: false,
+      success: true,
     },
     emailAutomation: {
       success: true,
@@ -40,10 +40,10 @@ export default [
       success: true,
     },
     freckleAutomation: {
-      success: false,
+      success: true,
     },
     emailAutomation: {
-      success: true,
+      success: false,
     },
     date: '2017-09-29 01:22',
   },
@@ -56,7 +56,7 @@ export default [
       success: true,
     },
     freckleAutomation: {
-      success: false,
+      success: true,
     },
     emailAutomation: {
       success: true,
@@ -69,13 +69,13 @@ export default [
     partnerName: 'ESA',
     type: 'Onboarding',
     slackAutomation: {
-      success: true,
+      success: false,
     },
     freckleAutomation: {
       success: false,
     },
     emailAutomation: {
-      success: true,
+      success: false,
     },
     date: '2017-09-29 01:22',
   },
@@ -120,7 +120,7 @@ export default [
       success: true,
     },
     freckleAutomation: {
-      success: false,
+      success: true,
     },
     emailAutomation: {
       success: true,
@@ -133,13 +133,13 @@ export default [
     partnerName: 'ESA',
     type: 'Onboarding',
     slackAutomation: {
-      success: true,
+      success: false,
     },
     freckleAutomation: {
       success: false,
     },
     emailAutomation: {
-      success: true,
+      success: false,
     },
     date: '2017-09-29 01:22',
   },
@@ -168,10 +168,10 @@ export default [
       success: true,
     },
     freckleAutomation: {
-      success: false,
+      success: true,
     },
     emailAutomation: {
-      success: true,
+      success: false,
     },
     date: '2017-09-29 01:22',
   },
@@ -277,7 +277,7 @@ export default [
     partnerName: 'ESA',
     type: 'Onboarding',
     slackAutomation: {
-      success: true,
+      success: false,
     },
     freckleAutomation: {
       success: false,

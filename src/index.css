@@ -199,3 +199,10 @@ table .report_table, th, td {
     color: white;
 }
 
+.contaienr {
+    padding: 0 30px 0 30px;
+}
+
+* {
+    font-family: 'Open Sans', sans-serif;
+}

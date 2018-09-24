@@ -1,0 +1,48 @@
+.filter {
+  position: relative;
+  display: inline-block;
+  font-size: 14px;
+  text-transform: capitalize;
+  .filter-title {
+    padding: 8px 15px 8px 15px;
+    border: 1px solid grey;
+    text-align: center;
+    color: #4d4d4d;
+    cursor: pointer;
+    &:hover {
+      color: black;
+    }
+    i {
+      margin-left: 10px;
+      font-size: 20px;
+      transition: all 0.3s;
+      &.rotate-180 {
+        transform: rotate(180deg);
+      }
+    }
+  }
+
+  .filter-options {
+    opacity: 0;
+    display: block;
+    position: absolute;
+    width: 100%;
+    border-radius: 3px;
+    background-color: white;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    li {
+      border-bottom: 1px solid #d9d9d9;
+      padding: 5px;
+      input[type=checkbox] {
+        margin-right: 10px;
+      }
+    }
+    li:last-child {
+      border-bottom: none;
+    }
+    transition: all 0.3s;
+    &.filter-options-isvisible {
+      opacity: 1;
+    }
+  }
+}
