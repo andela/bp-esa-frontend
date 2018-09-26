@@ -35,7 +35,7 @@ export default [
     id: 3,
     fellowName: 'Tunmise',
     partnerName: 'ESA',
-    type: 'Onboarding',
+    type: 'Offboarding',
     slackAutomation: {
       success: true,
     },
@@ -51,7 +51,7 @@ export default [
     id: 4,
     fellowName: 'Tunmise',
     partnerName: 'ESA',
-    type: 'Onboarding',
+    type: 'Offboarding',
     slackAutomation: {
       success: true,
     },
@@ -67,7 +67,7 @@ export default [
     id: 5,
     fellowName: 'Tunmise',
     partnerName: 'ESA',
-    type: 'Onboarding',
+    type: 'Offboarding',
     slackAutomation: {
       success: false,
     },

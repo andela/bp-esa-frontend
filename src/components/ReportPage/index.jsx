@@ -67,6 +67,10 @@ class ReportPage extends PureComponent {
           return (report.freckleAutomation.success);
         case constants.SUCCESSFUL_EMAIL_AUTOMATIONS:
           return (report.emailAutomation.success);
+        case constants.ONBOARDING:
+          return (report.type === 'Onboarding');
+        case constants.OFFBOARDING:
+          return (report.type === 'Offboarding');
         default:
           return false;
       }
