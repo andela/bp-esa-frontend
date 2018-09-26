@@ -6,6 +6,8 @@ export const SUCCESSFUL_FRECKLE_AUTOMATIONS = 'SUCCESSFUL_FRECKLE_AUTOMATIONS';
 export const FAILED_SLACK_AUTOMATIONS = 'FAILED_SLACK_AUTOMATIONS';
 export const FAILED_EMAIL_AUTOMATIONS = 'FAILED_EMAIL_AUTOMATIONS';
 export const FAILED_FRECKLE_AUTOMATIONS = 'FAILED_FRECKLE_AUTOMATIONS';
+export const ONBOARDING = 'ONBOARDING';
+export const OFFBOARDING = 'OFFBOARDING';
 
 
 export const filters = [
@@ -21,6 +23,15 @@ export const filters = [
       { id: 6, text: 'Successful Slack Automations', value: SUCCESSFUL_SLACK_AUTOMATIONS },
       { id: 7, text: 'Successful Email Automation', value: SUCCESSFUL_EMAIL_AUTOMATIONS },
       { id: 8, text: 'Successful Freckle Automation', value: SUCCESSFUL_FRECKLE_AUTOMATIONS },
+    ],
+  },
+
+  {
+    id: 2,
+    title: 'Automation Type',
+    options: [
+      { id: 1, text: 'Onboarding', value: ONBOARDING },
+      { id: 2, text: 'Offboarding', value: OFFBOARDING },
     ],
   },
 ];
