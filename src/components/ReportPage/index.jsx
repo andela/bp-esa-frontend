@@ -1,4 +1,5 @@
 import React, { PureComponent } from 'react';
+import PropTypes from 'prop-types';
 import Header from '../Header';
 import Filter from '../Filter';
 import * as constants from '../constants';
@@ -128,9 +129,14 @@ class ReportPage extends PureComponent {
 
 
   render() {
+    const { currentUser, removeCurrentUser, history } = this.props;
     return (
       <div>
-        <Header />
+        <Header
+          currentUser={currentUser}
+          removeCurrentUser={removeCurrentUser}
+          history={history}
+        />
         <div id="report-page">
           <div className="filter-box">
             <p>Filters</p>
@@ -164,5 +170,15 @@ class ReportPage extends PureComponent {
     );
   }
 }
+
+ReportPage.propTypes = {
+  currentUser: PropTypes.object.isRequired,
+  removeCurrentUser: PropTypes.func,
+  history: PropTypes.object.isRequired,
+};
+
+ReportPage.defaultProps = {
+  removeCurrentUser: () => {},
+};
 
 export default ReportPage;
