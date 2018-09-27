@@ -1,12 +1,24 @@
 import React, { PureComponent } from 'react';
 import classNames from 'classnames';
 import PropTypes from 'proptypes';
+import DatePicker from './DatePicker';
 import './styles.scss';
 
 class Filter extends PureComponent {
-  state = {
-    filterOptionsIsVisible: false,
-    selectedFilters: [],
+  constructor() {
+    super();
+    this.state = {
+      filterOptionsIsVisible: false,
+      selectedFilters: [],
+      filterSet: '',
+    };
+  }
+
+  componentDidMount() {
+    const { filterSet } = this.props;
+    this.setState({
+      filterSet,
+    });
   }
 
   toggleVisibility = () => {
@@ -14,8 +26,8 @@ class Filter extends PureComponent {
     this.setState({ filterOptionsIsVisible: !filterOptionsIsVisible });
   }
 
-  selectFilter = (event) => {
-    const { selectedFilters } = this.state;
+  selectCheckBoxFilter = (event) => {
+    const { selectedFilters, filterSet } = this.state;
     const { handleFilterChange } = this.props;
     const filter = event.target.value;
     if (selectedFilters.includes(filter)) {
@@ -24,13 +36,55 @@ class Filter extends PureComponent {
       this.setState({
         selectedFilters: selectedFiltersToMutate,
       });
-      handleFilterChange(filter, 'remove_filter');
+      handleFilterChange(filter, filterSet, 'remove_filter');
     } else {
       this.setState({
         selectedFilters: [...selectedFilters, event.target.value],
       });
-      handleFilterChange(filter, 'add_filter');
+      handleFilterChange(filter, filterSet, 'add_filter');
     }
+  }
+
+  selectDateFilter = (date, datePickerID) => {
+    const { handleFilterChange } = this.props;
+    const { filterSet } = this.state;
+    if (datePickerID === `${1}`) {
+      handleFilterChange(date, filterSet, 'set_from_date');
+    } else if (datePickerID === `${2}`) {
+      handleFilterChange(date, filterSet, 'set_to_date');
+    }
+  }
+
+  selectFilterOption(option) {
+    switch (option.type) {
+      case 'checkbox':
+        return this.renderCheckBoxOption(option);
+      case 'date':
+        return this.renderDateOption(option);
+      default:
+        return null;
+    }
+  }
+
+  renderCheckBoxOption(option) {
+    return (
+      <li key={option.id}>
+        <input type="checkbox" value={option.value} onChange={this.selectCheckBoxFilter} />
+        <span>{option.text}</span>
+      </li>
+    );
+  }
+
+  renderDateOption(option) {
+    return (
+      <li key={option.id}>
+        <DatePicker
+          id={`${option.id}`}
+          handleChange={this.selectDateFilter}
+          placeholderText={option.text}
+        />
+      </li>
+    );
   }
 
   renderFilterOptions() {
@@ -40,14 +94,7 @@ class Filter extends PureComponent {
       <ul
         className={classNames('filter-options', { 'filter-options-isvisible': filterOptionsIsVisible })}
       >
-        {
-          options.map(option => (
-            <li key={option.id}>
-              <input type="checkbox" value={option.value} onChange={this.selectFilter} />
-              <span>{option.text}</span>
-            </li>
-          ))
-        }
+        {options.map(option => (this.selectFilterOption(option)))}
       </ul>
     );
   }
@@ -70,6 +117,7 @@ class Filter extends PureComponent {
 }
 
 Filter.propTypes = {
+  filterSet: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
   options: PropTypes.array.isRequired,
   handleFilterChange: PropTypes.func.isRequired,

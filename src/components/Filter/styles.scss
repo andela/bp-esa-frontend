@@ -2,14 +2,15 @@
   position: relative;
   display: inline-block;
   font-size: 14px;
+  margin-left: 25px;
   text-transform: capitalize;
   .filter-title {
-    padding: 8px 15px 8px 15px;
+    padding: 8px 20px 8px 20px;
     border: 1px solid grey;
     text-align: center;
     margin: 5px;
     color: #4d4d4d;
-    cursor: pointer;
+    cursor: pointer; 
     &:hover {
       color: black;
     }
@@ -31,17 +32,20 @@
     border-radius: 3px;
     background-color: white;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    transition: all 0.3s;    
     li {
       border-bottom: 1px solid #d9d9d9;
       padding: 5px;
       input[type=checkbox] {
         margin-right: 10px;
       }
+      .react-date-picker {
+        width: 100%;
+      }
     }
     li:last-child {
       border-bottom: none;
     }
-    transition: all 0.3s;
     &.filter-options-isvisible {
       opacity: 1;
     }
