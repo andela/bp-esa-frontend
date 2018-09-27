@@ -12,39 +12,114 @@ class ReportPage extends PureComponent {
     super();
     this.state = {
       reportData: mockReport,
-      filters: [],
+      filters: {
+        automationStatus: [],
+        automationType: [],
+        date: { from: '', to: '' },
+        length: 0,
+        updated: false,
+      },
       filteredReport: [],
     };
   }
 
-  componentDidUpdate(prevProps, prevState) {
+  componentDidUpdate() {
     const { filters } = this.state;
-    if (prevState.filters !== filters) {
+    if (filters.updated) {
       this.filterReports();
     }
   }
 
-  setFilters = (filter, action) => {
-    const { filters: previousFilters } = this.state;
-    if (action === 'add_filter') {
+  setFilter = (filter, filterSet, action) => {
+    const { filters: previousFilters, filters: { length } } = this.state;
+    if (action === 'add_filter' && filterSet === 'automationStatus') {
       this.setState({
-        filters: [
+        filters: {
           ...previousFilters,
-          filter,
-        ],
+          automationStatus: [
+            ...previousFilters.automationStatus,
+            filter,
+          ],
+          length: length + 1,
+          updated: true,
+        },
       });
-    } else if (action === 'remove_filter') {
-      const filterToMutate = [...previousFilters];
+    } else if (action === 'remove_filter' && filterSet === 'automationStatus') {
+      const filterToMutate = [...previousFilters.automationStatus];
       filterToMutate.splice(filterToMutate.indexOf(filter), 1);
       this.setState({
-        filters: filterToMutate,
+        filters: {
+          ...previousFilters,
+          automationStatus: filterToMutate,
+          length: length - 1,
+          updated: true,
+        },
+      });
+    } else if (action === 'add_filter' && filterSet === 'automationType') {
+      this.setState({
+        filters: {
+          ...previousFilters,
+          automationType: [
+            ...previousFilters.automationType,
+            filter,
+          ],
+          length: length + 1,
+          updated: true,
+        },
+      });
+    } else if (action === 'remove_filter' && filterSet === 'automationType') {
+      const filterToMutate = [...previousFilters.automationType];
+      filterToMutate.splice(filterToMutate.indexOf(filter), 1);
+      this.setState({
+        filters: {
+          ...previousFilters,
+          automationType: filterToMutate,
+          length: length - 1,
+          updated: true,
+        },
+      });
+    } else if (action === 'set_from_date' && filterSet === 'date') {
+      let newLength = length;
+      if (filter && !previousFilters.date.from) {
+        newLength = length + 1;
+      } else if (!filter && previousFilters.date.from) {
+        newLength = length - 1;
+      }
+      this.setState({
+        filters: {
+          ...previousFilters,
+          date: {
+            ...previousFilters.date,
+            from: filter,
+          },
+          length: newLength,
+          updated: true,
+        },
+      });
+    } else if (action === 'set_to_date' && filterSet === 'date') {
+      let newLength = length;
+      if (filter && !previousFilters.date.to) {
+        newLength = length + 1;
+      } else if (!filter && previousFilters.date.to) {
+        newLength = length - 1;
+      }
+      this.setState({
+        filters: {
+          ...previousFilters,
+          date: {
+            ...previousFilters.date,
+            to: filter,
+          },
+          length: newLength,
+          updated: true,
+        },
       });
     }
   }
 
-  runFilters(report) {
-    const { filters } = this.state;
-    return filters.every((filterTerm) => {
+  filterWithAutomationStatus(report) {
+    const { filters: { automationStatus } } = this.state;
+    return automationStatus.every((filterTerm) => {
       switch (filterTerm) {
         case constants.FAILED_AUTOMATIONS:
           return (!report.slackAutomation.success
@@ -68,6 +143,16 @@ class ReportPage extends PureComponent {
           return (report.freckleAutomation.success);
         case constants.SUCCESSFUL_EMAIL_AUTOMATIONS:
           return (report.emailAutomation.success);
+        default:
+          return false;
+      }
+    });
+  }
+
+  filterWithAutomationType(report) {
+    const { filters: { automationType } } = this.state;
+    return automationType.every((filteTerm) => {
+      switch (filteTerm) {
         case constants.ONBOARDING:
           return (report.type === 'Onboarding');
         case constants.OFFBOARDING:
@@ -78,10 +163,42 @@ class ReportPage extends PureComponent {
     });
   }
 
+  filterWithDate(reportDate) {
+    const { filters: { date: { from, to } } } = this.state;
+    const reportDateTime = new Date(reportDate).getTime();
+    const fromTime = new Date(from).getTime();
+    const toTime = new Date(to).getTime();
+    return (reportDateTime >= fromTime && reportDateTime <= toTime);
+  }
+
+  runFilters(report) {
+    const { filters } = this.state;
+    if (!filters.length) {
+      return true;
+    }
+    const filterResult = [];
+    if (filters.automationStatus.length) {
+      filterResult.push(this.filterWithAutomationStatus(report));
+    }
+    if (filters.automationType.length) {
+      filterResult.push(this.filterWithAutomationType(report));
+    }
+    if (filters.date.from && filters.date.to) {
+      filterResult.push(this.filterWithDate(report.date));
+    }
+    return filterResult.every(result => result === true);
+  }
+
   filterReports() {
-    const { reportData } = this.state;
+    const { reportData, filters: previousFilters } = this.state;
     const filteredReport = reportData.filter(report => this.runFilters(report));
-    this.setState({ filteredReport });
+    this.setState({
+      filteredReport,
+      filters: {
+        ...previousFilters,
+        updated: false,
+      },
+    });
   }
 
   renderAutomationStatus(automationStatus) {
@@ -103,9 +220,10 @@ class ReportPage extends PureComponent {
     return constants.filters.map(filter => (
       <Filter
         key={filter.id}
+        filterSet={filter.filterSet}
         title={filter.title}
         options={filter.options}
-        handleFilterChange={this.setFilters}
+        handleFilterChange={this.setFilter}
       />
     ));
   }

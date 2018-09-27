@@ -14,24 +14,58 @@ export const filters = [
   {
     id: 1,
     title: 'Automation Status',
+    filterSet: 'automationStatus',
     options: [
-      { id: 1, text: 'Failed Automations', value: FAILED_AUTOMATIONS },
-      { id: 2, text: 'Successful Automations', value: SUCCESSFUL_AUTOMATIONS },
-      { id: 3, text: 'Failed Slack Automations', value: FAILED_SLACK_AUTOMATIONS },
-      { id: 4, text: 'Failed Email Automation', value: FAILED_EMAIL_AUTOMATIONS },
-      { id: 5, text: 'Failed Freckle Automation', value: FAILED_FRECKLE_AUTOMATIONS },
-      { id: 6, text: 'Successful Slack Automations', value: SUCCESSFUL_SLACK_AUTOMATIONS },
-      { id: 7, text: 'Successful Email Automation', value: SUCCESSFUL_EMAIL_AUTOMATIONS },
-      { id: 8, text: 'Successful Freckle Automation', value: SUCCESSFUL_FRECKLE_AUTOMATIONS },
+      {
+        id: 1, text: 'Failed Automations', value: FAILED_AUTOMATIONS, type: 'checkbox',
+      },
+      {
+        id: 2, text: 'Successful Automations', value: SUCCESSFUL_AUTOMATIONS, type: 'checkbox',
+      },
+      {
+        id: 3, text: 'Failed Slack Automations', value: FAILED_SLACK_AUTOMATIONS, type: 'checkbox',
+      },
+      {
+        id: 4, text: 'Failed Email Automation', value: FAILED_EMAIL_AUTOMATIONS, type: 'checkbox',
+      },
+      {
+        id: 5, text: 'Failed Freckle Automation', value: FAILED_FRECKLE_AUTOMATIONS, type: 'checkbox',
+      },
+      {
+        id: 6, text: 'Successful Slack Automations', value: SUCCESSFUL_SLACK_AUTOMATIONS, type: 'checkbox',
+      },
+      {
+        id: 7, text: 'Successful Email Automation', value: SUCCESSFUL_EMAIL_AUTOMATIONS, type: 'checkbox',
+      },
+      {
+        id: 8, text: 'Successful Freckle Automation', value: SUCCESSFUL_FRECKLE_AUTOMATIONS, type: 'checkbox',
+      },
     ],
   },
-
+  {
+    id: 3,
+    title: 'Automation Type',
+    filterSet: 'automationType',
+    options: [
+      {
+        id: 1, text: 'Onboarding', value: ONBOARDING, type: 'checkbox',
+      },
+      {
+        id: 2, text: 'Offboarding', value: OFFBOARDING, type: 'checkbox',
+      },
+    ],
+  },
   {
     id: 2,
-    title: 'Automation Type',
+    title: 'Date',
+    filterSet: 'date',
     options: [
-      { id: 1, text: 'Onboarding', value: ONBOARDING },
-      { id: 2, text: 'Offboarding', value: OFFBOARDING },
+      {
+        id: 1, text: 'From', type: 'date',
+      },
+      {
+        id: 2, text: 'To', type: 'date',
+      },
     ],
   },
 ];
