@@ -9,6 +9,8 @@ const props = {
 const sampleReports = [
   {
     id: 1,
+    fellowName: 'Tunmise',
+    partnerName: 'Andela',
     type: 'Onboarding',
     slackAutomation: {
       success: false,
@@ -23,6 +25,8 @@ const sampleReports = [
   },
   {
     id: 2,
+    fellowName: 'Shakira',
+    partnerName: 'ESA',
     type: 'Offboarding',
     slackAutomation: {
       success: true,
@@ -355,6 +359,44 @@ describe('<ReportPage />', () => {
         },
       });
       expect(component.state('filteredReport')).toEqual([]);
+    });
+  });
+
+  describe('doSearch method', () => {
+    it(`should return a filtered report when
+    searchResults for fellow in the state is updated`, () => {
+      const component = getComponent();
+      const componentInstance = component.instance();
+      component.setState({ reportData: sampleReports });
+      expect(component.state('searchResult')).toEqual(false);
+      expect(component.state('filteredReport')).toEqual([]);
+      componentInstance.doSearch('Shakira', 1);
+      expect(component.state('searchResult')).toEqual(true);
+      expect(component.state('filteredReport')).toEqual([sampleReports[1]]);
+    });
+
+    it(`should not return a filtered report when
+    searchResults in the state is not updated`, () => {
+      const component = getComponent();
+      const componentInstance = component.instance();
+      component.setState({ reportData: sampleReports });
+      expect(component.state('searchResult')).toEqual(false);
+      expect(component.state('filteredReport')).toEqual([]);
+      componentInstance.doSearch('', '');
+      expect(component.state('searchResult')).toEqual(false);
+      expect(component.state('filteredReport')).toEqual([]);
+    });
+
+    it(`should return a filtered report when
+    searchResults in the state is updated`, () => {
+      const component = getComponent();
+      const componentInstance = component.instance();
+      component.setState({ reportData: sampleReports });
+      expect(component.state('searchResult')).toEqual(false);
+      expect(component.state('filteredReport')).toEqual([]);
+      componentInstance.doSearch('Andela', 2);
+      expect(component.state('searchResult')).toEqual(true);
+      expect(component.state('filteredReport')).toEqual([sampleReports[0]]);
     });
   });
 });

@@ -2,6 +2,7 @@ import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import Header from '../Header';
 import Filter from '../Filter';
+import Search from '../Search';
 import * as constants from '../constants';
 import mockReport from '../../mocks/mockReport';
 import './styles.scss';
@@ -19,6 +20,7 @@ class ReportPage extends PureComponent {
         length: 0,
         updated: false,
       },
+      searchResult: false,
       filteredReport: [],
     };
   }
@@ -114,6 +116,25 @@ class ReportPage extends PureComponent {
           updated: true,
         },
       });
+    }
+  }
+
+  doSearch = (searchValue, optionId) => {
+    const { reportData } = this.state;
+    let filteredReport = null;
+    if (searchValue && optionId === 1) {
+      filteredReport = reportData.filter(report => report.fellowName === searchValue);
+    }
+    if (searchValue && optionId === 2) {
+      filteredReport = reportData.filter(report => report.partnerName === searchValue);
+    }
+    if (filteredReport) {
+      this.setState({
+        filteredReport,
+        searchResult: true,
+      });
+    } else {
+      this.setState({ searchResult: false });
     }
   }
 
@@ -228,9 +249,23 @@ class ReportPage extends PureComponent {
     ));
   }
 
+  renderSearch() {
+    return constants.searches.map(search => (
+      <Search
+        key={search.id}
+        searchSet={search.searchSet}
+        title={search.title}
+        options={search.options}
+        handleSearch={this.doSearch}
+      />
+    ));
+  }
+
   renderTableRows() {
-    const { filters, filteredReport, reportData } = this.state;
-    const reports = filters.length ? filteredReport : reportData;
+    const {
+      filters, filteredReport, reportData, searchResult,
+    } = this.state;
+    const reports = filters.length || searchResult ? filteredReport : reportData;
     return reports.map((report, index) => (
       <tr key={report.id}>
         <td className="numbering">{index + 1}</td>
@@ -245,7 +280,6 @@ class ReportPage extends PureComponent {
     ));
   }
 
-
   render() {
     const { currentUser, removeCurrentUser, history } = this.props;
     return (
@@ -259,6 +293,7 @@ class ReportPage extends PureComponent {
           <div className="filter-box">
             <p>Filters</p>
             {this.renderFilters()}
+            {this.renderSearch()}
           </div>
           <div className="table-header">
             <table className="report-table">

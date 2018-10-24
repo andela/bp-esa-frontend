@@ -25,7 +25,7 @@
   }
 
   .filter-options {
-    opacity: 0;
+    visibility: hidden;
     display: block;
     position: absolute;
     width: 100%;
@@ -47,7 +47,7 @@
       border-bottom: none;
     }
     &.filter-options-isvisible {
-      opacity: 1;
+      visibility: visible;
     }
   }
 }
