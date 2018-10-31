@@ -59,7 +59,7 @@
   "scripts": {
     "start": "node scripts/start.js",
     "build": "node scripts/build.js",
-    "test": "node scripts/test.js --env=jsdom --coverage",
+    "test": "nyc --reporter=lcov --reporter=html --reporter=text node scripts/test.js --env=jsdom --coverage",
     "test:update": "node scripts/test.js --env=jsdom --coverage -u",
     "lint": "eslint ./src/components"
   },
@@ -110,6 +110,7 @@
     "eslint-plugin-jsx-a11y": "^6.1.1",
     "eslint-plugin-react": "^7.11.1",
     "node-sass": "^4.9.3",
+    "nyc": "^13.1.0",
     "sass-loader": "^7.1.0"
   }
 }
