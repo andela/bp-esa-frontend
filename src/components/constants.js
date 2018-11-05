@@ -8,6 +8,8 @@ export const FAILED_EMAIL_AUTOMATIONS = 'FAILED_EMAIL_AUTOMATIONS';
 export const FAILED_FRECKLE_AUTOMATIONS = 'FAILED_FRECKLE_AUTOMATIONS';
 export const ONBOARDING = 'ONBOARDING';
 export const OFFBOARDING = 'OFFBOARDING';
+export const FELLOW_NAME = 'FELLOWNAME';
+export const PARTNER_NAME = 'PARTNERNAME';
 
 
 export const filters = [
@@ -65,6 +67,22 @@ export const filters = [
       },
       {
         id: 2, text: 'To', type: 'date',
+      },
+    ],
+  },
+];
+
+export const searches = [
+  {
+    id: 1,
+    title: 'Search With',
+    searchSet: 'search',
+    options: [
+      {
+        id: 1, text: 'Fellow Name', value: FELLOW_NAME, type: 'search',
+      },
+      {
+        id: 2, text: 'Partner Name', value: PARTNER_NAME, type: 'search',
       },
     ],
   },
