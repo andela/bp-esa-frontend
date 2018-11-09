@@ -10,6 +10,7 @@ import * as constants from '../constants';
 import mockReport from '../../mocks/mockReport';
 import FiltersBar from '../FiltersBar';
 import './styles.scss';
+import AutomationDetails from '../AutomationDetails';
 
 
 /* eslint-disable class-methods-use-this */
@@ -27,6 +28,9 @@ class ReportPage extends PureComponent {
       },
       searchResult: false,
       filteredReport: [],
+      isModalOpen: false,
+      modalContent: {},
+      type: '',
     };
   }
 
@@ -146,6 +150,14 @@ class ReportPage extends PureComponent {
     }
   }
 
+  openModal = () => {
+    this.setState({ isModalOpen: true });
+  }
+
+  closeModal = () => {
+    this.setState({ isModalOpen: false });
+  }
+
   filterWithAutomationStatus(report) {
     const { filters: { automationStatus } } = this.state;
     return automationStatus.every((filterTerm) => {
@@ -234,18 +246,19 @@ class ReportPage extends PureComponent {
     return window.open(`https://ais.andela.com/people/${report.fellowId}`);
   }
 
-  renderAutomationStatus(automationStatus) {
+  changeModalTypes(report, type) {
+    this.setState({ modalContent: report, type });
+  }
+
+  renderAutomationStatus(automationStatus, report, type) {
     return (
-      automationStatus ? (
-        <span>
-          Success&nbsp;
-          <i className="fa fa-info-circle success" />
-        </span>) : (
-          <span>
-            Failed&nbsp;
-            <i className="fa fa-info-circle failed" />
-          </span>
-      )
+      <span>
+        { automationStatus ? 'Success' : 'Failed' }&nbsp;
+        <i
+          className={`fa fa-info-circle ${automationStatus ? 'success' : 'failed'}`}
+          onClick={() => { this.openModal(); this.changeModalTypes(report, type); }}
+        />
+      </span>
     );
   }
 
@@ -283,16 +296,18 @@ class ReportPage extends PureComponent {
         </td>
         <td>{report.partnerName}</td>
         <td>{report.type}</td>
-        <td>{this.renderAutomationStatus(report.slackAutomation.success)}</td>
-        <td>{this.renderAutomationStatus(report.emailAutomation.success)}</td>
-        <td>{this.renderAutomationStatus(report.freckleAutomation.success)}</td>
+        <td>{this.renderAutomationStatus(report.slackAutomation.success, report, 'slack')}</td>
+        <td>{this.renderAutomationStatus(report.emailAutomation.success, report, 'email')}</td>
+        <td>{this.renderAutomationStatus(report.freckleAutomation.success, report, 'freckle')}</td>
       </tr>
     ));
   }
 
   render() {
     const { currentUser, removeCurrentUser, history } = this.props;
-    const { filters } = this.state;
+    const {
+      isModalOpen, modalContent, type, filters,
+    } = this.state;
     return (
       <div>
         <Header
@@ -332,6 +347,12 @@ class ReportPage extends PureComponent {
               </tbody>
             </table>
           </div>
+          <AutomationDetails
+            isModalOpen={isModalOpen}
+            closeModal={this.closeModal}
+            modalType={type}
+            modalContent={modalContent}
+          />
         </div>
       </div>
     );

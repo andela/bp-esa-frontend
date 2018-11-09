@@ -15,6 +15,16 @@ const sampleReports = [
     type: 'Onboarding',
     slackAutomation: {
       success: false,
+      slackChannels: [
+        {
+          slackChannel: 'andela-int',
+          type: 'Addition',
+        },
+        {
+          slackChannel: 'andela',
+          type: 'Removal',
+        },
+      ],
     },
     freckleAutomation: {
       success: false,
@@ -406,6 +416,26 @@ describe('<ReportPage />', () => {
       global.open = jest.fn();
       redirectToAIS.simulate('click');
       expect(global.open).toHaveBeenCalled();
+    });
+    it('should render a slack modal when the slack status icons are clicked', () => {
+      const component = getComponent();
+      component.setState({ reportData: sampleReports });
+      component.find('.fa.fa-info-circle.success').at(0).simulate('click');
+      expect(component.state('type')).toEqual('slack');
+    });
+
+    it('should render an email modal when the email status icons are clicked', () => {
+      const component = getComponent();
+      component.setState({ reportData: sampleReports });
+      component.find('.fa.fa-info-circle.success').at(1).simulate('click');
+      expect(component.state('type')).toEqual('email');
+    });
+
+    it('should render a freckle modal when the freckle status icons are clicked', () => {
+      const component = getComponent();
+      component.setState({ reportData: sampleReports });
+      component.find('.fa.fa-info-circle.success').at(2).simulate('click');
+      expect(component.state('type')).toEqual('freckle');
     });
   });
 });
