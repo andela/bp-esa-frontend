@@ -5,6 +5,7 @@ import Filter from '../Filter';
 import Search from '../Search';
 import * as constants from '../constants';
 import mockReport from '../../mocks/mockReport';
+import FiltersBar from '../FiltersBar';
 import './styles.scss';
 
 /* eslint-disable class-methods-use-this */
@@ -282,6 +283,7 @@ class ReportPage extends PureComponent {
 
   render() {
     const { currentUser, removeCurrentUser, history } = this.props;
+    const { filters } = this.state;
     return (
       <div>
         <Header
@@ -295,6 +297,9 @@ class ReportPage extends PureComponent {
             {this.renderFilters()}
             {this.renderSearch()}
           </div>
+          <FiltersBar
+            filters={filters}
+          />
           <div className="table-header">
             <table className="report-table">
               <thead>
