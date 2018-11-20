@@ -71,19 +71,3 @@ export const filters = [
     ],
   },
 ];
-
-export const searches = [
-  {
-    id: 1,
-    title: 'Search With',
-    searchSet: 'search',
-    options: [
-      {
-        id: 1, text: 'Fellow Name', value: FELLOW_NAME, type: 'search',
-      },
-      {
-        id: 2, text: 'Partner Name', value: PARTNER_NAME, type: 'search',
-      },
-    ],
-  },
-];

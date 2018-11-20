@@ -1,17 +1,16 @@
+
 import React, { PureComponent } from 'react';
 import PropTypes from 'proptypes';
 import './styles.scss';
 import classNames from 'classnames';
 
-/* eslint-disable no-restricted-globals */
 class Search extends PureComponent {
   constructor() {
     super();
     this.state = {
       searchOptionsVisible: false,
       searchValue: '',
-      searchCriteria: '',
-      selectedOption: '',
+      searchCriteria: 1,
     };
   }
 
@@ -30,7 +29,9 @@ class Search extends PureComponent {
   };
 
   handleSearchCriteriaChange = (optionId) => {
-    this.setState({ searchCriteria: optionId });
+    this.setState({
+      searchCriteria: optionId,
+    });
   };
 
   handleSearchValueChange = (event) => {
@@ -38,32 +39,36 @@ class Search extends PureComponent {
   }
 
   renderSearchOptions() {
-    const { options } = this.props;
-    const { searchOptionsVisible, selectedOption } = this.state;
+    const { searchOptionsVisible } = this.state;
     return (
       <ul className={classNames('search-option', { 'search-options-isvisible': searchOptionsVisible })}>
-        {options.map(option => (
-          <li
-            key={option.id}
-          >
-            <input type="radio" value={option.value} onChange={() => this.handleSearchCriteriaChange(option.id)} checked={selectedOption === option.id} />
-            {option.text}
-          </li>
-        ))}
+        <li>
+          <input type="radio" defaultChecked name="search" onChange={() => this.handleSearchCriteriaChange(1)} />
+          {'Fellow Name'}
+        </li>
+        <li>
+          <input type="radio" name="search" onChange={() => this.handleSearchCriteriaChange(2)} />
+          {'Partner Name'}
+        </li>
       </ul>
     );
   }
 
   render() {
     const { searchValue } = this.state;
-    const { title } = this.props;
-    const { searchOptionsVisible } = this.state;
+    const { searchOptionsVisible, searchCriteria } = this.state;
+
     return (
       <div>
         <input type="text" className="search-input" value={searchValue} onChange={this.handleSearchValueChange} />
-        <div className="search" onClick={this.toggleVisibility}>
-          <div className="search-title">
-            <span className="title">{title}</span>
+        <div className="search">
+          <div className="search-title" onClick={event => this.toggleVisibility(event)}>
+            <span className="title">
+              {'Search With'}
+              {' | '}
+              {searchCriteria === 1 ? 'Fellow Name' : 'Partner Name'}
+            </span>
+
             <i
               className={classNames('fa fa-angle-down', { 'rotate-180': searchOptionsVisible })}
             />
@@ -76,8 +81,6 @@ class Search extends PureComponent {
 }
 
 Search.propTypes = {
-  title: PropTypes.string.isRequired,
-  options: PropTypes.array.isRequired,
   handleSearch: PropTypes.func.isRequired,
 };
 

@@ -6,27 +6,6 @@
     text-transform:capitalize;
 }
 
-.search-option{
-  visibility: hidden;
-  margin-top: 15px;
-  margin-left: 3%;
-  margin-right: 10px;   
-  li {
-    z-index:1;
-    border: 1px solid #d9d9d9;
-    background-color:  white;
-    padding: 5px;
-    border-bottom: 1px solid #d9d9d9;
-    padding: 5px;
-    input[type=radio] {
-      margin-right: 10px;
-    }
-  }
-  &.search-options-isvisible {
-    visibility: visible;
-  }
-}
-
 .search {
     margin-top: 1%;
     position: absolute;
@@ -44,12 +23,36 @@
         color: black;
       }
       i {
-        margin-left:-2%;
+        margin: -6px 10px;
         font-size: 20px;
         transition: all 0.3s;
         &.rotate-180 {
           transform: rotate(180deg);
       }
     }
-}
+  }
+      .search-option{
+        visibility: hidden;
+        margin-top: 5px;
+        margin-left: 3px;
+        box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+        width: 97%;
+        border-radius: 6px;
+        overflow: hidden;
+        li {
+          z-index:1;
+          background-color:  white;
+          border-bottom: 1px solid #d9d9d9;
+          color: #4d4d4d;
+          padding: 5px;
+          input[type=radio] {
+            margin-right: 10px;
+          }
+        }
+        &.search-options-isvisible {
+          visibility: visible;
+        }
+      }
+    
+
 }

@@ -2,9 +2,6 @@ import React from 'react';
 import Search from '../../../components/Search';
 
 const props = {
-  searchSet: 'search',
-  title: 'Search With',
-  options: [],
   handleSearch: jest.fn(),
 };
 
@@ -31,12 +28,12 @@ describe('<Search />', () => {
     `, () => {
       const component = getComponent();
       expect(component.state('searchValue')).toEqual('');
-      expect(component.state('searchCriteria')).toEqual('');
+      expect(component.state('searchCriteria')).toEqual(1);
       component.setState({
-        searchValue: 'Shakira',
+        searchValue: 'Andela',
         searchCriteria: 1,
       });
-      expect(props.handleSearch).toHaveBeenCalledTimes(1);
+      expect(props.handleSearch).toHaveBeenCalled();
     });
   });
 });
