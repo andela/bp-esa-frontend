@@ -250,15 +250,7 @@ class ReportPage extends PureComponent {
   }
 
   renderSearch() {
-    return constants.searches.map(search => (
-      <Search
-        key={search.id}
-        searchSet={search.searchSet}
-        title={search.title}
-        options={search.options}
-        handleSearch={this.doSearch}
-      />
-    ));
+    return <Search handleSearch={this.doSearch} />;
   }
 
   renderTableRows() {
