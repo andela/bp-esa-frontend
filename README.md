@@ -1,8 +1,12 @@
 # Engagement Support Automation Frontend
-Develop Branch :
-[![CircleCI](https://circleci.com/gh/andela/bp-esa-frontend/tree/develop.svg?style=svg)](https://circleci.com/gh/andela/bp-esa-frontend/tree/develop)
+
+[![CircleCI](https://circleci.com/gh/andela/bp-esa-frontend/tree/develop.svg?style=svg)](https://circleci.com/gh/andela/bp-esa-frontend/tree/develop) [![Maintainability](https://api.codeclimate.com/v1/badges/fa275fcb0ff11748c819/maintainability)](https://codeclimate.com/github/andela/bp-esa-frontend/maintainability) [![Test Coverage](https://api.codeclimate.com/v1/badges/fa275fcb0ff11748c819/test_coverage)](https://codeclimate.com/github/andela/bp-esa-frontend/test_coverage)
+
+<hr>
 
 ESA is an automated system to help Andela perform on-boarding and off-boarding processes for fellows joining or leaving engagements. This repository contains the frontend part of the project which basically reports data about what is going on in the backend.
+
+<hr>
 
 ## Technologies Used
 - ReactJS 
@@ -22,6 +26,7 @@ The following should be installed in your machine:
 * Clone this Repo with `$ git clone https://github.com/andela/bp-esa-frontend.git`
 * Change into the directory of the project
 * Use `$ npm install` to install all the dependencies of the project.
+* Create a `.env` file in project root and define variables from `.env.sample` file
 * Use `$ npm start` to start the application.
 * Use `$ npm test` to executes the tests of the application.
 
