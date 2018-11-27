@@ -1,6 +1,7 @@
 .search-input{
     margin-top: 15px;
-    margin-left: 3%;
+    margin-left: 2%;
+    padding: 8px 20px 8px 20px;
     width: 50%;
     z-index: 1;
     text-transform:capitalize;
@@ -12,7 +13,6 @@
     display: inline-block;
     font-size: 14px;
     margin-left: 2%;
-    text-transform: capitalize;
     .search-title {
       padding: 8px 20px 8px 20px;
       border: 1px solid grey;
