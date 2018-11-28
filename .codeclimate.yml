@@ -1,0 +1,4 @@
+exclude_patterns:
+- "src/__tests__/"
+- "src/mocks/mockReport.js"
+- "config/"
