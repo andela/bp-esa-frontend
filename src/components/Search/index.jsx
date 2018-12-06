@@ -35,6 +35,7 @@ class Search extends PureComponent {
   };
 
   handleSearchValueChange = (event) => {
+    event.preventDefault();
     this.setState({ searchValue: event.target.value });
   }
 
@@ -57,7 +58,6 @@ class Search extends PureComponent {
   render() {
     const { searchValue } = this.state;
     const { searchOptionsVisible, searchCriteria } = this.state;
-
     return (
       <div>
         <input type="text" className="search-input" value={searchValue} onChange={this.handleSearchValueChange} />

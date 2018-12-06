@@ -1,3 +1,6 @@
+/* eslint-disable no-return-assign */
+/* eslint-disable no-fallthrough */
+/* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import Header from '../Header';
@@ -6,6 +9,7 @@ import Search from '../Search';
 import * as constants from '../constants';
 import mockReport from '../../mocks/mockReport';
 import './styles.scss';
+
 
 /* eslint-disable class-methods-use-this */
 class ReportPage extends PureComponent {
@@ -121,12 +125,15 @@ class ReportPage extends PureComponent {
 
   doSearch = (searchValue, optionId) => {
     const { reportData } = this.state;
+
     let filteredReport = null;
-    if (searchValue && optionId === 1) {
-      filteredReport = reportData.filter(report => report.fellowName === searchValue);
-    }
-    if (searchValue && optionId === 2) {
-      filteredReport = reportData.filter(report => report.partnerName === searchValue);
+
+    const searchCriteria = optionId === 1 ? 'fellowName' : 'partnerName';
+
+    if (searchValue) {
+      filteredReport = reportData.filter(
+        report => report[searchCriteria].toLowerCase() === searchValue.toLowerCase(),
+      );
     }
     if (filteredReport) {
       this.setState({
