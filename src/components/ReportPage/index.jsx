@@ -230,6 +230,10 @@ class ReportPage extends PureComponent {
     });
   }
 
+  redirectToAIS(report) {
+    return window.open(`https://ais.andela.com/people/${report.fellowId}`);
+  }
+
   renderAutomationStatus(automationStatus) {
     return (
       automationStatus ? (
@@ -270,7 +274,13 @@ class ReportPage extends PureComponent {
       <tr key={report.id}>
         <td className="numbering">{index + 1}</td>
         <td className="column1">{report.date}</td>
-        <td>{report.fellowName}</td>
+        <td
+          className="fellow"
+          onClick={() => this.redirectToAIS(report)}
+        >
+          {report.fellowName}
+
+        </td>
         <td>{report.partnerName}</td>
         <td>{report.type}</td>
         <td>{this.renderAutomationStatus(report.slackAutomation.success)}</td>

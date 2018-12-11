@@ -4,6 +4,7 @@ import ReportPage from '../../components/ReportPage';
 const props = {
   currentUser: {},
   history: {},
+  removeCurrentUser: jest.fn(),
 };
 
 const sampleReports = [
@@ -397,6 +398,14 @@ describe('<ReportPage />', () => {
       componentInstance.doSearch('Andela', 2);
       expect(component.state('searchResult')).toEqual(true);
       expect(component.state('filteredReport')).toEqual([sampleReports[0]]);
+    });
+
+    it('should redirect to the AIS page when you click the fellow name', () => {
+      const component = getComponent();
+      const redirectToAIS = component.find('.table-body').find('tr').at(0).find('.fellow');
+      global.open = jest.fn();
+      redirectToAIS.simulate('click');
+      expect(global.open).toHaveBeenCalled();
     });
   });
 });

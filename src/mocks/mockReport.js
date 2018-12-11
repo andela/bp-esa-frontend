@@ -2,6 +2,7 @@ export default [
   {
     id: 1,
     fellowName: 'Tunmise',
+    fellowId: '-L6q5mRZ0jk9jf-RVjdg',
     partnerName: 'Andela',
     type: 'Onboarding',
     slackAutomation: {
@@ -18,6 +19,7 @@ export default [
   {
     id: 2,
     fellowName: 'Shakira',
+    fellowId: '-L-ePhsI4a2gIAXXGQWF',
     partnerName: 'ESA',
     type: 'Onboarding',
     slackAutomation: {
@@ -34,6 +36,7 @@ export default [
   {
     id: 3,
     fellowName: 'Angela',
+    fellowId: '-L6q5mRZ0jk9jf-RVjdg',
     partnerName: 'MEA',
     type: 'Offboarding',
     slackAutomation: {
@@ -50,6 +53,7 @@ export default [
   {
     id: 4,
     fellowName: 'Phiona',
+    fellowId: '-L6q5mRZ0jk9jf-RVjdg',
     partnerName: 'New',
     type: 'Offboarding',
     slackAutomation: {
@@ -66,6 +70,7 @@ export default [
   {
     id: 5,
     fellowName: 'Ndagire',
+    fellowId: '-L-ePhsI4a2gIAXXGQWF',
     partnerName: 'Goal',
     type: 'Offboarding',
     slackAutomation: {
@@ -82,6 +87,7 @@ export default [
   {
     id: 6,
     fellowName: 'Kyra',
+    fellowId: '-L-ePhsI4a2gIAXXGQWF',
     partnerName: 'Light',
     type: 'Onboarding',
     slackAutomation: {
@@ -98,6 +104,7 @@ export default [
   {
     id: 7,
     fellowName: 'Lehru',
+    fellowId: '-L-ePhsI4a2gIAXXGQWF',
     partnerName: 'Andela',
     type: 'Onboarding',
     slackAutomation: {
@@ -114,6 +121,7 @@ export default [
   {
     id: 8,
     fellowName: 'Trust',
+    fellowId: '-L-ePhsI4a2gIAXXGQWF',
     partnerName: 'OpenMRS',
     type: 'Onboarding',
     slackAutomation: {
@@ -130,6 +138,7 @@ export default [
   {
     id: 9,
     fellowName: 'Abdul',
+    fellowId: '-L-ePhsI4a2gIAXXGQWF',
     partnerName: 'Kickoff',
     type: 'Onboarding',
     slackAutomation: {
@@ -146,6 +155,7 @@ export default [
   {
     id: 10,
     fellowName: 'Yury',
+    fellowId: '-L-ePhsI4a2gIAXXGQWF',
     partnerName: 'People',
     type: 'Onboarding',
     slackAutomation: {
@@ -162,6 +172,7 @@ export default [
   {
     id: 11,
     fellowName: 'Tunmise',
+    fellowId: '-L-ePhsI4a2gIAXXGQWF',
     partnerName: 'ESA',
     type: 'Onboarding',
     slackAutomation: {
@@ -178,6 +189,7 @@ export default [
   {
     id: 12,
     fellowName: 'Tunmise',
+    fellowId: '-L-ePhsI4a2gIAXXGQWF',
     partnerName: 'ESA',
     type: 'Onboarding',
     slackAutomation: {
@@ -194,6 +206,7 @@ export default [
   {
     id: 13,
     fellowName: 'Town',
+    fellowId: '-L-ePhsI4a2gIAXXGQWF',
     partnerName: 'Ace',
     type: 'Onboarding',
     slackAutomation: {
@@ -210,6 +223,7 @@ export default [
   {
     id: 14,
     fellowName: 'Create',
+    fellowId: '-L-ePhsI4a2gIAXXGQWF',
     partnerName: 'App',
     type: 'Onboarding',
     slackAutomation: {
@@ -226,6 +240,7 @@ export default [
   {
     id: 15,
     fellowName: 'Tunmise',
+    fellowId: '-L-ePhsI4a2gIAXXGQWF',
     partnerName: 'ESA',
     type: 'Onboarding',
     slackAutomation: {
@@ -242,6 +257,7 @@ export default [
   {
     id: 16,
     fellowName: 'Hamid',
+    fellowId: '-L-ePhsI4a2gIAXXGQWF',
     partnerName: 'Partner',
     type: 'Onboarding',
     slackAutomation: {
@@ -258,6 +274,7 @@ export default [
   {
     id: 17,
     fellowName: 'Night',
+    fellowId: '-L-ePhsI4a2gIAXXGQWF',
     partnerName: 'Crew',
     type: 'Onboarding',
     slackAutomation: {
@@ -274,6 +291,7 @@ export default [
   {
     id: 18,
     fellowName: 'Oluwa',
+    fellowId: '-L-ePhsI4a2gIAXXGQWF',
     partnerName: 'Treasure',
     type: 'Onboarding',
     slackAutomation: {
