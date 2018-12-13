@@ -7,12 +7,37 @@ export default [
     type: 'Onboarding',
     slackAutomation: {
       success: true,
+      slackChannels: [
+        {
+          slackChannel: 'andela-int',
+          type: 'Addition',
+          success: true,
+        },
+        {
+          slackChannel: 'andela',
+          type: 'Removal',
+          success: true,
+        },
+      ],
     },
     freckleAutomation: {
       success: false,
     },
     emailAutomation: {
       success: true,
+      email: [{
+        id: 1,
+        emailTo: 'Tunmise.ogunniy.kariukii@andela.com',
+        subject: 'Onboarding',
+        success: true,
+      },
+      {
+        id: 2,
+        emailTo: 'Tunmise.ogunniyi@andela.com',
+        subject: 'Onboarding',
+        success: true,
+      },
+      ],
     },
     date: '2017-09-29 01:22',
   },
@@ -24,12 +49,37 @@ export default [
     type: 'Onboarding',
     slackAutomation: {
       success: false,
+      slackChannels: [
+        {
+          slackChannel: 'andela-int',
+          type: 'Addition',
+          success: true,
+        },
+        {
+          slackChannel: 'andela',
+          type: 'Removal',
+          success: false,
+        },
+      ],
     },
     freckleAutomation: {
       success: true,
     },
     emailAutomation: {
       success: true,
+      email: [{
+        id: 1,
+        emailTo: 'Tunmise.ogunniyi@andela.com',
+        subject: 'Onboarding',
+        success: true,
+      },
+      {
+        id: 2,
+        emailTo: 'Tunmise.ogunniyi@andela.com',
+        subject: 'Onboarding',
+        success: true,
+      },
+      ],
     },
     date: '2017-09-29 01:22',
   },
@@ -41,12 +91,37 @@ export default [
     type: 'Offboarding',
     slackAutomation: {
       success: true,
+      slackChannels: [
+        {
+          slackChannel: 'andela-int',
+          type: 'Addition',
+          success: true,
+        },
+        {
+          slackChannel: 'andela',
+          type: 'Removal',
+          success: true,
+        },
+      ],
     },
     freckleAutomation: {
       success: true,
     },
     emailAutomation: {
       success: false,
+      email: [{
+        id: 1,
+        emailTo: 'Tunmise.ogunniyi@andela.com',
+        subject: 'Onboarding',
+        success: true,
+      },
+      {
+        id: 2,
+        emailTo: 'Tunmise.ogunniyi@andela.com',
+        subject: 'Onboarding',
+        success: true,
+      },
+      ],
     },
     date: '2017-09-29 01:22',
   },
@@ -58,12 +133,37 @@ export default [
     type: 'Offboarding',
     slackAutomation: {
       success: true,
+      slackChannels: [
+        {
+          slackChannel: 'andela-int',
+          type: 'Addition',
+          success: true,
+        },
+        {
+          slackChannel: 'andela',
+          type: 'Removal',
+          success: true,
+        },
+      ],
     },
     freckleAutomation: {
       success: true,
     },
     emailAutomation: {
       success: true,
+      email: [{
+        id: 1,
+        emailTo: 'Tunmise.ogunniyi@andela.com',
+        subject: 'Onboarding',
+        success: true,
+      },
+      {
+        id: 2,
+        emailTo: 'Tunmise.ogunniyi@andela.com',
+        subject: 'Onboarding',
+        success: true,
+      },
+      ],
     },
     date: '2017-09-29 01:22',
   },
@@ -75,12 +175,37 @@ export default [
     type: 'Offboarding',
     slackAutomation: {
       success: false,
+      slackChannels: [
+        {
+          slackChannel: 'andela-int',
+          type: 'Addition',
+          success: true,
+        },
+        {
+          slackChannel: 'andela',
+          type: 'Removal',
+          success: true,
+        },
+      ],
     },
     freckleAutomation: {
       success: false,
     },
     emailAutomation: {
       success: false,
+      email: [{
+        id: 1,
+        emailTo: 'Tunmise.ogunniyi@andela.com',
+        subject: 'Onboarding',
+        success: true,
+      },
+      {
+        id: 2,
+        emailTo: 'Tunmise.ogunniyi@andela.com',
+        subject: 'Onboarding',
+        success: true,
+      },
+      ],
     },
     date: '2017-09-29 01:22',
   },
@@ -92,12 +217,37 @@ export default [
     type: 'Onboarding',
     slackAutomation: {
       success: true,
+      slackChannels: [
+        {
+          slackChannel: 'andela-int',
+          type: 'Addition',
+          success: true,
+        },
+        {
+          slackChannel: 'andela',
+          type: 'Removal',
+          success: true,
+        },
+      ],
     },
     freckleAutomation: {
       success: false,
     },
     emailAutomation: {
       success: true,
+      email: [{
+        id: 1,
+        emailTo: 'Tunmise.ogunniyi@andela.com',
+        subject: 'Onboarding',
+        success: true,
+      },
+      {
+        id: 2,
+        emailTo: 'Tunmise.ogunniyi@andela.com',
+        subject: 'Onboarding',
+        success: true,
+      },
+      ],
     },
     date: '2017-09-29 01:22',
   },
@@ -109,12 +259,39 @@ export default [
     type: 'Onboarding',
     slackAutomation: {
       success: true,
+      slackChannels: [
+        {
+          id: 1,
+          slackChannel: 'andela-int',
+          type: 'Addition',
+          success: true,
+        },
+        {
+          id: 2,
+          slackChannel: 'andela',
+          type: 'Removal',
+          success: true,
+        },
+      ],
     },
     freckleAutomation: {
       success: false,
     },
     emailAutomation: {
       success: true,
+      email: [{
+        id: 1,
+        emailTo: 'Tunmise.ogunniyi@andela.com',
+        subject: 'Onboarding',
+        success: true,
+      },
+      {
+        id: 2,
+        emailTo: 'Tunmise.ogunniyi@andela.com',
+        subject: 'Onboarding',
+        success: true,
+      },
+      ],
     },
     date: '2017-09-29 01:22',
   },
@@ -126,12 +303,37 @@ export default [
     type: 'Onboarding',
     slackAutomation: {
       success: true,
+      slackChannels: [
+        {
+          slackChannel: 'andela-int',
+          type: 'Addition',
+          success: true,
+        },
+        {
+          slackChannel: 'andela',
+          type: 'Removal',
+          success: true,
+        },
+      ],
     },
     freckleAutomation: {
       success: true,
     },
     emailAutomation: {
       success: true,
+      email: [{
+        id: 1,
+        emailTo: 'Tunmise.ogunniyi@andela.com',
+        subject: 'Onboarding',
+        success: true,
+      },
+      {
+        id: 2,
+        emailTo: 'Tunmise.ogunniyi@andela.com',
+        subject: 'Onboarding',
+        success: true,
+      },
+      ],
     },
     date: '2017-09-29 01:22',
   },
@@ -143,12 +345,37 @@ export default [
     type: 'Onboarding',
     slackAutomation: {
       success: false,
+      slackChannels: [
+        {
+          slackChannel: 'andela-int',
+          type: 'Addition',
+          success: true,
+        },
+        {
+          slackChannel: 'andela',
+          type: 'Removal',
+          success: true,
+        },
+      ],
     },
     freckleAutomation: {
       success: false,
     },
     emailAutomation: {
       success: false,
+      email: [{
+        id: 1,
+        emailTo: 'Tunmise.ogunniyi@andela.com',
+        subject: 'Onboarding',
+        success: true,
+      },
+      {
+        id: 2,
+        emailTo: 'Tunmise.ogunniyi@andela.com',
+        subject: 'Onboarding',
+        success: true,
+      },
+      ],
     },
     date: '2017-09-29 01:22',
   },
@@ -160,12 +387,37 @@ export default [
     type: 'Onboarding',
     slackAutomation: {
       success: true,
+      slackChannels: [
+        {
+          slackChannel: 'andela-int',
+          type: 'Addition',
+          success: true,
+        },
+        {
+          slackChannel: 'andela',
+          type: 'Removal',
+          success: true,
+        },
+      ],
     },
     freckleAutomation: {
       success: false,
     },
     emailAutomation: {
       success: true,
+      email: [{
+        id: 1,
+        emailTo: 'Tunmise.ogunniyi@andela.com',
+        subject: 'Onboarding',
+        success: true,
+      },
+      {
+        id: 2,
+        emailTo: 'Tunmise.ogunniyi@andela.com',
+        subject: 'Onboarding',
+        success: true,
+      },
+      ],
     },
     date: '2017-09-29 01:22',
   },
@@ -177,12 +429,37 @@ export default [
     type: 'Onboarding',
     slackAutomation: {
       success: true,
+      slackChannels: [
+        {
+          slackChannel: 'andela-int',
+          type: 'Addition',
+          success: true,
+        },
+        {
+          slackChannel: 'andela',
+          type: 'Removal',
+          success: true,
+        },
+      ],
     },
     freckleAutomation: {
       success: true,
     },
     emailAutomation: {
       success: false,
+      email: [{
+        id: 1,
+        emailTo: 'Tunmise.ogunniyi@andela.com',
+        subject: 'Onboarding',
+        success: true,
+      },
+      {
+        id: 2,
+        emailTo: 'Tunmise.ogunniyi@andela.com',
+        subject: 'Onboarding',
+        success: true,
+      },
+      ],
     },
     date: '2017-09-29 01:22',
   },
@@ -194,12 +471,37 @@ export default [
     type: 'Onboarding',
     slackAutomation: {
       success: true,
+      slackChannels: [
+        {
+          slackChannel: 'andela-int',
+          type: 'Addition',
+          success: true,
+        },
+        {
+          slackChannel: 'andela',
+          type: 'Removal',
+          success: true,
+        },
+      ],
     },
     freckleAutomation: {
       success: false,
     },
     emailAutomation: {
       success: true,
+      email: [{
+        id: 1,
+        emailTo: 'Tunmise.ogunniyi@andela.com',
+        subject: 'Onboarding',
+        success: true,
+      },
+      {
+        id: 2,
+        emailTo: 'Tunmise.ogunniyi@andela.com',
+        subject: 'Onboarding',
+        success: true,
+      },
+      ],
     },
     date: '2017-09-29 01:22',
   },
@@ -211,12 +513,37 @@ export default [
     type: 'Onboarding',
     slackAutomation: {
       success: true,
+      slackChannels: [
+        {
+          slackChannel: 'andela-int',
+          type: 'Addition',
+          success: true,
+        },
+        {
+          slackChannel: 'andela',
+          type: 'Removal',
+          success: true,
+        },
+      ],
     },
     freckleAutomation: {
       success: false,
     },
     emailAutomation: {
       success: true,
+      email: [{
+        id: 1,
+        emailTo: 'Tunmise.ogunniyi@andela.com',
+        subject: 'Onboarding',
+        success: true,
+      },
+      {
+        id: 2,
+        emailTo: 'Tunmise.ogunniyi@andela.com',
+        subject: 'Onboarding',
+        success: true,
+      },
+      ],
     },
     date: '2017-09-29 01:22',
   },
@@ -228,12 +555,37 @@ export default [
     type: 'Onboarding',
     slackAutomation: {
       success: true,
+      slackChannels: [
+        {
+          slackChannel: 'andela-int',
+          type: 'Addition',
+          success: true,
+        },
+        {
+          slackChannel: 'esa',
+          type: 'Removal',
+          success: true,
+        },
+      ],
     },
     freckleAutomation: {
       success: false,
     },
     emailAutomation: {
       success: true,
+      email: [{
+        id: 1,
+        emailTo: 'Tunmise.ogunniyi@andela.com',
+        subject: 'Onboarding',
+        success: true,
+      },
+      {
+        id: 2,
+        emailTo: 'Tunmise.ogunniyi@andela.com',
+        subject: 'Onboarding',
+        success: true,
+      },
+      ],
     },
     date: '2017-09-29 01:22',
   },
@@ -245,12 +597,37 @@ export default [
     type: 'Onboarding',
     slackAutomation: {
       success: true,
+      slackChannels: [
+        {
+          slackChannel: 'andela-int',
+          type: 'Addition',
+          success: true,
+        },
+        {
+          slackChannel: 'andela',
+          type: 'Removal',
+          success: true,
+        },
+      ],
     },
     freckleAutomation: {
       success: false,
     },
     emailAutomation: {
       success: true,
+      email: [{
+        id: 1,
+        email: 'Tunmise.ogunniyi@andela.com',
+        subject: 'Onboarding',
+        success: true,
+      },
+      {
+        id: 2,
+        email: 'Tunmise.ogunniyi@andela.com',
+        subject: 'Onboarding',
+        success: true,
+      },
+      ],
     },
     date: '2017-09-29 01:22',
   },
@@ -262,12 +639,37 @@ export default [
     type: 'Onboarding',
     slackAutomation: {
       success: true,
+      slackChannels: [
+        {
+          slackChannel: 'andela-int',
+          type: 'Addition',
+          success: true,
+        },
+        {
+          slackChannel: 'andela',
+          type: 'Removal',
+          success: true,
+        },
+      ],
     },
     freckleAutomation: {
       success: false,
     },
     emailAutomation: {
       success: true,
+      email: [{
+        id: 1,
+        emailTo: 'Tunmise.ogunniyi@andela.com',
+        subject: 'Onboarding',
+        success: true,
+      },
+      {
+        id: 2,
+        emailTo: 'Tunmise.ogunniyi@andela.com',
+        subject: 'Onboarding',
+        success: true,
+      },
+      ],
     },
     date: '2017-09-29 01:22',
   },
@@ -279,12 +681,37 @@ export default [
     type: 'Onboarding',
     slackAutomation: {
       success: true,
+      slackChannels: [
+        {
+          slackChannel: 'andela-int',
+          type: 'Addition',
+          success: true,
+        },
+        {
+          slackChannel: 'andela',
+          type: 'Removal',
+          success: true,
+        },
+      ],
     },
     freckleAutomation: {
       success: false,
     },
     emailAutomation: {
       success: true,
+      email: [{
+        id: 1,
+        emailTo: 'Tunmise.ogunniyi@andela.com',
+        subject: 'Onboarding',
+        success: true,
+      },
+      {
+        id: 2,
+        emailTo: 'Tunmise.ogunniyi@andela.com',
+        subject: 'Onboarding',
+        success: true,
+      },
+      ],
     },
     date: '2017-09-29 01:22',
   },
@@ -296,12 +723,37 @@ export default [
     type: 'Onboarding',
     slackAutomation: {
       success: false,
+      slackChannels: [
+        {
+          slackChannel: 'andela-int',
+          type: 'Addition',
+          success: true,
+        },
+        {
+          slackChannel: 'andela',
+          type: 'Removal',
+          success: true,
+        },
+      ],
     },
     freckleAutomation: {
       success: false,
     },
     emailAutomation: {
       success: true,
+      email: [{
+        id: 1,
+        emailTo: 'Tunmise.ogunniyi@andela.com',
+        subject: 'Onboarding',
+        success: true,
+      },
+      {
+        id: 2,
+        emailTo: 'Tunmise.ogunniyi@andela.com',
+        subject: 'Onboarding',
+        success: true,
+      },
+      ],
     },
     date: '2018-09-29 01:22',
   },
