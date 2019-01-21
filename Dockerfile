@@ -21,10 +21,10 @@ RUN npm install
 # Uncomment this when using the application locally
 # COPY .env .
 
-ENV PORT=4050
+ENV PORT=4020
 # app binds to port 3000 so you'll use the EXPOSE
 # instruction to have it mapped by the docker daemon:
-EXPOSE 4050
+EXPOSE 4020
 
 # define the command to run your app using 
 # CMD which defines your runtime
