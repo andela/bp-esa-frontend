@@ -89,7 +89,6 @@ choosePort(HOST, DEFAULT_PORT)
         clearConsole();
       }
       console.log(chalk.cyan('Starting the development server...\n'));
-      console.log(`React API key is set to ${process.env.REACT_APP_API_KEY}`);
       openBrowser(urls.localUrlForBrowser);
     });
 
