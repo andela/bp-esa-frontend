@@ -17,14 +17,15 @@ COPY scripts    /usr/src/app/scripts/
 COPY config     /usr/src/app/config/
 COPY public     /usr/src/app/public/
 COPY public     /usr/src/app/
-COPY .env       /usr/src/app/
+# Uncomment the following  line when in Development 
+# COPY .env       /usr/src/app/
 COPY .eslintrc.json     /usr/src/app/
 
 RUN npm install
 # When building  
 RUN npm install 
 
-
+ENV NODE_ENV=production
 ENV PORT=4020
 # app binds to port 3000 so you'll use the EXPOSE
 # instruction to have it mapped by the docker daemon:
