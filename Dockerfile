@@ -17,7 +17,7 @@ COPY scripts    /usr/src/app/scripts/
 COPY config     /usr/src/app/config/
 COPY public     /usr/src/app/public/
 COPY public     /usr/src/app/
-COPY .env       /usr/src/app/
+# COPY .env       /usr/src/app/
 COPY .eslintrc.json     /usr/src/app/
 
 RUN npm install
