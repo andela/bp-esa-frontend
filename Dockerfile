@@ -9,17 +9,21 @@ LABEL app="esa-frontend"
 WORKDIR /usr/src/app
 
 #Install app dependencies using npm binary
-# COPY package*.json ./
-
+COPY package*.json /usr/src/app/
 
 #Bundle apps source code
-COPY . .
+COPY src        /usr/src/app/src/
+COPY scripts    /usr/src/app/scripts/
+COPY config     /usr/src/app/config/
+COPY public     /usr/src/app/public/
+COPY public     /usr/src/app/
+COPY .env       /usr/src/app/
+COPY .eslintrc.json     /usr/src/app/
 
 RUN npm install
-# When building  for production
-# RUN npm install --only=production
-# Uncomment this when using the application locally
-# COPY .env .
+# When building  
+RUN npm install 
+
 
 ENV PORT=4020
 # app binds to port 3000 so you'll use the EXPOSE
