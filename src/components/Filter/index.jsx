@@ -21,6 +21,15 @@ class Filter extends PureComponent {
     });
   }
 
+  onBlurHandler = (event) => {
+    const target = event.currentTarget || event.target;
+    setTimeout(() => {
+      if (target.querySelectorAll(':focus').length === 0) {
+        this.setState({ filterOptionsIsVisible: false });
+      }
+    }, 0);
+  }
+
   toggleVisibility = () => {
     const { filterOptionsIsVisible } = this.state;
     this.setState({ filterOptionsIsVisible: !filterOptionsIsVisible });
@@ -103,7 +112,7 @@ class Filter extends PureComponent {
     const { title } = this.props;
     const { filterOptionsIsVisible } = this.state;
     return (
-      <div className="filter">
+      <div className="filter" onBlur={this.onBlurHandler} tabIndex="-1">
         <div className="filter-title" onClick={this.toggleVisibility}>
           <span className="title">{title}</span>
           <i
