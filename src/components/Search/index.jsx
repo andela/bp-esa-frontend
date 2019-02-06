@@ -22,6 +22,15 @@ class Search extends PureComponent {
     }
   }
 
+  onBlurHandler = (event) => {
+    const target = event.currentTarget || event.target;
+    setTimeout(() => {
+      if (target.querySelectorAll(':focus').length === 0) {
+        this.setState({ searchOptionsVisible: false });
+      }
+    }, 0);
+  }
+
   toggleVisibility = () => {
     this.setState(prevState => ({
       searchOptionsVisible: !prevState.searchOptionsVisible,
@@ -61,7 +70,7 @@ class Search extends PureComponent {
     return (
       <div>
         <input type="text" className="search-input" value={searchValue} onChange={this.handleSearchValueChange} />
-        <div className="search">
+        <div className="search" onBlur={this.onBlurHandler} tabIndex="-1">
           <div className="search-title" onClick={event => this.toggleVisibility(event)}>
             <span className="title">
               {'Search With'}
