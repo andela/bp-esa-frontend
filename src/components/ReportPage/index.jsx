@@ -137,7 +137,7 @@ class ReportPage extends PureComponent {
 
     if (searchValue) {
       filteredReport = reportData.filter(
-        report => report[searchCriteria].toLowerCase() === searchValue.toLowerCase(),
+        report => report[searchCriteria].toLowerCase().includes(searchValue.toLowerCase()),
       );
     }
     if (filteredReport) {
