@@ -40,7 +40,7 @@ jobs:
           name: Run tests and upload coverage
           command: |
             ./cc-test-reporter before-build
-            yarn test -- -u
+            yarn test
             ./cc-test-reporter after-build --coverage-input-type lcov --exit-code $?
       - store_artifacts:
           path: coverage

@@ -324,6 +324,22 @@ describe('<ReportPage />', () => {
       expect(component.state('filteredReport')).toEqual([sampleReports[0]]);
     });
 
+    it('should filter out null automation types', () => {
+      const component = getComponent();
+      const previousFilters = component.state('filters');
+      expect(component.state('filteredReport')).toEqual([]);
+      component.setState({
+        reportData: sampleReports,
+        filters: {
+          ...previousFilters,
+          automationType: [null],
+          length: 1,
+          updated: true,
+        },
+      });
+      expect(component.state('filteredReport')).toEqual([]);
+    });
+
     it('should filter out the offboarding automations', () => {
       const component = getComponent();
       const previousFilters = component.state('filters');
