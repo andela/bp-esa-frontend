@@ -40,7 +40,7 @@ describe('<Filter />', () => {
       expect(props.handleFilterChange).toHaveBeenCalledTimes(1);
     });
 
-    it(`should update the selectedFilters in the state by removing 
+    it(`should update the selectedFilters in the state by removing
     the selected filter and also call handleFilterChange`, () => {
       const event = { target: { value: 'failed_automations' } };
       const component = getComponent();
@@ -50,6 +50,16 @@ describe('<Filter />', () => {
       componentInstance.selectCheckBoxFilter(event);
       expect(component.state('selectedFilters')).toEqual([]);
       expect(props.handleFilterChange).toHaveBeenCalledTimes(1);
+    });
+
+    it('should check for default selectedFilters', () => {
+      const newprops = {
+        ...props,
+        options: [{ type: null }],
+      };
+      const component = shallow(<Filter {...newprops} />);
+      component.find('.filter-title').simulate('click');
+      expect(component.find('.filter-options').length).toBe(1);
     });
   });
 
