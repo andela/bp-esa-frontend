@@ -87,7 +87,7 @@ export default [
     id: 3,
     fellowName: 'Angela',
     fellowId: '-L6q5mRZ0jk9jf-RVjdg',
-    partnerName: 'MEA',
+    partnerName: 'MEA California',
     type: 'Offboarding',
     slackAutomation: {
       success: true,
