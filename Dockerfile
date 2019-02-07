@@ -25,7 +25,7 @@ RUN npm install
 # When building  
 RUN npm install 
 
-ENV NODE_ENV=production
+ENV NODE_ENV=development
 ENV PORT=4020
 # app binds to port 3000 so you'll use the EXPOSE
 # instruction to have it mapped by the docker daemon:
