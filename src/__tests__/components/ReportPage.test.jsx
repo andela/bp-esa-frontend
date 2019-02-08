@@ -1,10 +1,20 @@
 import React from 'react';
+import axios from 'axios';
+import { mount } from 'enzyme';
 import ReportPage from '../../components/ReportPage';
 
 const props = {
-  currentUser: {},
+  currentUser: {
+    additionalUserInfo: {
+      profile: {
+        name: '',
+        picture: '',
+      },
+    },
+  },
   history: {},
   removeCurrentUser: jest.fn(),
+  formatDates: jest.fn(),
 };
 
 const sampleReports = [
@@ -12,46 +22,47 @@ const sampleReports = [
     id: 1,
     fellowName: 'Tunmise',
     partnerName: 'Andela',
-    type: 'Onboarding',
-    slackAutomation: {
-      success: false,
-      slackChannels: [
+    type: 'onboarding',
+    slackAutomations: {
+      status: 'failure',
+      slackActivities: [
         {
-          slackChannel: 'andela-int',
+          channelName: 'andela-int',
           type: 'Addition',
         },
         {
-          slackChannel: 'andela',
+          channelName: 'andela',
           type: 'Removal',
         },
       ],
     },
-    freckleAutomation: {
-      success: false,
+    freckleAutomations: {
+      status: 'failure',
     },
-    emailAutomation: {
-      success: false,
+    emailAutomations: {
+      status: 'failure',
     },
-    date: '2017-09-29 ',
+    updatedAt: '2017-09-29 ',
   },
   {
     id: 2,
     fellowName: 'Shakira',
     partnerName: 'ESA',
-    type: 'Offboarding',
-    slackAutomation: {
-      success: true,
+    type: 'offboarding',
+    slackAutomations: {
+      status: 'success',
     },
-    freckleAutomation: {
-      success: true,
+    freckleAutomations: {
+      status: 'success',
     },
-    emailAutomation: {
-      success: true,
+    emailAutomations: {
+      status: 'success',
     },
-    date: '2018-09-29',
+    updatedAt: '2018-09-29',
   },
 ];
 
+const url = 'https://api-staging-esa.andela.com/api/v1/automations';
 const getComponent = () => shallow(<ReportPage {...props} />);
 
 describe('<ReportPage />', () => {
@@ -81,8 +92,14 @@ describe('<ReportPage />', () => {
         const componentInstance = component.instance();
         expect(component.state('filters').automationStatus).toEqual([]);
         expect(component.state('filters').length).toEqual(0);
-        componentInstance.setFilter('failed_automations', filterSet, 'add_filter');
-        expect(component.state('filters').automationStatus).toEqual(['failed_automations']);
+        componentInstance.setFilter(
+          'failed_automations',
+          filterSet,
+          'add_filter',
+        );
+        expect(component.state('filters').automationStatus).toEqual([
+          'failed_automations',
+        ]);
         expect(component.state('filters').length).toEqual(1);
       });
       it(`should remove a filter in the state and reduce the filter length
@@ -97,7 +114,11 @@ describe('<ReportPage />', () => {
             length: 1,
           },
         });
-        componentInstance.setFilter('failed_automations', filterSet, 'remove_filter');
+        componentInstance.setFilter(
+          'failed_automations',
+          filterSet,
+          'remove_filter',
+        );
         expect(component.state('filters').automationStatus).toEqual([]);
         expect(component.state('filters').length).toEqual(0);
       });
@@ -111,8 +132,14 @@ describe('<ReportPage />', () => {
         const componentInstance = component.instance();
         expect(component.state('filters').automationType).toEqual([]);
         expect(component.state('filters').length).toEqual(0);
-        componentInstance.setFilter('failed_automations', filterSet, 'add_filter');
-        expect(component.state('filters').automationType).toEqual(['failed_automations']);
+        componentInstance.setFilter(
+          'failed_automations',
+          filterSet,
+          'add_filter',
+        );
+        expect(component.state('filters').automationType).toEqual([
+          'failed_automations',
+        ]);
         expect(component.state('filters').length).toEqual(1);
       });
       it(`should remove a filter in the state and reduce the filter length
@@ -127,7 +154,11 @@ describe('<ReportPage />', () => {
             length: 1,
           },
         });
-        componentInstance.setFilter('failed_automations', filterSet, 'remove_filter');
+        componentInstance.setFilter(
+          'failed_automations',
+          filterSet,
+          'remove_filter',
+        );
         expect(component.state('filters').automationType).toEqual([]);
         expect(component.state('filters').length).toEqual(0);
       });
@@ -142,7 +173,11 @@ describe('<ReportPage />', () => {
         const componentInstance = component.instance();
         expect(component.state('filters').date.from).toEqual('');
         expect(component.state('filters').length).toEqual(0);
-        componentInstance.setFilter(sampleDateFilter, filterSet, 'set_from_date');
+        componentInstance.setFilter(
+          sampleDateFilter,
+          filterSet,
+          'set_from_date',
+        );
         expect(component.state('filters').date.from).toEqual(sampleDateFilter);
         expect(component.state('filters').length).toEqual(1);
       });
@@ -160,8 +195,18 @@ describe('<ReportPage />', () => {
         const component = getComponent();
         const componentInstance = component.instance();
         const previousFilters = component.state('filters');
-        component.setState({ filters: { ...previousFilters, date: { from: '15/02/2018', to: '20/02/2018' }, length: 2 } });
-        componentInstance.setFilter(sampleDateFilter, filterSet, 'set_from_date');
+        component.setState({
+          filters: {
+            ...previousFilters,
+            date: { from: '15/02/2018', to: '20/02/2018' },
+            length: 2,
+          },
+        });
+        componentInstance.setFilter(
+          sampleDateFilter,
+          filterSet,
+          'set_from_date',
+        );
         expect(component.state('filters').length).toEqual(2);
         componentInstance.setFilter(sampleDateFilter, filterSet, 'set_to_date');
         expect(component.state('filters').length).toEqual(2);
@@ -170,7 +215,13 @@ describe('<ReportPage />', () => {
         const component = getComponent();
         const componentInstance = component.instance();
         const previousFilters = component.state('filters');
-        component.setState({ filters: { ...previousFilters, date: { from: '15/02/2018', to: '20/02/2018' }, length: 2 } });
+        component.setState({
+          filters: {
+            ...previousFilters,
+            date: { from: '15/02/2018', to: '20/02/2018' },
+            length: 2,
+          },
+        });
         componentInstance.setFilter('', filterSet, 'set_from_date');
         expect(component.state('filters').length).toEqual(1);
         componentInstance.setFilter('', filterSet, 'set_to_date');
@@ -427,8 +478,14 @@ describe('<ReportPage />', () => {
     });
 
     it('should redirect to the AIS page when you click the fellow name', () => {
+      // eslint-disable-next-line no-undef
       const component = getComponent();
-      const redirectToAIS = component.find('.table-body').find('tr').at(0).find('.fellow');
+      component.setState({ reportData: sampleReports });
+      const redirectToAIS = component
+        .find('.table-body')
+        .find('tr')
+        .at(0)
+        .find('.fellow');
       global.open = jest.fn();
       redirectToAIS.simulate('click');
       expect(global.open).toHaveBeenCalled();
@@ -436,22 +493,55 @@ describe('<ReportPage />', () => {
     it('should render a slack modal when the slack status icons are clicked', () => {
       const component = getComponent();
       component.setState({ reportData: sampleReports });
-      component.find('.fa.fa-info-circle.success').at(0).simulate('click');
+      component
+        .find('.fa.fa-info-circle.success')
+        .at(0)
+        .simulate('click');
       expect(component.state('type')).toEqual('slack');
     });
 
     it('should render an email modal when the email status icons are clicked', () => {
       const component = getComponent();
       component.setState({ reportData: sampleReports });
-      component.find('.fa.fa-info-circle.success').at(1).simulate('click');
+      component
+        .find('.fa.fa-info-circle.success')
+        .at(1)
+        .simulate('click');
       expect(component.state('type')).toEqual('email');
     });
 
     it('should render a freckle modal when the freckle status icons are clicked', () => {
       const component = getComponent();
       component.setState({ reportData: sampleReports });
-      component.find('.fa.fa-info-circle.success').at(2).simulate('click');
+      component
+        .find('.fa.fa-info-circle.success')
+        .at(2)
+        .simulate('click');
       expect(component.state('type')).toEqual('freckle');
+    });
+
+    it('should close modal', () => {
+      const component = mount(<ReportPage {...props} />);
+      component.setState({ reportData: sampleReports });
+      component
+        .find('.fa.fa-info-circle.success')
+        .at(2)
+        .simulate('click');
+      component.find('.modal-overlay').simulate('click');
+      expect(component.state('type')).toEqual('freckle');
+      component.unmount();
+    });
+  });
+
+  describe('querying the backend', () => {
+    it('should get allocations from the backend', async () => {
+      Object.defineProperty(axios, 'get', {
+        value: url => new Promise((resolve, reject) => resolve({ data: { data: sampleReports } })),
+      });
+      const component = await getComponent();
+      const spy = jest.spyOn(component.instance(), 'componentDidMount');
+      await component.instance().componentDidMount();
+      expect(spy).toHaveBeenCalled();
     });
   });
 });
