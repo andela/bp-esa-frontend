@@ -158,6 +158,17 @@ class ReportPage extends PureComponent {
     this.setState({ isModalOpen: false });
   }
 
+  closeDropdown = (event, component, property) => {
+    const target = event.currentTarget || event.target;
+    setTimeout(() => {
+      if (target.querySelectorAll(':focus').length === 0) {
+        const componentState = {};
+        componentState[property] = false;
+        component.setState(componentState);
+      }
+    }, 0);
+  }
+
   filterWithAutomationStatus(report) {
     const { filters: { automationStatus } } = this.state;
     return automationStatus.every((filterTerm) => {
@@ -253,7 +264,7 @@ class ReportPage extends PureComponent {
   renderAutomationStatus(automationStatus, report, type) {
     return (
       <span>
-        { automationStatus ? 'Success' : 'Failed' }&nbsp;
+        {automationStatus ? 'Success' : 'Failed'}&nbsp;
         <i
           className={`fa fa-info-circle ${automationStatus ? 'success' : 'failed'}`}
           onClick={() => { this.openModal(); this.changeModalTypes(report, type); }}
@@ -270,12 +281,13 @@ class ReportPage extends PureComponent {
         title={filter.title}
         options={filter.options}
         handleFilterChange={this.setFilter}
+        closeDropdown={this.closeDropdown}
       />
     ));
   }
 
   renderSearch() {
-    return <Search handleSearch={this.doSearch} />;
+    return <Search handleSearch={this.doSearch} closeDropdown={this.closeDropdown} />;
   }
 
   renderTableRows() {
@@ -321,9 +333,7 @@ class ReportPage extends PureComponent {
             {this.renderFilters()}
             {this.renderSearch()}
           </div>
-          <FiltersBar
-            filters={filters}
-          />
+          <FiltersBar filters={filters} />
           <div className="table-header">
             <table className="report-table">
               <thead>
@@ -366,7 +376,7 @@ ReportPage.propTypes = {
 };
 
 ReportPage.defaultProps = {
-  removeCurrentUser: () => {},
+  removeCurrentUser: () => { },
 };
 
 export default ReportPage;

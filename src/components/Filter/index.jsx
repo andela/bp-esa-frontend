@@ -22,12 +22,8 @@ class Filter extends PureComponent {
   }
 
   onBlurHandler = (event) => {
-    const target = event.currentTarget || event.target;
-    setTimeout(() => {
-      if (target.querySelectorAll(':focus').length === 0) {
-        this.setState({ filterOptionsIsVisible: false });
-      }
-    }, 0);
+    const { closeDropdown } = this.props;
+    closeDropdown(event, this, 'filterOptionsIsVisible');
   }
 
   toggleVisibility = () => {
@@ -130,6 +126,7 @@ Filter.propTypes = {
   title: PropTypes.string.isRequired,
   options: PropTypes.array.isRequired,
   handleFilterChange: PropTypes.func.isRequired,
+  closeDropdown: PropTypes.func.isRequired,
 };
 
 export default Filter;
