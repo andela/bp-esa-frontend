@@ -23,12 +23,8 @@ class Search extends PureComponent {
   }
 
   onBlurHandler = (event) => {
-    const target = event.currentTarget || event.target;
-    setTimeout(() => {
-      if (target.querySelectorAll(':focus').length === 0) {
-        this.setState({ searchOptionsVisible: false });
-      }
-    }, 0);
+    const { closeDropdown } = this.props;
+    closeDropdown(event, this, 'searchOptionsVisible');
   }
 
   toggleVisibility = () => {
@@ -91,6 +87,7 @@ class Search extends PureComponent {
 
 Search.propTypes = {
   handleSearch: PropTypes.func.isRequired,
+  closeDropdown: PropTypes.func.isRequired,
 };
 
 export default Search;
