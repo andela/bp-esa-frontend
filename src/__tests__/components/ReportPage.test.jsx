@@ -60,7 +60,7 @@ describe('<ReportPage />', () => {
   });
 
   describe('componenDidUpdate method', () => {
-    it(`should call filterReports method if the 
+    it(`should call filterReports method if the
     filters in the state is updated`, () => {
       const component = getComponent();
       const componentInstance = component.instance();

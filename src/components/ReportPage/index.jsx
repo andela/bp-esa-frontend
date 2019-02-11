@@ -43,89 +43,54 @@ class ReportPage extends PureComponent {
 
   setFilter = (filter, filterSet, action) => {
     const { filters: previousFilters, filters: { length } } = this.state;
-    if (action === 'add_filter' && filterSet === 'automationStatus') {
+    if (action === 'add_filter') {
       this.setState({
         filters: {
           ...previousFilters,
-          automationStatus: [
-            ...previousFilters.automationStatus,
+          [filterSet]: [
+            ...previousFilters[filterSet],
             filter,
           ],
           length: length + 1,
           updated: true,
         },
       });
-    } else if (action === 'remove_filter' && filterSet === 'automationStatus') {
-      const filterToMutate = [...previousFilters.automationStatus];
+    } else if (action === 'remove_filter') {
+      const filterToMutate = [...previousFilters[filterSet]];
       filterToMutate.splice(filterToMutate.indexOf(filter), 1);
       this.setState({
         filters: {
           ...previousFilters,
-          automationStatus: filterToMutate,
+          [filterSet]: filterToMutate,
           length: length - 1,
-          updated: true,
-        },
-      });
-    } else if (action === 'add_filter' && filterSet === 'automationType') {
-      this.setState({
-        filters: {
-          ...previousFilters,
-          automationType: [
-            ...previousFilters.automationType,
-            filter,
-          ],
-          length: length + 1,
-          updated: true,
-        },
-      });
-    } else if (action === 'remove_filter' && filterSet === 'automationType') {
-      const filterToMutate = [...previousFilters.automationType];
-      filterToMutate.splice(filterToMutate.indexOf(filter), 1);
-      this.setState({
-        filters: {
-          ...previousFilters,
-          automationType: filterToMutate,
-          length: length - 1,
-          updated: true,
-        },
-      });
-    } else if (action === 'set_from_date' && filterSet === 'date') {
-      let newLength = length;
-      if (filter && !previousFilters.date.from) {
-        newLength = length + 1;
-      } else if (!filter && previousFilters.date.from) {
-        newLength = length - 1;
-      }
-      this.setState({
-        filters: {
-          ...previousFilters,
-          date: {
-            ...previousFilters.date,
-            from: filter,
-          },
-          length: newLength,
-          updated: true,
-        },
-      });
-    } else if (action === 'set_to_date' && filterSet === 'date') {
-      let newLength = length;
-      if (filter && !previousFilters.date.to) {
-        newLength = length + 1;
-      } else if (!filter && previousFilters.date.to) {
-        newLength = length - 1;
-      }
-      this.setState({
-        filters: {
-          ...previousFilters,
-          date: {
-            ...previousFilters.date,
-            to: filter,
-          },
-          length: newLength,
           updated: true,
         },
       });
     }
+    if (action === 'set_from_date' && filterSet === 'date') {
+      this.setDateToAndFrom(previousFilters.date.from, filter, 'from');
+    } else if (action === 'set_to_date' && filterSet === 'date') {
+      this.setDateToAndFrom(previousFilters.date.to, filter, 'to');
+    }
+  }
+
+  setDateToAndFrom = (dateType, filter, type) => {
+    const { filters: previousFilters, filters: { length } } = this.state;
+    let newLength = length;
+    newLength = filter && !dateType ? length + 1 : newLength;
+    newLength = !filter && dateType ? length - 1 : newLength;
+    const filterWorkers = {
+      ...previousFilters,
+      date: {
+        ...previousFilters.date,
+      },
+      length: newLength,
+      updated: true,
+    };
+    filterWorkers.date[type] = filter;
+    this.setState({
+      filters: filterWorkers,
+    });
   }
 
   doSearch = (searchValue, optionId) => {
