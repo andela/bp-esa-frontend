@@ -20,11 +20,8 @@ const AuthenticatedRoute = ({ component: Component, authenticated, ...rest }) =>
   />
 );
 AuthenticatedRoute.propTypes = {
-  authenticated: PropTypes.bool,
+  authenticated: PropTypes.bool.isRequired,
   component: PropTypes.any.isRequired,
-};
-AuthenticatedRoute.defaultProps = {
-  authenticated: false,
 };
 class App extends React.PureComponent {
   state = {
