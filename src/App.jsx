@@ -6,6 +6,7 @@ import {
   Redirect,
 } from 'react-router-dom';
 import Notifications from 'react-notify-toast';
+import PropTypes from 'prop-types';
 import Login from './components/login';
 import ReportPage from './components/ReportPage';
 
@@ -18,7 +19,13 @@ const AuthenticatedRoute = ({ component: Component, authenticated, ...rest }) =>
     }
   />
 );
-
+AuthenticatedRoute.propTypes = {
+  authenticated: PropTypes.bool,
+  component: PropTypes.object.isRequired,
+};
+AuthenticatedRoute.defaultProps = {
+  authenticated: false,
+};
 class App extends React.PureComponent {
   state = {
     authenticated: false,
