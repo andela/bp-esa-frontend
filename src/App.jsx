@@ -5,6 +5,7 @@ import {
   Switch,
   Redirect,
 } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import Notifications from 'react-notify-toast';
 import PropTypes from 'prop-types';
 import Login from './components/login';
@@ -19,10 +20,12 @@ const AuthenticatedRoute = ({ component: Component, authenticated, ...rest }) =>
     }
   />
 );
+
 AuthenticatedRoute.propTypes = {
   authenticated: PropTypes.bool.isRequired,
   component: PropTypes.any.isRequired,
 };
+
 class App extends React.PureComponent {
   state = {
     authenticated: false,
