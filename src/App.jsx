@@ -7,7 +7,6 @@ import {
 } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import Notifications from 'react-notify-toast';
-import PropTypes from 'prop-types';
 import Login from './components/login';
 import ReportPage from './components/ReportPage';
 
