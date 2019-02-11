@@ -3,11 +3,11 @@
 /* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
+import axios from 'axios';
 import Header from '../Header';
 import Filter from '../Filter';
 import Search from '../Search';
 import * as constants from '../constants';
-import mockReport from '../../mocks/mockReport';
 import FiltersBar from '../FiltersBar';
 import './styles.scss';
 import AutomationDetails from '../AutomationDetails';
@@ -18,7 +18,7 @@ class ReportPage extends PureComponent {
   constructor() {
     super();
     this.state = {
-      reportData: mockReport,
+      reportData: [],
       filters: {
         automationStatus: [],
         automationType: [],
@@ -34,12 +34,26 @@ class ReportPage extends PureComponent {
     };
   }
 
+  async componentDidMount() {
+    const reportData = await this.reportData();
+    this.setState({ reportData });
+  }
+
   componentDidUpdate() {
     const { filters } = this.state;
     if (filters.updated) {
       this.filterReports();
     }
   }
+
+  reportData = async () => {
+    const url = '/api/v1/automations';
+    const data = await axios
+      .get(url)
+      .then(response => response.data.data)
+      .catch(error => error.response);
+    return data;
+  };
 
   setFilter = (filter, filterSet, action) => {
     const { filters: previousFilters, filters: { length } } = this.state;
@@ -137,7 +151,7 @@ class ReportPage extends PureComponent {
 
     if (searchValue) {
       filteredReport = reportData.filter(
-        report => report[searchCriteria].toLowerCase() === searchValue.toLowerCase(),
+        report => report[searchCriteria].toLowerCase().includes(searchValue.toLowerCase()),
       );
     }
     if (filteredReport) {
@@ -158,32 +172,44 @@ class ReportPage extends PureComponent {
     this.setState({ isModalOpen: false });
   }
 
+  formatDates = (date) => {
+    const dateFormat = {
+      year: 'numeric',
+      month: 'numeric',
+      day: 'numeric',
+      hour: 'numeric',
+      minute: 'numeric',
+    };
+    const formattedDate = new Date(date).toLocaleDateString('en-US', dateFormat);
+    return formattedDate;
+  }
+
   filterWithAutomationStatus(report) {
     const { filters: { automationStatus } } = this.state;
     return automationStatus.every((filterTerm) => {
       switch (filterTerm) {
         case constants.FAILED_AUTOMATIONS:
-          return (!report.slackAutomation.success
-            || !report.freckleAutomation.success
-            || !report.emailAutomation.success
+          return (report.slackAutomations.status === 'failure'
+            || report.freckleAutomations.status === 'failure'
+            || report.emailAutomations.status === 'failure'
           );
         case constants.SUCCESSFUL_AUTOMATIONS:
-          return (report.slackAutomation.success
-            && report.freckleAutomation.success
-            && report.emailAutomation.success
+          return (report.slackAutomations.status === 'success'
+            && report.freckleAutomations.status === 'success'
+            && report.emailAutomations.status === 'success'
           );
         case constants.FAILED_SLACK_AUTOMATIONS:
-          return (!report.slackAutomation.success);
+          return (report.slackAutomations.status === 'failure');
         case constants.FAILED_FRECKLE_AUTOMATIONS:
-          return (!report.freckleAutomation.success);
+          return (report.freckleAutomations.status === 'failure');
         case constants.FAILED_EMAIL_AUTOMATIONS:
-          return (!report.emailAutomation.success);
+          return (report.emailAutomations.status === 'failure');
         case constants.SUCCESSFUL_SLACK_AUTOMATIONS:
-          return (report.slackAutomation.success);
+          return (report.slackAutomations.status) === 'success';
         case constants.SUCCESSFUL_FRECKLE_AUTOMATIONS:
-          return (report.freckleAutomation.success);
+          return (report.freckleAutomations.status === 'success');
         case constants.SUCCESSFUL_EMAIL_AUTOMATIONS:
-          return (report.emailAutomation.success);
+          return (report.emailAutomations.status === 'success');
         default:
           return false;
       }
@@ -195,9 +221,9 @@ class ReportPage extends PureComponent {
     return automationType.every((filteTerm) => {
       switch (filteTerm) {
         case constants.ONBOARDING:
-          return (report.type === 'Onboarding');
+          return (report.type === 'onboarding');
         case constants.OFFBOARDING:
-          return (report.type === 'Offboarding');
+          return (report.type === 'offboarding');
         default:
           return false;
       }
@@ -214,9 +240,6 @@ class ReportPage extends PureComponent {
 
   runFilters(report) {
     const { filters } = this.state;
-    if (!filters.length) {
-      return true;
-    }
     const filterResult = [];
     if (filters.automationStatus.length) {
       filterResult.push(this.filterWithAutomationStatus(report));
@@ -225,7 +248,7 @@ class ReportPage extends PureComponent {
       filterResult.push(this.filterWithAutomationType(report));
     }
     if (filters.date.from && filters.date.to) {
-      filterResult.push(this.filterWithDate(report.date));
+      filterResult.push(this.filterWithDate(report.updatedAt));
     }
     return filterResult.every(result => result === true);
   }
@@ -242,10 +265,6 @@ class ReportPage extends PureComponent {
     });
   }
 
-  redirectToAIS(report) {
-    return window.open(`https://ais.andela.com/people/${report.fellowId}`);
-  }
-
   changeModalTypes(report, type) {
     this.setState({ modalContent: report, type });
   }
@@ -253,9 +272,9 @@ class ReportPage extends PureComponent {
   renderAutomationStatus(automationStatus, report, type) {
     return (
       <span>
-        { automationStatus ? 'Success' : 'Failed' }&nbsp;
+        { automationStatus }&nbsp;
         <i
-          className={`fa fa-info-circle ${automationStatus ? 'success' : 'failed'}`}
+          className={`fa fa-info-circle ${automationStatus}`}
           onClick={() => { this.openModal(); this.changeModalTypes(report, type); }}
         />
       </span>
@@ -283,24 +302,25 @@ class ReportPage extends PureComponent {
       filters, filteredReport, reportData, searchResult,
     } = this.state;
     const reports = filters.length || searchResult ? filteredReport : reportData;
-    return reports.map((report, index) => (
+    const finalReports = reports || [];
+    return (finalReports.map((report, index) => (
       <tr key={report.id}>
         <td className="numbering">{index + 1}</td>
-        <td className="column1">{report.date}</td>
+        <td className="column1">{this.formatDates(report.updatedAt)}</td>
+
         <td
           className="fellow"
-          onClick={() => this.redirectToAIS(report)}
+          onClick={() => window.open(`https://ais.andela.com/people/${report.fellowId}`)}
         >
           {report.fellowName}
-
         </td>
         <td>{report.partnerName}</td>
         <td>{report.type}</td>
-        <td>{this.renderAutomationStatus(report.slackAutomation.success, report, 'slack')}</td>
-        <td>{this.renderAutomationStatus(report.emailAutomation.success, report, 'email')}</td>
-        <td>{this.renderAutomationStatus(report.freckleAutomation.success, report, 'freckle')}</td>
+        <td>{this.renderAutomationStatus(report.slackAutomations.status, report, 'slack')}</td>
+        <td>{this.renderAutomationStatus(report.emailAutomations.status, report, 'email')}</td>
+        <td>{this.renderAutomationStatus(report.freckleAutomations.status, report, 'freckle')}</td>
       </tr>
-    ));
+    )));
   }
 
   render() {
@@ -308,6 +328,8 @@ class ReportPage extends PureComponent {
     const {
       isModalOpen, modalContent, type, filters,
     } = this.state;
+
+    // eslint-disable-next-line react/destructuring-assignment
     return (
       <div>
         <Header
@@ -352,6 +374,7 @@ class ReportPage extends PureComponent {
             closeModal={this.closeModal}
             modalType={type}
             modalContent={modalContent}
+            formatDates={this.formatDates}
           />
         </div>
       </div>

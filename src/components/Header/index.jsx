@@ -60,7 +60,7 @@ class Header extends PureComponent {
           <div
             className={classNames('signout-dropdown', { visible: signoutDropDownIsVisible })}
           >
-            <a href="#" onClick={() => this.onLogout()}>
+            <a id="sign-out" href="#" onClick={() => this.onLogout()}>
               <i className="fa fa-sign-out-alt" />&nbsp;
               <span>Sign Out</span>
             </a>

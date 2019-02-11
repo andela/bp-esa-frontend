@@ -1,17 +1,21 @@
 import React from 'react';
+import { notify } from 'react-notify-toast';
 import * as firebase from '../../firebase';
 import Header from '../../components/Header';
 
-let props = {
+const props = {
   currentUser: {
     additionalUserInfo: {
       profile: {
         name: '',
-        picture: ''
-      }
-    }
+        picture: '',
+      },
+    },
   },
-  history: {}
+  removeCurrentUser: jest.fn(),
+  history: {
+    push: jest.fn(),
+  },
 };
 let wrapper;
 
@@ -20,7 +24,7 @@ const getComponent = () => {
     wrapper = shallow(<Header {...props} />);
   }
   return wrapper;
-}
+};
 
 it('should render as expected', () => {
   const component = getComponent();
@@ -28,11 +32,19 @@ it('should render as expected', () => {
 });
 
 describe('onLogout() method', () => {
+  const renderedComponent = mount(<Header {...props} />);
+  Object.defineProperty(notify, 'show', { value: () => jest.fn(), writable: true });
   it('should call onLogout()', () => {
-    const renderedComponent = getComponent().instance();
-    sinon.spy(renderedComponent, 'onLogout');
-    renderedComponent.onLogout();
-    expect(renderedComponent.onLogout.calledOnce).toEqual(true);
+    const spy = jest.spyOn(renderedComponent.instance(), 'onLogout');
+    renderedComponent.find('#sign-out').simulate('click');
+    expect(spy).toHaveBeenCalled();
+  });
+
+  it('should call onLogout() error', () => {
+    Object.defineProperty(firebase, 'doSignOut', { value: () => (Promise.resolve(new Error('Some error'))) });
+    const spy = jest.spyOn(renderedComponent.instance().props, 'removeCurrentUser');
+    renderedComponent.find('#sign-out').simulate('click');
+    expect(spy).toHaveBeenCalled();
   });
 });
 

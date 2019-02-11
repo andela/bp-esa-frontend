@@ -15,8 +15,8 @@ class FiltersBar extends PureComponent {
     const { filters } = this.props;
     const tags = this.addFilterTags(filters);
     const filterTags = tags.map(tag => (
-      <div className="tags">
-        <span key={tag} className="filter-tags">
+      <div key={tag} className="tags">
+        <span className="filter-tags">
           <i className="far fa-times-circle" />&nbsp;
           {tag}
         </span>

@@ -6,15 +6,20 @@ import { doSignInWithGoogle } from '../firebase';
 class Login extends Component {
   onLogin = () => {
     const { setCurrentUser, history } = this.props;
-    doSignInWithGoogle().then((user, error) => {
-      if (error) {
-        notify.show('Unable to login with google!', 'error');
-      } else if (user.user.email.match(/.*@andela.com$/)) {
+    doSignInWithGoogle().then((user) => {
+      if (user.user.email.match(/.*@andela.com$/)) {
         setCurrentUser(user);
         history.push('/');
         notify.show(`Hello ${user.user.displayName} ! You have Logged in Successfully!`, 'success');
-      } else { notify.show('Login failed! Please login with your andela email!', 'error'); }
-    });
+      } else {
+        notify.show('Login failed! Please login with your andela email!', 'error');
+      }
+    })
+      .catch((error) => {
+        if (error) {
+          notify.show('Unable to login with google!', 'error');
+        }
+      });
   }
 
   render() {
