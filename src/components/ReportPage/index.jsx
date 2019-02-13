@@ -47,7 +47,7 @@ class ReportPage extends PureComponent {
   }
 
   reportData = async () => {
-    const url = '/api/v1/automations';
+    const url = 'http://api-staging-esa.andela.com/api/v1/automations';
     const data = await axios
       .get(url)
       .then(response => response.data.data)
