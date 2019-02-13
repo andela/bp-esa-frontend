@@ -38,32 +38,33 @@ class Header extends PureComponent {
     return (
       <div id="header">
         <div className="brand">
-          {/* eslint-disable jsx-a11y/anchor-is-valid */}
-          <a href="#">
+          <a href="/">
             <img className="logo" src="/logo.png" alt="Andela Logo" />
             <span className="text">ESA Reporting</span>
           </a>
         </div>
         <div className="signout">
-          <span className="user-name">
+          <div>
+            <span className="user-name">
             Hello,&nbsp;
-            { name }
+              { name }
             !
-          </span>
-          <a href="#" onClick={this.toggleSignoutDropDown}>
+            </span>
+          </div>
+          <div className="image-container" onClick={this.toggleSignoutDropDown}>
             { picture
               ? <img src={picture} alt="user-icon" className="user-image" />
               : <i className="fa fa-2x fa-user-circle" />
             }
             <i className="fa fa-caret-down custom" />
-          </a>
-          <div
-            className={classNames('signout-dropdown', { visible: signoutDropDownIsVisible })}
-          >
-            <a id="sign-out" href="#" onClick={() => this.onLogout()}>
-              <i className="fa fa-sign-out-alt" />&nbsp;
-              <span>Sign Out</span>
-            </a>
+            <div
+              className={classNames('signout-dropdown', { visible: signoutDropDownIsVisible })}
+            >
+              <button type="button" className="logout-button" onClick={() => this.onLogout()}>
+                <i className="fa fa-sign-out-alt" />&nbsp;
+                <span>Sign Out</span>
+              </button>
+            </div>
           </div>
         </div>
       </div>
