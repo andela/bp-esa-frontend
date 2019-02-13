@@ -14,7 +14,7 @@ RUN npm install --silent
 COPY . /usr/src/app
 
 
-#Bundle apps source code
+ENV NODE_ENV=production 
 RUN npm run build
 
 # production environment
