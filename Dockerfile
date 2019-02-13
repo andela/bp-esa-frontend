@@ -12,7 +12,12 @@ COPY package*.json /usr/src/app/
 
 RUN npm install --silent
 COPY . /usr/src/app
-
+ENV REACT_APP_API_KEY AIzaSyAJSLIXMRfIQUISuAIVs1_zSCTdOoV9cYU
+ENV REACT_APP_AUTH_DOMAIN "trial-esa.firebaseapp.com"
+ENV REACT_APP_DATABASE_URL "https://trial-esa.firebaseio.com"
+ENV REACT_APP_PROJECT_ID "trial-esa"
+ENV REACT_APP_STORAGE_BUCKET "trial-esa.appspot.com"
+ENV REACT_APP_MESSAGING_SENDER_ID "843967058677"
 
 ENV NODE_ENV=production 
 RUN npm run build
