@@ -4,7 +4,7 @@ services:
 
   app:
     container_name: esa-frontend-prod
-    image: esa-fronted:latest
+    image: esa-frontend:latest
     build:
       context: .
       dockerfile: Dockerfile
