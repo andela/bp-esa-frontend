@@ -25,9 +25,9 @@ jobs:
       - run:
             name: Install dependencies
             command: yarn install
-      - run:
-            name: Check for REACT environment variables
-            command: printenv | grep ^REACT_APP
+      # - run:
+      #       name: Check for REACT environment variables
+      #       command: printenv | grep ^REACT_APP
       - save_cache:
           paths:
             - node_modules
@@ -58,7 +58,10 @@ jobs:
       - checkout
       - setup_remote_docker
       - run:
-          name: Build and deploy application to staging
+          name: Building Production files
+          command: NODE_ENV=production npm run build
+      - run:
+          name: Build Docker image and deploy application to staging
           command: chmod +x scripts/deploy.sh && scripts/deploy.sh
 
 workflows:
