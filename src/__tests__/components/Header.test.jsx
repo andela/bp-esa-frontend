@@ -36,14 +36,14 @@ describe('onLogout() method', () => {
   Object.defineProperty(notify, 'show', { value: () => jest.fn(), writable: true });
   it('should call onLogout()', () => {
     const spy = jest.spyOn(renderedComponent.instance(), 'onLogout');
-    renderedComponent.find('#sign-out').simulate('click');
+    renderedComponent.find('.logout-button').simulate('click');
     expect(spy).toHaveBeenCalled();
   });
 
   it('should call onLogout() error', () => {
     Object.defineProperty(firebase, 'doSignOut', { value: () => (Promise.resolve(new Error('Some error'))) });
     const spy = jest.spyOn(renderedComponent.instance().props, 'removeCurrentUser');
-    renderedComponent.find('#sign-out').simulate('click');
+    renderedComponent.find('.logout-button').simulate('click');
     expect(spy).toHaveBeenCalled();
   });
 });
