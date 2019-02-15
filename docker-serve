@@ -1,3 +1,6 @@
-#!/bin/bash 
+#!/bin/bash
+set +e
+
+npm run build
 
 docker run  --rm -it -p 8084:80 -v $(pwd)/build:/usr/share/nginx/html -v $(pwd)/docker-config/vhost.conf:/etc/nginx/conf.d/default.conf  nginx
