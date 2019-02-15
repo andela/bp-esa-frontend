@@ -25,6 +25,9 @@ jobs:
       - run:
             name: Install dependencies
             command: yarn install
+      - run:
+            name: Check for REACT environment variables
+            command: printenv | grep ^REACT_APP
       - save_cache:
           paths:
             - node_modules
