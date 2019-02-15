@@ -1,0 +1,17 @@
+version: '3.5'
+
+services:
+
+  app:
+    container_name: esa-frontend-dev
+    build:
+      context: .
+      dockerfile: Dockerfile.local
+    volumes:
+      - '.:/usr/src/app'
+      - '/usr/src/app/node_modules'
+    ports:
+      - '3000:3000'
+    environment:
+      - NODE_ENV=development
+      - CHOKIDAR_USEPOLLING=true
