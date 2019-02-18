@@ -1,8 +1,10 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import { notify } from 'react-notify-toast';
-import * as firebase from '../../firebase';
+import { doSignInWithGoogle } from '../../firebase';
 import Login from '../../components/login';
+
+jest.mock('../../firebase');
 
 const props = {
   history: {
@@ -29,27 +31,25 @@ describe('onLogin() method', () => {
   // eslint-disable-next-line prefer-const
   let user = {
     user: {
-      email: { value: 'example@mail.com', match: () => (true) },
+      email: { value: 'example@mail.com', match: () => true },
     },
   };
   it('should call onLogin()', () => {
     const renderedComponent = getComponent();
     const spy = jest.spyOn(renderedComponent.instance(), 'onLogin');
-    Object.defineProperty(firebase, 'doSignInWithGoogle', {
-      value: () => (new Promise((resolve, reject) => {
+    doSignInWithGoogle.mockImplementationOnce(
+      () => new Promise((resolve) => {
         resolve(user);
-      })),
-    });
+      }),
+    );
     renderedComponent.find('a').simulate('click');
     expect(spy).toHaveBeenCalled();
   });
 
   it('should call onLogin() successfully', () => {
     const renderedComponent = getComponent();
-    user.user.email.match = () => (false);
-    Object.defineProperty(firebase, 'doSignInWithGoogle', {
-      value: () => (new Promise((resolve, reject) => resolve(user))),
-    });
+    user.user.email.match = () => false;
+    doSignInWithGoogle.mockImplementationOnce(() => new Promise(resolve => resolve(user)));
     const spy = jest.spyOn(renderedComponent.instance().props, 'setCurrentUser');
     renderedComponent.find('a').simulate('click');
     expect(spy).toHaveBeenCalled();
@@ -57,10 +57,10 @@ describe('onLogin() method', () => {
 
   it('should call onLogin() error', () => {
     const renderedComponent = getComponent();
-    user.user.email.match = () => (false);
-    Object.defineProperty(firebase, 'doSignInWithGoogle', {
-      value: () => (new Promise((resolve, reject) => reject(new Error('something is wrong')))),
-    });
+    user.user.email.match = () => false;
+    doSignInWithGoogle.mockImplementationOnce(
+      () => new Promise((resolve, reject) => reject(new Error('something is wrong'))),
+    );
     const spy = jest.spyOn(renderedComponent.instance().props, 'setCurrentUser');
     renderedComponent.find('a').simulate('click');
     expect(spy).toHaveBeenCalled();

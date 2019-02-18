@@ -26,10 +26,10 @@ The following should be installed in your machine:
 
 - Clone this Repo with `$ git clone https://github.com/andela/bp-esa-frontend.git`
 - Change into the directory of the project
-- Use `$ npm install` to install all the dependencies of the project.
+- Use `$ yarn install` to install all the dependencies of the project.
 - Create a `.env` file in project root and define variables from `.env.sample` file
-- Use `$ npm start` to start the application.
-- Use `$ npm test` to executes the tests of the application.
+- Use `$ yarn start` to start the application.
+- Use `$ yarn test` to execute the tests of the application.
 
 ## How To Contribute
 

@@ -1,0 +1,598 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Search /> should render as expected 1`] = `
+ShallowWrapper {
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <Search
+    handleSearch={[MockFunction]}
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "checkPropTypes": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateError": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "children": Array [
+        <input
+          className="search-input"
+          onChange={[Function]}
+          type="text"
+          value=""
+        />,
+        <div
+          className="search"
+        >
+          <div
+            className="search-title"
+            onClick={[Function]}
+          >
+            <span
+              className="title"
+            >
+              Search With
+               | 
+              Fellow Name
+            </span>
+            <i
+              className="fa fa-angle-down"
+            />
+          </div>
+          <ul
+            className="search-option"
+          >
+            <li>
+              <input
+                defaultChecked={true}
+                name="search"
+                onChange={[Function]}
+                type="radio"
+              />
+              Fellow Name
+            </li>
+            <li>
+              <input
+                name="search"
+                onChange={[Function]}
+                type="radio"
+              />
+              Partner Name
+            </li>
+          </ul>
+        </div>,
+      ],
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "className": "search-input",
+          "onChange": [Function],
+          "type": "text",
+          "value": "",
+        },
+        "ref": null,
+        "rendered": null,
+        "type": "input",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            <div
+              className="search-title"
+              onClick={[Function]}
+            >
+              <span
+                className="title"
+              >
+                Search With
+                 | 
+                Fellow Name
+              </span>
+              <i
+                className="fa fa-angle-down"
+              />
+            </div>,
+            <ul
+              className="search-option"
+            >
+              <li>
+                <input
+                  defaultChecked={true}
+                  name="search"
+                  onChange={[Function]}
+                  type="radio"
+                />
+                Fellow Name
+              </li>
+              <li>
+                <input
+                  name="search"
+                  onChange={[Function]}
+                  type="radio"
+                />
+                Partner Name
+              </li>
+            </ul>,
+          ],
+          "className": "search",
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": Array [
+                <span
+                  className="title"
+                >
+                  Search With
+                   | 
+                  Fellow Name
+                </span>,
+                <i
+                  className="fa fa-angle-down"
+                />,
+              ],
+              "className": "search-title",
+              "onClick": [Function],
+            },
+            "ref": null,
+            "rendered": Array [
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": Array [
+                    "Search With",
+                    " | ",
+                    "Fellow Name",
+                  ],
+                  "className": "title",
+                },
+                "ref": null,
+                "rendered": Array [
+                  "Search With",
+                  " | ",
+                  "Fellow Name",
+                ],
+                "type": "span",
+              },
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "className": "fa fa-angle-down",
+                },
+                "ref": null,
+                "rendered": null,
+                "type": "i",
+              },
+            ],
+            "type": "div",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": Array [
+                <li>
+                  <input
+                    defaultChecked={true}
+                    name="search"
+                    onChange={[Function]}
+                    type="radio"
+                  />
+                  Fellow Name
+                </li>,
+                <li>
+                  <input
+                    name="search"
+                    onChange={[Function]}
+                    type="radio"
+                  />
+                  Partner Name
+                </li>,
+              ],
+              "className": "search-option",
+            },
+            "ref": null,
+            "rendered": Array [
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": Array [
+                    <input
+                      defaultChecked={true}
+                      name="search"
+                      onChange={[Function]}
+                      type="radio"
+                    />,
+                    "Fellow Name",
+                  ],
+                },
+                "ref": null,
+                "rendered": Array [
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "defaultChecked": true,
+                      "name": "search",
+                      "onChange": [Function],
+                      "type": "radio",
+                    },
+                    "ref": null,
+                    "rendered": null,
+                    "type": "input",
+                  },
+                  "Fellow Name",
+                ],
+                "type": "li",
+              },
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": Array [
+                    <input
+                      name="search"
+                      onChange={[Function]}
+                      type="radio"
+                    />,
+                    "Partner Name",
+                  ],
+                },
+                "ref": null,
+                "rendered": Array [
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "name": "search",
+                      "onChange": [Function],
+                      "type": "radio",
+                    },
+                    "ref": null,
+                    "rendered": null,
+                    "type": "input",
+                  },
+                  "Partner Name",
+                ],
+                "type": "li",
+              },
+            ],
+            "type": "ul",
+          },
+        ],
+        "type": "div",
+      },
+    ],
+    "type": "div",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": Array [
+          <input
+            className="search-input"
+            onChange={[Function]}
+            type="text"
+            value=""
+          />,
+          <div
+            className="search"
+          >
+            <div
+              className="search-title"
+              onClick={[Function]}
+            >
+              <span
+                className="title"
+              >
+                Search With
+                 | 
+                Fellow Name
+              </span>
+              <i
+                className="fa fa-angle-down"
+              />
+            </div>
+            <ul
+              className="search-option"
+            >
+              <li>
+                <input
+                  defaultChecked={true}
+                  name="search"
+                  onChange={[Function]}
+                  type="radio"
+                />
+                Fellow Name
+              </li>
+              <li>
+                <input
+                  name="search"
+                  onChange={[Function]}
+                  type="radio"
+                />
+                Partner Name
+              </li>
+            </ul>
+          </div>,
+        ],
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "className": "search-input",
+            "onChange": [Function],
+            "type": "text",
+            "value": "",
+          },
+          "ref": null,
+          "rendered": null,
+          "type": "input",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              <div
+                className="search-title"
+                onClick={[Function]}
+              >
+                <span
+                  className="title"
+                >
+                  Search With
+                   | 
+                  Fellow Name
+                </span>
+                <i
+                  className="fa fa-angle-down"
+                />
+              </div>,
+              <ul
+                className="search-option"
+              >
+                <li>
+                  <input
+                    defaultChecked={true}
+                    name="search"
+                    onChange={[Function]}
+                    type="radio"
+                  />
+                  Fellow Name
+                </li>
+                <li>
+                  <input
+                    name="search"
+                    onChange={[Function]}
+                    type="radio"
+                  />
+                  Partner Name
+                </li>
+              </ul>,
+            ],
+            "className": "search",
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": Array [
+                  <span
+                    className="title"
+                  >
+                    Search With
+                     | 
+                    Fellow Name
+                  </span>,
+                  <i
+                    className="fa fa-angle-down"
+                  />,
+                ],
+                "className": "search-title",
+                "onClick": [Function],
+              },
+              "ref": null,
+              "rendered": Array [
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": Array [
+                      "Search With",
+                      " | ",
+                      "Fellow Name",
+                    ],
+                    "className": "title",
+                  },
+                  "ref": null,
+                  "rendered": Array [
+                    "Search With",
+                    " | ",
+                    "Fellow Name",
+                  ],
+                  "type": "span",
+                },
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "className": "fa fa-angle-down",
+                  },
+                  "ref": null,
+                  "rendered": null,
+                  "type": "i",
+                },
+              ],
+              "type": "div",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": Array [
+                  <li>
+                    <input
+                      defaultChecked={true}
+                      name="search"
+                      onChange={[Function]}
+                      type="radio"
+                    />
+                    Fellow Name
+                  </li>,
+                  <li>
+                    <input
+                      name="search"
+                      onChange={[Function]}
+                      type="radio"
+                    />
+                    Partner Name
+                  </li>,
+                ],
+                "className": "search-option",
+              },
+              "ref": null,
+              "rendered": Array [
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": Array [
+                      <input
+                        defaultChecked={true}
+                        name="search"
+                        onChange={[Function]}
+                        type="radio"
+                      />,
+                      "Fellow Name",
+                    ],
+                  },
+                  "ref": null,
+                  "rendered": Array [
+                    Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "host",
+                      "props": Object {
+                        "defaultChecked": true,
+                        "name": "search",
+                        "onChange": [Function],
+                        "type": "radio",
+                      },
+                      "ref": null,
+                      "rendered": null,
+                      "type": "input",
+                    },
+                    "Fellow Name",
+                  ],
+                  "type": "li",
+                },
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": Array [
+                      <input
+                        name="search"
+                        onChange={[Function]}
+                        type="radio"
+                      />,
+                      "Partner Name",
+                    ],
+                  },
+                  "ref": null,
+                  "rendered": Array [
+                    Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "host",
+                      "props": Object {
+                        "name": "search",
+                        "onChange": [Function],
+                        "type": "radio",
+                      },
+                      "ref": null,
+                      "rendered": null,
+                      "type": "input",
+                    },
+                    "Partner Name",
+                  ],
+                  "type": "li",
+                },
+              ],
+              "type": "ul",
+            },
+          ],
+          "type": "div",
+        },
+      ],
+      "type": "div",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+        "legacyContextMode": "parent",
+        "lifecycles": Object {
+          "componentDidUpdate": Object {
+            "onSetState": true,
+          },
+          "getChildContext": Object {
+            "calledByRenderer": false,
+          },
+          "getDerivedStateFromProps": true,
+          "getSnapshotBeforeUpdate": true,
+          "setState": Object {
+            "skipsComponentDidUpdateOnNullish": true,
+          },
+        },
+      },
+    },
+  },
+}
+`;
