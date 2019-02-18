@@ -56,7 +56,7 @@ jobs:
       - setup_remote_docker
       - run:
           name: Building Production files
-          command: NODE_ENV=production npm run build
+          command: npm run build
       - run:
           name: Build Docker image and deploy application to staging
           command: chmod +x scripts/deploy.sh && scripts/deploy.sh
