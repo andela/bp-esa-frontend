@@ -199,7 +199,7 @@ class ReportPage extends PureComponent {
     const { filters: { date: { from, to } } } = this.state;
     const reportDateTime = new Date(reportDate).getTime();
     const fromTime = new Date(from).getTime();
-    const toTime = new Date(to).getTime();
+    const toTime = new Date(to).getTime() + 84600000;
     return (reportDateTime >= fromTime && reportDateTime <= toTime);
   }
 
