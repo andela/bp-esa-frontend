@@ -24,7 +24,7 @@ jobs:
           - v1-dependencies-
       - run:
             name: Install dependencies
-            command: npm install
+            command: yarn install
       - save_cache:
           paths:
             - node_modules
@@ -40,13 +40,12 @@ jobs:
           name: Run tests and upload coverage
           command: |
             ./cc-test-reporter before-build
-            npm run test
+            yarn test
             ./cc-test-reporter after-build --coverage-input-type lcov --exit-code $?
       - store_artifacts:
           path: coverage
           prefix: coverage
   deploy_staging: # Deploy application to GCP staging
-    <<: *defaults
     docker:
       - image: circleci/node:10.15.0
         environment:
@@ -62,7 +61,7 @@ jobs:
           - v1-dependencies-
       - run:
           name: Building Production files
-          command: npm un build
+          command: yarn build
       - run:
           name: Build Docker image and deploy application to staging
           command: chmod +x scripts/deploy.sh && scripts/deploy.sh
