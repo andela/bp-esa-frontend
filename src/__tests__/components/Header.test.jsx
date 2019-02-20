@@ -1,8 +1,9 @@
 import React from 'react';
 import { notify } from 'react-notify-toast';
-import * as firebase from '../../firebase';
+import { doSignOut } from '../../firebase';
 import Header from '../../components/Header';
 
+jest.mock('../../firebase');
 const props = {
   currentUser: {
     additionalUserInfo: {
@@ -40,11 +41,15 @@ describe('onLogout() method', () => {
     expect(spy).toHaveBeenCalled();
   });
 
-  it('should call onLogout() error', () => {
-    Object.defineProperty(firebase, 'doSignOut', { value: () => (Promise.resolve(new Error('Some error'))) });
-    const spy = jest.spyOn(renderedComponent.instance().props, 'removeCurrentUser');
-    renderedComponent.find('.logout-button').simulate('click');
-    expect(spy).toHaveBeenCalled();
+  it('should call onLogout() error', async () => {
+    await doSignOut.mockImplementationOnce(
+      () => new Promise((resolve) => {
+        resolve('Some error');
+      }),
+    );
+    const header = new Header(props);
+    const notifyError = await header.onLogout();
+    expect(typeof notifyError === 'function').toEqual(true);
   });
 });
 
@@ -55,6 +60,6 @@ describe('toggleSignoutDropDown() method', () => {
     sinon.spy(renderedComponent, 'toggleSignoutDropDown');
     renderedComponent.toggleSignoutDropDown(event);
     expect(renderedComponent.toggleSignoutDropDown.calledOnce).toEqual(true);
-    expect(getComponent().state().signoutDropDownIsVisible).toEqual(true)
+    expect(getComponent().state().signoutDropDownIsVisible).toEqual(true);
   });
 });

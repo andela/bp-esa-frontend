@@ -1,6 +1,8 @@
 exclude_patterns:
 - "src/__tests__/"
 - "config/"
+- "src/index.js"
+- "src/serviceWorker.js"
 version: "2"         
 checks:
   similar-code:

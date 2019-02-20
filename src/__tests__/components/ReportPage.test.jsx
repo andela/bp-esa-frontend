@@ -61,6 +61,13 @@ const sampleReports = [
     updatedAt: '2018-09-29',
   },
 ];
+class CustomError extends Error {
+  constructor(...params) {
+    super(...params);
+    const [, response] = params;
+    this.response = response;
+  }
+}
 
 const url = 'https://api-staging-esa.andela.com/api/v1/automations';
 const getComponent = () => shallow(<ReportPage {...props} />);
@@ -536,12 +543,23 @@ describe('<ReportPage />', () => {
   describe('querying the backend', () => {
     it('should get allocations from the backend', async () => {
       Object.defineProperty(axios, 'get', {
-        value: url => new Promise((resolve, reject) => resolve({ data: { data: sampleReports } })),
+        value: url => new Promise(resolve => resolve({ data: { data: sampleReports } })),
       });
       const component = await getComponent();
       const spy = jest.spyOn(component.instance(), 'componentDidMount');
       await component.instance().componentDidMount();
       expect(spy).toHaveBeenCalled();
+    });
+    it('should set state reportData to error response when fails to get allocations', async () => {
+      const errorResponse = {
+        type: 'networkError',
+      };
+      Object.defineProperty(axios, 'get', {
+        value: url => new Promise((resolve, reject) => reject(new CustomError('Failed to get allocations', errorResponse))),
+      });
+      const component = await getComponent();
+      await component.instance().componentDidMount();
+      expect(component.instance().state.reportData).toEqual(errorResponse);
     });
   });
 });
