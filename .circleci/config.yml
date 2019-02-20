@@ -61,7 +61,7 @@ jobs:
           - v1-dependencies-
       - run:
           name: Building Production files
-          command: yarn install && yarn build
+          command: yarn build
       - run:
           name: Build Docker image and deploy application to staging
           command: chmod +x scripts/deploy.sh && scripts/deploy.sh
