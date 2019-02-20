@@ -22,11 +22,6 @@ class Search extends PureComponent {
     }
   }
 
-  onBlurHandler = (event) => {
-    const { closeDropdown } = this.props;
-    closeDropdown(event, this, 'searchOptionsVisible');
-  }
-
   toggleVisibility = () => {
     this.setState(prevState => ({
       searchOptionsVisible: !prevState.searchOptionsVisible,
@@ -66,7 +61,7 @@ class Search extends PureComponent {
     return (
       <div>
         <input type="text" className="search-input" value={searchValue} onChange={this.handleSearchValueChange} />
-        <div className="search" onBlur={this.onBlurHandler} tabIndex="-1">
+        <div className="search">
           <div className="search-title" onClick={event => this.toggleVisibility(event)}>
             <span className="title">
               {'Search With'}
@@ -87,7 +82,6 @@ class Search extends PureComponent {
 
 Search.propTypes = {
   handleSearch: PropTypes.func.isRequired,
-  closeDropdown: PropTypes.func.isRequired,
 };
 
 export default Search;

@@ -137,17 +137,6 @@ class ReportPage extends PureComponent {
     this.setState({ isModalOpen: false });
   }
 
-  closeDropdown = (event, component, property) => {
-    const target = event.currentTarget || event.target;
-    setTimeout(() => {
-      if (target.querySelectorAll(':focus').length === 0) {
-        const componentState = {};
-        componentState[property] = false;
-        component.setState(componentState);
-      }
-    }, 0);
-  }
-
   formatDates = (date) => {
     const dateFormat = {
       year: 'numeric',
@@ -248,7 +237,7 @@ class ReportPage extends PureComponent {
   renderAutomationStatus(automationStatus, report, type) {
     return (
       <span>
-        {automationStatus}&nbsp;
+        { automationStatus }&nbsp;
         <i
           className={`fa fa-info-circle ${automationStatus}`}
           onClick={() => { this.openModal(); this.changeModalTypes(report, type); }}
@@ -265,13 +254,12 @@ class ReportPage extends PureComponent {
         title={filter.title}
         options={filter.options}
         handleFilterChange={this.setFilter}
-        closeDropdown={this.closeDropdown}
       />
     ));
   }
 
   renderSearch() {
-    return <Search handleSearch={this.doSearch} closeDropdown={this.closeDropdown} />;
+    return <Search handleSearch={this.doSearch} />;
   }
 
   renderTableRows() {
@@ -366,7 +354,7 @@ ReportPage.propTypes = {
 };
 
 ReportPage.defaultProps = {
-  removeCurrentUser: () => { },
+  removeCurrentUser: () => {},
 };
 
 export default ReportPage;
