@@ -20,7 +20,7 @@ const getComponent = () => {
 
 describe('constructor() method', () => {
   it('should call the constructor()', () => {
-    sessionStorage.setItem('state', JSON.stringify({authenticated: true,currentUser: null}));
+    localStorage.setItem('state', JSON.stringify({authenticated: true,currentUser: null}));
     const renderedComponent = getComponent().instance();
     sinon.spy(renderedComponent, 'constructor');
     expect(getComponent().state('authenticated')).toEqual(true)

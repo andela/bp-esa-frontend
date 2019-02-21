@@ -28,7 +28,7 @@ AuthenticatedRoute.propTypes = {
 class App extends React.PureComponent {
   constructor(props) {
     super(props);
-    var userState = sessionStorage.getItem('state');
+    var userState = localStorage.getItem('state');
     if (userState) {
       userState = JSON.parse(userState);
       this.state = userState;
@@ -46,7 +46,7 @@ class App extends React.PureComponent {
         authenticated: true,
         currentUser: user,
       }
-      sessionStorage.setItem('state', JSON.stringify(sessionState));
+      localStorage.setItem('state', JSON.stringify(sessionState));
       this.setState(sessionState);
     } else {
       this.removeCurrentUser();
@@ -58,7 +58,7 @@ class App extends React.PureComponent {
       authenticated: false,
       currentUser: null,
     });
-    sessionStorage.removeItem('state');
+    localStorage.removeItem('state');
   }
 
   render() {
