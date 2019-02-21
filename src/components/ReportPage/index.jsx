@@ -234,10 +234,26 @@ class ReportPage extends PureComponent {
     this.setState({ modalContent: report, type });
   }
 
+  statusBreakdown(automation, type) {
+    const activities = automation[type + 'Automations'][type + 'Activities'] || [];
+    let stats = { s: 0, f: 0 };
+    activities.map(a => {
+      if (a.status === "success") {
+        stats.s++;
+      } else {
+        stats.f++;
+      }
+    });
+    return '(' + stats.s + '/' + activities.length + ')';
+  }
+
   renderAutomationStatus(automationStatus, report, type) {
     return (
       <span>
-        { automationStatus }&nbsp;
+        {automationStatus}&nbsp;
+        <span className={`${automationStatus}-text`}>
+          {this.statusBreakdown(report, type)}
+        </span>
         <i
           className={`fa fa-info-circle ${automationStatus}`}
           onClick={() => { this.openModal(); this.changeModalTypes(report, type); }}
@@ -355,7 +371,7 @@ ReportPage.propTypes = {
 };
 
 ReportPage.defaultProps = {
-  removeCurrentUser: () => {},
+  removeCurrentUser: () => { },
 };
 
 export default ReportPage;
