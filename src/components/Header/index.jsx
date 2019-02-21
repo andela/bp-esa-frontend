@@ -46,12 +46,8 @@ class Header extends PureComponent {
           </a>
         </div>
         <div className="signout">
-          <div>
-            <span className="user-name">
-              Hello,&nbsp;
-              {name}
-!
-            </span>
+          <div className="user-name">
+              Hello,&nbsp;{name}
           </div>
           <div className="image-container" onClick={this.toggleSignoutDropDown}>
             {picture ? (

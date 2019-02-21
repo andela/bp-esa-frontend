@@ -276,10 +276,11 @@ class ReportPage extends PureComponent {
         <td
           className="fellow"
           onClick={() => window.open(`https://ais.andela.com/people/${report.fellowId}`)}
+          title={report.fellowName}
         >
           {report.fellowName}
         </td>
-        <td>{report.partnerName}</td>
+        <td title={report.partnerName}>{report.partnerName}</td>
         <td>{report.type}</td>
         <td>{this.renderAutomationStatus(report.slackAutomations.status, report, 'slack')}</td>
         <td>{this.renderAutomationStatus(report.emailAutomations.status, report, 'email')}</td>
