@@ -71,7 +71,12 @@ class App extends React.PureComponent {
             <Route
               exact
               path="/login"
-              render={props => ((authenticated === true) ? <Redirect to="/" /> : <Login setCurrentUser={this.setCurrentUser} {...props} />)}
+              render={
+                props => (
+                  (authenticated === true) ?
+                    <Redirect to="/" /> : <Login setCurrentUser={this.setCurrentUser} {...props} />
+                  )
+              }
             />
             <AuthenticatedRoute
               exact
