@@ -105,7 +105,7 @@ img.logo {
 
 /* Styling the SideBar component */
 .col-sm-2 .sidebar{
-    background-color: #eeeeee; 
+    background-color: #eeeeee;
     height: 88vh;
     line-height: 250%;
     padding: 25px;
@@ -137,7 +137,7 @@ form input[type="search"] {
 }
 @import "//netdna.bootstrapcdn.com/font-awesome/3.0/css/font-awesome.css";
 
-form input[type="search"]::-webkit-input-placeholder { 
+form input[type="search"]::-webkit-input-placeholder {
 font-family: FontAwesome;
 font-weight: normal;
 overflow: visible;
@@ -147,7 +147,7 @@ padding-left: 5px;
 padding-top: 2px;
 }
 
-form input[type="search"]::-moz-placeholder  { 
+form input[type="search"]::-moz-placeholder  {
 font-family: FontAwesome;
 font-weight: normal;
 overflow: visible;
@@ -157,7 +157,7 @@ padding-left: 5px;
 padding-top: 2px;
 }
 
-form input[type="search"]:-ms-input-placeholder  { 
+form input[type="search"]:-ms-input-placeholder  {
 font-family: FontAwesome;
 font-weight: normal;
 overflow: visible;
@@ -170,8 +170,11 @@ padding-top: 2px;
 table .report_table, th, td {
     border: 1px solid black;
     padding: 15px;
+    font-family: "Din Pro"
 }
-
+span {
+    font-family: "Din Pro";
+}
 .report_table {
     width: 95%;
 }

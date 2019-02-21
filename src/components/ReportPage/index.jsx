@@ -235,16 +235,17 @@ class ReportPage extends PureComponent {
   }
 
   statusBreakdown(automation, type) {
-    const activities = automation[type + 'Automations'][type + 'Activities'] || [];
-    let stats = { s: 0, f: 0 };
-    activities.map(a => {
-      if (a.status === "success") {
-        stats.s++;
+    const activities = automation[`${type}Automations`][`${type}Activities`] || [];
+    const stats = { successCount: 0, failureCount: 0 };
+    activities.map((activity) => {
+      if (activity.status === 'success') {
+        stats.successCount += 1;
       } else {
-        stats.f++;
+        stats.failureCount += 1;
       }
+      return stats.failureCount;
     });
-    return '(' + stats.s + '/' + activities.length + ')';
+    return `(${stats.successCount}/${activities.length})`;
   }
 
   renderAutomationStatus(automationStatus, report, type) {
