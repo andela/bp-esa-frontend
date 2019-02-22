@@ -363,7 +363,7 @@ ReportPage.propTypes = {
 };
 
 ReportPage.defaultProps = {
-  removeCurrentUser: () => { },
+  removeCurrentUser: () => {},
 };
 
 export default ReportPage;
