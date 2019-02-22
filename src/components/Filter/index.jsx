@@ -3,6 +3,7 @@ import classNames from 'classnames';
 import PropTypes from 'proptypes';
 import DatePicker from './DatePicker';
 import './styles.scss';
+import ReactDOM from 'react-dom';
 
 class Filter extends PureComponent {
   constructor() {
@@ -21,9 +22,28 @@ class Filter extends PureComponent {
     });
   }
 
-  toggleVisibility = () => {
+  /**
+   * Toggle the display of the options available in the dropdown
+   */
+  toggleVisibility = e => {
     const { filterOptionsIsVisible } = this.state;
-    this.setState({ filterOptionsIsVisible: !filterOptionsIsVisible });
+
+    // The DOM's UL element holding the list of options
+    const filterOptionsEl = ReactDOM.findDOMNode(this).getElementsByClassName('filter-options')[0];
+
+    // Handler for clicking anywhere else on the page
+    const clickAway = ev => {
+      if (ev.target === filterOptionsEl || filterOptionsEl.contains(ev.target)) return;
+      if (e !== ev) {
+        this.setState({ filterOptionsIsVisible:  false});
+        document.removeEventListener('click', clickAway);
+      }
+    }
+
+    if (!filterOptionsIsVisible) {
+      this.setState({ filterOptionsIsVisible: true});
+      document.addEventListener('click', clickAway);
+    }
   }
 
   selectCheckBoxFilter = (event) => {
