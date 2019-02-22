@@ -1,0 +1,741 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render as expected 1`] = `
+ShallowWrapper {
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <Header
+    currentUser={
+      Object {
+        "additionalUserInfo": Object {
+          "profile": Object {
+            "name": "",
+            "picture": "",
+          },
+        },
+      }
+    }
+    history={
+      Object {
+        "push": [MockFunction],
+      }
+    }
+    removeCurrentUser={[MockFunction]}
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "checkPropTypes": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateError": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "children": Array [
+        <div
+          className="brand"
+        >
+          <a
+            href="/"
+          >
+            <img
+              alt="Andela Logo"
+              className="logo"
+              src="/logo.png"
+            />
+            <span
+              className="text"
+            >
+              ESA Reporting
+            </span>
+          </a>
+        </div>,
+        <div
+          className="signout"
+        >
+          <div
+            className="user-name"
+          >
+            Hello, 
+            
+            !
+          </div>
+          <div
+            className="image-container"
+            onClick={[Function]}
+          >
+            <i
+              className="fa fa-2x fa-user-circle"
+            />
+            <i
+              className="fa fa-caret-down custom"
+            />
+            <div
+              className="signout-dropdown"
+            >
+              <button
+                className="logout-button"
+                onClick={[Function]}
+                type="button"
+              >
+                <i
+                  className="fa fa-sign-out-alt"
+                />
+                 
+                <span>
+                  Sign Out
+                </span>
+              </button>
+            </div>
+          </div>
+        </div>,
+      ],
+      "id": "header",
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": <a
+            href="/"
+          >
+            <img
+              alt="Andela Logo"
+              className="logo"
+              src="/logo.png"
+            />
+            <span
+              className="text"
+            >
+              ESA Reporting
+            </span>
+          </a>,
+          "className": "brand",
+        },
+        "ref": null,
+        "rendered": Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              <img
+                alt="Andela Logo"
+                className="logo"
+                src="/logo.png"
+              />,
+              <span
+                className="text"
+              >
+                ESA Reporting
+              </span>,
+            ],
+            "href": "/",
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "alt": "Andela Logo",
+                "className": "logo",
+                "src": "/logo.png",
+              },
+              "ref": null,
+              "rendered": null,
+              "type": "img",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": "ESA Reporting",
+                "className": "text",
+              },
+              "ref": null,
+              "rendered": "ESA Reporting",
+              "type": "span",
+            },
+          ],
+          "type": "a",
+        },
+        "type": "div",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            <div
+              className="user-name"
+            >
+              Hello, 
+              
+              !
+            </div>,
+            <div
+              className="image-container"
+              onClick={[Function]}
+            >
+              <i
+                className="fa fa-2x fa-user-circle"
+              />
+              <i
+                className="fa fa-caret-down custom"
+              />
+              <div
+                className="signout-dropdown"
+              >
+                <button
+                  className="logout-button"
+                  onClick={[Function]}
+                  type="button"
+                >
+                  <i
+                    className="fa fa-sign-out-alt"
+                  />
+                   
+                  <span>
+                    Sign Out
+                  </span>
+                </button>
+              </div>
+            </div>,
+          ],
+          "className": "signout",
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": Array [
+                "Hello, ",
+                "",
+                "!",
+              ],
+              "className": "user-name",
+            },
+            "ref": null,
+            "rendered": Array [
+              "Hello, ",
+              "",
+              "!",
+            ],
+            "type": "div",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": Array [
+                <i
+                  className="fa fa-2x fa-user-circle"
+                />,
+                <i
+                  className="fa fa-caret-down custom"
+                />,
+                <div
+                  className="signout-dropdown"
+                >
+                  <button
+                    className="logout-button"
+                    onClick={[Function]}
+                    type="button"
+                  >
+                    <i
+                      className="fa fa-sign-out-alt"
+                    />
+                     
+                    <span>
+                      Sign Out
+                    </span>
+                  </button>
+                </div>,
+              ],
+              "className": "image-container",
+              "onClick": [Function],
+            },
+            "ref": null,
+            "rendered": Array [
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "className": "fa fa-2x fa-user-circle",
+                },
+                "ref": null,
+                "rendered": null,
+                "type": "i",
+              },
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "className": "fa fa-caret-down custom",
+                },
+                "ref": null,
+                "rendered": null,
+                "type": "i",
+              },
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": <button
+                    className="logout-button"
+                    onClick={[Function]}
+                    type="button"
+                  >
+                    <i
+                      className="fa fa-sign-out-alt"
+                    />
+                     
+                    <span>
+                      Sign Out
+                    </span>
+                  </button>,
+                  "className": "signout-dropdown",
+                },
+                "ref": null,
+                "rendered": Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": Array [
+                      <i
+                        className="fa fa-sign-out-alt"
+                      />,
+                      " ",
+                      <span>
+                        Sign Out
+                      </span>,
+                    ],
+                    "className": "logout-button",
+                    "onClick": [Function],
+                    "type": "button",
+                  },
+                  "ref": null,
+                  "rendered": Array [
+                    Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "host",
+                      "props": Object {
+                        "className": "fa fa-sign-out-alt",
+                      },
+                      "ref": null,
+                      "rendered": null,
+                      "type": "i",
+                    },
+                    " ",
+                    Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "host",
+                      "props": Object {
+                        "children": "Sign Out",
+                      },
+                      "ref": null,
+                      "rendered": "Sign Out",
+                      "type": "span",
+                    },
+                  ],
+                  "type": "button",
+                },
+                "type": "div",
+              },
+            ],
+            "type": "div",
+          },
+        ],
+        "type": "div",
+      },
+    ],
+    "type": "div",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": Array [
+          <div
+            className="brand"
+          >
+            <a
+              href="/"
+            >
+              <img
+                alt="Andela Logo"
+                className="logo"
+                src="/logo.png"
+              />
+              <span
+                className="text"
+              >
+                ESA Reporting
+              </span>
+            </a>
+          </div>,
+          <div
+            className="signout"
+          >
+            <div
+              className="user-name"
+            >
+              Hello, 
+              
+              !
+            </div>
+            <div
+              className="image-container"
+              onClick={[Function]}
+            >
+              <i
+                className="fa fa-2x fa-user-circle"
+              />
+              <i
+                className="fa fa-caret-down custom"
+              />
+              <div
+                className="signout-dropdown"
+              >
+                <button
+                  className="logout-button"
+                  onClick={[Function]}
+                  type="button"
+                >
+                  <i
+                    className="fa fa-sign-out-alt"
+                  />
+                   
+                  <span>
+                    Sign Out
+                  </span>
+                </button>
+              </div>
+            </div>
+          </div>,
+        ],
+        "id": "header",
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": <a
+              href="/"
+            >
+              <img
+                alt="Andela Logo"
+                className="logo"
+                src="/logo.png"
+              />
+              <span
+                className="text"
+              >
+                ESA Reporting
+              </span>
+            </a>,
+            "className": "brand",
+          },
+          "ref": null,
+          "rendered": Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": Array [
+                <img
+                  alt="Andela Logo"
+                  className="logo"
+                  src="/logo.png"
+                />,
+                <span
+                  className="text"
+                >
+                  ESA Reporting
+                </span>,
+              ],
+              "href": "/",
+            },
+            "ref": null,
+            "rendered": Array [
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "alt": "Andela Logo",
+                  "className": "logo",
+                  "src": "/logo.png",
+                },
+                "ref": null,
+                "rendered": null,
+                "type": "img",
+              },
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": "ESA Reporting",
+                  "className": "text",
+                },
+                "ref": null,
+                "rendered": "ESA Reporting",
+                "type": "span",
+              },
+            ],
+            "type": "a",
+          },
+          "type": "div",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              <div
+                className="user-name"
+              >
+                Hello, 
+                
+                !
+              </div>,
+              <div
+                className="image-container"
+                onClick={[Function]}
+              >
+                <i
+                  className="fa fa-2x fa-user-circle"
+                />
+                <i
+                  className="fa fa-caret-down custom"
+                />
+                <div
+                  className="signout-dropdown"
+                >
+                  <button
+                    className="logout-button"
+                    onClick={[Function]}
+                    type="button"
+                  >
+                    <i
+                      className="fa fa-sign-out-alt"
+                    />
+                     
+                    <span>
+                      Sign Out
+                    </span>
+                  </button>
+                </div>
+              </div>,
+            ],
+            "className": "signout",
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": Array [
+                  "Hello, ",
+                  "",
+                  "!",
+                ],
+                "className": "user-name",
+              },
+              "ref": null,
+              "rendered": Array [
+                "Hello, ",
+                "",
+                "!",
+              ],
+              "type": "div",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": Array [
+                  <i
+                    className="fa fa-2x fa-user-circle"
+                  />,
+                  <i
+                    className="fa fa-caret-down custom"
+                  />,
+                  <div
+                    className="signout-dropdown"
+                  >
+                    <button
+                      className="logout-button"
+                      onClick={[Function]}
+                      type="button"
+                    >
+                      <i
+                        className="fa fa-sign-out-alt"
+                      />
+                       
+                      <span>
+                        Sign Out
+                      </span>
+                    </button>
+                  </div>,
+                ],
+                "className": "image-container",
+                "onClick": [Function],
+              },
+              "ref": null,
+              "rendered": Array [
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "className": "fa fa-2x fa-user-circle",
+                  },
+                  "ref": null,
+                  "rendered": null,
+                  "type": "i",
+                },
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "className": "fa fa-caret-down custom",
+                  },
+                  "ref": null,
+                  "rendered": null,
+                  "type": "i",
+                },
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": <button
+                      className="logout-button"
+                      onClick={[Function]}
+                      type="button"
+                    >
+                      <i
+                        className="fa fa-sign-out-alt"
+                      />
+                       
+                      <span>
+                        Sign Out
+                      </span>
+                    </button>,
+                    "className": "signout-dropdown",
+                  },
+                  "ref": null,
+                  "rendered": Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": Array [
+                        <i
+                          className="fa fa-sign-out-alt"
+                        />,
+                        " ",
+                        <span>
+                          Sign Out
+                        </span>,
+                      ],
+                      "className": "logout-button",
+                      "onClick": [Function],
+                      "type": "button",
+                    },
+                    "ref": null,
+                    "rendered": Array [
+                      Object {
+                        "instance": null,
+                        "key": undefined,
+                        "nodeType": "host",
+                        "props": Object {
+                          "className": "fa fa-sign-out-alt",
+                        },
+                        "ref": null,
+                        "rendered": null,
+                        "type": "i",
+                      },
+                      " ",
+                      Object {
+                        "instance": null,
+                        "key": undefined,
+                        "nodeType": "host",
+                        "props": Object {
+                          "children": "Sign Out",
+                        },
+                        "ref": null,
+                        "rendered": "Sign Out",
+                        "type": "span",
+                      },
+                    ],
+                    "type": "button",
+                  },
+                  "type": "div",
+                },
+              ],
+              "type": "div",
+            },
+          ],
+          "type": "div",
+        },
+      ],
+      "type": "div",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+        "legacyContextMode": "parent",
+        "lifecycles": Object {
+          "componentDidUpdate": Object {
+            "onSetState": true,
+          },
+          "getChildContext": Object {
+            "calledByRenderer": false,
+          },
+          "getDerivedStateFromProps": true,
+          "getSnapshotBeforeUpdate": true,
+          "setState": Object {
+            "skipsComponentDidUpdateOnNullish": true,
+          },
+        },
+      },
+    },
+  },
+}
+`;

@@ -1,0 +1,517 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders without crashing 1`] = `
+ShallowWrapper {
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <Login
+    history={
+      Object {
+        "push": [MockFunction],
+      }
+    }
+    setCurrentUser={[MockFunction]}
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "checkPropTypes": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateError": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "children": <div
+        className="login_details"
+      >
+        <div
+          className="login_logo"
+        >
+          <div>
+            A
+          </div>
+          <img
+            alt="Andela Logo"
+            className="logo"
+            src="/logo.png"
+          />
+        </div>
+        <div
+          className="login_title"
+        >
+          <h1>
+            ESA
+          </h1>
+        </div>
+        <div
+          className="login_link"
+        >
+          <a
+            href="#"
+            onClick={[Function]}
+          >
+            <img
+              alt="google-icon"
+              src="/google.png"
+            />
+            <span>
+              LOGIN TO GET STARTED
+            </span>
+          </a>
+        </div>
+      </div>,
+      "className": "login_page",
+    },
+    "ref": null,
+    "rendered": Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": Array [
+          <div
+            className="login_logo"
+          >
+            <div>
+              A
+            </div>
+            <img
+              alt="Andela Logo"
+              className="logo"
+              src="/logo.png"
+            />
+          </div>,
+          <div
+            className="login_title"
+          >
+            <h1>
+              ESA
+            </h1>
+          </div>,
+          <div
+            className="login_link"
+          >
+            <a
+              href="#"
+              onClick={[Function]}
+            >
+              <img
+                alt="google-icon"
+                src="/google.png"
+              />
+              <span>
+                LOGIN TO GET STARTED
+              </span>
+            </a>
+          </div>,
+        ],
+        "className": "login_details",
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              <div>
+                A
+              </div>,
+              <img
+                alt="Andela Logo"
+                className="logo"
+                src="/logo.png"
+              />,
+            ],
+            "className": "login_logo",
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": "A",
+              },
+              "ref": null,
+              "rendered": "A",
+              "type": "div",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "alt": "Andela Logo",
+                "className": "logo",
+                "src": "/logo.png",
+              },
+              "ref": null,
+              "rendered": null,
+              "type": "img",
+            },
+          ],
+          "type": "div",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": <h1>
+              ESA
+            </h1>,
+            "className": "login_title",
+          },
+          "ref": null,
+          "rendered": Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": "ESA",
+            },
+            "ref": null,
+            "rendered": "ESA",
+            "type": "h1",
+          },
+          "type": "div",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": <a
+              href="#"
+              onClick={[Function]}
+            >
+              <img
+                alt="google-icon"
+                src="/google.png"
+              />
+              <span>
+                LOGIN TO GET STARTED
+              </span>
+            </a>,
+            "className": "login_link",
+          },
+          "ref": null,
+          "rendered": Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": Array [
+                <img
+                  alt="google-icon"
+                  src="/google.png"
+                />,
+                <span>
+                  LOGIN TO GET STARTED
+                </span>,
+              ],
+              "href": "#",
+              "onClick": [Function],
+            },
+            "ref": null,
+            "rendered": Array [
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "alt": "google-icon",
+                  "src": "/google.png",
+                },
+                "ref": null,
+                "rendered": null,
+                "type": "img",
+              },
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": "LOGIN TO GET STARTED",
+                },
+                "ref": null,
+                "rendered": "LOGIN TO GET STARTED",
+                "type": "span",
+              },
+            ],
+            "type": "a",
+          },
+          "type": "div",
+        },
+      ],
+      "type": "div",
+    },
+    "type": "div",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": <div
+          className="login_details"
+        >
+          <div
+            className="login_logo"
+          >
+            <div>
+              A
+            </div>
+            <img
+              alt="Andela Logo"
+              className="logo"
+              src="/logo.png"
+            />
+          </div>
+          <div
+            className="login_title"
+          >
+            <h1>
+              ESA
+            </h1>
+          </div>
+          <div
+            className="login_link"
+          >
+            <a
+              href="#"
+              onClick={[Function]}
+            >
+              <img
+                alt="google-icon"
+                src="/google.png"
+              />
+              <span>
+                LOGIN TO GET STARTED
+              </span>
+            </a>
+          </div>
+        </div>,
+        "className": "login_page",
+      },
+      "ref": null,
+      "rendered": Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            <div
+              className="login_logo"
+            >
+              <div>
+                A
+              </div>
+              <img
+                alt="Andela Logo"
+                className="logo"
+                src="/logo.png"
+              />
+            </div>,
+            <div
+              className="login_title"
+            >
+              <h1>
+                ESA
+              </h1>
+            </div>,
+            <div
+              className="login_link"
+            >
+              <a
+                href="#"
+                onClick={[Function]}
+              >
+                <img
+                  alt="google-icon"
+                  src="/google.png"
+                />
+                <span>
+                  LOGIN TO GET STARTED
+                </span>
+              </a>
+            </div>,
+          ],
+          "className": "login_details",
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": Array [
+                <div>
+                  A
+                </div>,
+                <img
+                  alt="Andela Logo"
+                  className="logo"
+                  src="/logo.png"
+                />,
+              ],
+              "className": "login_logo",
+            },
+            "ref": null,
+            "rendered": Array [
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": "A",
+                },
+                "ref": null,
+                "rendered": "A",
+                "type": "div",
+              },
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "alt": "Andela Logo",
+                  "className": "logo",
+                  "src": "/logo.png",
+                },
+                "ref": null,
+                "rendered": null,
+                "type": "img",
+              },
+            ],
+            "type": "div",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": <h1>
+                ESA
+              </h1>,
+              "className": "login_title",
+            },
+            "ref": null,
+            "rendered": Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": "ESA",
+              },
+              "ref": null,
+              "rendered": "ESA",
+              "type": "h1",
+            },
+            "type": "div",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": <a
+                href="#"
+                onClick={[Function]}
+              >
+                <img
+                  alt="google-icon"
+                  src="/google.png"
+                />
+                <span>
+                  LOGIN TO GET STARTED
+                </span>
+              </a>,
+              "className": "login_link",
+            },
+            "ref": null,
+            "rendered": Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": Array [
+                  <img
+                    alt="google-icon"
+                    src="/google.png"
+                  />,
+                  <span>
+                    LOGIN TO GET STARTED
+                  </span>,
+                ],
+                "href": "#",
+                "onClick": [Function],
+              },
+              "ref": null,
+              "rendered": Array [
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "alt": "google-icon",
+                    "src": "/google.png",
+                  },
+                  "ref": null,
+                  "rendered": null,
+                  "type": "img",
+                },
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": "LOGIN TO GET STARTED",
+                  },
+                  "ref": null,
+                  "rendered": "LOGIN TO GET STARTED",
+                  "type": "span",
+                },
+              ],
+              "type": "a",
+            },
+            "type": "div",
+          },
+        ],
+        "type": "div",
+      },
+      "type": "div",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+        "legacyContextMode": "parent",
+        "lifecycles": Object {
+          "componentDidUpdate": Object {
+            "onSetState": true,
+          },
+          "getChildContext": Object {
+            "calledByRenderer": false,
+          },
+          "getDerivedStateFromProps": true,
+          "getSnapshotBeforeUpdate": true,
+          "setState": Object {
+            "skipsComponentDidUpdateOnNullish": true,
+          },
+        },
+      },
+    },
+  },
+}
+`;

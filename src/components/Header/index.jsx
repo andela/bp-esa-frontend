@@ -8,7 +8,7 @@ import './styles.scss';
 class Header extends PureComponent {
   state = {
     signoutDropDownIsVisible: false,
-  }
+  };
 
   toggleSignoutDropDown = (event) => {
     event.preventDefault();
@@ -16,25 +16,27 @@ class Header extends PureComponent {
     this.setState({
       signoutDropDownIsVisible: !signoutDropDownIsVisible,
     });
-  }
+  };
 
-  onLogout = () => {
+  onLogout = async () => {
     const { removeCurrentUser, history } = this.props;
-    doSignOut().then((error) => {
-      if (error) {
-        notify.show('Unable to logout!', 'error');
-      } else {
-        removeCurrentUser();
-        history.push('/login');
-        notify.show('You have Logged out Successfully!', 'success');
-      }
-    });
-  }
+    const error = await doSignOut();
+    if (error) {
+      return notify.show('Unable to logout!', 'error');
+    }
+    removeCurrentUser();
+    history.push('/login');
+    notify.show('You have Logged out Successfully!', 'success');
+  };
 
   render() {
     const { signoutDropDownIsVisible } = this.state;
     const { currentUser } = this.props;
-    const { additionalUserInfo: { profile: { name, picture } } } = currentUser;
+    const {
+      additionalUserInfo: {
+        profile: { name, picture },
+      },
+    } = currentUser;
     return (
       <div id="header">
         <div className="brand">
@@ -44,24 +46,20 @@ class Header extends PureComponent {
           </a>
         </div>
         <div className="signout">
-          <div>
-            <span className="user-name">
-            Hello,&nbsp;
-              { name }
-            !
-            </span>
+          <div className="user-name">
+              Hello,&nbsp;{name}!
           </div>
           <div className="image-container" onClick={this.toggleSignoutDropDown}>
-            { picture
-              ? <img src={picture} alt="user-icon" className="user-image" />
-              : <i className="fa fa-2x fa-user-circle" />
-            }
+            {picture ? (
+              <img src={picture} alt="user-icon" className="user-image" />
+            ) : (
+              <i className="fa fa-2x fa-user-circle" />
+            )}
             <i className="fa fa-caret-down custom" />
-            <div
-              className={classNames('signout-dropdown', { visible: signoutDropDownIsVisible })}
-            >
+            <div className={classNames('signout-dropdown', { visible: signoutDropDownIsVisible })}>
               <button type="button" className="logout-button" onClick={() => this.onLogout()}>
-                <i className="fa fa-sign-out-alt" />&nbsp;
+                <i className="fa fa-sign-out-alt" />
+                &nbsp;
                 <span>Sign Out</span>
               </button>
             </div>

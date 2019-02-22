@@ -29,10 +29,12 @@ const sampleReports = [
         {
           channelName: 'andela-int',
           type: 'Addition',
+          status: 'failure'
         },
         {
           channelName: 'andela',
           type: 'Removal',
+          status: 'success'
         },
       ],
     },
@@ -61,6 +63,13 @@ const sampleReports = [
     updatedAt: '2018-09-29',
   },
 ];
+class CustomError extends Error {
+  constructor(...params) {
+    super(...params);
+    const [, response] = params;
+    this.response = response;
+  }
+}
 
 const url = 'https://api-staging-esa.andela.com/api/v1/automations';
 const getComponent = () => shallow(<ReportPage {...props} />);
@@ -73,14 +82,14 @@ describe('<ReportPage />', () => {
   describe('componenDidUpdate method', () => {
     it(`should call filterReports method if the
     filters in the state is updated`, () => {
-      const component = getComponent();
-      const componentInstance = component.instance();
-      jest.spyOn(componentInstance, 'filterReports');
-      expect(componentInstance.filterReports).toHaveBeenCalledTimes(0);
-      const previousFilters = component.state('filters');
-      component.setState({ filters: { ...previousFilters, updated: true } });
-      expect(componentInstance.filterReports).toHaveBeenCalledTimes(1);
-    });
+        const component = getComponent();
+        const componentInstance = component.instance();
+        jest.spyOn(componentInstance, 'filterReports');
+        expect(componentInstance.filterReports).toHaveBeenCalledTimes(0);
+        const previousFilters = component.state('filters');
+        component.setState({ filters: { ...previousFilters, updated: true } });
+        expect(componentInstance.filterReports).toHaveBeenCalledTimes(1);
+      });
   });
 
   describe('setFilter method', () => {
@@ -88,80 +97,80 @@ describe('<ReportPage />', () => {
       const filterSet = 'automationStatus';
       it(`should add a filter to the state and increment the filter length
       if action is add_filter`, () => {
-        const component = getComponent();
-        const componentInstance = component.instance();
-        expect(component.state('filters').automationStatus).toEqual([]);
-        expect(component.state('filters').length).toEqual(0);
-        componentInstance.setFilter(
-          'failed_automations',
-          filterSet,
-          'add_filter',
-        );
-        expect(component.state('filters').automationStatus).toEqual([
-          'failed_automations',
-        ]);
-        expect(component.state('filters').length).toEqual(1);
-      });
+          const component = getComponent();
+          const componentInstance = component.instance();
+          expect(component.state('filters').automationStatus).toEqual([]);
+          expect(component.state('filters').length).toEqual(0);
+          componentInstance.setFilter(
+            'failed_automations',
+            filterSet,
+            'add_filter',
+          );
+          expect(component.state('filters').automationStatus).toEqual([
+            'failed_automations',
+          ]);
+          expect(component.state('filters').length).toEqual(1);
+        });
       it(`should remove a filter in the state and reduce the filter length
        if action is remove_filter`, () => {
-        const component = getComponent();
-        const componentInstance = component.instance();
-        const previousFilters = component.state('filters');
-        component.setState({
-          filters: {
-            ...previousFilters,
-            automationStatus: ['failed_automations'],
-            length: 1,
-          },
+          const component = getComponent();
+          const componentInstance = component.instance();
+          const previousFilters = component.state('filters');
+          component.setState({
+            filters: {
+              ...previousFilters,
+              automationStatus: ['failed_automations'],
+              length: 1,
+            },
+          });
+          componentInstance.setFilter(
+            'failed_automations',
+            filterSet,
+            'remove_filter',
+          );
+          expect(component.state('filters').automationStatus).toEqual([]);
+          expect(component.state('filters').length).toEqual(0);
         });
-        componentInstance.setFilter(
-          'failed_automations',
-          filterSet,
-          'remove_filter',
-        );
-        expect(component.state('filters').automationStatus).toEqual([]);
-        expect(component.state('filters').length).toEqual(0);
-      });
     });
 
     describe('Automation type filter set', () => {
       const filterSet = 'automationType';
       it(`should add a filter to the state and increment the filter length,
       if action is add_filter`, () => {
-        const component = getComponent();
-        const componentInstance = component.instance();
-        expect(component.state('filters').automationType).toEqual([]);
-        expect(component.state('filters').length).toEqual(0);
-        componentInstance.setFilter(
-          'failed_automations',
-          filterSet,
-          'add_filter',
-        );
-        expect(component.state('filters').automationType).toEqual([
-          'failed_automations',
-        ]);
-        expect(component.state('filters').length).toEqual(1);
-      });
+          const component = getComponent();
+          const componentInstance = component.instance();
+          expect(component.state('filters').automationType).toEqual([]);
+          expect(component.state('filters').length).toEqual(0);
+          componentInstance.setFilter(
+            'failed_automations',
+            filterSet,
+            'add_filter',
+          );
+          expect(component.state('filters').automationType).toEqual([
+            'failed_automations',
+          ]);
+          expect(component.state('filters').length).toEqual(1);
+        });
       it(`should remove a filter in the state and reduce the filter length
       if action is remove_filter`, () => {
-        const component = getComponent();
-        const componentInstance = component.instance();
-        const previousFilters = component.state('filters');
-        component.setState({
-          filters: {
-            ...previousFilters,
-            automationType: ['failed_automations'],
-            length: 1,
-          },
+          const component = getComponent();
+          const componentInstance = component.instance();
+          const previousFilters = component.state('filters');
+          component.setState({
+            filters: {
+              ...previousFilters,
+              automationType: ['failed_automations'],
+              length: 1,
+            },
+          });
+          componentInstance.setFilter(
+            'failed_automations',
+            filterSet,
+            'remove_filter',
+          );
+          expect(component.state('filters').automationType).toEqual([]);
+          expect(component.state('filters').length).toEqual(0);
         });
-        componentInstance.setFilter(
-          'failed_automations',
-          filterSet,
-          'remove_filter',
-        );
-        expect(component.state('filters').automationType).toEqual([]);
-        expect(component.state('filters').length).toEqual(0);
-      });
     });
 
     describe('Date filter set', () => {
@@ -169,28 +178,28 @@ describe('<ReportPage />', () => {
       const sampleDateFilter = '12/02/2018';
       it(`should add a date-filter to the state and increment the filter length
       if action is set_from_date`, () => {
-        const component = getComponent();
-        const componentInstance = component.instance();
-        expect(component.state('filters').date.from).toEqual('');
-        expect(component.state('filters').length).toEqual(0);
-        componentInstance.setFilter(
-          sampleDateFilter,
-          filterSet,
-          'set_from_date',
-        );
-        expect(component.state('filters').date.from).toEqual(sampleDateFilter);
-        expect(component.state('filters').length).toEqual(1);
-      });
+          const component = getComponent();
+          const componentInstance = component.instance();
+          expect(component.state('filters').date.from).toEqual('');
+          expect(component.state('filters').length).toEqual(0);
+          componentInstance.setFilter(
+            sampleDateFilter,
+            filterSet,
+            'set_from_date',
+          );
+          expect(component.state('filters').date.from).toEqual(sampleDateFilter);
+          expect(component.state('filters').length).toEqual(1);
+        });
       it(`should add a date-filter to the state and increment the filter length
       if action is set_to_date`, () => {
-        const component = getComponent();
-        const componentInstance = component.instance();
-        expect(component.state('filters').date.to).toEqual('');
-        expect(component.state('filters').length).toEqual(0);
-        componentInstance.setFilter(sampleDateFilter, filterSet, 'set_to_date');
-        expect(component.state('filters').date.to).toEqual(sampleDateFilter);
-        expect(component.state('filters').length).toEqual(1);
-      });
+          const component = getComponent();
+          const componentInstance = component.instance();
+          expect(component.state('filters').date.to).toEqual('');
+          expect(component.state('filters').length).toEqual(0);
+          componentInstance.setFilter(sampleDateFilter, filterSet, 'set_to_date');
+          expect(component.state('filters').date.to).toEqual(sampleDateFilter);
+          expect(component.state('filters').length).toEqual(1);
+        });
       it('should not change filter length if a date filter previously existed', () => {
         const component = getComponent();
         const componentInstance = component.instance();
@@ -443,39 +452,39 @@ describe('<ReportPage />', () => {
   describe('doSearch method', () => {
     it(`should return a filtered report when
     searchResults for fellow in the state is updated`, () => {
-      const component = getComponent();
-      const componentInstance = component.instance();
-      component.setState({ reportData: sampleReports });
-      expect(component.state('searchResult')).toEqual(false);
-      expect(component.state('filteredReport')).toEqual([]);
-      componentInstance.doSearch('Shakira', 1);
-      expect(component.state('searchResult')).toEqual(true);
-      expect(component.state('filteredReport')).toEqual([sampleReports[1]]);
-    });
+        const component = getComponent();
+        const componentInstance = component.instance();
+        component.setState({ reportData: sampleReports });
+        expect(component.state('searchResult')).toEqual(false);
+        expect(component.state('filteredReport')).toEqual([]);
+        componentInstance.doSearch('Shakira', 1);
+        expect(component.state('searchResult')).toEqual(true);
+        expect(component.state('filteredReport')).toEqual([sampleReports[1]]);
+      });
 
     it(`should not return a filtered report when
     searchResults in the state is not updated`, () => {
-      const component = getComponent();
-      const componentInstance = component.instance();
-      component.setState({ reportData: sampleReports });
-      expect(component.state('searchResult')).toEqual(false);
-      expect(component.state('filteredReport')).toEqual([]);
-      componentInstance.doSearch('', '');
-      expect(component.state('searchResult')).toEqual(false);
-      expect(component.state('filteredReport')).toEqual([]);
-    });
+        const component = getComponent();
+        const componentInstance = component.instance();
+        component.setState({ reportData: sampleReports });
+        expect(component.state('searchResult')).toEqual(false);
+        expect(component.state('filteredReport')).toEqual([]);
+        componentInstance.doSearch('', '');
+        expect(component.state('searchResult')).toEqual(false);
+        expect(component.state('filteredReport')).toEqual([]);
+      });
 
     it(`should return a filtered report when
     searchResults in the state is updated`, () => {
-      const component = getComponent();
-      const componentInstance = component.instance();
-      component.setState({ reportData: sampleReports });
-      expect(component.state('searchResult')).toEqual(false);
-      expect(component.state('filteredReport')).toEqual([]);
-      componentInstance.doSearch('Andela', 2);
-      expect(component.state('searchResult')).toEqual(true);
-      expect(component.state('filteredReport')).toEqual([sampleReports[0]]);
-    });
+        const component = getComponent();
+        const componentInstance = component.instance();
+        component.setState({ reportData: sampleReports });
+        expect(component.state('searchResult')).toEqual(false);
+        expect(component.state('filteredReport')).toEqual([]);
+        componentInstance.doSearch('Andela', 2);
+        expect(component.state('searchResult')).toEqual(true);
+        expect(component.state('filteredReport')).toEqual([sampleReports[0]]);
+      });
 
     it('should redirect to the AIS page when you click the fellow name', () => {
       // eslint-disable-next-line no-undef
@@ -536,12 +545,23 @@ describe('<ReportPage />', () => {
   describe('querying the backend', () => {
     it('should get allocations from the backend', async () => {
       Object.defineProperty(axios, 'get', {
-        value: url => new Promise((resolve, reject) => resolve({ data: { data: sampleReports } })),
+        value: url => new Promise(resolve => resolve({ data: { data: sampleReports } })),
       });
       const component = await getComponent();
       const spy = jest.spyOn(component.instance(), 'componentDidMount');
       await component.instance().componentDidMount();
       expect(spy).toHaveBeenCalled();
+    });
+    it('should set state reportData to error response when fails to get allocations', async () => {
+      const errorResponse = {
+        type: 'networkError',
+      };
+      Object.defineProperty(axios, 'get', {
+        value: url => new Promise((resolve, reject) => reject(new CustomError('Failed to get allocations', errorResponse))),
+      });
+      const component = await getComponent();
+      await component.instance().componentDidMount();
+      expect(component.instance().state.reportData).toEqual(errorResponse);
     });
   });
 });

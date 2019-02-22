@@ -199,7 +199,7 @@ class ReportPage extends PureComponent {
     const { filters: { date: { from, to } } } = this.state;
     const reportDateTime = new Date(reportDate).getTime();
     const fromTime = new Date(from).getTime();
-    const toTime = new Date(to).getTime();
+    const toTime = new Date(to).getTime() + 84600000;
     return (reportDateTime >= fromTime && reportDateTime <= toTime);
   }
 
@@ -238,7 +238,6 @@ class ReportPage extends PureComponent {
     const status = automationData[`${type}Automations`][`${type}Activities`].map(activity => activity.status);
     const count = status.filter(successStatus => successStatus === 'success');
     return `(${count.length}/${status.length})`;
-  }
 
   renderAutomationStatus(automationStatus, report, type) {
     const successStatusCount = this.renderCount(report, type);
@@ -285,10 +284,11 @@ class ReportPage extends PureComponent {
         <td
           className="fellow"
           onClick={() => window.open(`https://ais.andela.com/people/${report.fellowId}`)}
+          title={report.fellowName}
         >
           {report.fellowName}
         </td>
-        <td>{report.partnerName}</td>
+        <td title={report.partnerName}>{report.partnerName}</td>
         <td>{report.type}</td>
         <td>{this.renderAutomationStatus(report.slackAutomations.status, report, 'slack')}</td>
         <td>{this.renderAutomationStatus(report.emailAutomations.status, report, 'email')}</td>
@@ -363,7 +363,7 @@ ReportPage.propTypes = {
 };
 
 ReportPage.defaultProps = {
-  removeCurrentUser: () => {},
+  removeCurrentUser: () => { },
 };
 
 export default ReportPage;
