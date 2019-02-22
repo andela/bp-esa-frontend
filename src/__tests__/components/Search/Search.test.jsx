@@ -15,7 +15,7 @@ describe('<Search />', () => {
 
   describe('toggleVisibility method', () => {
     it('should change the filterOptionsIsVisible in the state', () => {
-      const component = getComponent();
+      const component = (() => mount(<Search {...props} />))();
       component.find('.search-title').simulate('click');
       expect(component.state('searchOptionsVisible')).toBeTruthy();
     });

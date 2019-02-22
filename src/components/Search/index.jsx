@@ -3,6 +3,7 @@ import React, { PureComponent } from 'react';
 import PropTypes from 'proptypes';
 import './styles.scss';
 import classNames from 'classnames';
+import ReactDOM from 'react-dom';
 
 class Search extends PureComponent {
   constructor() {
@@ -22,11 +23,35 @@ class Search extends PureComponent {
     }
   }
 
-  toggleVisibility = () => {
-    this.setState(prevState => ({
-      searchOptionsVisible: !prevState.searchOptionsVisible,
-    }));
-  };
+  // toggleVisibility = () => {
+  //   this.setState(prevState => ({
+  //     searchOptionsVisible: !prevState.searchOptionsVisible,
+  //   }));
+  // };
+
+    /**
+   * Toggle the display of the options available in the dropdown
+   */
+  toggleVisibility = e => {
+    const { searchOptionsVisible } = this.state;
+
+    // The DOM's UL element holding the list of options
+    const filterOptionsEl = ReactDOM.findDOMNode(this).getElementsByClassName('search-option')[0];
+
+    // Handler for clicking anywhere else on the page
+    const clickAway = ev => {
+      if (ev.target === filterOptionsEl || filterOptionsEl.contains(ev.target)) return;
+      if (e !== ev) {
+        this.setState({ searchOptionsVisible:  false});
+        document.removeEventListener('click', clickAway);
+      }
+    }
+
+    if (!searchOptionsVisible) {
+      this.setState({ searchOptionsVisible: true});
+      document.addEventListener('click', clickAway);
+    }
+  }
 
   handleSearchCriteriaChange = (optionId) => {
     this.setState({
