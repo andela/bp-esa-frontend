@@ -235,9 +235,9 @@ class ReportPage extends PureComponent {
   }
 
   renderCount(automationData, type) {
-    const status = automationData[`${type}Automation`][`${type}Activity`].map(activity => activity.status)
-    const count = stat.filter(type => type === 'success')
-    return `(${count.length}/${status.length})`
+    const status = automationData[`${type}Automations`][`${type}Activities`].map(activity => activity.status);
+    const count = status.filter(successStatus => successStatus === 'success');
+    return `(${count.length}/${status.length})`;
   }
 
   renderAutomationStatus(automationStatus, report, type) {
@@ -363,7 +363,7 @@ ReportPage.propTypes = {
 };
 
 ReportPage.defaultProps = {
-  removeCurrentUser: () => {},
+  removeCurrentUser: () => { },
 };
 
 export default ReportPage;
