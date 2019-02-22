@@ -244,14 +244,14 @@ class ReportPage extends PureComponent {
     const successStatusCount = this.renderCount(report, type);
 
     return (
-      <div>
+      <span>
         {automationStatus}&nbsp;
         {successStatusCount}
         <i
           className={`fa fa-info-circle ${automationStatus}`}
           onClick={() => { this.openModal(); this.changeModalTypes(report, type); }}
         />
-      </div>
+      </span>
     );
   }
 
