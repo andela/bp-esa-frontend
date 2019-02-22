@@ -14,11 +14,22 @@ describe('<Search />', () => {
   });
 
   describe('toggleVisibility method', () => {
-    it('should change the filterOptionsIsVisible in the state', () => {
+    it('should initially set the searchOptionsVisible to "FALSE"', () => {
+      const component = (() => shallow(<Search {...props} />))();
+      expect(component.state('searchOptionsVisible')).toBeFalsy();
+    })
+    
+    it('should change the searchOptionsVisible in the state', () => {
       const component = (() => mount(<Search {...props} />))();
       component.find('.search-title').simulate('click');
       expect(component.state('searchOptionsVisible')).toBeTruthy();
     });
+
+    it('should have a single instance of optionSet in Search dropdown', () => {
+      const component = mount(<Search {...props} />);
+      component.find('.search-title').simulate('click');
+      expect(component.find('.search-options-isvisible').length).toBe(1);
+    })
   });
 
   describe('handleSearch method', () => {
