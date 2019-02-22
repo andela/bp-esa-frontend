@@ -234,50 +234,19 @@ class ReportPage extends PureComponent {
     this.setState({ modalContent: report, type });
   }
 
-  renderCount(report) {
-    const types = ['slackAutomations', 'emailAutomations', 'freckleAutomations'];
-    const filtered = Object.keys(report)
-      .filter(key => types.includes(key))
-      .reduce((obj, key) => ({
-        ...obj,
-        [key]: report[key],
-      }), {});
-    const automationObject = Object.keys(filtered).map(key => filtered[key]);
-    const slack = automationObject[0].slackActivities.length === 0 ? 0
-      : automationObject.map(i => i.slackActivities);
-    const email = automationObject[1].emailActivities.length === 0 ? 0
-      : automationObject.map(i => i.emailActivities);
-    const freckle = automationObject[2].freckleActivities.length === 0 ? 0
-      : automationObject.map(i => i.freckleActivities);
-    const slackCount = slack !== 0 ? slack[0].filter(automation => (automation.status === 'success' ? automation.status : 0)).length : 0;
-    const emailCount = email !== 0 ? email[1].filter(automation => (automation.status === 'success' ? automation.status : 0)).length : 0;
-    const freckleCount = freckle !== 0 ? freckle[2].filter(automation => (automation.status === 'success' ? automation.status : 0)).length : 0;
-
-    return {
-      slackCount, emailCount, freckleCount, automationObject,
-    };
+  renderCount(automationData, type) {
+    const status = automationData[`${type}Automation`][`${type}Activity`].map(activity => activity.status)
+    const count = stat.filter(type => type === 'success')
+    return `(${count.length}/${status.length})`
   }
 
   renderAutomationStatus(automationStatus, report, type) {
-    const renderCount = this.renderCount(report);
-    const {
-      emailCount, slackCount, freckleCount, automationObject,
-    } = renderCount;
-    let result;
-    if (type === 'email') {
-      result = `(${emailCount}/${automationObject[1].emailActivities.length})`;
-    }
-    if (type === 'slack') {
-      result = `(${slackCount}/${automationObject[0].slackActivities.length})`;
-    }
-    if (type === 'freckle') {
-      result = `(${freckleCount}/${automationObject[2].freckleActivities.length})`;
-    }
+    const successStatusCount = this.renderCount(report, type);
 
     return (
       <div>
         {automationStatus}&nbsp;
-        {result}
+        {successStatusCount}
         <i
           className={`fa fa-info-circle ${automationStatus}`}
           onClick={() => { this.openModal(); this.changeModalTypes(report, type); }}
