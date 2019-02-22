@@ -23,33 +23,22 @@ class Search extends PureComponent {
     }
   }
 
-  // toggleVisibility = () => {
-  //   this.setState(prevState => ({
-  //     searchOptionsVisible: !prevState.searchOptionsVisible,
-  //   }));
-  // };
 
-    /**
-   * Toggle the display of the options available in the dropdown
-   */
   toggleVisibility = e => {
-    const { searchOptionsVisible } = this.state;
-
     // The DOM's UL element holding the list of options
-    const filterOptionsEl = ReactDOM.findDOMNode(this).getElementsByClassName('search-option')[0];
-
-    // Handler for clicking anywhere else on the page
-    const clickAway = ev => {
-      if (ev.target === filterOptionsEl || filterOptionsEl.contains(ev.target)) return;
+    const searchOptionsEl = ReactDOM.findDOMNode(this)
+                            .getElementsByClassName('search-option')[0];
+    const clickOff = ev => {
+      if (ev.target === searchOptionsEl) return;
       if (e !== ev) {
-        this.setState({ searchOptionsVisible:  false});
-        document.removeEventListener('click', clickAway);
+        this.setState(() => ({ searchOptionsVisible:  false}));
+        document.removeEventListener('click', clickOff);
       }
     }
 
-    if (!searchOptionsVisible) {
-      this.setState({ searchOptionsVisible: true});
-      document.addEventListener('click', clickAway);
+    if (!this.state.searchOptionsVisible) {
+      this.setState(() => ({ searchOptionsVisible: true}));
+      document.addEventListener('click', clickOff);
     }
   }
 
