@@ -237,7 +237,7 @@ class ReportPage extends PureComponent {
   statusBreakdown(automation, type) {
     const activities = automation[type + 'Automations'][type + 'Activities'] || [];
     let stats = { s: 0, f: 0 };
-    activities.map(a => {
+    activities.forEach(a => {
       if (a.status === "success") {
         stats.s++;
       } else {
