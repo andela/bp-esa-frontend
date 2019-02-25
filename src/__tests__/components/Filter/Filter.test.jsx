@@ -26,8 +26,16 @@ describe('Filter Component', () => {
     it('should be initially "FALSE"', () => {
       expect(component.state('filterOptionsIsVisible')).toBeFalsy();
     });
+
+    it("should change the filterOptionsIsVisible in the state", () => {
+      const mountedComponent = mount(<Filter {...props} />);
+      const mountedComponentInstance = mountedComponent.instance();
+      const isVisible = mountedComponent.state('filterOptionsIsVisible');
+      mountedComponentInstance.toggleVisibility();
+      expect(isVisible).not.toEqual(mountedComponent.state("filterOptionsIsVisible"));
+    });
   
-    it('should change the filterOptionsIsVisible in the state when called', () => {
+    it('should change the filterOptionsIsVisible in the state when  dropdown is clicked', () => {
       const newprops = {
         ...props,
         options: [{ type: null }],
@@ -36,6 +44,24 @@ describe('Filter Component', () => {
       component.find('.filter-title').simulate('click');
       expect(component.state('filterOptionsIsVisible')).toBeTruthy();
     });
+
+    it('should close dropdown options when user clicks away', () => {
+      const newprops = {...props, options: [{ type: null }]};
+      const component = mount(<Filter {...newprops} />);
+      component.find('.filter-title').simulate('click');
+      document.body.click();
+      expect(component.state('filterOptionsIsVisible')).toBeFalsy();
+    });
+
+    it('should open dropdown when called', () => {
+      const newprops = {...props, options: [{ type: null }]};
+      const component = mount(<Filter {...newprops} />);
+      const componentInstance = component.instance();
+      componentInstance.toggleVisibility();
+      expect(component.state('filterOptionsIsVisible')).toBeTruthy();
+    });
+
+
   });
 
   describe('selectCheckBoxFilter method', () => {
