@@ -14,11 +14,12 @@
     font-size: 14px;
     margin-left: 2%;
     .search-title {
+      font-family: 'Din Pro';
       padding: 8px 20px 8px 20px;
       border: 1px solid grey;
       margin: 5px;
       color: #4d4d4d;
-      cursor: pointer; 
+      cursor: pointer;
       &:hover {
         color: black;
       }
@@ -41,6 +42,7 @@
         overflow: hidden;
         li {
           z-index:1;
+          font-family: 'Din Pro';
           background-color:  white;
           border-bottom: 1px solid #d9d9d9;
           color: #4d4d4d;
@@ -53,6 +55,4 @@
           visibility: visible;
         }
       }
-    
-
 }

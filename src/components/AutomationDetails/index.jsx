@@ -1,7 +1,9 @@
 /* eslint-disable no-unused-expressions */
 import React, { PureComponent } from 'react';
+import uuid from 'uuid';
 import PropTypes from 'proptypes';
 import './styles.scss';
+
 
 class AutomationDetails extends PureComponent {
   renderAutomation = status => ((status === 'success')
@@ -66,20 +68,22 @@ class AutomationDetails extends PureComponent {
             </tr>
           </thead>
         </table>
-        {contents.map((content) => {
-          const { emailTo, channelName } = content;
-          return (
-            <div key={modalType === 'email' ? emailTo : channelName} className="table-body-details">
-              <table className="details-table">
-                <tbody>
-                  <tr>
-                    {this.renderTableData(content, modalType)}
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-          );
-        })}
+        <div className="automation-table">
+          {contents.map((content) => {
+            const { emailTo } = content;
+            return (
+              <div key={modalType === 'email' ? emailTo : uuid.v4()} className="table-body-details">
+                <table className="details-table">
+                  <tbody>
+                    <tr>
+                      {this.renderTableData(content, modalType)}
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            );
+          })}
+        </div>
       </div>
     );
   }
