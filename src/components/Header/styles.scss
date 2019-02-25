@@ -24,6 +24,7 @@
     position: relative;
     display: flex;
     .user-name {
+      font-family: 'Din Pro';
       display: flex;
       align-items: center;
       color: #fff;
@@ -35,21 +36,21 @@
       text-decoration: none;
       .user-image {
         size: 10px;
-        color: rgb(255, 255, 255); 
-        background-color: rgb(188, 188, 188); 
-        user-select: none; 
-        display: inline-flex; 
-        align-items: center; 
-        justify-content: center; 
-        font-size: 25px; 
-        border-radius: 50%; 
-        height: 50px; 
-        width: 50px; 
+        color: rgb(255, 255, 255);
+        background-color: rgb(188, 188, 188);
+        user-select: none;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 25px;
+        border-radius: 50%;
+        height: 50px;
+        width: 50px;
         margin-left: 15px;
       }
       .fa-caret-down {
         margin-left: 10px;
-        color:rgb(0, 0, 0); 
+        color: rgb(0, 0, 0);
         height: 5px;
         width: 5px;
       }
@@ -61,7 +62,7 @@
       margin-top: 5px;
       color: black;
       background-color: white;
-      border-radius: 3px;   
+      border-radius: 3px;
       box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.5);
       transition: all 0.3s;
       &.visible {
@@ -72,7 +73,7 @@
         font-size: 13px;
       }
     }
-    
+
     &:hover {
       i.fa-user-circle {
         color:rgba(255,255,255,.8);
