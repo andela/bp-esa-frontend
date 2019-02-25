@@ -14,11 +14,47 @@ describe('<Search />', () => {
   });
 
   describe('toggleVisibility method', () => {
-    it('should change the filterOptionsIsVisible in the state', () => {
-      const component = getComponent();
+    it('should initially set the searchOptionsVisible to "FALSE"', () => {
+      const component = (() => shallow(<Search {...props} />))();
+      expect(component.state('searchOptionsVisible')).toBeFalsy();
+    })
+
+    it("should change the searchOptionsVisible in the state", () => {
+      const mountedComponent = mount(<Search {...props} />);
+      const mountedComponentInstance = mountedComponent.instance();
+      const isVisible = mountedComponent.state('searchOptionsVisible');
+      mountedComponentInstance.toggleVisibility();
+      expect(isVisible).not.toEqual(mountedComponent.state("searchOptionsVisible"));
+    });
+    
+    it('should change the searchOptionsVisible in the state when dropdown is clicked', () => {
+      const component = (() => mount(<Search {...props} />))();
       component.find('.search-title').simulate('click');
       expect(component.state('searchOptionsVisible')).toBeTruthy();
     });
+
+    it('should have a single instance of optionSet in Search dropdown', () => {
+      const component = mount(<Search {...props} />);
+      component.find('.search-title').simulate('click');
+      expect(component.find('.search-options-isvisible').length).toBe(1);
+    });
+    
+    it('should close dropdown options when user clicks away', () => {
+      const newprops = {...props, options: [{ type: null }]};
+      const component = mount(<Search {...newprops} />);
+      component.find('.search-title').simulate('click');
+      document.body.click();
+      expect(component.state('searchOptionsVisible')).toBeFalsy();
+    });
+
+    it('should open dropdown when called', () => {
+      const newprops = {...props, options: [{ type: null }]};
+      const component = mount(<Search {...newprops} />);
+      const componentInstance = component.instance();
+      componentInstance.toggleVisibility();
+      expect(component.state('searchOptionsVisible')).toBeTruthy();
+    });
+
   });
 
   describe('handleSearch method', () => {

@@ -3,6 +3,7 @@ import React, { PureComponent } from 'react';
 import PropTypes from 'proptypes';
 import './styles.scss';
 import classNames from 'classnames';
+import ReactDOM from 'react-dom';
 
 class Search extends PureComponent {
   constructor() {
@@ -22,11 +23,24 @@ class Search extends PureComponent {
     }
   }
 
-  toggleVisibility = () => {
-    this.setState(prevState => ({
-      searchOptionsVisible: !prevState.searchOptionsVisible,
-    }));
-  };
+
+  toggleVisibility = e => {
+    // The DOM's UL element holding the list of options
+    const searchOptionsEl = ReactDOM.findDOMNode(this)
+                            .getElementsByClassName('search-option')[0];
+    const clickOff = ev => {
+      if (ev.target === searchOptionsEl) return;
+      if (e !== ev) {
+        this.setState(() => ({ searchOptionsVisible:  false}));
+        document.removeEventListener('click', clickOff);
+      }
+    }
+
+    if (!this.state.searchOptionsVisible) {
+      this.setState(() => ({ searchOptionsVisible: true}));
+      document.addEventListener('click', clickOff);
+    }
+  }
 
   handleSearchCriteriaChange = (optionId) => {
     this.setState({

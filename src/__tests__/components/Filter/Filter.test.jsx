@@ -1,29 +1,67 @@
 import React from 'react';
 import Filter from '../../../components/Filter/index';
 
-const props = {
-  filterSet: 'automationStatus',
-  title: 'Automation Status',
-  options: [],
-  handleFilterChange: jest.fn(),
-};
+describe('Filter Component', () => {
+  
+  let props; 
+  let component;
+  let componentInstance;
 
-const getComponent = () => shallow(<Filter {...props} />);
+  beforeEach(() => {
+    props = {
+      filterSet: 'automationStatus',
+      title: 'Automation Status',
+      options: [],
+      handleFilterChange: jest.fn(),
+    };
+    component = (() => shallow(<Filter {...props} />))();
+    componentInstance = component.instance();
+  });
 
-
-describe('<Filter />', () => {
   it('should render as expected', () => {
-    expect(getComponent()).toMatchSnapshot();
+    expect(component).toMatchSnapshot();
   });
 
   describe('toggleVisibility method', () => {
-    it('should change the filterOptionsIsVisible in the state', () => {
-      const component = getComponent();
-      const componentInstance = component.instance();
+    it('should be initially "FALSE"', () => {
       expect(component.state('filterOptionsIsVisible')).toBeFalsy();
+    });
+
+    it("should change the filterOptionsIsVisible in the state", () => {
+      const mountedComponent = mount(<Filter {...props} />);
+      const mountedComponentInstance = mountedComponent.instance();
+      const isVisible = mountedComponent.state('filterOptionsIsVisible');
+      mountedComponentInstance.toggleVisibility();
+      expect(isVisible).not.toEqual(mountedComponent.state("filterOptionsIsVisible"));
+    });
+  
+    it('should change the filterOptionsIsVisible in the state when  dropdown is clicked', () => {
+      const newprops = {
+        ...props,
+        options: [{ type: null }],
+      };
+      const component = mount(<Filter {...newprops} />);
+      component.find('.filter-title').simulate('click');
+      expect(component.state('filterOptionsIsVisible')).toBeTruthy();
+    });
+
+    it('should close dropdown options when user clicks away', () => {
+      const newprops = {...props, options: [{ type: null }]};
+      const component = mount(<Filter {...newprops} />);
+      component.find('.filter-title').simulate('click');
+      document.body.click();
+      expect(component.state('filterOptionsIsVisible')).toBeFalsy();
+    });
+
+    it('should open dropdown when called', () => {
+      const newprops = {...props, options: [{ type: null }]};
+      const component = mount(<Filter {...newprops} />);
+      const componentInstance = component.instance();
       componentInstance.toggleVisibility();
       expect(component.state('filterOptionsIsVisible')).toBeTruthy();
     });
+
+
   });
 
   describe('selectCheckBoxFilter method', () => {
@@ -31,8 +69,6 @@ describe('<Filter />', () => {
     the selected filter and also call handleFilterChange
     `, () => {
       const event = { target: { value: 'failed_automations' } };
-      const component = getComponent();
-      const componentInstance = component.instance();
       expect(component.state('selectedFilters')).toEqual([]);
       props.handleFilterChange.mockReset();
       componentInstance.selectCheckBoxFilter(event);
@@ -43,8 +79,6 @@ describe('<Filter />', () => {
     it(`should update the selectedFilters in the state by removing
     the selected filter and also call handleFilterChange`, () => {
       const event = { target: { value: 'failed_automations' } };
-      const component = getComponent();
-      const componentInstance = component.instance();
       component.setState({ selectedFilters: ['failed_automations'] });
       props.handleFilterChange.mockReset();
       componentInstance.selectCheckBoxFilter(event);
@@ -57,9 +91,9 @@ describe('<Filter />', () => {
         ...props,
         options: [{ type: null }],
       };
-      const component = shallow(<Filter {...newprops} />);
+      const component = mount(<Filter {...newprops} />);
       component.find('.filter-title').simulate('click');
-      expect(component.find('.filter-options').length).toBe(1);
+      expect(component.find('.filter-options-isvisible').length).toBe(1);
     });
   });
 
@@ -69,7 +103,6 @@ describe('<Filter />', () => {
       const date = '1/02/2018';
       const datePickerID = '1';
       props.handleFilterChange.mockReset();
-      const componentInstance = getComponent().instance();
       componentInstance.selectDateFilter(date, datePickerID);
       expect(props.handleFilterChange).toHaveBeenCalledWith(date, props.filterSet, 'set_from_date');
     });
@@ -79,7 +112,6 @@ describe('<Filter />', () => {
       const date = '1/02/2018';
       const datePickerID = '2';
       props.handleFilterChange.mockReset();
-      const componentInstance = getComponent().instance();
       componentInstance.selectDateFilter(date, datePickerID);
       expect(props.handleFilterChange).toHaveBeenCalledWith(date, props.filterSet, 'set_to_date');
     });
