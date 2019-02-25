@@ -4,6 +4,7 @@ import uuid from 'uuid';
 import PropTypes from 'proptypes';
 import './styles.scss';
 
+
 class AutomationDetails extends PureComponent {
   renderAutomation = status => ((status === 'success')
     ? <h4 className="modal-values">Success</h4> : <h4 className="modal-values">Failed</h4>

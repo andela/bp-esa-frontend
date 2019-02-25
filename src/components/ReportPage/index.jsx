@@ -243,7 +243,7 @@ class ReportPage extends PureComponent {
       } else {
         stats.failureCount += 1;
       }
-      return stats.failureCount;
+      return (stats.successCount, stats.failureCount);
     });
     return `(${stats.successCount}/${activities.length})`;
   }
