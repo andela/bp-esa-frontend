@@ -3,7 +3,7 @@ exclude_patterns:
 - "config/"
 - "src/index.js"
 - "src/serviceWorker.js"
-version: "2"         
+version: "2"
 checks:
   similar-code:
     config:

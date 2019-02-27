@@ -24,20 +24,20 @@ class Search extends PureComponent {
   }
 
 
-  toggleVisibility = e => {
+  toggleVisibility = (e) => {
     // The DOM's UL element holding the list of options
     const searchOptionsEl = ReactDOM.findDOMNode(this)
-                            .getElementsByClassName('search-option')[0];
-    const clickOff = ev => {
+      .getElementsByClassName('search-option')[0];
+    const clickOff = (ev) => {
       if (ev.target === searchOptionsEl) return;
       if (e !== ev) {
-        this.setState(() => ({ searchOptionsVisible:  false}));
+        this.setState(() => ({ searchOptionsVisible: false }));
         document.removeEventListener('click', clickOff);
       }
-    }
+    };
 
     if (!this.state.searchOptionsVisible) {
-      this.setState(() => ({ searchOptionsVisible: true}));
+      this.setState(() => ({ searchOptionsVisible: true }));
       document.addEventListener('click', clickOff);
     }
   }
@@ -73,7 +73,7 @@ class Search extends PureComponent {
     const { searchValue } = this.state;
     const { searchOptionsVisible, searchCriteria } = this.state;
     return (
-      <div>
+      <div className="search-container">
         <input type="text" className="search-input" value={searchValue} onChange={this.handleSearchValueChange} />
         <div className="search">
           <div className="search-title" onClick={event => this.toggleVisibility(event)}>

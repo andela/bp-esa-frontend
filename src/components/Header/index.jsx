@@ -10,6 +10,18 @@ class Header extends PureComponent {
     signoutDropDownIsVisible: false,
   };
 
+  componentDidMount() {
+    document.body.addEventListener('click', this.clickAway);
+  }
+
+  componentWillUnmount() {
+    document.body.addEventListener('click', this.clickAway);
+  }
+
+  clickAway = (event) => {
+    this.setState({ signoutDropDownIsVisible: false });
+  }
+
   toggleSignoutDropDown = (event) => {
     event.preventDefault();
     const { signoutDropDownIsVisible } = this.state;
@@ -38,7 +50,7 @@ class Header extends PureComponent {
       },
     } = currentUser;
     return (
-      <div id="header">
+      <div id="header" ref={(node) => { this.node = node; }}>
         <div className="brand">
           <a href="/">
             <img className="logo" src="/logo.png" alt="Andela Logo" />
@@ -47,7 +59,9 @@ class Header extends PureComponent {
         </div>
         <div className="signout">
           <div className="user-name">
-              Hello,&nbsp;{name}!
+              Hello,&nbsp;
+            {name}
+!
           </div>
           <div className="image-container" onClick={this.toggleSignoutDropDown}>
             {picture ? (

@@ -58,10 +58,11 @@
     .signout-dropdown {
       opacity: 0;
       position: absolute;
+      padding: 5px;
       right: -30px;
       margin-top: 5px;
-      color: black;
       background-color: white;
+      font-family: "Din Pro";
       border-radius: 3px;
       box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.5);
       transition: all 0.3s;
@@ -69,8 +70,15 @@
         opacity: 1;
       }
       .logout-button {
+        border: none;
+        cursor: pointer;
+        color: black;
         width: fit-content;
         font-size: 13px;
+
+        &:hover{
+        color: #3359df;
+      }
       }
     }
 

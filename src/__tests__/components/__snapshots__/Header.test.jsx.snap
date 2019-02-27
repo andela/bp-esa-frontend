@@ -96,7 +96,7 @@ ShallowWrapper {
       ],
       "id": "header",
     },
-    "ref": null,
+    "ref": [Function],
     "rendered": Array [
       Object {
         "instance": null,
@@ -439,7 +439,7 @@ ShallowWrapper {
         ],
         "id": "header",
       },
-      "ref": null,
+      "ref": [Function],
       "rendered": Array [
         Object {
           "instance": null,
@@ -737,5 +737,6 @@ ShallowWrapper {
       },
     },
   },
+  Symbol(enzyme.__childContext__): null,
 }
 `;
