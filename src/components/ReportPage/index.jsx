@@ -11,6 +11,7 @@ import * as constants from '../constants';
 import FiltersBar from '../FiltersBar';
 import './styles.scss';
 import AutomationDetails from '../AutomationDetails';
+import Spinner from '../Spinner';
 
 
 /* eslint-disable class-methods-use-this */
@@ -31,12 +32,16 @@ class ReportPage extends PureComponent {
       isModalOpen: false,
       modalContent: {},
       type: '',
+      isLoadingReports: false,
     };
   }
 
   async componentDidMount() {
     const reportData = await this.reportData();
-    this.setState({ reportData });
+    this.setState({
+      isLoadingReports: false,
+      reportData,
+    });
   }
 
   componentDidUpdate() {
@@ -47,6 +52,10 @@ class ReportPage extends PureComponent {
   }
 
   reportData = async () => {
+    const { isLoadingReports } = this.state;
+    this.setState({
+      isLoadingReports: !isLoadingReports,
+    });
     const url = 'https://api-staging-esa.andela.com/api/v1/automations';
     const data = await axios
       .get(url)
@@ -308,6 +317,7 @@ class ReportPage extends PureComponent {
 
   render() {
     const { currentUser, removeCurrentUser, history } = this.props;
+    const { isLoadingReports } = this.state;
     const {
       isModalOpen, modalContent, type, filters,
     } = this.state;
@@ -346,11 +356,17 @@ class ReportPage extends PureComponent {
             </table>
           </div>
           <div className="table-body">
-            <table className="report-table">
-              <tbody>
-                {this.renderTableRows()}
-              </tbody>
-            </table>
+            {
+              isLoadingReports
+                ? <Spinner />
+                : (
+                  <table className="report-table">
+                    <tbody>
+                      {this.renderTableRows()}
+                    </tbody>
+                  </table>
+                )
+            }
           </div>
           <AutomationDetails
             isModalOpen={isModalOpen}

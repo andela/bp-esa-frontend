@@ -489,7 +489,7 @@ describe('<ReportPage />', () => {
     it('should redirect to the AIS page when you click the fellow name', () => {
       // eslint-disable-next-line no-undef
       const component = getComponent();
-      component.setState({ reportData: sampleReports });
+      component.setState({ reportData: sampleReports, isLoadingReports: false });
       const redirectToAIS = component
         .find('.table-body')
         .find('tr')
@@ -501,7 +501,7 @@ describe('<ReportPage />', () => {
     });
     it('should render a slack modal when the slack status icons are clicked', () => {
       const component = getComponent();
-      component.setState({ reportData: sampleReports });
+      component.setState({ reportData: sampleReports, isLoadingReports: false });
       component
         .find('.fa.fa-info-circle.success')
         .at(0)
@@ -511,7 +511,7 @@ describe('<ReportPage />', () => {
 
     it('should render an email modal when the email status icons are clicked', () => {
       const component = getComponent();
-      component.setState({ reportData: sampleReports });
+      component.setState({ reportData: sampleReports, isLoadingReports: false });
       component
         .find('.fa.fa-info-circle.success')
         .at(1)
@@ -521,7 +521,7 @@ describe('<ReportPage />', () => {
 
     it('should render a freckle modal when the freckle status icons are clicked', () => {
       const component = getComponent();
-      component.setState({ reportData: sampleReports });
+      component.setState({ reportData: sampleReports, isLoadingReports: false });
       component
         .find('.fa.fa-info-circle.success')
         .at(2)
@@ -531,7 +531,7 @@ describe('<ReportPage />', () => {
 
     it('should close modal', () => {
       const component = mount(<ReportPage {...props} />);
-      component.setState({ reportData: sampleReports });
+      component.setState({ reportData: sampleReports, isLoadingReports: false });
       component
         .find('.fa.fa-info-circle.success')
         .at(2)
