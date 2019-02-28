@@ -212,11 +212,10 @@ ShallowWrapper {
           <div
             className="table-body"
           >
-            <table
-              className="report-table"
-            >
-              <tbody />
-            </table>
+            <Spinner
+              isAbsolute={true}
+              size="large"
+            />
           </div>
           <AutomationDetails
             closeModal={[Function]}
@@ -418,11 +417,10 @@ ShallowWrapper {
             <div
               className="table-body"
             >
-              <table
-                className="report-table"
-              >
-                <tbody />
-              </table>
+              <Spinner
+                isAbsolute={true}
+                size="large"
+              />
             </div>,
             <AutomationDetails
               closeModal={[Function]}
@@ -966,35 +964,24 @@ ShallowWrapper {
             "key": undefined,
             "nodeType": "host",
             "props": Object {
-              "children": <table
-                className="report-table"
-              >
-                <tbody />
-              </table>,
+              "children": <Spinner
+                isAbsolute={true}
+                size="large"
+              />,
               "className": "table-body",
             },
             "ref": null,
             "rendered": Object {
               "instance": null,
               "key": undefined,
-              "nodeType": "host",
+              "nodeType": "function",
               "props": Object {
-                "children": <tbody />,
-                "className": "report-table",
+                "isAbsolute": true,
+                "size": "large",
               },
               "ref": null,
-              "rendered": Object {
-                "instance": null,
-                "key": undefined,
-                "nodeType": "host",
-                "props": Object {
-                  "children": Array [],
-                },
-                "ref": null,
-                "rendered": Array [],
-                "type": "tbody",
-              },
-              "type": "table",
+              "rendered": null,
+              "type": [Function],
             },
             "type": "div",
           },
@@ -1205,11 +1192,10 @@ ShallowWrapper {
             <div
               className="table-body"
             >
-              <table
-                className="report-table"
-              >
-                <tbody />
-              </table>
+              <Spinner
+                isAbsolute={true}
+                size="large"
+              />
             </div>
             <AutomationDetails
               closeModal={[Function]}
@@ -1411,11 +1397,10 @@ ShallowWrapper {
               <div
                 className="table-body"
               >
-                <table
-                  className="report-table"
-                >
-                  <tbody />
-                </table>
+                <Spinner
+                  isAbsolute={true}
+                  size="large"
+                />
               </div>,
               <AutomationDetails
                 closeModal={[Function]}
@@ -1959,35 +1944,24 @@ ShallowWrapper {
               "key": undefined,
               "nodeType": "host",
               "props": Object {
-                "children": <table
-                  className="report-table"
-                >
-                  <tbody />
-                </table>,
+                "children": <Spinner
+                  isAbsolute={true}
+                  size="large"
+                />,
                 "className": "table-body",
               },
               "ref": null,
               "rendered": Object {
                 "instance": null,
                 "key": undefined,
-                "nodeType": "host",
+                "nodeType": "function",
                 "props": Object {
-                  "children": <tbody />,
-                  "className": "report-table",
+                  "isAbsolute": true,
+                  "size": "large",
                 },
                 "ref": null,
-                "rendered": Object {
-                  "instance": null,
-                  "key": undefined,
-                  "nodeType": "host",
-                  "props": Object {
-                    "children": Array [],
-                  },
-                  "ref": null,
-                  "rendered": Array [],
-                  "type": "tbody",
-                },
-                "type": "table",
+                "rendered": null,
+                "type": [Function],
               },
               "type": "div",
             },
