@@ -68,6 +68,7 @@ ShallowWrapper {
           </ul>
         </div>,
       ],
+      "className": "search-container",
     },
     "ref": null,
     "rendered": Array [
@@ -347,6 +348,7 @@ ShallowWrapper {
             </ul>
           </div>,
         ],
+        "className": "search-container",
       },
       "ref": null,
       "rendered": Array [
@@ -594,5 +596,6 @@ ShallowWrapper {
       },
     },
   },
+  Symbol(enzyme.__childContext__): null,
 }
 `;

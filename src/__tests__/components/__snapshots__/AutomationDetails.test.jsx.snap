@@ -1130,7 +1130,7 @@ ShallowWrapper {
                     "rendered": Array [
                       Object {
                         "instance": null,
-                        "key": "3265d13f-75d5-4a58-839f-26eadfdfd2e8",
+                        "key": "c7a18569-117c-460a-b67d-71e1c8f9fc1d",
                         "nodeType": "host",
                         "props": Object {
                           "children": <table
@@ -1281,7 +1281,7 @@ ShallowWrapper {
                       },
                       Object {
                         "instance": null,
-                        "key": "e3f2eacb-fea0-46b0-bb18-32daf42b35e3",
+                        "key": "26b4fe2d-f4c1-45d8-95ef-1dd32fd753cc",
                         "nodeType": "host",
                         "props": Object {
                           "children": <table
@@ -2459,7 +2459,7 @@ ShallowWrapper {
                       "rendered": Array [
                         Object {
                           "instance": null,
-                          "key": "3265d13f-75d5-4a58-839f-26eadfdfd2e8",
+                          "key": "c7a18569-117c-460a-b67d-71e1c8f9fc1d",
                           "nodeType": "host",
                           "props": Object {
                             "children": <table
@@ -2610,7 +2610,7 @@ ShallowWrapper {
                         },
                         Object {
                           "instance": null,
-                          "key": "e3f2eacb-fea0-46b0-bb18-32daf42b35e3",
+                          "key": "26b4fe2d-f4c1-45d8-95ef-1dd32fd753cc",
                           "nodeType": "host",
                           "props": Object {
                             "children": <table
@@ -2796,6 +2796,7 @@ ShallowWrapper {
       },
     },
   },
+  Symbol(enzyme.__childContext__): null,
 }
 `;
 
@@ -3950,7 +3951,7 @@ ShallowWrapper {
                     "rendered": Array [
                       Object {
                         "instance": null,
-                        "key": "cf2c0ec5-9df9-4690-ad2d-5b5beb9698ac",
+                        "key": "dd9d4815-7954-4e5b-ac57-a5920e6eb6d2",
                         "nodeType": "host",
                         "props": Object {
                           "children": <table
@@ -4101,7 +4102,7 @@ ShallowWrapper {
                       },
                       Object {
                         "instance": null,
-                        "key": "4cdc1f9b-a78a-4854-8218-e9808c938d27",
+                        "key": "3fe398ba-e0dc-4369-a801-afb0df43c0b5",
                         "nodeType": "host",
                         "props": Object {
                           "children": <table
@@ -5279,7 +5280,7 @@ ShallowWrapper {
                       "rendered": Array [
                         Object {
                           "instance": null,
-                          "key": "cf2c0ec5-9df9-4690-ad2d-5b5beb9698ac",
+                          "key": "dd9d4815-7954-4e5b-ac57-a5920e6eb6d2",
                           "nodeType": "host",
                           "props": Object {
                             "children": <table
@@ -5430,7 +5431,7 @@ ShallowWrapper {
                         },
                         Object {
                           "instance": null,
-                          "key": "4cdc1f9b-a78a-4854-8218-e9808c938d27",
+                          "key": "3fe398ba-e0dc-4369-a801-afb0df43c0b5",
                           "nodeType": "host",
                           "props": Object {
                             "children": <table
@@ -5616,6 +5617,7 @@ ShallowWrapper {
       },
     },
   },
+  Symbol(enzyme.__childContext__): null,
 }
 `;
 
@@ -6728,7 +6730,7 @@ ShallowWrapper {
                     "rendered": Array [
                       Object {
                         "instance": null,
-                        "key": "40ee785c-c159-4a92-8366-c9abc6465bb9",
+                        "key": "2993d10f-0ce3-4e2e-9710-0457481be55e",
                         "nodeType": "host",
                         "props": Object {
                           "children": <table
@@ -6879,7 +6881,7 @@ ShallowWrapper {
                       },
                       Object {
                         "instance": null,
-                        "key": "93001337-4fd8-4441-94ac-8962a5118a18",
+                        "key": "00ff0d36-00d9-42e0-97dd-1117ae4efc20",
                         "nodeType": "host",
                         "props": Object {
                           "children": <table
@@ -8057,7 +8059,7 @@ ShallowWrapper {
                       "rendered": Array [
                         Object {
                           "instance": null,
-                          "key": "40ee785c-c159-4a92-8366-c9abc6465bb9",
+                          "key": "2993d10f-0ce3-4e2e-9710-0457481be55e",
                           "nodeType": "host",
                           "props": Object {
                             "children": <table
@@ -8208,7 +8210,7 @@ ShallowWrapper {
                         },
                         Object {
                           "instance": null,
-                          "key": "93001337-4fd8-4441-94ac-8962a5118a18",
+                          "key": "00ff0d36-00d9-42e0-97dd-1117ae4efc20",
                           "nodeType": "host",
                           "props": Object {
                             "children": <table
@@ -8394,5 +8396,6 @@ ShallowWrapper {
       },
     },
   },
+  Symbol(enzyme.__childContext__): null,
 }
 `;

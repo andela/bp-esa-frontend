@@ -25,23 +25,23 @@ class Filter extends PureComponent {
   /**
    * Toggle the display of the options available in the dropdown
    */
-  toggleVisibility = e => {
+  toggleVisibility = (e) => {
     const { filterOptionsIsVisible } = this.state;
 
     // The DOM's UL element holding the list of options
     const filterOptionsEl = ReactDOM.findDOMNode(this).getElementsByClassName('filter-options')[0];
 
     // Handler for clicking anywhere else on the page
-    const clickAway = ev => {
+    const clickAway = (ev) => {
       if (ev.target === filterOptionsEl || filterOptionsEl.contains(ev.target)) return;
       if (e !== ev) {
-        this.setState({ filterOptionsIsVisible:  false});
+        this.setState({ filterOptionsIsVisible: false });
         document.removeEventListener('click', clickAway);
       }
-    }
+    };
 
     if (!filterOptionsIsVisible) {
-      this.setState({ filterOptionsIsVisible: true});
+      this.setState({ filterOptionsIsVisible: true });
       document.addEventListener('click', clickAway);
     }
   }
