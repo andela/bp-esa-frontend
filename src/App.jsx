@@ -7,7 +7,7 @@ import {
 } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import Notifications from 'react-notify-toast';
-import Login from './components/login';
+import Login from './components/Login';
 import ReportPage from './components/ReportPage';
 
 const AuthenticatedRoute = ({ component: Component, authenticated, ...rest }) => (

@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { notify } from 'react-notify-toast';
-import { doSignInWithGoogle } from '../firebase';
+import { doSignInWithGoogle } from '../../firebase';
+import './styles.scss';
 
 class Login extends Component {
   onLogin = () => {
@@ -24,21 +25,21 @@ class Login extends Component {
 
   render() {
     return (
-      <div className="login_page">
-        <div className="login_details">
-          <div className="login_logo">
-            <div>A</div>
-            <img className="logo" src="/logo.png" alt="Andela Logo" />
+      <div className="login-page">
+        <div className="login-container">
+          <div className="top-blue">
+            <div className="andela-logo">
+              <h1 className="a">A</h1>
+              <img className="logo" src="/logo.png" alt="Andela Logo" />
+            </div>
+            <h1 className="engagement-support-automation">Engagement Support Automation</h1>
+            <h1 className="sign-in-to-get-started">Sign in to get started</h1>
           </div>
-          <div className="login_title">
-            <h1>ESA</h1>
-          </div>
-          <div className="login_link">
-            {/* eslint-disable jsx-a11y/anchor-is-valid */}
-            <a href="#" onClick={() => this.onLogin()}>
-              <img src="/google.png" alt="google-icon" />
-              <span>LOGIN TO GET STARTED</span>
-            </a>
+          <div className="bottom-white">
+            <button type="button" className="sign-in-button-container" onClick={() => this.onLogin()}>
+              <img className="google-logo" src="/google.png" alt="google-icon" />
+              <span className="sign-in-with-google">Sign in with Google</span>
+            </button>
           </div>
         </div>
       </div>

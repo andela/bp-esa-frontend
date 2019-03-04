@@ -26,45 +26,58 @@ ShallowWrapper {
     "nodeType": "host",
     "props": Object {
       "children": <div
-        className="login_details"
+        className="login-container"
       >
         <div
-          className="login_logo"
+          className="top-blue"
         >
-          <div>
-            A
+          <div
+            className="andela-logo"
+          >
+            <h1
+              className="a"
+            >
+              A
+            </h1>
+            <img
+              alt="Andela Logo"
+              className="logo"
+              src="/logo.png"
+            />
           </div>
-          <img
-            alt="Andela Logo"
-            className="logo"
-            src="/logo.png"
-          />
-        </div>
-        <div
-          className="login_title"
-        >
-          <h1>
-            ESA
+          <h1
+            className="engagement-support-automation"
+          >
+            Engagement Support Automation
+          </h1>
+          <h1
+            className="sign-in-to-get-started"
+          >
+            Sign in to get started
           </h1>
         </div>
         <div
-          className="login_link"
+          className="bottom-white"
         >
-          <a
-            href="#"
+          <button
+            className="sign-in-button-container"
             onClick={[Function]}
+            type="button"
           >
             <img
               alt="google-icon"
+              className="google-logo"
               src="/google.png"
             />
-            <span>
-              LOGIN TO GET STARTED
+            <span
+              className="sign-in-with-google"
+            >
+              Sign in with Google
             </span>
-          </a>
+          </button>
         </div>
       </div>,
-      "className": "login_page",
+      "className": "login-page",
     },
     "ref": null,
     "rendered": Object {
@@ -74,42 +87,55 @@ ShallowWrapper {
       "props": Object {
         "children": Array [
           <div
-            className="login_logo"
+            className="top-blue"
           >
-            <div>
-              A
+            <div
+              className="andela-logo"
+            >
+              <h1
+                className="a"
+              >
+                A
+              </h1>
+              <img
+                alt="Andela Logo"
+                className="logo"
+                src="/logo.png"
+              />
             </div>
-            <img
-              alt="Andela Logo"
-              className="logo"
-              src="/logo.png"
-            />
-          </div>,
-          <div
-            className="login_title"
-          >
-            <h1>
-              ESA
+            <h1
+              className="engagement-support-automation"
+            >
+              Engagement Support Automation
+            </h1>
+            <h1
+              className="sign-in-to-get-started"
+            >
+              Sign in to get started
             </h1>
           </div>,
           <div
-            className="login_link"
+            className="bottom-white"
           >
-            <a
-              href="#"
+            <button
+              className="sign-in-button-container"
               onClick={[Function]}
+              type="button"
             >
               <img
                 alt="google-icon"
+                className="google-logo"
                 src="/google.png"
               />
-              <span>
-                LOGIN TO GET STARTED
+              <span
+                className="sign-in-with-google"
+              >
+                Sign in with Google
               </span>
-            </a>
+            </button>
           </div>,
         ],
-        "className": "login_details",
+        "className": "login-container",
       },
       "ref": null,
       "rendered": Array [
@@ -119,16 +145,32 @@ ShallowWrapper {
           "nodeType": "host",
           "props": Object {
             "children": Array [
-              <div>
-                A
+              <div
+                className="andela-logo"
+              >
+                <h1
+                  className="a"
+                >
+                  A
+                </h1>
+                <img
+                  alt="Andela Logo"
+                  className="logo"
+                  src="/logo.png"
+                />
               </div>,
-              <img
-                alt="Andela Logo"
-                className="logo"
-                src="/logo.png"
-              />,
+              <h1
+                className="engagement-support-automation"
+              >
+                Engagement Support Automation
+              </h1>,
+              <h1
+                className="sign-in-to-get-started"
+              >
+                Sign in to get started
+              </h1>,
             ],
-            "className": "login_logo",
+            "className": "top-blue",
           },
           "ref": null,
           "rendered": Array [
@@ -137,10 +179,48 @@ ShallowWrapper {
               "key": undefined,
               "nodeType": "host",
               "props": Object {
-                "children": "A",
+                "children": Array [
+                  <h1
+                    className="a"
+                  >
+                    A
+                  </h1>,
+                  <img
+                    alt="Andela Logo"
+                    className="logo"
+                    src="/logo.png"
+                  />,
+                ],
+                "className": "andela-logo",
               },
               "ref": null,
-              "rendered": "A",
+              "rendered": Array [
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": "A",
+                    "className": "a",
+                  },
+                  "ref": null,
+                  "rendered": "A",
+                  "type": "h1",
+                },
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "alt": "Andela Logo",
+                    "className": "logo",
+                    "src": "/logo.png",
+                  },
+                  "ref": null,
+                  "rendered": null,
+                  "type": "img",
+                },
+              ],
               "type": "div",
             },
             Object {
@@ -148,13 +228,24 @@ ShallowWrapper {
               "key": undefined,
               "nodeType": "host",
               "props": Object {
-                "alt": "Andela Logo",
-                "className": "logo",
-                "src": "/logo.png",
+                "children": "Engagement Support Automation",
+                "className": "engagement-support-automation",
               },
               "ref": null,
-              "rendered": null,
-              "type": "img",
+              "rendered": "Engagement Support Automation",
+              "type": "h1",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": "Sign in to get started",
+                "className": "sign-in-to-get-started",
+              },
+              "ref": null,
+              "rendered": "Sign in to get started",
+              "type": "h1",
             },
           ],
           "type": "div",
@@ -164,43 +255,23 @@ ShallowWrapper {
           "key": undefined,
           "nodeType": "host",
           "props": Object {
-            "children": <h1>
-              ESA
-            </h1>,
-            "className": "login_title",
-          },
-          "ref": null,
-          "rendered": Object {
-            "instance": null,
-            "key": undefined,
-            "nodeType": "host",
-            "props": Object {
-              "children": "ESA",
-            },
-            "ref": null,
-            "rendered": "ESA",
-            "type": "h1",
-          },
-          "type": "div",
-        },
-        Object {
-          "instance": null,
-          "key": undefined,
-          "nodeType": "host",
-          "props": Object {
-            "children": <a
-              href="#"
+            "children": <button
+              className="sign-in-button-container"
               onClick={[Function]}
+              type="button"
             >
               <img
                 alt="google-icon"
+                className="google-logo"
                 src="/google.png"
               />
-              <span>
-                LOGIN TO GET STARTED
+              <span
+                className="sign-in-with-google"
+              >
+                Sign in with Google
               </span>
-            </a>,
-            "className": "login_link",
+            </button>,
+            "className": "bottom-white",
           },
           "ref": null,
           "rendered": Object {
@@ -211,14 +282,18 @@ ShallowWrapper {
               "children": Array [
                 <img
                   alt="google-icon"
+                  className="google-logo"
                   src="/google.png"
                 />,
-                <span>
-                  LOGIN TO GET STARTED
+                <span
+                  className="sign-in-with-google"
+                >
+                  Sign in with Google
                 </span>,
               ],
-              "href": "#",
+              "className": "sign-in-button-container",
               "onClick": [Function],
+              "type": "button",
             },
             "ref": null,
             "rendered": Array [
@@ -228,6 +303,7 @@ ShallowWrapper {
                 "nodeType": "host",
                 "props": Object {
                   "alt": "google-icon",
+                  "className": "google-logo",
                   "src": "/google.png",
                 },
                 "ref": null,
@@ -239,14 +315,15 @@ ShallowWrapper {
                 "key": undefined,
                 "nodeType": "host",
                 "props": Object {
-                  "children": "LOGIN TO GET STARTED",
+                  "children": "Sign in with Google",
+                  "className": "sign-in-with-google",
                 },
                 "ref": null,
-                "rendered": "LOGIN TO GET STARTED",
+                "rendered": "Sign in with Google",
                 "type": "span",
               },
             ],
-            "type": "a",
+            "type": "button",
           },
           "type": "div",
         },
@@ -262,45 +339,58 @@ ShallowWrapper {
       "nodeType": "host",
       "props": Object {
         "children": <div
-          className="login_details"
+          className="login-container"
         >
           <div
-            className="login_logo"
+            className="top-blue"
           >
-            <div>
-              A
+            <div
+              className="andela-logo"
+            >
+              <h1
+                className="a"
+              >
+                A
+              </h1>
+              <img
+                alt="Andela Logo"
+                className="logo"
+                src="/logo.png"
+              />
             </div>
-            <img
-              alt="Andela Logo"
-              className="logo"
-              src="/logo.png"
-            />
-          </div>
-          <div
-            className="login_title"
-          >
-            <h1>
-              ESA
+            <h1
+              className="engagement-support-automation"
+            >
+              Engagement Support Automation
+            </h1>
+            <h1
+              className="sign-in-to-get-started"
+            >
+              Sign in to get started
             </h1>
           </div>
           <div
-            className="login_link"
+            className="bottom-white"
           >
-            <a
-              href="#"
+            <button
+              className="sign-in-button-container"
               onClick={[Function]}
+              type="button"
             >
               <img
                 alt="google-icon"
+                className="google-logo"
                 src="/google.png"
               />
-              <span>
-                LOGIN TO GET STARTED
+              <span
+                className="sign-in-with-google"
+              >
+                Sign in with Google
               </span>
-            </a>
+            </button>
           </div>
         </div>,
-        "className": "login_page",
+        "className": "login-page",
       },
       "ref": null,
       "rendered": Object {
@@ -310,42 +400,55 @@ ShallowWrapper {
         "props": Object {
           "children": Array [
             <div
-              className="login_logo"
+              className="top-blue"
             >
-              <div>
-                A
+              <div
+                className="andela-logo"
+              >
+                <h1
+                  className="a"
+                >
+                  A
+                </h1>
+                <img
+                  alt="Andela Logo"
+                  className="logo"
+                  src="/logo.png"
+                />
               </div>
-              <img
-                alt="Andela Logo"
-                className="logo"
-                src="/logo.png"
-              />
-            </div>,
-            <div
-              className="login_title"
-            >
-              <h1>
-                ESA
+              <h1
+                className="engagement-support-automation"
+              >
+                Engagement Support Automation
+              </h1>
+              <h1
+                className="sign-in-to-get-started"
+              >
+                Sign in to get started
               </h1>
             </div>,
             <div
-              className="login_link"
+              className="bottom-white"
             >
-              <a
-                href="#"
+              <button
+                className="sign-in-button-container"
                 onClick={[Function]}
+                type="button"
               >
                 <img
                   alt="google-icon"
+                  className="google-logo"
                   src="/google.png"
                 />
-                <span>
-                  LOGIN TO GET STARTED
+                <span
+                  className="sign-in-with-google"
+                >
+                  Sign in with Google
                 </span>
-              </a>
+              </button>
             </div>,
           ],
-          "className": "login_details",
+          "className": "login-container",
         },
         "ref": null,
         "rendered": Array [
@@ -355,16 +458,32 @@ ShallowWrapper {
             "nodeType": "host",
             "props": Object {
               "children": Array [
-                <div>
-                  A
+                <div
+                  className="andela-logo"
+                >
+                  <h1
+                    className="a"
+                  >
+                    A
+                  </h1>
+                  <img
+                    alt="Andela Logo"
+                    className="logo"
+                    src="/logo.png"
+                  />
                 </div>,
-                <img
-                  alt="Andela Logo"
-                  className="logo"
-                  src="/logo.png"
-                />,
+                <h1
+                  className="engagement-support-automation"
+                >
+                  Engagement Support Automation
+                </h1>,
+                <h1
+                  className="sign-in-to-get-started"
+                >
+                  Sign in to get started
+                </h1>,
               ],
-              "className": "login_logo",
+              "className": "top-blue",
             },
             "ref": null,
             "rendered": Array [
@@ -373,10 +492,48 @@ ShallowWrapper {
                 "key": undefined,
                 "nodeType": "host",
                 "props": Object {
-                  "children": "A",
+                  "children": Array [
+                    <h1
+                      className="a"
+                    >
+                      A
+                    </h1>,
+                    <img
+                      alt="Andela Logo"
+                      className="logo"
+                      src="/logo.png"
+                    />,
+                  ],
+                  "className": "andela-logo",
                 },
                 "ref": null,
-                "rendered": "A",
+                "rendered": Array [
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": "A",
+                      "className": "a",
+                    },
+                    "ref": null,
+                    "rendered": "A",
+                    "type": "h1",
+                  },
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "alt": "Andela Logo",
+                      "className": "logo",
+                      "src": "/logo.png",
+                    },
+                    "ref": null,
+                    "rendered": null,
+                    "type": "img",
+                  },
+                ],
                 "type": "div",
               },
               Object {
@@ -384,13 +541,24 @@ ShallowWrapper {
                 "key": undefined,
                 "nodeType": "host",
                 "props": Object {
-                  "alt": "Andela Logo",
-                  "className": "logo",
-                  "src": "/logo.png",
+                  "children": "Engagement Support Automation",
+                  "className": "engagement-support-automation",
                 },
                 "ref": null,
-                "rendered": null,
-                "type": "img",
+                "rendered": "Engagement Support Automation",
+                "type": "h1",
+              },
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": "Sign in to get started",
+                  "className": "sign-in-to-get-started",
+                },
+                "ref": null,
+                "rendered": "Sign in to get started",
+                "type": "h1",
               },
             ],
             "type": "div",
@@ -400,43 +568,23 @@ ShallowWrapper {
             "key": undefined,
             "nodeType": "host",
             "props": Object {
-              "children": <h1>
-                ESA
-              </h1>,
-              "className": "login_title",
-            },
-            "ref": null,
-            "rendered": Object {
-              "instance": null,
-              "key": undefined,
-              "nodeType": "host",
-              "props": Object {
-                "children": "ESA",
-              },
-              "ref": null,
-              "rendered": "ESA",
-              "type": "h1",
-            },
-            "type": "div",
-          },
-          Object {
-            "instance": null,
-            "key": undefined,
-            "nodeType": "host",
-            "props": Object {
-              "children": <a
-                href="#"
+              "children": <button
+                className="sign-in-button-container"
                 onClick={[Function]}
+                type="button"
               >
                 <img
                   alt="google-icon"
+                  className="google-logo"
                   src="/google.png"
                 />
-                <span>
-                  LOGIN TO GET STARTED
+                <span
+                  className="sign-in-with-google"
+                >
+                  Sign in with Google
                 </span>
-              </a>,
-              "className": "login_link",
+              </button>,
+              "className": "bottom-white",
             },
             "ref": null,
             "rendered": Object {
@@ -447,14 +595,18 @@ ShallowWrapper {
                 "children": Array [
                   <img
                     alt="google-icon"
+                    className="google-logo"
                     src="/google.png"
                   />,
-                  <span>
-                    LOGIN TO GET STARTED
+                  <span
+                    className="sign-in-with-google"
+                  >
+                    Sign in with Google
                   </span>,
                 ],
-                "href": "#",
+                "className": "sign-in-button-container",
                 "onClick": [Function],
+                "type": "button",
               },
               "ref": null,
               "rendered": Array [
@@ -464,6 +616,7 @@ ShallowWrapper {
                   "nodeType": "host",
                   "props": Object {
                     "alt": "google-icon",
+                    "className": "google-logo",
                     "src": "/google.png",
                   },
                   "ref": null,
@@ -475,14 +628,15 @@ ShallowWrapper {
                   "key": undefined,
                   "nodeType": "host",
                   "props": Object {
-                    "children": "LOGIN TO GET STARTED",
+                    "children": "Sign in with Google",
+                    "className": "sign-in-with-google",
                   },
                   "ref": null,
-                  "rendered": "LOGIN TO GET STARTED",
+                  "rendered": "Sign in with Google",
                   "type": "span",
                 },
               ],
-              "type": "a",
+              "type": "button",
             },
             "type": "div",
           },
@@ -513,6 +667,5 @@ ShallowWrapper {
       },
     },
   },
-  Symbol(enzyme.__childContext__): null,
 }
 `;
