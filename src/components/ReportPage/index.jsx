@@ -158,7 +158,7 @@ class ReportPage extends PureComponent {
     return formattedDate;
   }
 
-  filterWithAutomationStatus(report) {
+  filterWithAutomationStatus = (report) => {
     const { filters: { automationStatus } } = this.state;
     return automationStatus.every((filterTerm) => {
       switch (filterTerm) {
@@ -190,7 +190,7 @@ class ReportPage extends PureComponent {
     });
   }
 
-  filterWithAutomationType(report) {
+  filterWithAutomationType = (report) => {
     const { filters: { automationType } } = this.state;
     return automationType.every((filteTerm) => {
       switch (filteTerm) {
@@ -204,7 +204,7 @@ class ReportPage extends PureComponent {
     });
   }
 
-  filterWithDate(reportDate) {
+  filterWithDate = (reportDate) => {
     const { filters: { date: { from, to } } } = this.state;
     const reportDateTime = new Date(reportDate).getTime();
     const fromTime = new Date(from).getTime();
@@ -212,7 +212,7 @@ class ReportPage extends PureComponent {
     return (reportDateTime >= fromTime && reportDateTime <= toTime);
   }
 
-  runFilters(report) {
+  runFilters = (report) => {
     const { filters } = this.state;
     const filterResult = [];
     if (filters.automationStatus.length) {
@@ -227,7 +227,7 @@ class ReportPage extends PureComponent {
     return filterResult.every(result => result === true);
   }
 
-  filterReports() {
+  filterReports = () => {
     const { reportData, filters: previousFilters } = this.state;
     const filteredReport = reportData.filter(report => this.runFilters(report));
     this.setState({
@@ -239,11 +239,9 @@ class ReportPage extends PureComponent {
     });
   }
 
-  changeModalTypes(report, type) {
-    this.setState({ modalContent: report, type });
-  }
+  changeModalTypes = (report, type) => this.setState({ modalContent: report, type });
 
-  statusBreakdown(automation, type) {
+  statusBreakdown = (automation, type) => {
     const activities = automation[`${type}Automations`][`${type}Activities`] || [];
     const stats = { successCount: 0, failureCount: 0 };
     activities.forEach((activity) => {
@@ -257,38 +255,35 @@ class ReportPage extends PureComponent {
     return `(${stats.successCount}/${activities.length})`;
   }
 
-  renderAutomationStatus(automationStatus, report, type) {
-    return (
-      <span>
-        {automationStatus}&nbsp;
-        <span className={`${automationStatus}-text`}>
-          {this.statusBreakdown(report, type)}
-        </span>
-        <i
-          className={`fa fa-info-circle ${automationStatus}`}
-          onClick={() => { this.openModal(); this.changeModalTypes(report, type); }}
-        />
+  renderAutomationStatus = (automationStatus, report, type) => (
+    <span>
+      {automationStatus}
+      &nbsp;
+      <span className={`${automationStatus}-text`}>
+        {this.statusBreakdown(report, type)}
       </span>
-    );
-  }
-
-  renderFilters() {
-    return constants.filters.map(filter => (
-      <Filter
-        key={filter.id}
-        filterSet={filter.filterSet}
-        title={filter.title}
-        options={filter.options}
-        handleFilterChange={this.setFilter}
+      <i
+        className={`fa fa-info-circle ${automationStatus}`}
+        onClick={() => { this.openModal(); this.changeModalTypes(report, type); }}
       />
-    ));
-  }
+    </span>
+  )
 
-  renderSearch() {
-    return <Search handleSearch={this.doSearch} />;
-  }
+  renderFilters = () => constants.filters.map(filter => (
+    <Filter
+      key={filter.id}
+      filterSet={filter.filterSet}
+      title={filter.title}
+      options={filter.options}
+      handleFilterChange={this.setFilter}
+    />
+  ));
 
-  renderTableRows() {
+  renderSearch = () => (
+    <Search handleSearch={this.doSearch} />
+  )
+
+  renderTableRows = () => {
     const {
       filters, filteredReport, reportData, searchResult,
     } = this.state;
