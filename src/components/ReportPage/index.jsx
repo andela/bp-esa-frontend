@@ -56,7 +56,8 @@ class ReportPage extends PureComponent {
     this.setState({
       isLoadingReports: !isLoadingReports,
     });
-    const url = 'https://api-staging-esa.andela.com/api/v1/automations';
+    const { REACT_APP_BACKEND_URL } = process.env;
+    const url = `${REACT_APP_BACKEND_URL}/api/v1/automations`;
     const data = await axios
       .get(url)
       .then(response => response.data.data)

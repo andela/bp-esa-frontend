@@ -1,3 +1,4 @@
+/* global mount */
 import React from 'react';
 import { notify } from 'react-notify-toast';
 import sinon from 'sinon';
@@ -51,6 +52,22 @@ describe('onLogout() method', () => {
     const header = new Header(props);
     const notifyError = await header.onLogout();
     expect(typeof notifyError === 'function').toEqual(true);
+  });
+
+  it('should get initials given a username', () => {
+    const newProps = {
+      ...props,
+      currentUser: {
+        additionalUserInfo: {
+          profile: {
+            name: 'My Name',
+            picture: 'image',
+          },
+        },
+      },
+    };
+    const shallowWrapper = shallow(<Header {...newProps} />);
+    expect(shallowWrapper).toMatchSnapshot();
   });
 });
 
