@@ -1,0 +1,384 @@
+/* Styling the Login component */
+.login-page {
+   background-image: url('../../assets/dotted-worldmap.png');
+   background-color: rgba(51,89,223,0.95);
+   height: -webkit-fill-available;
+   background-size: cover;
+   background-repeat: no-repeat;
+}
+
+.login-container {
+    height: fit-content;
+    width: fit-content;
+    margin-left: 200px;
+    padding-top: 12%;
+}
+
+.top-blue {
+    height: 300px;
+    width: 350px;
+    display: inline-block;
+    border-radius: 5px 5px 0 0;
+    background-color: rgba(51,89,223,0.95);
+    box-shadow: 0 10px 30px 0 rgba(0,0,0,0.3);
+    padding-top: 45px;
+    position: relative;
+}
+
+.bottom-white {
+    height: 200px;
+    width: 350px;
+    border-radius: 0 0 5px 5px;
+    background-color: #FFF;
+    box-shadow: 0 10px 30px 0 rgba(0,0,0,0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.andela-logo {
+    height: 70px;
+    width: 70px;
+    margin: auto;
+
+}
+
+.a {
+    height: 65px;
+    width: 65px;
+    color: #FFF;
+    font-family: Arial;
+    font-size: 36px;
+    line-height: 40px;
+    position: absolute;
+    left: 46%;
+    top: 19%;
+}
+
+.logo {
+    width: 65px;
+    height: 65px;
+    position: absolute;
+}
+
+.engagement-support-automation {
+    height: 20px;
+    color: #FFF;
+    font-family: Arial;
+    text-align: center;
+    font-size: 18px;
+    line-height: 20px;
+    margin-top: 25px;
+}
+
+.sign-in-to-get-started {
+    height: 20px;
+    color: #FFF;
+    font-family: Arial;
+    font-size: 18px;
+    font-style: italic;
+    text-align: center;
+    line-height: 20px;
+    margin-top: 25px;
+}
+
+.sign-in-button-container {
+    box-sizing: border-box;
+    height: 48px;
+    width: 254px;
+    border-radius: 5px;
+    background-color: #FFF;
+    border: 1px solid #CCD;
+    display: flex;
+    align-items: center;
+}
+
+.google-logo {
+    height: 28px;
+    width: 27.34px;
+  }
+
+.sign-in-with-google {
+    height: 20px;
+    width: 156px;
+    color: #667;
+    font-family: Arial;
+    font-size: 18px;
+    line-height: 20px;
+    margin-left: 8px;
+}
+
+@media screen and (max-width: 800px){
+    .login-container{
+        margin: auto;
+        padding-top: 30%;
+    }
+}
+
+@media screen and (max-width: 1100px){
+    .login-container{
+        margin: auto;
+        padding-top: 35%;
+    }
+}
+
+@media screen and (max-width: 1100px) and (max-height: 1000px){
+    .login-container{
+        margin: auto;
+        padding-top: 15%;
+    }
+}
+
+@media screen and (max-width: 800px) and (max-height: 600px){
+    .login-container{
+        margin: auto;
+        padding-top: 5%;
+    }
+    .top-blue {
+        height: 210px;
+        width: 250px;
+        padding-top: 15%;
+    }
+    .a {
+        left: 44.5%;
+        top: 24%;
+    }
+    .engagement-support-automation {
+        font-size: 14px;
+        margin-top: 15px;
+    }
+    .sign-in-to-get-started {
+        font-size: 14px;
+        margin-top: 15px;
+    }
+    .bottom-white {
+        height: 120px;
+        width: 250px;
+    }
+    .sign-in-button-container {
+        height: 48px;
+        width: 170px;
+    }    
+   .google-logo {
+        height: 24px;
+        width: 23px;
+    }    
+    .sign-in-with-google {
+        font-size: 14px;
+        margin-left: 3px;
+    }
+}
+
+@media screen and (min-width: 800px) and (max-height: 600px){
+    .login-container{
+        margin: auto;
+        padding-top: 5%;
+    }
+    .top-blue {
+        height: 210px;
+        width: 250px;
+        padding-top: 15%;
+        }
+    .a{
+        left: 44.5%;
+        top: 24%;
+    }
+    .engagement-support-automation {
+        font-size: 14px;
+        margin-top: 15px;
+    }
+    .sign-in-to-get-started {
+        font-size: 14px;
+        margin-top: 15px;
+    }
+    .bottom-white {
+        height: 120px;
+        width: 250px;
+    }
+    .sign-in-button-container {
+        height: 48px;
+        width: 170px;
+    }
+    .google-logo {
+        height: 24px;
+        width: 23px;
+    }    
+    .sign-in-with-google {
+        font-size: 14px;
+        margin-left: 3px;
+    }
+}
+
+
+
+@media screen and (max-width: 600px) and (max-height: 600px){
+   .login-container{
+       margin: auto;
+       padding-top: 25%;
+    }
+   .top-blue {
+        height: 250px;
+        width: 250px;
+        padding-top: 15%;
+    }
+    .a{
+        left: 44%;
+        top: 19%;
+    }
+   .engagement-support-automation {
+        font-size: 14px;
+        margin-top: 15px;
+    }
+    .sign-in-to-get-started {
+        font-size: 14px;
+        margin-top: 15px;
+    }
+
+    .bottom-white {
+        height: 150px;
+        width: 250px;
+    }
+    .sign-in-button-container {
+        height: 48px;
+        width: 170px;
+    }
+
+    .google-logo {
+        height: 24px;
+        width: 23px;
+    }
+
+    .sign-in-with-google {
+        font-size: 14px;
+        margin-left: 3px;
+    }
+}
+
+@media screen and (max-width: 600px) and (max-height: 700px){
+    .login-container{
+        margin: auto;
+        padding-top: 30%;
+     }
+    .top-blue {
+        height: 250px;
+        width: 250px;
+        padding-top: 15%;
+    }
+    .a{
+        left: 44.5%;
+        top: 19%;
+    }
+    .engagement-support-automation {
+        font-size: 14px;
+        margin-top: 15px;
+    }
+    
+    .sign-in-to-get-started {
+        font-size: 14px;
+        margin-top: 15px;
+    }
+    
+    .bottom-white {
+        height: 150px;
+        width: 250px;
+    }
+    .sign-in-button-container {
+        height: 48px;
+        width: 170px;
+    }
+    
+    .google-logo {
+        height: 24px;
+        width: 23px;
+    }
+    
+    .sign-in-with-google {
+        font-size: 14px;
+        margin-left: 3px;
+    }
+ }
+
+ @media screen and (max-width: 600px) and (max-height: 800px) and (min-height: 700px){
+    .login-container{
+        margin: auto;
+        padding-top: 30%;
+     }
+    .top-blue {
+        height: 250px;
+        width: 250px;
+        padding-top: 15%;
+    }
+    .a {
+        left: 44%;
+        top: 19%;
+    }
+    .engagement-support-automation {
+        font-size: 14px;
+        margin-top: 15px;
+    }
+    .sign-in-to-get-started {
+        font-size: 14px;
+        margin-top: 15px;
+    }
+    
+    .bottom-white {
+        height: 150px;
+        width: 250px;
+    }
+    .sign-in-button-container {
+        height: 48px;
+        width: 170px;
+    }
+    .google-logo {
+        height: 24px;
+        width: 23px;
+    }
+    .sign-in-with-google {
+        font-size: 14px;
+        margin-left: 3px;
+    }
+}
+
+@media screen and (max-width: 600px) and (max-height: 900px) and (min-height: 800px){
+    .login-container{
+        margin: auto;
+        padding-top: 45%;
+    }
+    .top-blue {
+        height: 250px;
+        width: 250px;
+        padding-top: 15%;
+    }
+    .a {
+        left: 44.5%;
+        top: 20%;
+    }
+    .engagement-support-automation {
+        font-size: 14px;
+        margin-top: 15px;
+    }
+    
+    .sign-in-to-get-started {
+        font-size: 14px;
+        margin-top: 15px;
+    }
+    
+    .bottom-white {
+        height: 150px;
+        width: 250px;
+    }
+    .sign-in-button-container {
+        height: 48px;
+        width: 170px;
+    }
+    
+    .google-logo {
+        height: 24px;
+        width: 23px;
+    }
+    
+    .sign-in-with-google {
+        font-size: 14px;
+        margin-left: 3px;
+    }
+}

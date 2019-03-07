@@ -2,7 +2,7 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import { notify } from 'react-notify-toast';
 import { doSignInWithGoogle } from '../../firebase';
-import Login from '../../components/login';
+import Login from '../../components/Login';
 
 jest.mock('../../firebase');
 
@@ -42,7 +42,7 @@ describe('onLogin() method', () => {
         resolve(user);
       }),
     );
-    renderedComponent.find('a').simulate('click');
+    renderedComponent.find('.sign-in-button-container').simulate('click');
     expect(spy).toHaveBeenCalled();
   });
 
@@ -51,7 +51,7 @@ describe('onLogin() method', () => {
     user.user.email.match = () => false;
     doSignInWithGoogle.mockImplementationOnce(() => new Promise(resolve => resolve(user)));
     const spy = jest.spyOn(renderedComponent.instance().props, 'setCurrentUser');
-    renderedComponent.find('a').simulate('click');
+    renderedComponent.find('.sign-in-button-container').simulate('click');
     expect(spy).toHaveBeenCalled();
   });
 
@@ -62,7 +62,7 @@ describe('onLogin() method', () => {
       () => new Promise((resolve, reject) => reject(new Error('something is wrong'))),
     );
     const spy = jest.spyOn(renderedComponent.instance().props, 'setCurrentUser');
-    renderedComponent.find('a').simulate('click');
+    renderedComponent.find('.sign-in-button-container').simulate('click');
     expect(spy).toHaveBeenCalled();
   });
 });
