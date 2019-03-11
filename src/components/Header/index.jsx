@@ -15,20 +15,17 @@ class Header extends PureComponent {
   }
 
   componentWillUnmount() {
-    document.body.addEventListener('click', this.clickAway);
+    document.body.removeEventListener('click', this.clickAway);
   }
 
   clickAway = (event) => {
-    this.setState({ signoutDropDownIsVisible: false });
-  }
-
-  toggleSignoutDropDown = (event) => {
-    event.preventDefault();
-    const { signoutDropDownIsVisible } = this.state;
-    this.setState({
-      signoutDropDownIsVisible: !signoutDropDownIsVisible,
-    });
+    if (event.target.getAttribute('data-toggle') !== 'signout-dropdown-toggler') {
+      this.setState({ signoutDropDownIsVisible: false });
+    }
   };
+
+  toggleSignoutDropDown = () => this.setState(prevState => (
+    { signoutDropDownIsVisible: !prevState.signoutDropDownIsVisible }));
 
   onLogout = async () => {
     const { removeCurrentUser, history } = this.props;
@@ -49,36 +46,70 @@ class Header extends PureComponent {
         profile: { name, picture },
       },
     } = currentUser;
+
+    const [firstName, secondName] = name.split(' ');
+    let initials = '';
+    if (firstName && secondName) {
+      initials = `${firstName[0]}${secondName[0]}`;
+    }
     return (
       <div id="header" ref={(node) => { this.node = node; }}>
         <div className="brand">
           <a href="/">
-            <img className="logo" src="/logo.png" alt="Andela Logo" />
-            <span className="text">ESA Reporting</span>
+            <div className="header-logo"><img src="/logo.png" alt="Andela Logo" /></div>
+            <span className="text">ESA Dashboard</span>
           </a>
         </div>
-        <div className="signout">
-          <div className="user-name">
-              Hello,&nbsp;
-            {name}
-!
+        <div
+          className="user-info-container"
+          data-toggle="signout-dropdown-toggler"
+          onClick={this.toggleSignoutDropDown}
+        >
+          <div
+            className="current-user"
+            data-toggle="signout-dropdown-toggler"
+          >
+            <div
+              className="user-name"
+              data-initials={initials}
+              data-name={name}
+              data-toggle="signout-dropdown-toggler"
+            />
+            <div
+              className="image-container"
+              data-toggle="signout-dropdown-toggler"
+            >
+              {picture ? (
+                <img
+                  src={picture}
+                  alt="user-icon"
+                  className="user-image"
+                  data-toggle="signout-dropdown-toggler"
+                />
+              ) : (
+                <i
+                  className="fa fa-user-circle"
+                  data-toggle="signout-dropdown-toggler"
+                />
+              )}
+            </div>
           </div>
-          <div className="image-container" onClick={this.toggleSignoutDropDown}>
-            {picture ? (
-              <img src={picture} alt="user-icon" className="user-image" />
-            ) : (
-              <i className="fa fa-2x fa-user-circle" />
-            )}
-            <i className="fa fa-caret-down custom" />
-            <div className={classNames('signout-dropdown', { visible: signoutDropDownIsVisible })}>
-              <button type="button" className="logout-button" onClick={() => this.onLogout()}>
-                <i className="fa fa-sign-out-alt" />
-                &nbsp;
-                <span>Sign Out</span>
-              </button>
+          <div
+            className={classNames('caret-down', { visible: signoutDropDownIsVisible })}
+            data-toggle="signout-dropdown-toggler"
+          >
+            <i className="fa fa-caret-down" data-toggle="signout-dropdown-toggler" />
+            <div className="signout-dropdown-parent">
+              <div className={classNames('signout-dropdown', { visible: signoutDropDownIsVisible })}>
+                <button type="button" className="logout-button" onClick={() => this.onLogout()}>
+                  <i className="fa fa-sign-out-alt" />
+                  <span>Sign Out</span>
+                </button>
+              </div>
             </div>
           </div>
         </div>
+
       </div>
     );
   }

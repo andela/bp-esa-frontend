@@ -1,0 +1,68 @@
+/* Normal DIN Pro font definition */
+@font-face {
+  font-family: "DIN Pro";
+  font-style: normal;
+  font-weight: 400;
+  src: url('DINPro.otf');
+}
+
+/* Bold DIN Pro font definition */
+@font-face {
+  font-family: "DIN Pro";
+  font-weight: 800;
+  src: url('DINPro-Bold.otf');
+}
+
+/* Bolder DIN Pro font definition */
+@font-face {
+  font-family: "DIN Pro";
+  font-weight: 900;
+  src: url('DINPro-Bolder.otf');
+}
+
+/* Medium DIN Pro font definition */
+@font-face {
+  font-family: "DIN Pro";
+  font-weight: 600;
+  src: url('DINPro-Medium.otf');
+}
+
+/* Light DIN Pro font definition */
+@font-face {
+  font-family: "DIN Pro";
+  font-weight: 200;
+  src: url('DINPro-Light.otf');
+}
+
+/* Lighter DIN Pro font definition */
+@font-face {
+  font-family: "DIN Pro";
+  font-weight: 100;
+  src: url('DINPro-Extlight.otf');
+}
+
+/* Italic DIN Pro font definition */
+@font-face {
+  font-family: "DIN Pro";
+  font-style: italic;
+  font-weight: 400;
+  src: url('DINPro-Italic.otf');
+}
+
+/* Light Italic DIN Pro font definition */
+@font-face {
+  font-family: "DIN Pro";
+  font-style: italic;
+  font-weight: 200;
+  src: local('DIN Pro');
+  src: url('DINPro-LightItalic.otf');
+}
+
+/* Bold Italic DIN Pro font definition */
+@font-face {
+  font-family: "DIN Pro";
+  font-style: italic;
+  font-weight: 800;
+  src: local('DIN Pro');
+  src: url('DINPro-BoldItalic.otf');
+}
