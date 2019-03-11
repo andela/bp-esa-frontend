@@ -1,0 +1,78 @@
+.report-navbar-container {
+  display: flex;
+  justify-content: space-between;
+  height: 64px;
+  width: 100%;
+  margin-top: 16px;
+  margin-bottom: 16px;
+  background-color: rgba(204,204,221,0.2);
+
+  .right-navbar {
+    display: flex;
+    margin: 11px 32px 11px 32px;
+    color: #667;
+    font-family:  'DIN pro';
+    font-size: 22px;
+
+    p {
+      margin-top: 4px;
+    }
+
+    .view-button {
+      height: 22.63px;
+      width: 22.63px;
+      margin: 11px 0 11px 12px;
+      cursor: pointer;
+      fill: #AAB;
+    }
+    .view-button:active, .view-button:hover,  {
+      fill: #667;
+    }
+
+    .search-box {
+      display: flex;
+      margin-left: 32px;
+    
+      .search-input {
+        height: 42px;
+        width: 100%;
+        box-sizing: border-box;
+        border-radius: 3px 0px 0px 3px;
+        background-color: rgba(255,255,255,0.9);
+        border: 0.5px solid #CCD;
+      }
+      .filter-button {
+        height: 42px;
+        width: 42px;
+        box-sizing: border-box;
+        border-radius: 0 3px 3px 0;
+        background-color: rgba(255,254,254,0.9);
+        border-width: 0.5px 0.5px 0.5px 0;
+        border-style: solid;
+        border-color: #CCD;
+        cursor: pointer;
+    
+        .filter-button-icon {
+          height: 21px;
+          width: 21px;
+          display: block;
+          margin: 10px;
+          transform: rotate(270deg);
+        }
+      }
+    }    
+  }
+
+  .left-navbar {
+    margin: 20px 0 20px 36px;
+    height: 24px;
+    color: #889;
+    font-family:  'DIN pro';
+    font-size: 22px;
+    line-height: 25px;
+
+    img {
+      margin-left: 8px;
+    }
+  }
+}

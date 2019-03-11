@@ -13,6 +13,7 @@ import './styles.scss';
 import AutomationDetails from '../AutomationDetails';
 import Spinner from '../Spinner';
 import listenToSocketEvent from '../../realTime';
+import ReportNavBar from '../ReportNavBar';
 
 
 /* eslint-disable class-methods-use-this */
@@ -344,6 +345,7 @@ class ReportPage extends PureComponent {
           removeCurrentUser={removeCurrentUser}
           history={history}
         />
+        <ReportNavBar />
         <div id="report-page">
           <div className="filter-box">
             <p>Filters</p>
