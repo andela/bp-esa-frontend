@@ -4,7 +4,8 @@
 /node_modules
 
 #idea
-.idea/git
+./idea/
+.idea/
 
 # testing
 /coverage

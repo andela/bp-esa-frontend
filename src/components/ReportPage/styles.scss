@@ -1,23 +1,39 @@
 #report-page {
   padding: 0 30px 0 30px;
+  table {
+
+  }
+  .table-header {
+    margin-top: 20px;
+    height: 44px;
+    font-family: 'Montserrat', sans-serif;
+  }
   .table-header table {
     margin-top: 15px;
     thead tr {
-      background-color: #385de0;
+      background-color: rgba(51,89,223,0.5);
       color: white;
+      height: 28px;
     }
   }
+  tbody {
+    border: 1px solid #CCD;
+  }
+
+  .empty-row {
+    border: 1px solid #CCD;
+  }
+
   .table-body {
     height: 85vh;
     overflow: scroll;
-    padding: 1px;
+
     tr {
       font-size: 15px;
+      width: 100%;
+
       td {
         color: #808080;
-        // &:hover {
-        //   border: 1px solid #7b93ea;
-        // }
         white-space: nowrap;
         overflow: hidden;
         text-overflow: ellipsis;
@@ -27,6 +43,7 @@
         .fa-info-circle {
           font-size: 18px;
           margin-left: 5px;
+          padding-left: 25px;
           &.success {
             color: #385de0;
           }
@@ -35,6 +52,12 @@
           }
         }
       }
+      .info-icon {
+        display: contents;
+        color: #E6E6E6;
+        line-height: 1;
+      }
+
       &:nth-child(odd) {
         background-color: #f9f9f9;
       }
@@ -48,12 +71,18 @@
     }
   }
   table.report-table {
-    border-collapse: collapse;
     table-layout: fixed;
     width: 100%;
+    border: 1px solid #CCD;
+
+    margin: 0 auto;
     &, tr, th, td {
       border: none;
+      font-family: 'Din Pro', sans-serif;
       text-transform: capitalize;
+    }
+    span {
+      font-family: 'Din Pro';
     }
     .numbering {
       width: 40px;
@@ -78,6 +107,38 @@
   }
   .failure-text {
     color: #ff4d4d;
-    margin: auto 8.6px;
+    margin: auto;
+
   }
+  .metrics {
+    color: #667;
+    display: inherit;
+    margin-left: 12px;
+  }
+}
+
+.body-error {
+  display: flex;
+  justify-content: center;
+  margin-top: 6em;
+
+  .error-message {
+    padding: 11px 6em;
+    color: red;
+    background: #f8d7da;
+    border-radius: 9px;
+  }
+}
+
+table tr:first-child th:first-child {
+  border-top-left-radius: 5px;
+}
+
+table tr:first-child th:last-child {
+  border-top-right-radius: 5px;
+}
+
+table tr:last-child td:first-child {
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
 }
