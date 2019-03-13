@@ -20,6 +20,6 @@ export default (state = initialState, action) => {
     case FETCH_AUTOMATION_FAILURE:
       return { ...state, error: action.payload, isLoading: false };
     default:
-      return initialState;
+      return state;
   }
 };

@@ -1,9 +1,9 @@
 import React from 'react';
+import { mount } from 'enzyme';
 import configureStore from 'redux-mock-store';
 import { Provider } from 'react-redux';
 import axios from 'axios';
-import { mount } from 'enzyme';
-import ReportComponent, { ReportPage } from '../../components/ReportPage';
+import ReportComponent, { mapStateToProps, mapDispatchToProps, ReportPage } from '../../components/ReportPage';
 
 const sampleReports = [
   {
@@ -55,8 +55,44 @@ const sampleReports = [
   },
 ];
 
+const stats = {
+  isLoading: false,
+  data: {
+    automation: {
+      success: 1,
+      total: 191,
+    },
+    onboarding: {
+      success: 1,
+      total: 191,
+    },
+    offboarding: {
+      success: 1,
+      total: 191,
+    },
+    freckle: {
+      success: 1,
+      total: 191,
+    },
+    slack: {
+      success: 1,
+      total: 191,
+    },
+    email: {
+      success: 1,
+      total: 191,
+    },
+  },
+  error: {},
+};
+
 const state = {
-  automation: { data: sampleReports, error: { error: '' }, isLoading: false },
+  automation: {
+    data: sampleReports,
+    error: { error: '' },
+    isLoading: false,
+  },
+  stats,
 };
 const mockStore = configureStore();
 const store = mockStore(state);
@@ -78,6 +114,8 @@ const props = {
   formatDates: jest.fn(),
   closeModal: jest.fn(),
   fetchAllAutomation: jest.fn(),
+  fetchStat: jest.fn(),
+  stats,
 };
 
 class CustomError extends Error {
@@ -163,6 +201,31 @@ describe('<ReportPage />', () => {
       const component = mount(<ReportPage {...props} />);
       component.find('#list-icon').simulate('click');
       expect(component.instance().state.viewMode).toEqual('listView');
+    });
+  });
+
+  describe('The mapStateToProps', () => {
+    it('should return the expected props object', () => {
+      const storeState = {
+        stats: {
+          isLoading: false,
+          data: {},
+          error: {},
+        },
+      };
+
+      const expectedProps = mapStateToProps(storeState);
+      expect(expectedProps.stats).toEqual(storeState.stats);
+    });
+  });
+
+  describe('The mapDispatchToProps', () => {
+    it('should ensure that fetchStat is mapped to props', () => {
+      const dispatch = jest.fn();
+      const expectedProps = mapDispatchToProps(dispatch);
+
+      expectedProps.fetchStat();
+      expect(dispatch).toHaveBeenCalled();
     });
   });
 });

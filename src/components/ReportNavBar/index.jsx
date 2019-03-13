@@ -64,12 +64,13 @@ const ReportNavBar = ({ isStats, renderView }) => (
 
 ReportNavBar.propTypes = {
   isStats: PropTypes.bool,
-  renderView: PropTypes.func.isRequired,
+  renderView: PropTypes.func,
 
 };
 
 ReportNavBar.defaultProps = {
   isStats: false,
+  renderView: null,
 };
 
 export default ReportNavBar;
