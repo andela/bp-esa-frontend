@@ -31,12 +31,16 @@ class Header extends PureComponent {
 
   render() {
     const { signoutDropDownIsVisible } = this.state;
-    const { currentUser } = this.props;
     const {
-      additionalUserInfo: {
-        profile: { name, picture },
+      currentUser: {
+        UserInfo: {
+          firstName,
+          lastName,
+          picture,
+        },
       },
-    } = currentUser;
+    } = this.props;
+
     return (
       <div id="header">
         <div className="brand">
@@ -47,7 +51,9 @@ class Header extends PureComponent {
         </div>
         <div className="signout">
           <div className="user-name">
-              Hello,&nbsp;{name}!
+              Hello,&nbsp;
+            {`${firstName} ${lastName}`}
+!
           </div>
           <div className="image-container" onClick={this.toggleSignoutDropDown}>
             {picture ? (
