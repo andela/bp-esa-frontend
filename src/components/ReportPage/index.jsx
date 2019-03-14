@@ -12,6 +12,7 @@ import FiltersBar from '../FiltersBar';
 import './styles.scss';
 import AutomationDetails from '../AutomationDetails';
 import Spinner from '../Spinner';
+import listenToSocketEvent from '../../realTime';
 
 
 /* eslint-disable class-methods-use-this */
@@ -37,6 +38,7 @@ class ReportPage extends PureComponent {
   }
 
   async componentDidMount() {
+    this.connectToSocket('newAutomation');
     const reportData = await this.reportData();
     this.setState({
       isLoadingReports: false,
@@ -64,6 +66,16 @@ class ReportPage extends PureComponent {
       .catch(error => error.response);
     return data;
   };
+
+  connectToSocket = (event) => {
+    listenToSocketEvent(event, data => this.updateReportData(data));
+  }
+
+  updateReportData = (data) => {
+    const { reportData } = this.state;
+    const newData = [...data, ...reportData];
+    this.setState({ reportData: newData });
+  }
 
   setFilter = (filter, filterSet, action) => {
     const { filters: previousFilters, filters: { length } } = this.state;
@@ -261,7 +273,8 @@ class ReportPage extends PureComponent {
   renderAutomationStatus(automationStatus, report, type) {
     return (
       <span>
-        {automationStatus}&nbsp;
+        {automationStatus}
+&nbsp;
         <span className={`${automationStatus}-text`}>
           {this.statusBreakdown(report, type)}
         </span>

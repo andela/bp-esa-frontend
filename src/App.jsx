@@ -1,9 +1,6 @@
 import React from 'react';
 import {
-  BrowserRouter,
-  Route,
-  Switch,
-  Redirect,
+  BrowserRouter, Route, Switch, Redirect,
 } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import Notifications from 'react-notify-toast';
@@ -13,9 +10,7 @@ import ReportPage from './components/ReportPage';
 const AuthenticatedRoute = ({ component: Component, authenticated, ...rest }) => (
   <Route
     {...rest}
-    render={
-      props => (
-        (authenticated === true) ? <Component {...props} {...rest} /> : <Redirect to="/login" />)
+    render={props => (authenticated === true ? <Component {...props} {...rest} /> : <Redirect to="/login" />)
     }
   />
 );
