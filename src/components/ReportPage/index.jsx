@@ -1,9 +1,10 @@
 /* eslint-disable no-return-assign */
 /* eslint-disable no-fallthrough */
 /* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
-import React, { PureComponent } from 'react';
+import React, { PureComponent, Fragment } from 'react';
 import PropTypes from 'prop-types';
 import axios from 'axios';
+import _ from 'lodash';
 import Header from '../Header';
 import Filter from '../Filter';
 import Search from '../Search';
@@ -12,7 +13,8 @@ import FiltersBar from '../FiltersBar';
 import './styles.scss';
 import AutomationDetails from '../AutomationDetails';
 import Spinner from '../Spinner';
-
+import Pagination from '../Pagination';
+import { pageNavigation, pageChange } from '../../utils';
 
 /* eslint-disable class-methods-use-this */
 class ReportPage extends PureComponent {
@@ -33,15 +35,23 @@ class ReportPage extends PureComponent {
       modalContent: {},
       type: '',
       isLoadingReports: false,
+      pagination: {
+        numberOfPages: 1,
+        currentPage: 1,
+        limit: 10,
+        offset: 1,
+      },
     };
   }
 
   async componentDidMount() {
-    const reportData = await this.reportData();
-    this.setState({
-      isLoadingReports: false,
-      reportData,
-    });
+    const { pagination: { currentPage, limit } } = this.state;
+    await this.reportData(currentPage, limit);
+
+    this.handleOnKeyPress = _.debounce(() => {
+      const { pagination: { currentPage: page, limit: pageLimit } } = this.state;
+      this.reportData(page, pageLimit);
+    }, 1000);
   }
 
   componentDidUpdate() {
@@ -51,17 +61,30 @@ class ReportPage extends PureComponent {
     }
   }
 
-  reportData = async () => {
+  reportData = async (currentPage = 1, limit = 10) => {
     const { isLoadingReports } = this.state;
     this.setState({
       isLoadingReports: !isLoadingReports,
     });
-    const url = 'https://api-staging-esa.andela.com/api/v1/automations';
-    const data = await axios
+    let offset;
+    const { REACT_APP_BACKEND_URL } = process.env;
+    const url = `${REACT_APP_BACKEND_URL}/api/v1/automations?page=${currentPage}&limit=${limit}`;
+    await axios
       .get(url)
-      .then(response => response.data.data)
+      .then(({ data }) => {
+        offset = data.data && limit * (parseInt(data.pagination.currentPage, 10) - 1);
+        this.setState(prevState => ({
+          ...prevState,
+          isLoadingReports: false,
+          reportData: data.data || data,
+          pagination: {
+            ...prevState.pagination,
+            ...data.pagination,
+            offset,
+          },
+        }));
+      })
       .catch(error => error.response);
-    return data;
   };
 
   setFilter = (filter, filterSet, action) => {
@@ -156,6 +179,37 @@ class ReportPage extends PureComponent {
     };
     const formattedDate = new Date(date).toLocaleDateString('en-US', dateFormat);
     return formattedDate;
+  }
+
+    handlePagination = (action) => {
+      const { pagination: { currentPage, numberOfPages, limit } } = this.state;
+      const page = pageNavigation(action, currentPage, numberOfPages);
+      this.reportData(page, limit);
+    }
+
+    setPaginationState = (pagination) => {
+      this.setState(prevState => ({
+        ...prevState,
+        pagination: {
+          ...prevState.pagination,
+          ...pagination,
+        },
+      }));
+    }
+
+  onChangePage = (event) => {
+    const { pagination: { numberOfPages } } = this.state;
+    event.preventDefault();
+    const currentPage = pageChange(event.target.value, numberOfPages);
+    this.setPaginationState({ currentPage });
+    this.handleOnKeyPress();
+  }
+
+  onChangeRowCount = (event) => {
+    event.preventDefault();
+    const limit = parseInt(event.target.value, 10);
+    this.setPaginationState({ limit });
+    this.reportData(1, limit);
   }
 
   filterWithAutomationStatus(report) {
@@ -260,7 +314,8 @@ class ReportPage extends PureComponent {
   renderAutomationStatus(automationStatus, report, type) {
     return (
       <span>
-        {automationStatus}&nbsp;
+        {automationStatus}
+&nbsp;
         <span className={`${automationStatus}-text`}>
           {this.statusBreakdown(report, type)}
         </span>
@@ -290,13 +345,13 @@ class ReportPage extends PureComponent {
 
   renderTableRows() {
     const {
-      filters, filteredReport, reportData, searchResult,
+      filters, filteredReport, reportData, searchResult, pagination: { offset },
     } = this.state;
     const reports = filters.length || searchResult ? filteredReport : reportData;
     const finalReports = reports || [];
     return (finalReports.map((report, index) => (
       <tr key={report.id}>
-        <td className="numbering">{index + 1}</td>
+        <td className="numbering">{index + offset + 1}</td>
         <td className="column1">{this.formatDates(report.updatedAt)}</td>
 
         <td
@@ -317,7 +372,7 @@ class ReportPage extends PureComponent {
 
   render() {
     const { currentUser, removeCurrentUser, history } = this.props;
-    const { isLoadingReports } = this.state;
+    const { isLoadingReports, pagination } = this.state;
     const {
       isModalOpen, modalContent, type, filters,
     } = this.state;
@@ -360,11 +415,20 @@ class ReportPage extends PureComponent {
               isLoadingReports
                 ? <Spinner />
                 : (
-                  <table className="report-table">
-                    <tbody>
-                      {this.renderTableRows()}
-                    </tbody>
-                  </table>
+                  <Fragment>
+                    <table className="report-table">
+                      <tbody>
+                        {this.renderTableRows()}
+                      </tbody>
+                    </table>
+                    <Pagination
+                      pagination={pagination}
+                      onChangePage={this.onChangePage}
+                      onChangeRowCount={this.onChangeRowCount}
+                      handlePagination={this.handlePagination}
+                      handleOnKeyPress={this.handleOnKeyPress}
+                    />
+                  </Fragment>
                 )
             }
           </div>

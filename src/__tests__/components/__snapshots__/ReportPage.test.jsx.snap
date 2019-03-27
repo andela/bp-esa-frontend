@@ -213,7 +213,6 @@ ShallowWrapper {
             className="table-body"
           >
             <Spinner
-              isAbsolute={true}
               size="large"
             />
           </div>
@@ -418,7 +417,6 @@ ShallowWrapper {
               className="table-body"
             >
               <Spinner
-                isAbsolute={true}
                 size="large"
               />
             </div>,
@@ -965,7 +963,6 @@ ShallowWrapper {
             "nodeType": "host",
             "props": Object {
               "children": <Spinner
-                isAbsolute={true}
                 size="large"
               />,
               "className": "table-body",
@@ -976,7 +973,6 @@ ShallowWrapper {
               "key": undefined,
               "nodeType": "function",
               "props": Object {
-                "isAbsolute": true,
                 "size": "large",
               },
               "ref": null,
@@ -1193,7 +1189,6 @@ ShallowWrapper {
               className="table-body"
             >
               <Spinner
-                isAbsolute={true}
                 size="large"
               />
             </div>
@@ -1398,7 +1393,6 @@ ShallowWrapper {
                 className="table-body"
               >
                 <Spinner
-                  isAbsolute={true}
                   size="large"
                 />
               </div>,
@@ -1945,7 +1939,6 @@ ShallowWrapper {
               "nodeType": "host",
               "props": Object {
                 "children": <Spinner
-                  isAbsolute={true}
                   size="large"
                 />,
                 "className": "table-body",
@@ -1956,7 +1949,6 @@ ShallowWrapper {
                 "key": undefined,
                 "nodeType": "function",
                 "props": Object {
-                  "isAbsolute": true,
                   "size": "large",
                 },
                 "ref": null,
