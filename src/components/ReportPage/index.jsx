@@ -33,11 +33,8 @@ export class ReportPage extends PureComponent {
         length: 0,
         updated: false,
       },
-      searchResult: false,
-      filteredReport: [],
       isModalOpen: false,
       modalContent: {},
-      type: '',
     };
   }
 
@@ -50,98 +47,16 @@ export class ReportPage extends PureComponent {
     fetchAllAutomation();
   }
 
-
-  componentDidUpdate() {
-    const { filters } = this.state;
-    if (filters.updated) {
-      this.filterReports();
-    }
-  }
-
-
   connectToSocket = (event) => {
     listenToSocketEvent(event, data => this.updateReportData(data));
   }
 
   updateReportData = (data) => {
     const { reportData } = this.state;
-    const newData = [ data, ...reportData ];
+    const newData = [data, ...reportData];
     this.setState({ reportData: newData });
   }
 
-  setFilter = (filter, filterSet, action) => {
-    const { filters: previousFilters, filters: { length } } = this.state;
-    if (action === 'add_filter') {
-      this.setState({
-        filters: {
-          ...previousFilters,
-          [filterSet]: [
-            ...previousFilters[filterSet],
-            filter,
-          ],
-          length: length + 1,
-          updated: true,
-        },
-      });
-    } else if (action === 'remove_filter') {
-      const filterToMutate = [...previousFilters[filterSet]];
-      filterToMutate.splice(filterToMutate.indexOf(filter), 1);
-      this.setState({
-        filters: {
-          ...previousFilters,
-          [filterSet]: filterToMutate,
-          length: length - 1,
-          updated: true,
-        },
-      });
-    }
-    if (action === 'set_from_date' && filterSet === 'date') {
-      this.setDateToAndFrom(previousFilters.date.from, filter, 'from');
-    } else if (action === 'set_to_date' && filterSet === 'date') {
-      this.setDateToAndFrom(previousFilters.date.to, filter, 'to');
-    }
-  }
-
-  setDateToAndFrom = (dateType, filter, type) => {
-    const { filters: previousFilters, filters: { length } } = this.state;
-    let newLength = length;
-    newLength = filter && !dateType ? length + 1 : newLength;
-    newLength = !filter && dateType ? length - 1 : newLength;
-    const filterWorkers = {
-      ...previousFilters,
-      date: {
-        ...previousFilters.date,
-      },
-      length: newLength,
-      updated: true,
-    };
-    filterWorkers.date[type] = filter;
-    this.setState({
-      filters: filterWorkers,
-    });
-  }
-
-  doSearch = (searchValue, optionId) => {
-    const { reportData } = this.state;
-
-    let filteredReport = null;
-
-    const searchCriteria = optionId === 1 ? 'fellowName' : 'partnerName';
-
-    if (searchValue) {
-      filteredReport = reportData.filter(
-        report => report[searchCriteria].toLowerCase().includes(searchValue.toLowerCase()),
-      );
-    }
-    if (filteredReport) {
-      this.setState({
-        filteredReport,
-        searchResult: true,
-      });
-    } else {
-      this.setState({ searchResult: false });
-    }
-  }
 
   formatDates = (date) => {
     const dateFormat = {
@@ -155,87 +70,17 @@ export class ReportPage extends PureComponent {
     return formattedDate;
   }
 
-  filterWithAutomationStatus(report) {
-    const { filters: { automationStatus } } = this.state;
-    return automationStatus.every((filterTerm) => {
-      switch (filterTerm) {
-        case constants.FAILED_AUTOMATIONS:
-          return (report.slackAutomations.status === 'failure'
-            || report.freckleAutomations.status === 'failure'
-            || report.emailAutomations.status === 'failure'
-          );
-        case constants.SUCCESSFUL_AUTOMATIONS:
-          return (report.slackAutomations.status === 'success'
-            && report.freckleAutomations.status === 'success'
-            && report.emailAutomations.status === 'success'
-          );
-        case constants.FAILED_SLACK_AUTOMATIONS:
-          return (report.slackAutomations.status === 'failure');
-        case constants.FAILED_FRECKLE_AUTOMATIONS:
-          return (report.freckleAutomations.status === 'failure');
-        case constants.FAILED_EMAIL_AUTOMATIONS:
-          return (report.emailAutomations.status === 'failure');
-        case constants.SUCCESSFUL_SLACK_AUTOMATIONS:
-          return (report.slackAutomations.status) === 'success';
-        case constants.SUCCESSFUL_FRECKLE_AUTOMATIONS:
-          return (report.freckleAutomations.status === 'success');
-        case constants.SUCCESSFUL_EMAIL_AUTOMATIONS:
-          return (report.emailAutomations.status === 'success');
-        default:
-          return false;
-      }
-    });
+  openModal = () => {
+    this.setState({ isModalOpen: true });
   }
 
-  filterWithAutomationType(report) {
-    const { filters: { automationType } } = this.state;
-    return automationType.every((filteTerm) => {
-      switch (filteTerm) {
-        case constants.ONBOARDING:
-          return (report.type === 'onboarding');
-        case constants.OFFBOARDING:
-          return (report.type === 'offboarding');
-        default:
-          return false;
-      }
-    });
+  closeModal = () => {
+    this.setState({ isModalOpen: false });
   }
 
-  filterWithDate(reportDate) {
-    const { filters: { date: { from, to } } } = this.state;
-    const reportDateTime = new Date(reportDate).getTime();
-    const fromTime = new Date(from).getTime();
-    const toTime = new Date(to).getTime() + 84600000;
-    return (reportDateTime >= fromTime && reportDateTime <= toTime);
+  changeModalTypes = (report) => {
+    this.setState({ modalContent: report });
   }
-
-  runFilters(report) {
-    const { filters } = this.state;
-    const filterResult = [];
-    if (filters.automationStatus.length) {
-      filterResult.push(this.filterWithAutomationStatus(report));
-    }
-    if (filters.automationType.length) {
-      filterResult.push(this.filterWithAutomationType(report));
-    }
-    if (filters.date.from && filters.date.to) {
-      filterResult.push(this.filterWithDate(report.updatedAt));
-    }
-    return filterResult.every(result => result === true);
-  }
-
-  filterReports() {
-    const { reportData, filters: previousFilters } = this.state;
-    const filteredReport = reportData.filter(report => this.runFilters(report));
-    this.setState({
-      filteredReport,
-      filters: {
-        ...previousFilters,
-        updated: false,
-      },
-    });
-  }
-
 
   statusBreakdown(automation, type) {
     const activities = automation[`${type}Automations`][`${type}Activities`] || [];
@@ -287,9 +132,9 @@ export class ReportPage extends PureComponent {
     this.setState({ viewMode: `${view}View` });
   };
 
-  renderInfoIcon = () => (
-    <div className="info-icon">
-      <i className="fa fa-info-circle" />
+  renderInfoIcon = report => (
+    <div className="info- ">
+      <i className="fa fa-info-circle" onClick={() => { this.openModal(); this.changeModalTypes(report); }} />
     </div>
   );
 
@@ -297,7 +142,9 @@ export class ReportPage extends PureComponent {
   renderTableRows() {
     const { automation: { data } } = this.props;
     return (data.map((report, index) => {
-      const { id, updatedAt, fellowId, fellowName, partnerName, type } = report;
+      const {
+        id, updatedAt, fellowId, fellowName, partnerName, type,
+      } = report;
       return (
         <tr key={id}>
           <td className="numbering">{index + 1}</td>
@@ -315,8 +162,8 @@ export class ReportPage extends PureComponent {
           <td>{this.renderAutomationStatus(report.emailAutomations.status, report, 'email')}</td>
           <td>
             {this.renderAutomationStatus(report.freckleAutomations.status, report, 'freckle')}
-            {this.renderInfoIcon()}
           </td>
+          <td>{this.renderInfoIcon(report)}</td>
         </tr>
       );
     }));
@@ -324,7 +171,7 @@ export class ReportPage extends PureComponent {
 
   renderListCard = () => {
     const {
-      viewMode, isModalOpen, modalContent, type, filters,
+      viewMode, isModalOpen, modalContent, filters,
     } = this.state;
     const { automation: { data, isLoading } } = this.props;
     return (
@@ -351,6 +198,7 @@ export class ReportPage extends PureComponent {
                     <th>Slack</th>
                     <th>Email</th>
                     <th>Freckle</th>
+                    <th />
                   </tr>
                 </thead>
               </table>
@@ -371,12 +219,27 @@ export class ReportPage extends PureComponent {
             <AutomationDetails
               isModalOpen={isModalOpen}
               closeModal={this.closeModal}
-              modalType={type}
               modalContent={modalContent}
               formatDates={this.formatDates}
             />
           </div>
-        ) : <DeveloperCard data={data} isLoading={isLoading} />
+        )
+        : (
+          <div>
+            <DeveloperCard
+              data={data}
+              isLoading={isLoading}
+              openModal={this.openModal}
+              changeModalTypes={this.changeModalTypes}
+            />
+            <AutomationDetails
+              isModalOpen={isModalOpen}
+              closeModal={this.closeModal}
+              modalContent={modalContent}
+              formatDates={this.formatDates}
+            />
+          </div>
+        )
 
     );
   };

@@ -1,6 +1,8 @@
 import React from 'react';
 import configureStore from 'redux-mock-store';
 import { Provider } from 'react-redux';
+import axios from 'axios';
+import { mount } from 'enzyme';
 import ReportComponent, { ReportPage } from '../../components/ReportPage';
 
 const sampleReports = [
@@ -15,7 +17,11 @@ const sampleReports = [
     },
     freckleAutomations: {
       status: 'failure',
-      freckleActivities: [12],
+      freckleActivities: [{
+        projectId: 34,
+        type: 'projectCreation',
+        status: 'failure',
+      }],
     },
     emailAutomations: {
       status: 'success',
@@ -34,8 +40,11 @@ const sampleReports = [
     },
     freckleAutomations: {
       status: 'success',
-      freckleActivities: [12],
-
+      freckleActivities: [{
+        projectId: 34,
+        type: 'projectCreation',
+        status: 'failure',
+      }],
     },
     emailAutomations: {
       status: 'success',
@@ -47,14 +56,14 @@ const sampleReports = [
 ];
 
 const state = {
-  automation: { data: sampleReports, error: {error: ''}, isLoading: false },
+  automation: { data: sampleReports, error: { error: '' }, isLoading: false },
 };
 const mockStore = configureStore();
 const store = mockStore(state);
 
 
 const props = {
-  automation: { data: sampleReports, error: {}},
+  automation: { data: sampleReports, error: {} },
   location: { search: '?view=cardView' },
   currentUser: {
     additionalUserInfo: {
@@ -67,8 +76,17 @@ const props = {
   history: { push: jest.fn() },
   removeCurrentUser: jest.fn(),
   formatDates: jest.fn(),
+  closeModal: jest.fn(),
   fetchAllAutomation: jest.fn(),
 };
+
+class CustomError extends Error {
+  constructor(...params) {
+    super(...params);
+    const [, response] = params;
+    this.response = response;
+  }
+}
 
 const url = 'https://api-staging-esa.andela.com/api/v1/automations';
 const getComponent = () => mount(
@@ -112,13 +130,33 @@ describe('<ReportPage />', () => {
     });
   });
 
-
   describe('render view', () => {
     it('should render view of listCard', () => {
       const component = mount(<ReportPage {...props} />);
       component.setState({ viewMode: 'listView' });
       const tableBody = component.find('.table-body');
       expect(tableBody.html()).toContain('onboarding');
+      component.setState({ reportData: sampleReports, isLoadingReports: false });
+      component
+        .find('.fa.fa-info-circle')
+        .at(0)
+        .simulate('click');
+      component.find('.modal-close-button-group').simulate('click');
+      expect(component.instance().state.isModalOpen).toEqual(false);
+    });
+
+    it('should render automation modal view of cardView', () => {
+      const component = mount(<ReportPage {...props} />);
+      component.setState({ viewMode: 'cardView' });
+      // const tableBody = component.find('.table-body');
+      // expect(tableBody.html()).toContain('onboarding');
+      component.setState({ reportData: sampleReports, isLoadingReports: false });
+      component
+        .find('.info-icon')
+        .at(0)
+        .simulate('click');
+      component.find('.modal-close-button-group').simulate('click');
+      expect(component.instance().state.isModalOpen).toEqual(false);
     });
 
     it('should render list', () => {
