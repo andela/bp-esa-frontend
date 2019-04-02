@@ -60,7 +60,7 @@ class ReportPage extends PureComponent {
       isLoadingReports: !isLoadingReports,
     });
     const { REACT_APP_BACKEND_URL } = process.env;
-    const url = `${REACT_APP_BACKEND_URL}/api/v1/automations`;
+    const url = `${REACT_APP_BACKEND_URL}/api/v1/automations?page=1&limit=10`;
     const data = await axios
       .get(url)
       .then(response => response.data.data)
