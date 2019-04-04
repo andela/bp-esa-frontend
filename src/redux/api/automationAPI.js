@@ -1,5 +1,3 @@
-
-
 import axios from 'axios';
 
 import resolveUrl from '.';
@@ -7,8 +5,8 @@ import resolveUrl from '.';
 const baseUrl = resolveUrl();
 
 class AutomationAPI {
-  static async getFellows() {
-    return axios.get(`${baseUrl}/automations/`);
+  static async getFellows(page = 1, limit = 10) {
+    return axios.get(`${baseUrl}/automations/?page=${page}&limit=${limit}`);
   }
 }
 

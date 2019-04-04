@@ -24,7 +24,7 @@ describe('Automation Saga', () => {
 
   it('should fetch automation successfully', () => expectSaga(watchFetchFellows)
     .provide([
-      [call(AutomationAPI.getFellows), response],
+      [matchers.call.fn(AutomationAPI.getFellows, 1, 2), response],
     ])
     .put({
       type: FETCH_AUTOMATION_SUCCESS,
@@ -41,7 +41,7 @@ describe('Automation Saga', () => {
 
   it('should test fetch automation failure', () => expectSaga(watchFetchFellows)
     .provide([
-      [matchers.call.fn(AutomationAPI.getFellows), throwError(error)],
+      [matchers.call.fn(AutomationAPI.getFellows, 1, 2), throwError(error)],
     ])
     .put({
       type: FETCH_AUTOMATION_FAILURE,

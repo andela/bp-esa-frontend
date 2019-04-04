@@ -56,7 +56,7 @@ class DeveloperCard extends Component {
     </div>
   );
 
-  renderCards =() => {
+  renderCards = () => {
     const { data } = this.props;
     const automation = length => length !== 0;
     const automationMetric = (activities, status) => (
@@ -101,7 +101,5 @@ DeveloperCard.propTypes = {
   data: PropTypes.array.isRequired,
   isLoading: PropTypes.bool,
 };
-
-
 
 export default DeveloperCard;

@@ -1,26 +1,28 @@
 /* eslint-disable no-return-assign */
 /* eslint-disable no-fallthrough */
 /* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
-import React, { PureComponent } from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import 'toastr/toastr.scss';
 import { connect } from 'react-redux';
+import _ from 'lodash';
+import * as constants from '../constants';
 import { fetchAutomation } from '../../redux/actions/automation';
+import AutomationDetails from '../AutomationDetails';
 import Header from '../Header';
 import Filter from '../Filter';
-import Search from '../Search';
-import * as constants from '../constants';
 import FiltersBar from '../FiltersBar';
-import './styles.scss';
-import AutomationDetails from '../AutomationDetails';
-import Spinner from '../Spinner';
 import listenToSocketEvent from '../../realTime';
+import Pagination from '../Pagination';
 import ReportNavBar from '../ReportNavBar';
 import DeveloperCard from '../developerCards';
+import Search from '../Search';
+import Spinner from '../Spinner';
+import './styles.scss';
 
 
 /* eslint-disable class-methods-use-this */
-export class ReportPage extends PureComponent {
+export class ReportPage extends Component {
   constructor() {
     super();
     this.state = {
@@ -33,6 +35,12 @@ export class ReportPage extends PureComponent {
         length: 0,
         updated: false,
       },
+      isLoadingReports: false,
+      pagination: {
+        currentPage: 1,
+        limit: 10,
+        pageNumber: 1,
+      },
       searchResult: false,
       filteredReport: [],
       isModalOpen: false,
@@ -42,14 +50,20 @@ export class ReportPage extends PureComponent {
   }
 
   componentDidMount() {
-    const { fetchAllAutomation, location: { search } } = this.props;
+    const { location: { search } } = this.props;
+    const { pagination: { currentPage, limit } } = this.state;
+    this.fetcAutomationReport(currentPage, limit);
+
     const params = new URLSearchParams(search);
     const view = params.get('view');
     this.setState({ viewMode: view });
     this.connectToSocket('newAutomation');
-    fetchAllAutomation();
-  }
 
+    this.handleOnKeyPress = _.debounce(() => {
+      const { pagination: { pageNumber: page, limit: pageLimit } } = this.state;
+      this.fetcAutomationReport(page, pageLimit);
+    }, 1000);
+  }
 
   componentDidUpdate() {
     const { filters } = this.state;
@@ -58,6 +72,20 @@ export class ReportPage extends PureComponent {
     }
   }
 
+  fetcAutomationReport = async (currentPage, limit) => {
+    const { fetchAllAutomation } = this.props;
+    const { page } = await fetchAllAutomation(currentPage, limit);
+
+    this.setState(prevState => ({
+      ...prevState,
+      pagination: {
+        ...prevState.pagination,
+        pageNumber: page,
+      },
+    }));
+
+    return fetchAllAutomation(currentPage, limit);
+  }
 
   connectToSocket = (event) => {
     listenToSocketEvent(event, data => this.updateReportData(data));
@@ -65,7 +93,7 @@ export class ReportPage extends PureComponent {
 
   updateReportData = (data) => {
     const { reportData } = this.state;
-    const newData = [ data, ...reportData ];
+    const newData = [data, ...reportData];
     this.setState({ reportData: newData });
   }
 
@@ -100,6 +128,82 @@ export class ReportPage extends PureComponent {
     } else if (action === 'set_to_date' && filterSet === 'date') {
       this.setDateToAndFrom(previousFilters.date.to, filter, 'to');
     }
+  }
+
+  pageNavigation = (action, currentPage, numberOfPages) => {
+    let page = 1;
+    switch (action) {
+      case 'nextPage':
+        page = currentPage + 1;
+        break;
+      case 'previousPage':
+        page = currentPage - 1;
+        break;
+      case 'firstPage':
+        page = 1;
+        break;
+      case 'lastPage':
+        page = numberOfPages;
+        break;
+      default:
+        page = currentPage;
+        break;
+    }
+    return page;
+  }
+
+  pageChange = (value, numberOfPages) => {
+    const page = parseInt(value, 10);
+    let currentPage = 1;
+    if (page > 0 && page <= numberOfPages) {
+      currentPage = page;
+    } else if (typeof page !== 'number') {
+      currentPage = '';
+    } else {
+      currentPage = numberOfPages;
+    }
+
+    return currentPage;
+  }
+
+  handlePagination = (action) => {
+    const { pagination: { limit } } = this.state;
+    const { automation } = this.props;
+    const { pagination: { currentPage, numberOfPages } } = automation;
+
+    const page = this.pageNavigation(action, currentPage, numberOfPages);
+    this.fetcAutomationReport(page, limit);
+  }
+
+  setPaginationState = (pagination) => {
+    this.setState(prevState => ({
+      ...prevState,
+      pagination: {
+        ...prevState.pagination,
+        ...pagination,
+      },
+    }));
+  }
+
+  onPageChange = (event) => {
+    event.preventDefault();
+    const { value } = event.target;
+    const { automation } = this.props;
+    const { pagination: { numberOfPages } } = automation;
+    
+    const pageNumber = value > 1
+      ? this.pageChange(value, numberOfPages)
+      : 1;
+
+    this.setPaginationState({ pageNumber });
+    this.handleOnKeyPress();
+  }
+
+  onChangeRowCount = (event) => {
+    event.preventDefault();
+    const limit = parseInt(event.target.value, 10);
+    this.setPaginationState({ limit });
+    this.fetcAutomationReport(1, limit);
   }
 
   setDateToAndFrom = (dateType, filter, type) => {
@@ -236,7 +340,6 @@ export class ReportPage extends PureComponent {
     });
   }
 
-
   statusBreakdown(automation, type) {
     const activities = automation[`${type}Automations`][`${type}Activities`] || [];
     const stats = { successCount: 0, failureCount: 0 };
@@ -280,7 +383,6 @@ export class ReportPage extends PureComponent {
     return <Search handleSearch={this.doSearch} />;
   }
 
-
   renderView = view => () => {
     const { history } = this.props;
     history.push(`/?view=${view}View`);
@@ -297,7 +399,14 @@ export class ReportPage extends PureComponent {
   renderTableRows() {
     const { automation: { data } } = this.props;
     return (data.map((report, index) => {
-      const { id, updatedAt, fellowId, fellowName, partnerName, type } = report;
+      const {
+        id,
+        updatedAt,
+        fellowId,
+        fellowName,
+        partnerName,
+        type,
+      } = report;
       return (
         <tr key={id}>
           <td className="numbering">{index + 1}</td>
@@ -326,7 +435,8 @@ export class ReportPage extends PureComponent {
     const {
       viewMode, isModalOpen, modalContent, type, filters,
     } = this.state;
-    const { automation: { data, isLoading } } = this.props;
+    const { automation } = this.props;
+    const { data, isLoading } = automation;
     return (
       viewMode === 'listView'
         ? (
@@ -356,40 +466,35 @@ export class ReportPage extends PureComponent {
               </table>
             </div>
             <div className="table-body">
-              {
-              isLoading
-                ? <Spinner />
-                : (
-                  <table className="report-table">
-                    <tbody>
-                      {this.renderTableRows()}
-                    </tbody>
-                  </table>
-                )
-            }
+              <table className="report-table">
+                <tbody>
+                  {this.renderTableRows()}
+                </tbody>
+              </table>
             </div>
             <AutomationDetails
               isModalOpen={isModalOpen}
-              closeModal={this.closeModal}
+              closeModal={() => null}
               modalType={type}
               modalContent={modalContent}
               formatDates={this.formatDates}
             />
           </div>
         ) : <DeveloperCard data={data} isLoading={isLoading} />
-
     );
   };
 
-
   render() {
+    const { pagination: { limit, pageNumber }, isLoading } = this.state;
     const {
-      currentUser, removeCurrentUser, history,
+      currentUser,
+      removeCurrentUser,
+      history, automation: { error },
+      automation,
     } = this.props;
-    const { automation: { error } } = this.props;
-    // eslint-disable-next-line react/destructuring-assignment
+
     return (
-      <div>
+      <>
         <Header
           currentUser={currentUser}
           removeCurrentUser={removeCurrentUser}
@@ -397,13 +502,32 @@ export class ReportPage extends PureComponent {
         />
         <ReportNavBar renderView={this.renderView} />
         {Object.keys(error).length === 0
-          ? this.renderListCard()
+          ? (
+            <>
+              {isLoading
+                ? <Spinner />
+                : (
+                  <>
+                    {this.renderListCard()}
+                    <Pagination
+                      pagination={automation.pagination}
+                      handlePagination={this.handlePagination}
+                      onPageChange={this.onPageChange}
+                      onChangeRowCount={this.onChangeRowCount}
+                      limit={limit}
+                      pageNumber={pageNumber}
+                    />
+                  </>
+                )
+              }
+            </>
+          )
           : (
             <div className="body-error">
               <span className="error-message">{error.error}</span>
             </div>
           )}
-      </div>
+      </>
     );
   }
 }
@@ -413,7 +537,7 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  fetchAllAutomation: () => dispatch(fetchAutomation()),
+  fetchAllAutomation: (page, limit) => dispatch(fetchAutomation(page, limit)),
 });
 
 ReportPage.propTypes = {

@@ -1,8 +1,6 @@
 #report-page {
   padding: 0 30px 0 30px;
-  table {
 
-  }
   .table-header {
     margin-top: 20px;
     height: 44px;
@@ -11,7 +9,7 @@
   .table-header table {
     margin-top: 15px;
     thead tr {
-      background-color: rgba(51,89,223,0.5);
+      background-color: rgb(51,89,223);
       color: white;
       height: 28px;
     }
@@ -25,8 +23,8 @@
   }
 
   .table-body {
-    height: 85vh;
     overflow: scroll;
+    padding: 1px;
 
     tr {
       font-size: 15px;

@@ -1,11 +1,14 @@
 import automation from '../automationReducer';
-import { FETCH_AUTOMATION_SUCCESS, FETCH_AUTOMATION, FETCH_AUTOMATION_FAILURE } from '../../constants';
+import { FETCH_AUTOMATION, FETCH_AUTOMATION_FAILURE } from '../../constants';
+import { fetchAutomationSuccess } from '../../actions/automation';
+import automationData from '../fixtures/fixtures';
 
 describe('automationReducer', () => {
   const initialState = {
     isLoading: false,
     data: [],
     error: {},
+    pagination: {},
   };
 
   it('should return initial state', () => {
@@ -14,18 +17,17 @@ describe('automationReducer', () => {
       isLoading: false,
       data: [],
       error: {},
+      pagination: {},
     };
     expect(automation(undefined, action)).toEqual(expectedState);
   });
 
   it('should return the correct state for FETCH_AUTOMATION_SUCCESS', () => {
-    const action = { type: FETCH_AUTOMATION_SUCCESS, payload: { data: [] } };
-    const expectedState = {
-      isLoading: false,
-      data: [],
-      error: {},
-    };
-    expect(automation(initialState, action)).toEqual(expectedState);
+    const automationSuccessAction = fetchAutomationSuccess(automationData);
+    const newAutomationState = automation(initialState, automationSuccessAction);
+
+    expect(newAutomationState.data.length).toEqual(2);
+    expect(newAutomationState.pagination.currentPage).toEqual(1);
   });
 
   it('should return the correct state for FETCH_AUTOMATION ', () => {
@@ -34,6 +36,7 @@ describe('automationReducer', () => {
       isLoading: true,
       data: [],
       error: {},
+      pagination: {},
     };
     expect(automation(initialState, action)).toEqual(expectedState);
   });
@@ -45,6 +48,7 @@ describe('automationReducer', () => {
       isLoading: false,
       data: [],
       error: { error: {} },
+      pagination: {},
     };
     expect(automation(initialState, action)).toEqual(expectedState);
   });

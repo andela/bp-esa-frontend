@@ -4,8 +4,10 @@ import {
   FETCH_AUTOMATION_FAILURE,
 } from '../constants';
 
-export const fetchAutomation = () => ({
+export const fetchAutomation = (page, limit) => ({
   type: FETCH_AUTOMATION,
+  page,
+  limit,
 });
 
 export const fetchAutomationSuccess = automation => ({

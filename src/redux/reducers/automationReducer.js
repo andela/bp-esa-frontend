@@ -8,18 +8,32 @@ const initialState = {
   isLoading: false,
   data: [],
   error: {},
-
+  pagination: {},
 };
 
 export default (state = initialState, action) => {
   switch (action.type) {
     case FETCH_AUTOMATION:
-      return { ...state, isLoading: true };
+      return {
+        ...state,
+        isLoading: true,
+      };
+
     case FETCH_AUTOMATION_SUCCESS:
-      return { ...state, data: action.payload.data, isLoading: false };
+      return {
+        ...state,
+        data: action.payload.data,
+        isLoading: false,
+        pagination: action.payload.pagination,
+      };
+
     case FETCH_AUTOMATION_FAILURE:
-      return { ...state, error: action.payload, isLoading: false };
+      return {
+        ...state,
+        error: action.payload,
+        isLoading: false,
+      };
     default:
-      return initialState;
+      return state;
   }
 };

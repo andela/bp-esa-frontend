@@ -5,9 +5,10 @@ import AutomationAPI from '../api/automationAPI';
 import { fetchAutomationSuccess, fetchAutomationError } from '../actions/automation';
 import { FETCH_AUTOMATION } from '../constants';
 
-export function* fetchFellows() {
+export function* fetchFellows(payload) {
+  const { page, limit } = payload;
   try {
-    const response = yield call(AutomationAPI.getFellows);
+    const response = yield call(AutomationAPI.getFellows, page, limit);
     yield put(fetchAutomationSuccess(response.data));
   } catch (e) {
     const error = { error: 'Possible Network error, Please reload!' };

@@ -13,7 +13,7 @@ describe('Automation API', () => {
   });
 
   it('should return data from API', async (done) => {
-    moxios.stubRequest(`${baseUrl}/automations/`, {
+    moxios.stubRequest(`${baseUrl}/automations/?page=1&limit=10`, {
       status: 200,
       statusText: 'OK',
       response: {
