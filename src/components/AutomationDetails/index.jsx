@@ -1,7 +1,7 @@
 /* eslint-disable no-unused-expressions */
 import React, { PureComponent } from 'react';
 import uuid from 'uuid';
-import PropTypes from 'proptypes';
+import PropTypes from 'prop-types';
 import './styles.scss';
 
 
