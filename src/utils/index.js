@@ -1,4 +1,4 @@
-export default (action, currentPage, numberOfPages) => {
+const pageNavigation = (action, currentPage, numberOfPages) => {
   let page = 1;
   switch (action) {
     case 'nextPage':
@@ -19,3 +19,19 @@ export default (action, currentPage, numberOfPages) => {
   }
   return page;
 };
+
+const pageChange = (value, numberOfPages) => {
+  const page = parseInt(value, 10);
+  let currentPage = 1;
+  if (page > 0 && page <= numberOfPages) {
+    currentPage = page;
+  }
+
+  if (typeof page !== 'number') {
+    currentPage = 1;
+  }
+
+  return currentPage;
+};
+
+export { pageNavigation, pageChange };
