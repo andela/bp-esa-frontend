@@ -1,0 +1,3375 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`The Checkbox component should not regress(with label) 1`] = `
+ShallowWrapper {
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <Checkbox
+    checkCondition={false}
+    id="test-checkbox"
+    label="test checkbox"
+    name="test"
+    noLabel={false}
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "checkPropTypes": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateError": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "children": Array [
+        <input
+          checked={false}
+          id="test-checkbox"
+          name="test"
+          type="checkbox"
+        />,
+        <span
+          className="checkmark"
+        />,
+        "test checkbox",
+      ],
+      "className": "test-checkbox-label",
+      "htmlFor": "test-checkbox",
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "checked": false,
+          "id": "test-checkbox",
+          "name": "test",
+          "type": "checkbox",
+        },
+        "ref": null,
+        "rendered": null,
+        "type": "input",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "className": "checkmark",
+        },
+        "ref": null,
+        "rendered": null,
+        "type": "span",
+      },
+      "test checkbox",
+    ],
+    "type": "label",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": Array [
+          <input
+            checked={false}
+            id="test-checkbox"
+            name="test"
+            type="checkbox"
+          />,
+          <span
+            className="checkmark"
+          />,
+          "test checkbox",
+        ],
+        "className": "test-checkbox-label",
+        "htmlFor": "test-checkbox",
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "checked": false,
+            "id": "test-checkbox",
+            "name": "test",
+            "type": "checkbox",
+          },
+          "ref": null,
+          "rendered": null,
+          "type": "input",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "className": "checkmark",
+          },
+          "ref": null,
+          "rendered": null,
+          "type": "span",
+        },
+        "test checkbox",
+      ],
+      "type": "label",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+        "legacyContextMode": "parent",
+        "lifecycles": Object {
+          "componentDidUpdate": Object {
+            "onSetState": true,
+          },
+          "getChildContext": Object {
+            "calledByRenderer": false,
+          },
+          "getDerivedStateFromProps": true,
+          "getSnapshotBeforeUpdate": true,
+          "setState": Object {
+            "skipsComponentDidUpdateOnNullish": true,
+          },
+        },
+      },
+    },
+  },
+}
+`;
+
+exports[`The Checkbox component should not regress(without label) 1`] = `
+ShallowWrapper {
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <Checkbox
+    checkCondition={false}
+    id="test-checkbox2"
+    label=""
+    name="test2"
+    noLabel={true}
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "checkPropTypes": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateError": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "function",
+    "props": Object {
+      "children": Array [
+        <input
+          checked={false}
+          id="test-checkbox2"
+          name="test2"
+          type="checkbox"
+        />,
+        <span
+          className="checkmark"
+        />,
+      ],
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "checked": false,
+          "id": "test-checkbox2",
+          "name": "test2",
+          "type": "checkbox",
+        },
+        "ref": null,
+        "rendered": null,
+        "type": "input",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "className": "checkmark",
+        },
+        "ref": null,
+        "rendered": null,
+        "type": "span",
+      },
+    ],
+    "type": Symbol(react.fragment),
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "function",
+      "props": Object {
+        "children": Array [
+          <input
+            checked={false}
+            id="test-checkbox2"
+            name="test2"
+            type="checkbox"
+          />,
+          <span
+            className="checkmark"
+          />,
+        ],
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "checked": false,
+            "id": "test-checkbox2",
+            "name": "test2",
+            "type": "checkbox",
+          },
+          "ref": null,
+          "rendered": null,
+          "type": "input",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "className": "checkmark",
+          },
+          "ref": null,
+          "rendered": null,
+          "type": "span",
+        },
+      ],
+      "type": Symbol(react.fragment),
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+        "legacyContextMode": "parent",
+        "lifecycles": Object {
+          "componentDidUpdate": Object {
+            "onSetState": true,
+          },
+          "getChildContext": Object {
+            "calledByRenderer": false,
+          },
+          "getDerivedStateFromProps": true,
+          "getSnapshotBeforeUpdate": true,
+          "setState": Object {
+            "skipsComponentDidUpdateOnNullish": true,
+          },
+        },
+      },
+    },
+  },
+}
+`;
+
+exports[`The DatePicker component should not regress 1`] = `
+ShallowWrapper {
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <DatePicker
+    dateSelected=""
+    onChange={[Function]}
+    selection="to"
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "checkPropTypes": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateError": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "class",
+    "props": Object {
+      "allowSameDay": false,
+      "calendarClassName": "custom-date-picker",
+      "dateFormat": "MMMM DD, YYYY",
+      "dateFormatCalendar": "MMMM YYYY",
+      "disabled": false,
+      "disabledKeyboardNavigation": false,
+      "dropdownMode": "select",
+      "maxDate": "2019-04-05T14:57:01.825Z",
+      "monthsShown": 1,
+      "nextMonthButtonLabel": "Next month",
+      "onBlur": [Function],
+      "onChange": [Function],
+      "onClickOutside": [Function],
+      "onFocus": [Function],
+      "onInputClick": [Function],
+      "onInputError": [Function],
+      "onKeyDown": [Function],
+      "onMonthChange": [Function],
+      "onSelect": [Function],
+      "onYearChange": [Function],
+      "preventOpenOnFocus": false,
+      "previousMonthButtonLabel": "Previous Month",
+      "readOnly": false,
+      "renderDayContents": [Function],
+      "selected": undefined,
+      "shouldCloseOnSelect": false,
+      "showTimeSelect": false,
+      "timeCaption": "Time",
+      "timeIntervals": 30,
+      "withPortal": false,
+    },
+    "ref": null,
+    "rendered": null,
+    "type": [Function],
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "class",
+      "props": Object {
+        "allowSameDay": false,
+        "calendarClassName": "custom-date-picker",
+        "dateFormat": "MMMM DD, YYYY",
+        "dateFormatCalendar": "MMMM YYYY",
+        "disabled": false,
+        "disabledKeyboardNavigation": false,
+        "dropdownMode": "select",
+        "maxDate": "2019-04-05T14:57:01.825Z",
+        "monthsShown": 1,
+        "nextMonthButtonLabel": "Next month",
+        "onBlur": [Function],
+        "onChange": [Function],
+        "onClickOutside": [Function],
+        "onFocus": [Function],
+        "onInputClick": [Function],
+        "onInputError": [Function],
+        "onKeyDown": [Function],
+        "onMonthChange": [Function],
+        "onSelect": [Function],
+        "onYearChange": [Function],
+        "preventOpenOnFocus": false,
+        "previousMonthButtonLabel": "Previous Month",
+        "readOnly": false,
+        "renderDayContents": [Function],
+        "selected": undefined,
+        "shouldCloseOnSelect": false,
+        "showTimeSelect": false,
+        "timeCaption": "Time",
+        "timeIntervals": 30,
+        "withPortal": false,
+      },
+      "ref": null,
+      "rendered": null,
+      "type": [Function],
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+        "legacyContextMode": "parent",
+        "lifecycles": Object {
+          "componentDidUpdate": Object {
+            "onSetState": true,
+          },
+          "getChildContext": Object {
+            "calledByRenderer": false,
+          },
+          "getDerivedStateFromProps": true,
+          "getSnapshotBeforeUpdate": true,
+          "setState": Object {
+            "skipsComponentDidUpdateOnNullish": true,
+          },
+        },
+      },
+    },
+  },
+}
+`;
+
+exports[`The FilterComponent component should not regress 1`] = `
+ShallowWrapper {
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <FilterComponent
+    filter={
+      Object {
+        "date": Object {
+          "from": "",
+          "to": "",
+        },
+        "emailAutomation": "",
+        "freckleAutomation": "",
+        "searchBy": "",
+        "searchTerm": "",
+        "showFilterDropdown": false,
+        "slackAutomation": "",
+        "type": "",
+      }
+    }
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "checkPropTypes": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateError": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "children": <form
+        autoComplete="off"
+        className="filter-box"
+        onChange={[Function]}
+        onSubmit={[Function]}
+      >
+        <input
+          className="search-input"
+          name="searchTerm"
+          type="text"
+        />
+        <div
+          className="filter-button"
+          data-toggle="filter-dropdown"
+          onClick={[Function]}
+        >
+          <img
+            alt="filter"
+            className="filter-button-icon"
+            data-toggle="filter-dropdown"
+            src="https://img.icons8.com/small/100/000000/sorting-options.png"
+          />
+        </div>
+      </form>,
+      "className": "filter-container",
+    },
+    "ref": null,
+    "rendered": Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "autoComplete": "off",
+        "children": Array [
+          <input
+            className="search-input"
+            name="searchTerm"
+            type="text"
+          />,
+          <div
+            className="filter-button"
+            data-toggle="filter-dropdown"
+            onClick={[Function]}
+          >
+            <img
+              alt="filter"
+              className="filter-button-icon"
+              data-toggle="filter-dropdown"
+              src="https://img.icons8.com/small/100/000000/sorting-options.png"
+            />
+          </div>,
+          false,
+        ],
+        "className": "filter-box",
+        "onChange": [Function],
+        "onSubmit": [Function],
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "className": "search-input",
+            "name": "searchTerm",
+            "type": "text",
+          },
+          "ref": null,
+          "rendered": null,
+          "type": "input",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": <img
+              alt="filter"
+              className="filter-button-icon"
+              data-toggle="filter-dropdown"
+              src="https://img.icons8.com/small/100/000000/sorting-options.png"
+            />,
+            "className": "filter-button",
+            "data-toggle": "filter-dropdown",
+            "onClick": [Function],
+          },
+          "ref": null,
+          "rendered": Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "alt": "filter",
+              "className": "filter-button-icon",
+              "data-toggle": "filter-dropdown",
+              "src": "https://img.icons8.com/small/100/000000/sorting-options.png",
+            },
+            "ref": null,
+            "rendered": null,
+            "type": "img",
+          },
+          "type": "div",
+        },
+        false,
+      ],
+      "type": "form",
+    },
+    "type": "div",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": <form
+          autoComplete="off"
+          className="filter-box"
+          onChange={[Function]}
+          onSubmit={[Function]}
+        >
+          <input
+            className="search-input"
+            name="searchTerm"
+            type="text"
+          />
+          <div
+            className="filter-button"
+            data-toggle="filter-dropdown"
+            onClick={[Function]}
+          >
+            <img
+              alt="filter"
+              className="filter-button-icon"
+              data-toggle="filter-dropdown"
+              src="https://img.icons8.com/small/100/000000/sorting-options.png"
+            />
+          </div>
+        </form>,
+        "className": "filter-container",
+      },
+      "ref": null,
+      "rendered": Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "autoComplete": "off",
+          "children": Array [
+            <input
+              className="search-input"
+              name="searchTerm"
+              type="text"
+            />,
+            <div
+              className="filter-button"
+              data-toggle="filter-dropdown"
+              onClick={[Function]}
+            >
+              <img
+                alt="filter"
+                className="filter-button-icon"
+                data-toggle="filter-dropdown"
+                src="https://img.icons8.com/small/100/000000/sorting-options.png"
+              />
+            </div>,
+            false,
+          ],
+          "className": "filter-box",
+          "onChange": [Function],
+          "onSubmit": [Function],
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "className": "search-input",
+              "name": "searchTerm",
+              "type": "text",
+            },
+            "ref": null,
+            "rendered": null,
+            "type": "input",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": <img
+                alt="filter"
+                className="filter-button-icon"
+                data-toggle="filter-dropdown"
+                src="https://img.icons8.com/small/100/000000/sorting-options.png"
+              />,
+              "className": "filter-button",
+              "data-toggle": "filter-dropdown",
+              "onClick": [Function],
+            },
+            "ref": null,
+            "rendered": Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "alt": "filter",
+                "className": "filter-button-icon",
+                "data-toggle": "filter-dropdown",
+                "src": "https://img.icons8.com/small/100/000000/sorting-options.png",
+              },
+              "ref": null,
+              "rendered": null,
+              "type": "img",
+            },
+            "type": "div",
+          },
+          false,
+        ],
+        "type": "form",
+      },
+      "type": "div",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+        "legacyContextMode": "parent",
+        "lifecycles": Object {
+          "componentDidUpdate": Object {
+            "onSetState": true,
+          },
+          "getChildContext": Object {
+            "calledByRenderer": false,
+          },
+          "getDerivedStateFromProps": true,
+          "getSnapshotBeforeUpdate": true,
+          "setState": Object {
+            "skipsComponentDidUpdateOnNullish": true,
+          },
+        },
+      },
+    },
+  },
+}
+`;
+
+exports[`The FilterDropdown component should not regress 1`] = `
+ShallowWrapper {
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <FilterDropdown
+    filters={
+      Object {
+        "date": Object {
+          "from": "",
+          "to": "",
+        },
+        "emailAutomation": "",
+        "freckleAutomation": "",
+        "searchBy": "",
+        "searchTerm": "",
+        "showFilterDropdown": false,
+        "slackAutomation": "",
+        "type": "",
+      }
+    }
+    handleInputChange={[Function]}
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "checkPropTypes": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateError": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "children": Array [
+        <div
+          className="search-by"
+        >
+          <p
+            className="search-title"
+          >
+            <b>
+              Search by
+            </b>
+          </p>
+          <Checkbox
+            checkCondition={false}
+            id="fellowName"
+            label="Fellow"
+            name="searchBy"
+            noLabel={false}
+            value="fellow"
+          />
+          <Checkbox
+            checkCondition={false}
+            id="partnerName"
+            label="Partner"
+            name="searchBy"
+            noLabel={false}
+            value="partner"
+          />
+        </div>,
+        <div
+          className="automation-type"
+        >
+          <p
+            className="automation-type-title"
+          >
+            <b>
+              Automation Type
+            </b>
+          </p>
+          <Checkbox
+            checkCondition={false}
+            id="onboarding"
+            label="onboarding"
+            name="type"
+            noLabel={false}
+            value="onboarding"
+          />
+          <Checkbox
+            checkCondition={false}
+            id="offboarding"
+            label="offboarding"
+            name="type"
+            noLabel={false}
+            value="offboarding"
+          />
+        </div>,
+        <div
+          className="automation-status"
+        >
+          <p
+            className="automation-status-title"
+          >
+            <b>
+              Automation Status
+            </b>
+          </p>
+          <table>
+            <thead>
+              <tr>
+                <th>
+                  Channel
+                </th>
+                <th>
+                  Success
+                </th>
+                <th>
+                  Failure
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr
+                className="email"
+              >
+                <td>
+                  Email
+                </td>
+                <td>
+                  <Checkbox
+                    checkCondition={false}
+                    id="emailSuccess"
+                    label=""
+                    name="emailAutomation"
+                    noLabel={true}
+                    value="success"
+                  />
+                </td>
+                <td>
+                  <Checkbox
+                    checkCondition={false}
+                    id="emailFailure"
+                    label=""
+                    name="emailAutomation"
+                    noLabel={true}
+                    value="failure"
+                  />
+                </td>
+              </tr>
+              <tr
+                className="slack"
+              >
+                <td>
+                  Slack
+                </td>
+                <td>
+                  <Checkbox
+                    checkCondition={false}
+                    id="slackSuccess"
+                    label=""
+                    name="slackAutomation"
+                    noLabel={true}
+                    value="success"
+                  />
+                </td>
+                <td>
+                  <Checkbox
+                    checkCondition={false}
+                    id="slackFailure"
+                    label=""
+                    name="slackAutomation"
+                    noLabel={true}
+                    value="failure"
+                  />
+                </td>
+              </tr>
+              <tr
+                className="freckle"
+              >
+                <td>
+                  Freckle
+                </td>
+                <td>
+                  <Checkbox
+                    checkCondition={false}
+                    id="freckleSuccess"
+                    label=""
+                    name="freckleAutomation"
+                    noLabel={true}
+                    value="success"
+                  />
+                </td>
+                <td>
+                  <Checkbox
+                    checkCondition={false}
+                    id="freckleFailure"
+                    label=""
+                    name="freckleAutomation"
+                    noLabel={true}
+                    value="failure"
+                  />
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>,
+        <div
+          className="automation-date"
+        >
+          <label
+            htmlFor="from"
+          >
+            <span>
+              From:
+            </span>
+            <DatePicker
+              dateSelected=""
+              id="from"
+              onChange={[Function]}
+              selection="from"
+            />
+          </label>
+          <label
+            htmlFor="to"
+          >
+            <span>
+              To:
+            </span>
+            <DatePicker
+              dateSelected=""
+              id="to"
+              onChange={[Function]}
+              selection="to"
+            />
+          </label>
+        </div>,
+        <button
+          className="apply-filters"
+          type="submit"
+        >
+          Apply Filters
+        </button>,
+      ],
+      "className": "filter-dropdown-parent",
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            <p
+              className="search-title"
+            >
+              <b>
+                Search by
+              </b>
+            </p>,
+            <Checkbox
+              checkCondition={false}
+              id="fellowName"
+              label="Fellow"
+              name="searchBy"
+              noLabel={false}
+              value="fellow"
+            />,
+            <Checkbox
+              checkCondition={false}
+              id="partnerName"
+              label="Partner"
+              name="searchBy"
+              noLabel={false}
+              value="partner"
+            />,
+          ],
+          "className": "search-by",
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": <b>
+                Search by
+              </b>,
+              "className": "search-title",
+            },
+            "ref": null,
+            "rendered": Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": "Search by",
+              },
+              "ref": null,
+              "rendered": "Search by",
+              "type": "b",
+            },
+            "type": "p",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "function",
+            "props": Object {
+              "checkCondition": false,
+              "id": "fellowName",
+              "label": "Fellow",
+              "name": "searchBy",
+              "noLabel": false,
+              "value": "fellow",
+            },
+            "ref": null,
+            "rendered": null,
+            "type": [Function],
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "function",
+            "props": Object {
+              "checkCondition": false,
+              "id": "partnerName",
+              "label": "Partner",
+              "name": "searchBy",
+              "noLabel": false,
+              "value": "partner",
+            },
+            "ref": null,
+            "rendered": null,
+            "type": [Function],
+          },
+        ],
+        "type": "div",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            <p
+              className="automation-type-title"
+            >
+              <b>
+                Automation Type
+              </b>
+            </p>,
+            <Checkbox
+              checkCondition={false}
+              id="onboarding"
+              label="onboarding"
+              name="type"
+              noLabel={false}
+              value="onboarding"
+            />,
+            <Checkbox
+              checkCondition={false}
+              id="offboarding"
+              label="offboarding"
+              name="type"
+              noLabel={false}
+              value="offboarding"
+            />,
+          ],
+          "className": "automation-type",
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": <b>
+                Automation Type
+              </b>,
+              "className": "automation-type-title",
+            },
+            "ref": null,
+            "rendered": Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": "Automation Type",
+              },
+              "ref": null,
+              "rendered": "Automation Type",
+              "type": "b",
+            },
+            "type": "p",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "function",
+            "props": Object {
+              "checkCondition": false,
+              "id": "onboarding",
+              "label": "onboarding",
+              "name": "type",
+              "noLabel": false,
+              "value": "onboarding",
+            },
+            "ref": null,
+            "rendered": null,
+            "type": [Function],
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "function",
+            "props": Object {
+              "checkCondition": false,
+              "id": "offboarding",
+              "label": "offboarding",
+              "name": "type",
+              "noLabel": false,
+              "value": "offboarding",
+            },
+            "ref": null,
+            "rendered": null,
+            "type": [Function],
+          },
+        ],
+        "type": "div",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            <p
+              className="automation-status-title"
+            >
+              <b>
+                Automation Status
+              </b>
+            </p>,
+            <table>
+              <thead>
+                <tr>
+                  <th>
+                    Channel
+                  </th>
+                  <th>
+                    Success
+                  </th>
+                  <th>
+                    Failure
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr
+                  className="email"
+                >
+                  <td>
+                    Email
+                  </td>
+                  <td>
+                    <Checkbox
+                      checkCondition={false}
+                      id="emailSuccess"
+                      label=""
+                      name="emailAutomation"
+                      noLabel={true}
+                      value="success"
+                    />
+                  </td>
+                  <td>
+                    <Checkbox
+                      checkCondition={false}
+                      id="emailFailure"
+                      label=""
+                      name="emailAutomation"
+                      noLabel={true}
+                      value="failure"
+                    />
+                  </td>
+                </tr>
+                <tr
+                  className="slack"
+                >
+                  <td>
+                    Slack
+                  </td>
+                  <td>
+                    <Checkbox
+                      checkCondition={false}
+                      id="slackSuccess"
+                      label=""
+                      name="slackAutomation"
+                      noLabel={true}
+                      value="success"
+                    />
+                  </td>
+                  <td>
+                    <Checkbox
+                      checkCondition={false}
+                      id="slackFailure"
+                      label=""
+                      name="slackAutomation"
+                      noLabel={true}
+                      value="failure"
+                    />
+                  </td>
+                </tr>
+                <tr
+                  className="freckle"
+                >
+                  <td>
+                    Freckle
+                  </td>
+                  <td>
+                    <Checkbox
+                      checkCondition={false}
+                      id="freckleSuccess"
+                      label=""
+                      name="freckleAutomation"
+                      noLabel={true}
+                      value="success"
+                    />
+                  </td>
+                  <td>
+                    <Checkbox
+                      checkCondition={false}
+                      id="freckleFailure"
+                      label=""
+                      name="freckleAutomation"
+                      noLabel={true}
+                      value="failure"
+                    />
+                  </td>
+                </tr>
+              </tbody>
+            </table>,
+          ],
+          "className": "automation-status",
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": <b>
+                Automation Status
+              </b>,
+              "className": "automation-status-title",
+            },
+            "ref": null,
+            "rendered": Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": "Automation Status",
+              },
+              "ref": null,
+              "rendered": "Automation Status",
+              "type": "b",
+            },
+            "type": "p",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": Array [
+                <thead>
+                  <tr>
+                    <th>
+                      Channel
+                    </th>
+                    <th>
+                      Success
+                    </th>
+                    <th>
+                      Failure
+                    </th>
+                  </tr>
+                </thead>,
+                <tbody>
+                  <tr
+                    className="email"
+                  >
+                    <td>
+                      Email
+                    </td>
+                    <td>
+                      <Checkbox
+                        checkCondition={false}
+                        id="emailSuccess"
+                        label=""
+                        name="emailAutomation"
+                        noLabel={true}
+                        value="success"
+                      />
+                    </td>
+                    <td>
+                      <Checkbox
+                        checkCondition={false}
+                        id="emailFailure"
+                        label=""
+                        name="emailAutomation"
+                        noLabel={true}
+                        value="failure"
+                      />
+                    </td>
+                  </tr>
+                  <tr
+                    className="slack"
+                  >
+                    <td>
+                      Slack
+                    </td>
+                    <td>
+                      <Checkbox
+                        checkCondition={false}
+                        id="slackSuccess"
+                        label=""
+                        name="slackAutomation"
+                        noLabel={true}
+                        value="success"
+                      />
+                    </td>
+                    <td>
+                      <Checkbox
+                        checkCondition={false}
+                        id="slackFailure"
+                        label=""
+                        name="slackAutomation"
+                        noLabel={true}
+                        value="failure"
+                      />
+                    </td>
+                  </tr>
+                  <tr
+                    className="freckle"
+                  >
+                    <td>
+                      Freckle
+                    </td>
+                    <td>
+                      <Checkbox
+                        checkCondition={false}
+                        id="freckleSuccess"
+                        label=""
+                        name="freckleAutomation"
+                        noLabel={true}
+                        value="success"
+                      />
+                    </td>
+                    <td>
+                      <Checkbox
+                        checkCondition={false}
+                        id="freckleFailure"
+                        label=""
+                        name="freckleAutomation"
+                        noLabel={true}
+                        value="failure"
+                      />
+                    </td>
+                  </tr>
+                </tbody>,
+              ],
+            },
+            "ref": null,
+            "rendered": Array [
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": <tr>
+                    <th>
+                      Channel
+                    </th>
+                    <th>
+                      Success
+                    </th>
+                    <th>
+                      Failure
+                    </th>
+                  </tr>,
+                },
+                "ref": null,
+                "rendered": Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": Array [
+                      <th>
+                        Channel
+                      </th>,
+                      <th>
+                        Success
+                      </th>,
+                      <th>
+                        Failure
+                      </th>,
+                    ],
+                  },
+                  "ref": null,
+                  "rendered": Array [
+                    Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "host",
+                      "props": Object {
+                        "children": "Channel",
+                      },
+                      "ref": null,
+                      "rendered": "Channel",
+                      "type": "th",
+                    },
+                    Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "host",
+                      "props": Object {
+                        "children": "Success",
+                      },
+                      "ref": null,
+                      "rendered": "Success",
+                      "type": "th",
+                    },
+                    Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "host",
+                      "props": Object {
+                        "children": "Failure",
+                      },
+                      "ref": null,
+                      "rendered": "Failure",
+                      "type": "th",
+                    },
+                  ],
+                  "type": "tr",
+                },
+                "type": "thead",
+              },
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": Array [
+                    <tr
+                      className="email"
+                    >
+                      <td>
+                        Email
+                      </td>
+                      <td>
+                        <Checkbox
+                          checkCondition={false}
+                          id="emailSuccess"
+                          label=""
+                          name="emailAutomation"
+                          noLabel={true}
+                          value="success"
+                        />
+                      </td>
+                      <td>
+                        <Checkbox
+                          checkCondition={false}
+                          id="emailFailure"
+                          label=""
+                          name="emailAutomation"
+                          noLabel={true}
+                          value="failure"
+                        />
+                      </td>
+                    </tr>,
+                    <tr
+                      className="slack"
+                    >
+                      <td>
+                        Slack
+                      </td>
+                      <td>
+                        <Checkbox
+                          checkCondition={false}
+                          id="slackSuccess"
+                          label=""
+                          name="slackAutomation"
+                          noLabel={true}
+                          value="success"
+                        />
+                      </td>
+                      <td>
+                        <Checkbox
+                          checkCondition={false}
+                          id="slackFailure"
+                          label=""
+                          name="slackAutomation"
+                          noLabel={true}
+                          value="failure"
+                        />
+                      </td>
+                    </tr>,
+                    <tr
+                      className="freckle"
+                    >
+                      <td>
+                        Freckle
+                      </td>
+                      <td>
+                        <Checkbox
+                          checkCondition={false}
+                          id="freckleSuccess"
+                          label=""
+                          name="freckleAutomation"
+                          noLabel={true}
+                          value="success"
+                        />
+                      </td>
+                      <td>
+                        <Checkbox
+                          checkCondition={false}
+                          id="freckleFailure"
+                          label=""
+                          name="freckleAutomation"
+                          noLabel={true}
+                          value="failure"
+                        />
+                      </td>
+                    </tr>,
+                  ],
+                },
+                "ref": null,
+                "rendered": Array [
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": Array [
+                        <td>
+                          Email
+                        </td>,
+                        <td>
+                          <Checkbox
+                            checkCondition={false}
+                            id="emailSuccess"
+                            label=""
+                            name="emailAutomation"
+                            noLabel={true}
+                            value="success"
+                          />
+                        </td>,
+                        <td>
+                          <Checkbox
+                            checkCondition={false}
+                            id="emailFailure"
+                            label=""
+                            name="emailAutomation"
+                            noLabel={true}
+                            value="failure"
+                          />
+                        </td>,
+                      ],
+                      "className": "email",
+                    },
+                    "ref": null,
+                    "rendered": Array [
+                      Object {
+                        "instance": null,
+                        "key": undefined,
+                        "nodeType": "host",
+                        "props": Object {
+                          "children": "Email",
+                        },
+                        "ref": null,
+                        "rendered": "Email",
+                        "type": "td",
+                      },
+                      Object {
+                        "instance": null,
+                        "key": undefined,
+                        "nodeType": "host",
+                        "props": Object {
+                          "children": <Checkbox
+                            checkCondition={false}
+                            id="emailSuccess"
+                            label=""
+                            name="emailAutomation"
+                            noLabel={true}
+                            value="success"
+                          />,
+                        },
+                        "ref": null,
+                        "rendered": Object {
+                          "instance": null,
+                          "key": undefined,
+                          "nodeType": "function",
+                          "props": Object {
+                            "checkCondition": false,
+                            "id": "emailSuccess",
+                            "label": "",
+                            "name": "emailAutomation",
+                            "noLabel": true,
+                            "value": "success",
+                          },
+                          "ref": null,
+                          "rendered": null,
+                          "type": [Function],
+                        },
+                        "type": "td",
+                      },
+                      Object {
+                        "instance": null,
+                        "key": undefined,
+                        "nodeType": "host",
+                        "props": Object {
+                          "children": <Checkbox
+                            checkCondition={false}
+                            id="emailFailure"
+                            label=""
+                            name="emailAutomation"
+                            noLabel={true}
+                            value="failure"
+                          />,
+                        },
+                        "ref": null,
+                        "rendered": Object {
+                          "instance": null,
+                          "key": undefined,
+                          "nodeType": "function",
+                          "props": Object {
+                            "checkCondition": false,
+                            "id": "emailFailure",
+                            "label": "",
+                            "name": "emailAutomation",
+                            "noLabel": true,
+                            "value": "failure",
+                          },
+                          "ref": null,
+                          "rendered": null,
+                          "type": [Function],
+                        },
+                        "type": "td",
+                      },
+                    ],
+                    "type": "tr",
+                  },
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": Array [
+                        <td>
+                          Slack
+                        </td>,
+                        <td>
+                          <Checkbox
+                            checkCondition={false}
+                            id="slackSuccess"
+                            label=""
+                            name="slackAutomation"
+                            noLabel={true}
+                            value="success"
+                          />
+                        </td>,
+                        <td>
+                          <Checkbox
+                            checkCondition={false}
+                            id="slackFailure"
+                            label=""
+                            name="slackAutomation"
+                            noLabel={true}
+                            value="failure"
+                          />
+                        </td>,
+                      ],
+                      "className": "slack",
+                    },
+                    "ref": null,
+                    "rendered": Array [
+                      Object {
+                        "instance": null,
+                        "key": undefined,
+                        "nodeType": "host",
+                        "props": Object {
+                          "children": "Slack",
+                        },
+                        "ref": null,
+                        "rendered": "Slack",
+                        "type": "td",
+                      },
+                      Object {
+                        "instance": null,
+                        "key": undefined,
+                        "nodeType": "host",
+                        "props": Object {
+                          "children": <Checkbox
+                            checkCondition={false}
+                            id="slackSuccess"
+                            label=""
+                            name="slackAutomation"
+                            noLabel={true}
+                            value="success"
+                          />,
+                        },
+                        "ref": null,
+                        "rendered": Object {
+                          "instance": null,
+                          "key": undefined,
+                          "nodeType": "function",
+                          "props": Object {
+                            "checkCondition": false,
+                            "id": "slackSuccess",
+                            "label": "",
+                            "name": "slackAutomation",
+                            "noLabel": true,
+                            "value": "success",
+                          },
+                          "ref": null,
+                          "rendered": null,
+                          "type": [Function],
+                        },
+                        "type": "td",
+                      },
+                      Object {
+                        "instance": null,
+                        "key": undefined,
+                        "nodeType": "host",
+                        "props": Object {
+                          "children": <Checkbox
+                            checkCondition={false}
+                            id="slackFailure"
+                            label=""
+                            name="slackAutomation"
+                            noLabel={true}
+                            value="failure"
+                          />,
+                        },
+                        "ref": null,
+                        "rendered": Object {
+                          "instance": null,
+                          "key": undefined,
+                          "nodeType": "function",
+                          "props": Object {
+                            "checkCondition": false,
+                            "id": "slackFailure",
+                            "label": "",
+                            "name": "slackAutomation",
+                            "noLabel": true,
+                            "value": "failure",
+                          },
+                          "ref": null,
+                          "rendered": null,
+                          "type": [Function],
+                        },
+                        "type": "td",
+                      },
+                    ],
+                    "type": "tr",
+                  },
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": Array [
+                        <td>
+                          Freckle
+                        </td>,
+                        <td>
+                          <Checkbox
+                            checkCondition={false}
+                            id="freckleSuccess"
+                            label=""
+                            name="freckleAutomation"
+                            noLabel={true}
+                            value="success"
+                          />
+                        </td>,
+                        <td>
+                          <Checkbox
+                            checkCondition={false}
+                            id="freckleFailure"
+                            label=""
+                            name="freckleAutomation"
+                            noLabel={true}
+                            value="failure"
+                          />
+                        </td>,
+                      ],
+                      "className": "freckle",
+                    },
+                    "ref": null,
+                    "rendered": Array [
+                      Object {
+                        "instance": null,
+                        "key": undefined,
+                        "nodeType": "host",
+                        "props": Object {
+                          "children": "Freckle",
+                        },
+                        "ref": null,
+                        "rendered": "Freckle",
+                        "type": "td",
+                      },
+                      Object {
+                        "instance": null,
+                        "key": undefined,
+                        "nodeType": "host",
+                        "props": Object {
+                          "children": <Checkbox
+                            checkCondition={false}
+                            id="freckleSuccess"
+                            label=""
+                            name="freckleAutomation"
+                            noLabel={true}
+                            value="success"
+                          />,
+                        },
+                        "ref": null,
+                        "rendered": Object {
+                          "instance": null,
+                          "key": undefined,
+                          "nodeType": "function",
+                          "props": Object {
+                            "checkCondition": false,
+                            "id": "freckleSuccess",
+                            "label": "",
+                            "name": "freckleAutomation",
+                            "noLabel": true,
+                            "value": "success",
+                          },
+                          "ref": null,
+                          "rendered": null,
+                          "type": [Function],
+                        },
+                        "type": "td",
+                      },
+                      Object {
+                        "instance": null,
+                        "key": undefined,
+                        "nodeType": "host",
+                        "props": Object {
+                          "children": <Checkbox
+                            checkCondition={false}
+                            id="freckleFailure"
+                            label=""
+                            name="freckleAutomation"
+                            noLabel={true}
+                            value="failure"
+                          />,
+                        },
+                        "ref": null,
+                        "rendered": Object {
+                          "instance": null,
+                          "key": undefined,
+                          "nodeType": "function",
+                          "props": Object {
+                            "checkCondition": false,
+                            "id": "freckleFailure",
+                            "label": "",
+                            "name": "freckleAutomation",
+                            "noLabel": true,
+                            "value": "failure",
+                          },
+                          "ref": null,
+                          "rendered": null,
+                          "type": [Function],
+                        },
+                        "type": "td",
+                      },
+                    ],
+                    "type": "tr",
+                  },
+                ],
+                "type": "tbody",
+              },
+            ],
+            "type": "table",
+          },
+        ],
+        "type": "div",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            <label
+              htmlFor="from"
+            >
+              <span>
+                From:
+              </span>
+              <DatePicker
+                dateSelected=""
+                id="from"
+                onChange={[Function]}
+                selection="from"
+              />
+            </label>,
+            <label
+              htmlFor="to"
+            >
+              <span>
+                To:
+              </span>
+              <DatePicker
+                dateSelected=""
+                id="to"
+                onChange={[Function]}
+                selection="to"
+              />
+            </label>,
+          ],
+          "className": "automation-date",
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": Array [
+                <span>
+                  From:
+                </span>,
+                <DatePicker
+                  dateSelected=""
+                  id="from"
+                  onChange={[Function]}
+                  selection="from"
+                />,
+              ],
+              "htmlFor": "from",
+            },
+            "ref": null,
+            "rendered": Array [
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": "From:",
+                },
+                "ref": null,
+                "rendered": "From:",
+                "type": "span",
+              },
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "function",
+                "props": Object {
+                  "dateSelected": "",
+                  "id": "from",
+                  "onChange": [Function],
+                  "selection": "from",
+                },
+                "ref": null,
+                "rendered": null,
+                "type": [Function],
+              },
+            ],
+            "type": "label",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": Array [
+                <span>
+                  To:
+                </span>,
+                <DatePicker
+                  dateSelected=""
+                  id="to"
+                  onChange={[Function]}
+                  selection="to"
+                />,
+              ],
+              "htmlFor": "to",
+            },
+            "ref": null,
+            "rendered": Array [
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": "To:",
+                },
+                "ref": null,
+                "rendered": "To:",
+                "type": "span",
+              },
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "function",
+                "props": Object {
+                  "dateSelected": "",
+                  "id": "to",
+                  "minDate": undefined,
+                  "onChange": [Function],
+                  "selection": "to",
+                },
+                "ref": null,
+                "rendered": null,
+                "type": [Function],
+              },
+            ],
+            "type": "label",
+          },
+        ],
+        "type": "div",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": "Apply Filters",
+          "className": "apply-filters",
+          "type": "submit",
+        },
+        "ref": null,
+        "rendered": "Apply Filters",
+        "type": "button",
+      },
+    ],
+    "type": "div",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": Array [
+          <div
+            className="search-by"
+          >
+            <p
+              className="search-title"
+            >
+              <b>
+                Search by
+              </b>
+            </p>
+            <Checkbox
+              checkCondition={false}
+              id="fellowName"
+              label="Fellow"
+              name="searchBy"
+              noLabel={false}
+              value="fellow"
+            />
+            <Checkbox
+              checkCondition={false}
+              id="partnerName"
+              label="Partner"
+              name="searchBy"
+              noLabel={false}
+              value="partner"
+            />
+          </div>,
+          <div
+            className="automation-type"
+          >
+            <p
+              className="automation-type-title"
+            >
+              <b>
+                Automation Type
+              </b>
+            </p>
+            <Checkbox
+              checkCondition={false}
+              id="onboarding"
+              label="onboarding"
+              name="type"
+              noLabel={false}
+              value="onboarding"
+            />
+            <Checkbox
+              checkCondition={false}
+              id="offboarding"
+              label="offboarding"
+              name="type"
+              noLabel={false}
+              value="offboarding"
+            />
+          </div>,
+          <div
+            className="automation-status"
+          >
+            <p
+              className="automation-status-title"
+            >
+              <b>
+                Automation Status
+              </b>
+            </p>
+            <table>
+              <thead>
+                <tr>
+                  <th>
+                    Channel
+                  </th>
+                  <th>
+                    Success
+                  </th>
+                  <th>
+                    Failure
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr
+                  className="email"
+                >
+                  <td>
+                    Email
+                  </td>
+                  <td>
+                    <Checkbox
+                      checkCondition={false}
+                      id="emailSuccess"
+                      label=""
+                      name="emailAutomation"
+                      noLabel={true}
+                      value="success"
+                    />
+                  </td>
+                  <td>
+                    <Checkbox
+                      checkCondition={false}
+                      id="emailFailure"
+                      label=""
+                      name="emailAutomation"
+                      noLabel={true}
+                      value="failure"
+                    />
+                  </td>
+                </tr>
+                <tr
+                  className="slack"
+                >
+                  <td>
+                    Slack
+                  </td>
+                  <td>
+                    <Checkbox
+                      checkCondition={false}
+                      id="slackSuccess"
+                      label=""
+                      name="slackAutomation"
+                      noLabel={true}
+                      value="success"
+                    />
+                  </td>
+                  <td>
+                    <Checkbox
+                      checkCondition={false}
+                      id="slackFailure"
+                      label=""
+                      name="slackAutomation"
+                      noLabel={true}
+                      value="failure"
+                    />
+                  </td>
+                </tr>
+                <tr
+                  className="freckle"
+                >
+                  <td>
+                    Freckle
+                  </td>
+                  <td>
+                    <Checkbox
+                      checkCondition={false}
+                      id="freckleSuccess"
+                      label=""
+                      name="freckleAutomation"
+                      noLabel={true}
+                      value="success"
+                    />
+                  </td>
+                  <td>
+                    <Checkbox
+                      checkCondition={false}
+                      id="freckleFailure"
+                      label=""
+                      name="freckleAutomation"
+                      noLabel={true}
+                      value="failure"
+                    />
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>,
+          <div
+            className="automation-date"
+          >
+            <label
+              htmlFor="from"
+            >
+              <span>
+                From:
+              </span>
+              <DatePicker
+                dateSelected=""
+                id="from"
+                onChange={[Function]}
+                selection="from"
+              />
+            </label>
+            <label
+              htmlFor="to"
+            >
+              <span>
+                To:
+              </span>
+              <DatePicker
+                dateSelected=""
+                id="to"
+                onChange={[Function]}
+                selection="to"
+              />
+            </label>
+          </div>,
+          <button
+            className="apply-filters"
+            type="submit"
+          >
+            Apply Filters
+          </button>,
+        ],
+        "className": "filter-dropdown-parent",
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              <p
+                className="search-title"
+              >
+                <b>
+                  Search by
+                </b>
+              </p>,
+              <Checkbox
+                checkCondition={false}
+                id="fellowName"
+                label="Fellow"
+                name="searchBy"
+                noLabel={false}
+                value="fellow"
+              />,
+              <Checkbox
+                checkCondition={false}
+                id="partnerName"
+                label="Partner"
+                name="searchBy"
+                noLabel={false}
+                value="partner"
+              />,
+            ],
+            "className": "search-by",
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": <b>
+                  Search by
+                </b>,
+                "className": "search-title",
+              },
+              "ref": null,
+              "rendered": Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": "Search by",
+                },
+                "ref": null,
+                "rendered": "Search by",
+                "type": "b",
+              },
+              "type": "p",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "function",
+              "props": Object {
+                "checkCondition": false,
+                "id": "fellowName",
+                "label": "Fellow",
+                "name": "searchBy",
+                "noLabel": false,
+                "value": "fellow",
+              },
+              "ref": null,
+              "rendered": null,
+              "type": [Function],
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "function",
+              "props": Object {
+                "checkCondition": false,
+                "id": "partnerName",
+                "label": "Partner",
+                "name": "searchBy",
+                "noLabel": false,
+                "value": "partner",
+              },
+              "ref": null,
+              "rendered": null,
+              "type": [Function],
+            },
+          ],
+          "type": "div",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              <p
+                className="automation-type-title"
+              >
+                <b>
+                  Automation Type
+                </b>
+              </p>,
+              <Checkbox
+                checkCondition={false}
+                id="onboarding"
+                label="onboarding"
+                name="type"
+                noLabel={false}
+                value="onboarding"
+              />,
+              <Checkbox
+                checkCondition={false}
+                id="offboarding"
+                label="offboarding"
+                name="type"
+                noLabel={false}
+                value="offboarding"
+              />,
+            ],
+            "className": "automation-type",
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": <b>
+                  Automation Type
+                </b>,
+                "className": "automation-type-title",
+              },
+              "ref": null,
+              "rendered": Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": "Automation Type",
+                },
+                "ref": null,
+                "rendered": "Automation Type",
+                "type": "b",
+              },
+              "type": "p",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "function",
+              "props": Object {
+                "checkCondition": false,
+                "id": "onboarding",
+                "label": "onboarding",
+                "name": "type",
+                "noLabel": false,
+                "value": "onboarding",
+              },
+              "ref": null,
+              "rendered": null,
+              "type": [Function],
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "function",
+              "props": Object {
+                "checkCondition": false,
+                "id": "offboarding",
+                "label": "offboarding",
+                "name": "type",
+                "noLabel": false,
+                "value": "offboarding",
+              },
+              "ref": null,
+              "rendered": null,
+              "type": [Function],
+            },
+          ],
+          "type": "div",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              <p
+                className="automation-status-title"
+              >
+                <b>
+                  Automation Status
+                </b>
+              </p>,
+              <table>
+                <thead>
+                  <tr>
+                    <th>
+                      Channel
+                    </th>
+                    <th>
+                      Success
+                    </th>
+                    <th>
+                      Failure
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr
+                    className="email"
+                  >
+                    <td>
+                      Email
+                    </td>
+                    <td>
+                      <Checkbox
+                        checkCondition={false}
+                        id="emailSuccess"
+                        label=""
+                        name="emailAutomation"
+                        noLabel={true}
+                        value="success"
+                      />
+                    </td>
+                    <td>
+                      <Checkbox
+                        checkCondition={false}
+                        id="emailFailure"
+                        label=""
+                        name="emailAutomation"
+                        noLabel={true}
+                        value="failure"
+                      />
+                    </td>
+                  </tr>
+                  <tr
+                    className="slack"
+                  >
+                    <td>
+                      Slack
+                    </td>
+                    <td>
+                      <Checkbox
+                        checkCondition={false}
+                        id="slackSuccess"
+                        label=""
+                        name="slackAutomation"
+                        noLabel={true}
+                        value="success"
+                      />
+                    </td>
+                    <td>
+                      <Checkbox
+                        checkCondition={false}
+                        id="slackFailure"
+                        label=""
+                        name="slackAutomation"
+                        noLabel={true}
+                        value="failure"
+                      />
+                    </td>
+                  </tr>
+                  <tr
+                    className="freckle"
+                  >
+                    <td>
+                      Freckle
+                    </td>
+                    <td>
+                      <Checkbox
+                        checkCondition={false}
+                        id="freckleSuccess"
+                        label=""
+                        name="freckleAutomation"
+                        noLabel={true}
+                        value="success"
+                      />
+                    </td>
+                    <td>
+                      <Checkbox
+                        checkCondition={false}
+                        id="freckleFailure"
+                        label=""
+                        name="freckleAutomation"
+                        noLabel={true}
+                        value="failure"
+                      />
+                    </td>
+                  </tr>
+                </tbody>
+              </table>,
+            ],
+            "className": "automation-status",
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": <b>
+                  Automation Status
+                </b>,
+                "className": "automation-status-title",
+              },
+              "ref": null,
+              "rendered": Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": "Automation Status",
+                },
+                "ref": null,
+                "rendered": "Automation Status",
+                "type": "b",
+              },
+              "type": "p",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": Array [
+                  <thead>
+                    <tr>
+                      <th>
+                        Channel
+                      </th>
+                      <th>
+                        Success
+                      </th>
+                      <th>
+                        Failure
+                      </th>
+                    </tr>
+                  </thead>,
+                  <tbody>
+                    <tr
+                      className="email"
+                    >
+                      <td>
+                        Email
+                      </td>
+                      <td>
+                        <Checkbox
+                          checkCondition={false}
+                          id="emailSuccess"
+                          label=""
+                          name="emailAutomation"
+                          noLabel={true}
+                          value="success"
+                        />
+                      </td>
+                      <td>
+                        <Checkbox
+                          checkCondition={false}
+                          id="emailFailure"
+                          label=""
+                          name="emailAutomation"
+                          noLabel={true}
+                          value="failure"
+                        />
+                      </td>
+                    </tr>
+                    <tr
+                      className="slack"
+                    >
+                      <td>
+                        Slack
+                      </td>
+                      <td>
+                        <Checkbox
+                          checkCondition={false}
+                          id="slackSuccess"
+                          label=""
+                          name="slackAutomation"
+                          noLabel={true}
+                          value="success"
+                        />
+                      </td>
+                      <td>
+                        <Checkbox
+                          checkCondition={false}
+                          id="slackFailure"
+                          label=""
+                          name="slackAutomation"
+                          noLabel={true}
+                          value="failure"
+                        />
+                      </td>
+                    </tr>
+                    <tr
+                      className="freckle"
+                    >
+                      <td>
+                        Freckle
+                      </td>
+                      <td>
+                        <Checkbox
+                          checkCondition={false}
+                          id="freckleSuccess"
+                          label=""
+                          name="freckleAutomation"
+                          noLabel={true}
+                          value="success"
+                        />
+                      </td>
+                      <td>
+                        <Checkbox
+                          checkCondition={false}
+                          id="freckleFailure"
+                          label=""
+                          name="freckleAutomation"
+                          noLabel={true}
+                          value="failure"
+                        />
+                      </td>
+                    </tr>
+                  </tbody>,
+                ],
+              },
+              "ref": null,
+              "rendered": Array [
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": <tr>
+                      <th>
+                        Channel
+                      </th>
+                      <th>
+                        Success
+                      </th>
+                      <th>
+                        Failure
+                      </th>
+                    </tr>,
+                  },
+                  "ref": null,
+                  "rendered": Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": Array [
+                        <th>
+                          Channel
+                        </th>,
+                        <th>
+                          Success
+                        </th>,
+                        <th>
+                          Failure
+                        </th>,
+                      ],
+                    },
+                    "ref": null,
+                    "rendered": Array [
+                      Object {
+                        "instance": null,
+                        "key": undefined,
+                        "nodeType": "host",
+                        "props": Object {
+                          "children": "Channel",
+                        },
+                        "ref": null,
+                        "rendered": "Channel",
+                        "type": "th",
+                      },
+                      Object {
+                        "instance": null,
+                        "key": undefined,
+                        "nodeType": "host",
+                        "props": Object {
+                          "children": "Success",
+                        },
+                        "ref": null,
+                        "rendered": "Success",
+                        "type": "th",
+                      },
+                      Object {
+                        "instance": null,
+                        "key": undefined,
+                        "nodeType": "host",
+                        "props": Object {
+                          "children": "Failure",
+                        },
+                        "ref": null,
+                        "rendered": "Failure",
+                        "type": "th",
+                      },
+                    ],
+                    "type": "tr",
+                  },
+                  "type": "thead",
+                },
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": Array [
+                      <tr
+                        className="email"
+                      >
+                        <td>
+                          Email
+                        </td>
+                        <td>
+                          <Checkbox
+                            checkCondition={false}
+                            id="emailSuccess"
+                            label=""
+                            name="emailAutomation"
+                            noLabel={true}
+                            value="success"
+                          />
+                        </td>
+                        <td>
+                          <Checkbox
+                            checkCondition={false}
+                            id="emailFailure"
+                            label=""
+                            name="emailAutomation"
+                            noLabel={true}
+                            value="failure"
+                          />
+                        </td>
+                      </tr>,
+                      <tr
+                        className="slack"
+                      >
+                        <td>
+                          Slack
+                        </td>
+                        <td>
+                          <Checkbox
+                            checkCondition={false}
+                            id="slackSuccess"
+                            label=""
+                            name="slackAutomation"
+                            noLabel={true}
+                            value="success"
+                          />
+                        </td>
+                        <td>
+                          <Checkbox
+                            checkCondition={false}
+                            id="slackFailure"
+                            label=""
+                            name="slackAutomation"
+                            noLabel={true}
+                            value="failure"
+                          />
+                        </td>
+                      </tr>,
+                      <tr
+                        className="freckle"
+                      >
+                        <td>
+                          Freckle
+                        </td>
+                        <td>
+                          <Checkbox
+                            checkCondition={false}
+                            id="freckleSuccess"
+                            label=""
+                            name="freckleAutomation"
+                            noLabel={true}
+                            value="success"
+                          />
+                        </td>
+                        <td>
+                          <Checkbox
+                            checkCondition={false}
+                            id="freckleFailure"
+                            label=""
+                            name="freckleAutomation"
+                            noLabel={true}
+                            value="failure"
+                          />
+                        </td>
+                      </tr>,
+                    ],
+                  },
+                  "ref": null,
+                  "rendered": Array [
+                    Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "host",
+                      "props": Object {
+                        "children": Array [
+                          <td>
+                            Email
+                          </td>,
+                          <td>
+                            <Checkbox
+                              checkCondition={false}
+                              id="emailSuccess"
+                              label=""
+                              name="emailAutomation"
+                              noLabel={true}
+                              value="success"
+                            />
+                          </td>,
+                          <td>
+                            <Checkbox
+                              checkCondition={false}
+                              id="emailFailure"
+                              label=""
+                              name="emailAutomation"
+                              noLabel={true}
+                              value="failure"
+                            />
+                          </td>,
+                        ],
+                        "className": "email",
+                      },
+                      "ref": null,
+                      "rendered": Array [
+                        Object {
+                          "instance": null,
+                          "key": undefined,
+                          "nodeType": "host",
+                          "props": Object {
+                            "children": "Email",
+                          },
+                          "ref": null,
+                          "rendered": "Email",
+                          "type": "td",
+                        },
+                        Object {
+                          "instance": null,
+                          "key": undefined,
+                          "nodeType": "host",
+                          "props": Object {
+                            "children": <Checkbox
+                              checkCondition={false}
+                              id="emailSuccess"
+                              label=""
+                              name="emailAutomation"
+                              noLabel={true}
+                              value="success"
+                            />,
+                          },
+                          "ref": null,
+                          "rendered": Object {
+                            "instance": null,
+                            "key": undefined,
+                            "nodeType": "function",
+                            "props": Object {
+                              "checkCondition": false,
+                              "id": "emailSuccess",
+                              "label": "",
+                              "name": "emailAutomation",
+                              "noLabel": true,
+                              "value": "success",
+                            },
+                            "ref": null,
+                            "rendered": null,
+                            "type": [Function],
+                          },
+                          "type": "td",
+                        },
+                        Object {
+                          "instance": null,
+                          "key": undefined,
+                          "nodeType": "host",
+                          "props": Object {
+                            "children": <Checkbox
+                              checkCondition={false}
+                              id="emailFailure"
+                              label=""
+                              name="emailAutomation"
+                              noLabel={true}
+                              value="failure"
+                            />,
+                          },
+                          "ref": null,
+                          "rendered": Object {
+                            "instance": null,
+                            "key": undefined,
+                            "nodeType": "function",
+                            "props": Object {
+                              "checkCondition": false,
+                              "id": "emailFailure",
+                              "label": "",
+                              "name": "emailAutomation",
+                              "noLabel": true,
+                              "value": "failure",
+                            },
+                            "ref": null,
+                            "rendered": null,
+                            "type": [Function],
+                          },
+                          "type": "td",
+                        },
+                      ],
+                      "type": "tr",
+                    },
+                    Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "host",
+                      "props": Object {
+                        "children": Array [
+                          <td>
+                            Slack
+                          </td>,
+                          <td>
+                            <Checkbox
+                              checkCondition={false}
+                              id="slackSuccess"
+                              label=""
+                              name="slackAutomation"
+                              noLabel={true}
+                              value="success"
+                            />
+                          </td>,
+                          <td>
+                            <Checkbox
+                              checkCondition={false}
+                              id="slackFailure"
+                              label=""
+                              name="slackAutomation"
+                              noLabel={true}
+                              value="failure"
+                            />
+                          </td>,
+                        ],
+                        "className": "slack",
+                      },
+                      "ref": null,
+                      "rendered": Array [
+                        Object {
+                          "instance": null,
+                          "key": undefined,
+                          "nodeType": "host",
+                          "props": Object {
+                            "children": "Slack",
+                          },
+                          "ref": null,
+                          "rendered": "Slack",
+                          "type": "td",
+                        },
+                        Object {
+                          "instance": null,
+                          "key": undefined,
+                          "nodeType": "host",
+                          "props": Object {
+                            "children": <Checkbox
+                              checkCondition={false}
+                              id="slackSuccess"
+                              label=""
+                              name="slackAutomation"
+                              noLabel={true}
+                              value="success"
+                            />,
+                          },
+                          "ref": null,
+                          "rendered": Object {
+                            "instance": null,
+                            "key": undefined,
+                            "nodeType": "function",
+                            "props": Object {
+                              "checkCondition": false,
+                              "id": "slackSuccess",
+                              "label": "",
+                              "name": "slackAutomation",
+                              "noLabel": true,
+                              "value": "success",
+                            },
+                            "ref": null,
+                            "rendered": null,
+                            "type": [Function],
+                          },
+                          "type": "td",
+                        },
+                        Object {
+                          "instance": null,
+                          "key": undefined,
+                          "nodeType": "host",
+                          "props": Object {
+                            "children": <Checkbox
+                              checkCondition={false}
+                              id="slackFailure"
+                              label=""
+                              name="slackAutomation"
+                              noLabel={true}
+                              value="failure"
+                            />,
+                          },
+                          "ref": null,
+                          "rendered": Object {
+                            "instance": null,
+                            "key": undefined,
+                            "nodeType": "function",
+                            "props": Object {
+                              "checkCondition": false,
+                              "id": "slackFailure",
+                              "label": "",
+                              "name": "slackAutomation",
+                              "noLabel": true,
+                              "value": "failure",
+                            },
+                            "ref": null,
+                            "rendered": null,
+                            "type": [Function],
+                          },
+                          "type": "td",
+                        },
+                      ],
+                      "type": "tr",
+                    },
+                    Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "host",
+                      "props": Object {
+                        "children": Array [
+                          <td>
+                            Freckle
+                          </td>,
+                          <td>
+                            <Checkbox
+                              checkCondition={false}
+                              id="freckleSuccess"
+                              label=""
+                              name="freckleAutomation"
+                              noLabel={true}
+                              value="success"
+                            />
+                          </td>,
+                          <td>
+                            <Checkbox
+                              checkCondition={false}
+                              id="freckleFailure"
+                              label=""
+                              name="freckleAutomation"
+                              noLabel={true}
+                              value="failure"
+                            />
+                          </td>,
+                        ],
+                        "className": "freckle",
+                      },
+                      "ref": null,
+                      "rendered": Array [
+                        Object {
+                          "instance": null,
+                          "key": undefined,
+                          "nodeType": "host",
+                          "props": Object {
+                            "children": "Freckle",
+                          },
+                          "ref": null,
+                          "rendered": "Freckle",
+                          "type": "td",
+                        },
+                        Object {
+                          "instance": null,
+                          "key": undefined,
+                          "nodeType": "host",
+                          "props": Object {
+                            "children": <Checkbox
+                              checkCondition={false}
+                              id="freckleSuccess"
+                              label=""
+                              name="freckleAutomation"
+                              noLabel={true}
+                              value="success"
+                            />,
+                          },
+                          "ref": null,
+                          "rendered": Object {
+                            "instance": null,
+                            "key": undefined,
+                            "nodeType": "function",
+                            "props": Object {
+                              "checkCondition": false,
+                              "id": "freckleSuccess",
+                              "label": "",
+                              "name": "freckleAutomation",
+                              "noLabel": true,
+                              "value": "success",
+                            },
+                            "ref": null,
+                            "rendered": null,
+                            "type": [Function],
+                          },
+                          "type": "td",
+                        },
+                        Object {
+                          "instance": null,
+                          "key": undefined,
+                          "nodeType": "host",
+                          "props": Object {
+                            "children": <Checkbox
+                              checkCondition={false}
+                              id="freckleFailure"
+                              label=""
+                              name="freckleAutomation"
+                              noLabel={true}
+                              value="failure"
+                            />,
+                          },
+                          "ref": null,
+                          "rendered": Object {
+                            "instance": null,
+                            "key": undefined,
+                            "nodeType": "function",
+                            "props": Object {
+                              "checkCondition": false,
+                              "id": "freckleFailure",
+                              "label": "",
+                              "name": "freckleAutomation",
+                              "noLabel": true,
+                              "value": "failure",
+                            },
+                            "ref": null,
+                            "rendered": null,
+                            "type": [Function],
+                          },
+                          "type": "td",
+                        },
+                      ],
+                      "type": "tr",
+                    },
+                  ],
+                  "type": "tbody",
+                },
+              ],
+              "type": "table",
+            },
+          ],
+          "type": "div",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              <label
+                htmlFor="from"
+              >
+                <span>
+                  From:
+                </span>
+                <DatePicker
+                  dateSelected=""
+                  id="from"
+                  onChange={[Function]}
+                  selection="from"
+                />
+              </label>,
+              <label
+                htmlFor="to"
+              >
+                <span>
+                  To:
+                </span>
+                <DatePicker
+                  dateSelected=""
+                  id="to"
+                  onChange={[Function]}
+                  selection="to"
+                />
+              </label>,
+            ],
+            "className": "automation-date",
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": Array [
+                  <span>
+                    From:
+                  </span>,
+                  <DatePicker
+                    dateSelected=""
+                    id="from"
+                    onChange={[Function]}
+                    selection="from"
+                  />,
+                ],
+                "htmlFor": "from",
+              },
+              "ref": null,
+              "rendered": Array [
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": "From:",
+                  },
+                  "ref": null,
+                  "rendered": "From:",
+                  "type": "span",
+                },
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "function",
+                  "props": Object {
+                    "dateSelected": "",
+                    "id": "from",
+                    "onChange": [Function],
+                    "selection": "from",
+                  },
+                  "ref": null,
+                  "rendered": null,
+                  "type": [Function],
+                },
+              ],
+              "type": "label",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": Array [
+                  <span>
+                    To:
+                  </span>,
+                  <DatePicker
+                    dateSelected=""
+                    id="to"
+                    onChange={[Function]}
+                    selection="to"
+                  />,
+                ],
+                "htmlFor": "to",
+              },
+              "ref": null,
+              "rendered": Array [
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": "To:",
+                  },
+                  "ref": null,
+                  "rendered": "To:",
+                  "type": "span",
+                },
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "function",
+                  "props": Object {
+                    "dateSelected": "",
+                    "id": "to",
+                    "minDate": undefined,
+                    "onChange": [Function],
+                    "selection": "to",
+                  },
+                  "ref": null,
+                  "rendered": null,
+                  "type": [Function],
+                },
+              ],
+              "type": "label",
+            },
+          ],
+          "type": "div",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": "Apply Filters",
+            "className": "apply-filters",
+            "type": "submit",
+          },
+          "ref": null,
+          "rendered": "Apply Filters",
+          "type": "button",
+        },
+      ],
+      "type": "div",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+        "legacyContextMode": "parent",
+        "lifecycles": Object {
+          "componentDidUpdate": Object {
+            "onSetState": true,
+          },
+          "getChildContext": Object {
+            "calledByRenderer": false,
+          },
+          "getDerivedStateFromProps": true,
+          "getSnapshotBeforeUpdate": true,
+          "setState": Object {
+            "skipsComponentDidUpdateOnNullish": true,
+          },
+        },
+      },
+    },
+  },
+}
+`;

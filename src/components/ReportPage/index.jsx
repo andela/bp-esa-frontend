@@ -1,39 +1,31 @@
 /* eslint-disable no-return-assign */
 /* eslint-disable no-fallthrough */
 /* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
-import React, { PureComponent, Fragment } from 'react';
+import React, { Fragment, PureComponent } from 'react';
+import URL from 'url';
 import PropTypes from 'prop-types';
 import axios from 'axios';
 import _ from 'lodash';
 import Header from '../Header';
-import Filter from '../Filter';
-import Search from '../Search';
-import * as constants from '../constants';
-import FiltersBar from '../FiltersBar';
 import './styles.scss';
 import AutomationDetails from '../AutomationDetails';
 import Spinner from '../Spinner';
 import Pagination from '../Pagination';
-import { pageNavigation, pageChange } from '../../utils';
+import { pageChange, pageNavigation } from '../../utils';
+import ReportNavBar from '../ReportNavBar';
+
+const { REACT_APP_BACKEND_URL } = process.env;
+const automationsURL = `${REACT_APP_BACKEND_URL}/api/v1/automations`;
 
 /* eslint-disable class-methods-use-this */
 class ReportPage extends PureComponent {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
+    this.filter = this.filter.bind(this);
     this.state = {
       reportData: [],
-      filters: {
-        automationStatus: [],
-        automationType: [],
-        date: { from: '', to: '' },
-        length: 0,
-        updated: false,
-      },
-      searchResult: false,
-      filteredReport: [],
       isModalOpen: false,
       modalContent: {},
-      type: '',
       isLoadingReports: false,
       pagination: {
         numberOfPages: 1,
@@ -54,23 +46,19 @@ class ReportPage extends PureComponent {
     }, 1000);
   }
 
-  componentDidUpdate() {
-    const { filters } = this.state;
-    if (filters.updated) {
-      this.filterReports();
-    }
-  }
-
   reportData = async (currentPage = 1, limit = 10) => {
-    const { isLoadingReports } = this.state;
+    const { isLoadingReports, query } = this.state;
     this.setState({
       isLoadingReports: !isLoadingReports,
     });
     let offset;
-    const { REACT_APP_BACKEND_URL } = process.env;
-    const url = `${REACT_APP_BACKEND_URL}/api/v1/automations?page=${currentPage}&limit=${limit}`;
+    const parsedAutomationsURL = URL.parse(automationsURL);
+    const filterURL = URL.format({
+      ...parsedAutomationsURL,
+      query: { ...query, page: currentPage, limit },
+    });
     await axios
-      .get(url)
+      .get(filterURL)
       .then(({ data }) => {
         offset = data.data && limit * (parseInt(data.pagination.currentPage, 10) - 1);
         this.setState(prevState => ({
@@ -87,87 +75,13 @@ class ReportPage extends PureComponent {
       .catch(error => error.response);
   };
 
-  setFilter = (filter, filterSet, action) => {
-    const { filters: previousFilters, filters: { length } } = this.state;
-    if (action === 'add_filter') {
-      this.setState({
-        filters: {
-          ...previousFilters,
-          [filterSet]: [
-            ...previousFilters[filterSet],
-            filter,
-          ],
-          length: length + 1,
-          updated: true,
-        },
-      });
-    } else if (action === 'remove_filter') {
-      const filterToMutate = [...previousFilters[filterSet]];
-      filterToMutate.splice(filterToMutate.indexOf(filter), 1);
-      this.setState({
-        filters: {
-          ...previousFilters,
-          [filterSet]: filterToMutate,
-          length: length - 1,
-          updated: true,
-        },
-      });
-    }
-    if (action === 'set_from_date' && filterSet === 'date') {
-      this.setDateToAndFrom(previousFilters.date.from, filter, 'from');
-    } else if (action === 'set_to_date' && filterSet === 'date') {
-      this.setDateToAndFrom(previousFilters.date.to, filter, 'to');
-    }
-  }
-
-  setDateToAndFrom = (dateType, filter, type) => {
-    const { filters: previousFilters, filters: { length } } = this.state;
-    let newLength = length;
-    newLength = filter && !dateType ? length + 1 : newLength;
-    newLength = !filter && dateType ? length - 1 : newLength;
-    const filterWorkers = {
-      ...previousFilters,
-      date: {
-        ...previousFilters.date,
-      },
-      length: newLength,
-      updated: true,
-    };
-    filterWorkers.date[type] = filter;
-    this.setState({
-      filters: filterWorkers,
-    });
-  }
-
-  doSearch = (searchValue, optionId) => {
-    const { reportData } = this.state;
-
-    let filteredReport = null;
-
-    const searchCriteria = optionId === 1 ? 'fellowName' : 'partnerName';
-
-    if (searchValue) {
-      filteredReport = reportData.filter(
-        report => report[searchCriteria].toLowerCase().includes(searchValue.toLowerCase()),
-      );
-    }
-    if (filteredReport) {
-      this.setState({
-        filteredReport,
-        searchResult: true,
-      });
-    } else {
-      this.setState({ searchResult: false });
-    }
-  }
-
   openModal = () => {
     this.setState({ isModalOpen: true });
-  }
+  };
 
   closeModal = () => {
     this.setState({ isModalOpen: false });
-  }
+  };
 
   formatDates = (date) => {
     const dateFormat = {
@@ -177,25 +91,44 @@ class ReportPage extends PureComponent {
       hour: 'numeric',
       minute: 'numeric',
     };
-    const formattedDate = new Date(date).toLocaleDateString('en-US', dateFormat);
-    return formattedDate;
+    return new Date(date).toLocaleDateString('en-US', dateFormat);
+  };
+
+  /* eslint-disable react/sort-comp */
+  // Do not change to arrow function because in the tests,
+  // we spy on this function and it has to be on this class's prototype
+  // Arrow function definitions do not have a bound prototype
+  async filter(f) {
+    // create shallow copy of the filters
+    const filters = { ...f };
+    delete filters.showFilterDropdown;
+    delete filters.date;
+    /* eslint-disable no-mixed-operators */
+    const query = {
+      ...filters,
+      'date[from]': f.date.from && f.date.from.toISOString() || undefined,
+      'date[to]': f.date.to && f.date.to.toISOString() || undefined,
+    };
+    /* eslint-enable no-mixed-operators */
+
+    this.setState({ query }, this.reportData);
   }
 
-    handlePagination = (action) => {
-      const { pagination: { currentPage, numberOfPages, limit } } = this.state;
-      const page = pageNavigation(action, currentPage, numberOfPages);
-      this.reportData(page, limit);
-    }
+  handlePagination = (action) => {
+    const { pagination: { currentPage, numberOfPages, limit } } = this.state;
+    const page = pageNavigation(action, currentPage, numberOfPages);
+    this.reportData(page, limit);
+  };
 
-    setPaginationState = (pagination) => {
-      this.setState(prevState => ({
-        ...prevState,
-        pagination: {
-          ...prevState.pagination,
-          ...pagination,
-        },
-      }));
-    }
+  setPaginationState = (pagination) => {
+    this.setState(prevState => ({
+      ...prevState,
+      pagination: {
+        ...prevState.pagination,
+        ...pagination,
+      },
+    }));
+  };
 
   onChangePage = (event) => {
     const { pagination: { numberOfPages } } = this.state;
@@ -203,95 +136,14 @@ class ReportPage extends PureComponent {
     const currentPage = pageChange(event.target.value, numberOfPages);
     this.setPaginationState({ currentPage });
     this.handleOnKeyPress();
-  }
+  };
 
   onChangeRowCount = (event) => {
     event.preventDefault();
     const limit = parseInt(event.target.value, 10);
     this.setPaginationState({ limit });
     this.reportData(1, limit);
-  }
-
-  filterWithAutomationStatus(report) {
-    const { filters: { automationStatus } } = this.state;
-    return automationStatus.every((filterTerm) => {
-      switch (filterTerm) {
-        case constants.FAILED_AUTOMATIONS:
-          return (report.slackAutomations.status === 'failure'
-            || report.freckleAutomations.status === 'failure'
-            || report.emailAutomations.status === 'failure'
-          );
-        case constants.SUCCESSFUL_AUTOMATIONS:
-          return (report.slackAutomations.status === 'success'
-            && report.freckleAutomations.status === 'success'
-            && report.emailAutomations.status === 'success'
-          );
-        case constants.FAILED_SLACK_AUTOMATIONS:
-          return (report.slackAutomations.status === 'failure');
-        case constants.FAILED_FRECKLE_AUTOMATIONS:
-          return (report.freckleAutomations.status === 'failure');
-        case constants.FAILED_EMAIL_AUTOMATIONS:
-          return (report.emailAutomations.status === 'failure');
-        case constants.SUCCESSFUL_SLACK_AUTOMATIONS:
-          return (report.slackAutomations.status) === 'success';
-        case constants.SUCCESSFUL_FRECKLE_AUTOMATIONS:
-          return (report.freckleAutomations.status === 'success');
-        case constants.SUCCESSFUL_EMAIL_AUTOMATIONS:
-          return (report.emailAutomations.status === 'success');
-        default:
-          return false;
-      }
-    });
-  }
-
-  filterWithAutomationType(report) {
-    const { filters: { automationType } } = this.state;
-    return automationType.every((filteTerm) => {
-      switch (filteTerm) {
-        case constants.ONBOARDING:
-          return (report.type === 'onboarding');
-        case constants.OFFBOARDING:
-          return (report.type === 'offboarding');
-        default:
-          return false;
-      }
-    });
-  }
-
-  filterWithDate(reportDate) {
-    const { filters: { date: { from, to } } } = this.state;
-    const reportDateTime = new Date(reportDate).getTime();
-    const fromTime = new Date(from).getTime();
-    const toTime = new Date(to).getTime() + 84600000;
-    return (reportDateTime >= fromTime && reportDateTime <= toTime);
-  }
-
-  runFilters(report) {
-    const { filters } = this.state;
-    const filterResult = [];
-    if (filters.automationStatus.length) {
-      filterResult.push(this.filterWithAutomationStatus(report));
-    }
-    if (filters.automationType.length) {
-      filterResult.push(this.filterWithAutomationType(report));
-    }
-    if (filters.date.from && filters.date.to) {
-      filterResult.push(this.filterWithDate(report.updatedAt));
-    }
-    return filterResult.every(result => result === true);
-  }
-
-  filterReports() {
-    const { reportData, filters: previousFilters } = this.state;
-    const filteredReport = reportData.filter(report => this.runFilters(report));
-    this.setState({
-      filteredReport,
-      filters: {
-        ...previousFilters,
-        updated: false,
-      },
-    });
-  }
+  };
 
   changeModalTypes(report, type) {
     this.setState({ modalContent: report, type });
@@ -327,29 +179,12 @@ class ReportPage extends PureComponent {
     );
   }
 
-  renderFilters() {
-    return constants.filters.map(filter => (
-      <Filter
-        key={filter.id}
-        filterSet={filter.filterSet}
-        title={filter.title}
-        options={filter.options}
-        handleFilterChange={this.setFilter}
-      />
-    ));
-  }
-
-  renderSearch() {
-    return <Search handleSearch={this.doSearch} />;
-  }
-
   renderTableRows() {
     const {
-      filters, filteredReport, reportData, searchResult, pagination: { offset },
+      reportData, pagination: { offset },
     } = this.state;
-    const reports = filters.length || searchResult ? filteredReport : reportData;
-    const finalReports = reports || [];
-    return (finalReports.map((report, index) => (
+    const reports = reportData || [];
+    return (reports.map((report, index) => (
       <tr key={report.id}>
         <td className="numbering">{index + offset + 1}</td>
         <td className="column1">{this.formatDates(report.updatedAt)}</td>
@@ -374,26 +209,21 @@ class ReportPage extends PureComponent {
     const { currentUser, removeCurrentUser, history } = this.props;
     const { isLoadingReports, pagination } = this.state;
     const {
-      isModalOpen, modalContent, type, filters,
+      isModalOpen, modalContent, type,
     } = this.state;
 
     // eslint-disable-next-line react/destructuring-assignment
     return (
-      <div>
+      <Fragment>
         <Header
           currentUser={currentUser}
           removeCurrentUser={removeCurrentUser}
           history={history}
         />
+        <ReportNavBar
+          filter={this.filter}
+        />
         <div id="report-page">
-          <div className="filter-box">
-            <p>Filters</p>
-            {this.renderFilters()}
-            {this.renderSearch()}
-          </div>
-          <FiltersBar
-            filters={filters}
-          />
           <div className="table-header">
             <table className="report-table">
               <thead>
@@ -440,7 +270,7 @@ class ReportPage extends PureComponent {
             formatDates={this.formatDates}
           />
         </div>
-      </div>
+      </Fragment>
     );
   }
 }

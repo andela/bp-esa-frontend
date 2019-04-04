@@ -1,0 +1,85 @@
+.report-navbar-container {
+  display: grid;
+  grid-template-columns: 100%;
+  align-items: center;
+
+  margin: 1em 0 0 0;
+  padding: 0 2em;
+
+  background-color: rgba(204, 204, 221, 0.2);
+  box-sizing: border-box;
+  font-size: 0.8rem;
+
+  &::before {
+    content: 'List of Automations';
+    display: none;
+    color: #889;
+  }
+  .report-navbar {
+    display: grid;
+    color: #667;
+    grid-template-columns: max-content max-content 1fr;
+    align-items: center;
+    grid-gap: 0.75em;
+    padding: 0.75em;
+    >p {
+      display: none;
+      margin: 0;
+    }
+
+    .view-button {
+      height: 2em;
+      width: 2em;
+      cursor: pointer;
+      fill: #AAB;
+    }
+    .view-button:active, .view-button:hover {
+      fill: #667;
+    }
+  }
+
+}
+
+@media only screen and (min-width:500px) {
+  .report-navbar-container {
+    font-size: 1rem;
+    .report-navbar {
+      grid-template-columns: repeat(3, max-content) 1fr;
+
+      >p {
+        display: block;
+        font-size: 1.375em;
+      }
+    }
+  }
+}
+
+@media only screen and (min-width:700px){
+  .report-navbar-container {
+    grid-template-columns: max-content 1fr;
+    grid-gap: 3.125em;
+
+    &::before {
+      display: block;
+      font-size: 1.375em;
+    }
+
+    .report-navbar {
+      justify-self: right;
+      width: 100%;
+      max-width: 40em;
+    }
+  }
+}
+
+@media only screen and (min-width:800px){
+  .report-navbar-container {
+    grid-gap: 4.6875em;
+  }
+}
+
+@media only screen and (min-width:900px){
+  .report-navbar-container {
+    grid-gap: 6.35em;
+  }
+}
