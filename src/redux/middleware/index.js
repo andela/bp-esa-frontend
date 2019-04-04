@@ -1,4 +1,9 @@
 /* istanbul ignore file */
-export default function* testGenerator() {
-  yield 'testing';
+import { all } from 'redux-saga/effects';
+import { watchFetchFellows } from './automationSagas';
+
+export default function* rootSagas() {
+  yield all([
+    watchFetchFellows(),
+  ]);
 }

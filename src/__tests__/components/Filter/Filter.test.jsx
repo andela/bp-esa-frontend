@@ -2,8 +2,7 @@ import React from 'react';
 import Filter from '../../../components/Filter/index';
 
 describe('Filter Component', () => {
-  
-  let props; 
+  let props;
   let component;
   let componentInstance;
 
@@ -27,14 +26,14 @@ describe('Filter Component', () => {
       expect(component.state('filterOptionsIsVisible')).toBeFalsy();
     });
 
-    it("should change the filterOptionsIsVisible in the state", () => {
+    it('should change the filterOptionsIsVisible in the state', () => {
       const mountedComponent = mount(<Filter {...props} />);
       const mountedComponentInstance = mountedComponent.instance();
       const isVisible = mountedComponent.state('filterOptionsIsVisible');
       mountedComponentInstance.toggleVisibility();
-      expect(isVisible).not.toEqual(mountedComponent.state("filterOptionsIsVisible"));
+      expect(isVisible).not.toEqual(mountedComponent.state('filterOptionsIsVisible'));
     });
-  
+
     it('should change the filterOptionsIsVisible in the state when  dropdown is clicked', () => {
       const newprops = {
         ...props,
@@ -46,7 +45,7 @@ describe('Filter Component', () => {
     });
 
     it('should close dropdown options when user clicks away', () => {
-      const newprops = {...props, options: [{ type: null }]};
+      const newprops = { ...props, options: [{ type: null }] };
       const component = mount(<Filter {...newprops} />);
       component.find('.filter-title').simulate('click');
       document.body.click();
@@ -54,14 +53,12 @@ describe('Filter Component', () => {
     });
 
     it('should open dropdown when called', () => {
-      const newprops = {...props, options: [{ type: null }]};
+      const newprops = { ...props, options: [{ type: null }] };
       const component = mount(<Filter {...newprops} />);
       const componentInstance = component.instance();
       componentInstance.toggleVisibility();
       expect(component.state('filterOptionsIsVisible')).toBeTruthy();
     });
-
-
   });
 
   describe('selectCheckBoxFilter method', () => {
