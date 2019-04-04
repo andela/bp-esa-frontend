@@ -1,6 +1,7 @@
-/* global mount */˝
 import React from 'react';
+import { mount } from 'enzyme';
 import configureStore from 'redux-mock-store';
+import { Provider } from 'react-redux';
 import ReportComponent, { ReportPage, mapDispatchToProps, mapStateToProps } from '../../components/ReportPage';
 
 const sampleReports = {
@@ -60,6 +61,8 @@ const sampleReports = {
   },
 };
 
+const mockStore = configureStore();
+
 const stats = {
   isLoading: false,
   data: {
@@ -90,6 +93,20 @@ const stats = {
   },
   error: {},
 };
+
+const state = {
+  automation: {
+    data: sampleReports.data,
+    error: { error: '' },
+    isLoading: false,
+    pagination: sampleReports.pagination,
+  },
+  stats,
+  error: {},
+  isLoading: false,
+};
+
+const store = mockStore(state);
 
 describe('ReportPage Component', () => {
   const props = {
@@ -144,7 +161,6 @@ describe('ReportPage Component', () => {
   });
 
   describe('render view', () => {
-    let wrapper;
     it('should render view of listCard', () => {
       component.setState({ viewMode: 'listView' });
       const tableBody = component.find('.table-body');
@@ -193,55 +209,31 @@ describe('ReportPage Component', () => {
       });
     });
 
-    it('should call handleRetryAutomation for the card view', () => {
-      wrapper = mount(<ReportPage {...props} />);
-      const instance = wrapper.instance();
-      jest.spyOn(instance, 'handleRetryAutomation');
-      const button = wrapper.find('#retry-automation');
-      button.simulate('click');
-      // eslint-disable-next-line no-unused-expressions
-      expect(instance.handleRetryAutomation).toBeCalled;
+    describe('The mapStateToProps', () => {
+      it('should return the expected props object', () => {
+        const storeState = {
+          stats: {
+            isLoading: false,
+            data: {},
+            error: {},
+          },
+        };
+
+        const expectedProps = mapStateToProps(storeState);
+        expect(expectedProps.stats).toEqual(storeState.stats);
+      });
     });
 
-    it('should call handleRetryAutomation for the table modal view', () => {
-      component.setState({ viewMode: 'listView' });
-      component.setState({ reportData: sampleReports, isLoadingReports: false });
-      const instance = component.instance();
-      jest.spyOn(instance, 'handleRetryAutomation');
-      component.find('#info-icon')
-        .at(0)
-        .simulate('click');
-      const button = component.find('.retry-btn');
-      button.simulate('click');
-      // eslint-disable-next-line no-unused-expressions
-      expect(instance.handleRetryAutomation).toBeCalled;
-    });
-  });
-  describe('The mapStateToProps', () => {
-    it('should return the expected props object', () => {
-      const storeState = {
-        stats: {
-          isLoading: false,
-          data: {},
-          error: {},
-        },
-      };
+    describe('The mapDispatchToProps', () => {
+      it('should ensure that fetchStat is mapped to props', () => {
+        const dispatch = jest.fn();
+        const expectedProps = mapDispatchToProps(dispatch);
 
-      const expectedProps = mapStateToProps(storeState);
-      expect(expectedProps.stats).toEqual(storeState.stats);
+        expectedProps.fetchStat();
+        expect(dispatch).toHaveBeenCalled();
+      });
     });
   });
-
-  describe('The mapDispatchToProps', () => {
-    it('should ensure that fetchStat is mapped to props', () => {
-      const dispatch = jest.fn();
-      const expectedProps = mapDispatchToProps(dispatch);
-
-      expectedProps.fetchStat();
-      expect(dispatch).toHaveBeenCalled();
-    });
-  });
-
 
   describe('Test component methods', () => {
     it('should handle update tab', () => {

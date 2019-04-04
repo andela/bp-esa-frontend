@@ -5,16 +5,16 @@
 
 .cont {
   display: grid;
-  grid-template-columns: repeat(5, 15.625rem);
+  // grid-template-columns: repeat(5, 15.625rem);
+  grid-template-columns: repeat(auto-fit, minmax(15.625rem, 1fr));
   grid-row-gap: 22px;
-  justify-content: center;
-  margin-left: 32px;
+  justify-items: center;
+  margin: 10px 60px 0;
   overflow-y: scroll;
   height: 620px;
 
-
   .card {
-    height: 18.75rem;;
+    height: 18.75rem;
     width: 13.857143rem;
     border-radius: 5px;
     background-color: #FCFCFD;
@@ -27,8 +27,6 @@
       box-shadow: rgba(204,204,221,0.8) 1px 1rem 1.4rem -1rem;
       transition: background-color 0.5s, box-shadow 0.2s ease-out;
     }
-
-
 
     .info-cont {
       display: grid;

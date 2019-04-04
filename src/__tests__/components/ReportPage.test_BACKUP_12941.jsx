@@ -1,6 +1,26 @@
-/* global mount */˝
+/* global mount */
 import React from 'react';
 import configureStore from 'redux-mock-store';
+import { Provider } from 'react-redux';
+<<<<<<< HEAD
+import ReportComponent, { mapStateToProps, mapDispatchToProps, ReportPage } from '../../components/ReportPage';
+
+const sampleReports = [
+  {
+    id: 1,
+    fellowName: 'Tunmise, Sandile',
+    partnerName: 'Andela',
+    type: 'onboarding',
+    slackAutomations: {
+      status: 'failure',
+      slackActivities: [14],
+    },
+    freckleAutomations: {
+      status: 'failure',
+      freckleActivities: [{
+        projectId: 34,
+        type: 'projectCreation',
+=======
 import ReportComponent, { ReportPage, mapDispatchToProps, mapStateToProps } from '../../components/ReportPage';
 
 const sampleReports = {
@@ -11,6 +31,7 @@ const sampleReports = {
       partnerName: 'Andela',
       type: 'onboarding',
       slackAutomations: {
+>>>>>>> ft(automation-table-pagination): add pagination to the automation table
         status: 'failure',
         slackActivities: [14],
       },
@@ -60,6 +81,8 @@ const sampleReports = {
   },
 };
 
+const mockStore = configureStore();
+
 const stats = {
   isLoading: false,
   data: {
@@ -91,6 +114,53 @@ const stats = {
   error: {},
 };
 
+const state = {
+  automation: {
+    data: sampleReports.data,
+    error: { error: '' },
+    isLoading: false,
+    pagination: sampleReports.pagination,
+  },
+  stats,
+  error: {},
+  isLoading: false,
+};
+
+const store = mockStore(state);
+
+<<<<<<< HEAD
+const props = {
+  automation: {
+    data: sampleReports,
+    error: {},
+    idLoading: false,
+    pagination: {
+      currentPage: 1,
+      numberOfPages: 1,
+      dataCount: '2',
+    },
+  },
+  location: { search: '?view=cardView' },
+  currentUser: {
+    additionalUserInfo: {
+      profile: {
+        name: '',
+        picture: '',
+      },
+    },
+  },
+  history: { push: jest.fn() },
+  removeCurrentUser: jest.fn(),
+  formatDates: jest.fn(),
+  closeModal: jest.fn(),
+  fetchAllAutomation: jest.fn(),
+  fetchStat: jest.fn(),
+  stats,
+  retryFailedAutomation: jest.fn(),
+  handleRetryAutomation: jest.fn(),
+  retryAutomation: jest.fn(),
+};
+=======
 describe('ReportPage Component', () => {
   const props = {
     automation: {
@@ -123,12 +193,30 @@ describe('ReportPage Component', () => {
   beforeEach(() => {
     component = mount(<ReportPage {...props} />);
   });
+>>>>>>> ft(automation-table-pagination): add pagination to the automation table
 
   it('should render as expected', () => {
     const title = component.find('.text');
     expect(title.text()).toEqual('ESA Dashboard');
   });
 
+<<<<<<< HEAD
+  describe('ReportPageComponent', () => {
+    it('should redirect to the AIS page when you click the fellow name', () => {
+      // eslint-disable-next-line no-undef
+      const component = mount(<ReportPage {...props} />);
+      component.setState({ viewMode: 'listView' });
+      component.setState({ reportData: sampleReports, isLoadingReports: false });
+      const redirectToAIS = component
+        .find('.table-body')
+        .find('tr')
+        .at(0)
+        .find('.fellow');
+      global.open = jest.fn();
+      redirectToAIS.simulate('click');
+      expect(global.open).toHaveBeenCalled();
+    });
+=======
   it('should redirect to the AIS page when you click the fellow name', () => {
     component.setState({ viewMode: 'listView' });
     const redirectToAIS = component.find('.table-body')
@@ -141,6 +229,7 @@ describe('ReportPage Component', () => {
     global.open = jest.fn();
     redirectToAIS.simulate('click');
     expect(global.open).toHaveBeenCalled();
+>>>>>>> ft(automation-table-pagination): add pagination to the automation table
   });
 
   describe('render view', () => {
@@ -192,6 +281,7 @@ describe('ReportPage Component', () => {
         expect(component.state().viewMode).toEqual('listView');
       });
     });
+<<<<<<< HEAD
 
     it('should call handleRetryAutomation for the card view', () => {
       wrapper = mount(<ReportPage {...props} />);
@@ -204,6 +294,7 @@ describe('ReportPage Component', () => {
     });
 
     it('should call handleRetryAutomation for the table modal view', () => {
+      const component = mount(<ReportPage {...props} />);
       component.setState({ viewMode: 'listView' });
       component.setState({ reportData: sampleReports, isLoadingReports: false });
       const instance = component.instance();
@@ -217,31 +308,34 @@ describe('ReportPage Component', () => {
       expect(instance.handleRetryAutomation).toBeCalled;
     });
   });
-  describe('The mapStateToProps', () => {
-    it('should return the expected props object', () => {
-      const storeState = {
-        stats: {
-          isLoading: false,
-          data: {},
-          error: {},
-        },
-      };
+=======
+>>>>>>> ft(automation-table-pagination): add pagination to the automation table
 
-      const expectedProps = mapStateToProps(storeState);
-      expect(expectedProps.stats).toEqual(storeState.stats);
+    describe('The mapStateToProps', () => {
+      it('should return the expected props object', () => {
+        const storeState = {
+          stats: {
+            isLoading: false,
+            data: {},
+            error: {},
+          },
+        };
+
+        const expectedProps = mapStateToProps(storeState);
+        expect(expectedProps.stats).toEqual(storeState.stats);
+      });
+    });
+
+    describe('The mapDispatchToProps', () => {
+      it('should ensure that fetchStat is mapped to props', () => {
+        const dispatch = jest.fn();
+        const expectedProps = mapDispatchToProps(dispatch);
+
+        expectedProps.fetchStat();
+        expect(dispatch).toHaveBeenCalled();
+      });
     });
   });
-
-  describe('The mapDispatchToProps', () => {
-    it('should ensure that fetchStat is mapped to props', () => {
-      const dispatch = jest.fn();
-      const expectedProps = mapDispatchToProps(dispatch);
-
-      expectedProps.fetchStat();
-      expect(dispatch).toHaveBeenCalled();
-    });
-  });
-
 
   describe('Test component methods', () => {
     it('should handle update tab', () => {

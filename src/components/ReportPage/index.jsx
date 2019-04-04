@@ -2,7 +2,7 @@
 /* eslint-disable no-fallthrough */
 /* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
 /* eslint-disable react/no-unused-state */
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import PropTypes from 'prop-types';
 import 'toastr/toastr.scss';
 import { connect } from 'react-redux';
@@ -12,6 +12,7 @@ import AutomationDetails from '../AutomationDetails';
 import Header from '../Header';
 import listenToSocketEvent from '../../realTime';
 import Pagination from '../Pagination';
+import UpdateTab from '../UpdateTab';
 import ReportNavBar from '../ReportNavBar';
 import DeveloperCard from '../developerCards';
 import Spinner from '../Spinner';
@@ -19,12 +20,25 @@ import './styles.scss';
 import { filterInitialState } from '../FilterComponent';
 import StatsCard from '../StatsCard';
 import { fetchStatsRequest } from '../../redux/actions/automationStats';
+import { fetchRealTimeReport, resetRealTimeReport } from '../../redux/actions/realTimeReport';
+import pageNavigation from '../../utils/utils';
 
 
 /* eslint-disable class-methods-use-this */
 export class ReportPage extends Component {
-  constructor(props) {
-    super(props);
+  handleOnKeyPress = _.debounce(() => {
+    const { pagination: { currentPage: page, limit: pageLimit } } = this.state;
+    const { fetchAllAutomation } = this.props;
+
+    if (page === '') {
+      return;
+    }
+
+    fetchAllAutomation(page, pageLimit);
+  }, 1000);
+
+  constructor() {
+    super();
     this.state = {
       viewMode: 'cardView',
       filters: filterInitialState,
@@ -32,6 +46,13 @@ export class ReportPage extends Component {
         currentPage: 1,
         limit: 25,
       },
+      isLoadingReports: false,
+      pagination: {
+        currentPage: 1,
+        limit: 10,
+      },
+      searchResult: false,
+      filteredReport: [],
       isModalOpen: false,
       modalContent: {},
       tempCurrentPage: false,
@@ -40,10 +61,11 @@ export class ReportPage extends Component {
     this.filter = this.filter.bind(this);
   }
 
-  componentDidMount() {
+  async componentDidMount() {
     const { fetchStat, fetchAllAutomation, location: { search } } = this.props;
     const { pagination, filters } = this.state;
     fetchAllAutomation(pagination, filters);
+
     const params = new URLSearchParams(search);
     const view = params.get('view');
     this.setState({ viewMode: view });
@@ -72,6 +94,8 @@ export class ReportPage extends Component {
   };
 
   updateReportData = (data) => {
+    const { fetchUpdates } = this.props;
+    fetchUpdates(data);
     const { reportData } = this.state;
     const newData = [data, ...reportData];
     this.setState({ reportData: newData });
@@ -94,9 +118,10 @@ export class ReportPage extends Component {
 
   handlePagination = (action) => {
     const { pagination: { currentPage } } = this.state;
-    const { automation: { pagination: { numberOfPages } } } = this.props;
+    const { automation: { pagination: { numberOfPages } }, resetUpdates } = this.props;
     const page = this.pageNavigation(action, currentPage, numberOfPages);
     this.setPaginationState({ currentPage: page });
+    resetUpdates();
   };
 
   setPaginationState = (pagination) => {
@@ -168,6 +193,33 @@ export class ReportPage extends Component {
     this.setState({ modalContent: report });
   };
 
+  runFilters(report) {
+    const { filters } = this.state;
+    const filterResult = [];
+    if (filters.automationStatus.length) {
+      filterResult.push(this.filterWithAutomationStatus(report));
+    }
+    if (filters.automationType.length) {
+      filterResult.push(this.filterWithAutomationType(report));
+    }
+    if (filters.date.from && filters.date.to) {
+      filterResult.push(this.filterWithDate(report.updatedAt));
+    }
+    return filterResult.every(result => result === true);
+  }
+
+  filterReports() {
+    const { reportData, filters: previousFilters } = this.state;
+    const filteredReport = reportData.filter(report => this.runFilters(report));
+    this.setState({
+      filteredReport,
+      filters: {
+        ...previousFilters,
+        updated: false,
+      },
+    });
+  }
+
   statusBreakdown(automation, type) {
     const activities = automation[`${type}Automations`][`${type}Activities`] || [];
     const stats = { successCount: 0, failureCount: 0 };
@@ -211,7 +263,12 @@ export class ReportPage extends Component {
     const { automation: { data } } = this.props;
     return (data.map((report, index) => {
       const {
-        id, updatedAt, fellowId, fellowName, partnerName, type,
+        id,
+        updatedAt,
+        fellowId,
+        fellowName,
+        partnerName,
+        type,
       } = report;
       return (
         <tr key={id}>
@@ -237,6 +294,13 @@ export class ReportPage extends Component {
     }));
   }
 
+  renderUpdateTab = () => {
+    const { viewMode } = this.state;
+    const { realTimeReport } = this.props;
+    return realTimeReport.length > 0
+    && <UpdateTab numberOfItems={realTimeReport.length} handleUpdates={this.handleUpdates} view={viewMode} />;
+  }
+
   renderListCard = () => {
     const { viewMode, isModalOpen, modalContent } = this.state;
     const { automation: { data, isLoading, retryingAutomation } } = this.props;
@@ -244,6 +308,7 @@ export class ReportPage extends Component {
       viewMode === 'listView'
         ? (
           <div id="report-page">
+            {this.renderUpdateTab()}
             <div className="table-header">
               <table className="report-table">
                 <thead className="report-table-header">
@@ -281,6 +346,7 @@ export class ReportPage extends Component {
         )
         : (
           <div>
+            {this.renderUpdateTab()}
             <DeveloperCard
               data={data}
               isLoading={isLoading}
@@ -297,7 +363,6 @@ export class ReportPage extends Component {
             />
           </div>
         )
-
     );
   };
 
@@ -314,7 +379,6 @@ export class ReportPage extends Component {
       </React.Fragment>
     );
   }
-
 
   render() {
     const { pagination: { limit }, tempCurrentPage } = this.state;
@@ -373,12 +437,15 @@ export class ReportPage extends Component {
 }
 
 export const mapStateToProps = state => ({
+  realTimeReport: state.realTimeReport,
   automation: state.automation,
   stats: state.stats,
 });
 
 export const mapDispatchToProps = dispatch => ({
   fetchAllAutomation: (pagination, filters) => dispatch(fetchAutomation(pagination, filters)),
+  fetchUpdates: () => dispatch(fetchRealTimeReport()),
+  resetUpdates: () => dispatch(resetRealTimeReport()),
   fetchStat: () => dispatch(fetchStatsRequest()),
   retryFailedAutomation: () => dispatch(retryAutomation()),
 });
@@ -393,10 +460,16 @@ ReportPage.propTypes = {
   fetchStat: PropTypes.func.isRequired,
   stats: PropTypes.object.isRequired,
   retryFailedAutomation: PropTypes.func.isRequired,
+  fetchUpdates: PropTypes.func,
+  realTimeReport: PropTypes.array,
+  resetUpdates: PropTypes.func,
 };
 
 ReportPage.defaultProps = {
   removeCurrentUser: () => { },
+  fetchUpdates: () => { },
+  resetUpdates: () => { },
+  realTimeReport: [],
 };
 
 export default connect(

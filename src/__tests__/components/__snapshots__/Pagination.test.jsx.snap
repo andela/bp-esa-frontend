@@ -1,0 +1,1653 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Pagination Component renders the pagination component 1`] = `
+ReactWrapper {
+  Symbol(enzyme.__unrendered__): <Pagination
+    handlePagination={[MockFunction]}
+    limit={10}
+    onChangeRowCount={[MockFunction]}
+    onPageChange={[MockFunction]}
+    pageNumber={1}
+    pagination={
+      Object {
+        "currentPage": 1,
+        "numberOfPages": 1120,
+      }
+    }
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateError": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "function",
+    "props": Object {
+      "handlePagination": [MockFunction],
+      "limit": 10,
+      "onChangeRowCount": [MockFunction],
+      "onPageChange": [MockFunction],
+      "pageNumber": 1,
+      "pagination": Object {
+        "currentPage": 1,
+        "numberOfPages": 1120,
+      },
+    },
+    "ref": null,
+    "rendered": Object {
+      "instance": <div
+        class="pagination"
+      >
+        <div
+          class="center-item"
+        >
+          <p>
+            Page 1 of 1120
+          </p>
+        </div>
+        <form>
+          <label
+            for="rows-per-page"
+          >
+            Items per page
+          </label>
+          <select
+            class="select"
+          >
+            <option
+              value="10"
+            >
+              10
+            </option>
+            <option
+              value="25"
+            >
+              25
+            </option>
+            <option
+              value="50"
+            >
+              50
+            </option>
+            <option
+              value="100"
+            >
+              100
+            </option>
+          </select>
+        </form>
+        <div
+          class="page-panel"
+        >
+          <button
+            class="disabled"
+            type="button"
+          >
+            <img
+              alt="text"
+              class="nav-icon"
+              src="first-page-icon.svg"
+            />
+          </button>
+          <button
+            class="disabled"
+            type="button"
+          >
+            <img
+              alt="text"
+              class="nav-icon"
+              src="previous-page-icon.svg"
+            />
+          </button>
+          <input
+            class="form-input"
+            name="pageNumber"
+            type="text"
+            value="1"
+          />
+          <button
+            class="page-btn icon-btn"
+            type="button"
+          >
+            <img
+              alt="text"
+              class="nav-icon"
+              src="next-page-icon.svg"
+            />
+          </button>
+          <button
+            class="page-btn icon-btn"
+            type="button"
+          >
+            <img
+              alt="text"
+              class="nav-icon"
+              src="last-page-icon.svg"
+            />
+          </button>
+        </div>
+      </div>,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": Array [
+          <div
+            className="center-item"
+          >
+            <p>
+              Page 1 of 1120
+            </p>
+          </div>,
+          <form>
+            <label
+              htmlFor="rows-per-page"
+            >
+              Items per page
+            </label>
+            <select
+              className="select"
+              onChange={[Function]}
+              value={10}
+            >
+              <option
+                value={10}
+              >
+                10
+              </option>
+              <option
+                value={25}
+              >
+                25
+              </option>
+              <option
+                value={50}
+              >
+                50
+              </option>
+              <option
+                value={100}
+              >
+                100
+              </option>
+            </select>
+          </form>,
+          <div
+            className="page-panel"
+          >
+            <button
+              className="disabled"
+              onClick={[Function]}
+              type="button"
+            >
+              <img
+                alt="text"
+                className="nav-icon"
+                src="first-page-icon.svg"
+              />
+            </button>
+            <button
+              className="disabled"
+              onClick={[Function]}
+              type="button"
+            >
+              <img
+                alt="text"
+                className="nav-icon"
+                src="previous-page-icon.svg"
+              />
+            </button>
+            <input
+              className="form-input"
+              name="pageNumber"
+              onChange={[Function]}
+              type="text"
+              value={1}
+            />
+            <button
+              className="page-btn icon-btn"
+              onClick={[Function]}
+              type="button"
+            >
+              <img
+                alt="text"
+                className="nav-icon"
+                src="next-page-icon.svg"
+              />
+            </button>
+            <button
+              className="page-btn icon-btn"
+              onClick={[Function]}
+              type="button"
+            >
+              <img
+                alt="text"
+                className="nav-icon"
+                src="last-page-icon.svg"
+              />
+            </button>
+          </div>,
+        ],
+        "className": "pagination",
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": <div
+            class="center-item"
+          >
+            <p>
+              Page 1 of 1120
+            </p>
+          </div>,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": <p>
+              Page 1 of 1120
+            </p>,
+            "className": "center-item",
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": <p>
+                Page 1 of 1120
+              </p>,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": "Page 1 of 1120",
+              },
+              "ref": null,
+              "rendered": Array [
+                "Page 1 of 1120",
+              ],
+              "type": "p",
+            },
+          ],
+          "type": "div",
+        },
+        Object {
+          "instance": <form>
+            <label
+              for="rows-per-page"
+            >
+              Items per page
+            </label>
+            <select
+              class="select"
+            >
+              <option
+                value="10"
+              >
+                10
+              </option>
+              <option
+                value="25"
+              >
+                25
+              </option>
+              <option
+                value="50"
+              >
+                50
+              </option>
+              <option
+                value="100"
+              >
+                100
+              </option>
+            </select>
+          </form>,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              <label
+                htmlFor="rows-per-page"
+              >
+                Items per page
+              </label>,
+              <select
+                className="select"
+                onChange={[Function]}
+                value={10}
+              >
+                <option
+                  value={10}
+                >
+                  10
+                </option>
+                <option
+                  value={25}
+                >
+                  25
+                </option>
+                <option
+                  value={50}
+                >
+                  50
+                </option>
+                <option
+                  value={100}
+                >
+                  100
+                </option>
+              </select>,
+            ],
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": <label
+                for="rows-per-page"
+              >
+                Items per page
+              </label>,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": "Items per page",
+                "htmlFor": "rows-per-page",
+              },
+              "ref": null,
+              "rendered": Array [
+                "Items per page",
+              ],
+              "type": "label",
+            },
+            Object {
+              "instance": <select
+                class="select"
+              >
+                <option
+                  value="10"
+                >
+                  10
+                </option>
+                <option
+                  value="25"
+                >
+                  25
+                </option>
+                <option
+                  value="50"
+                >
+                  50
+                </option>
+                <option
+                  value="100"
+                >
+                  100
+                </option>
+              </select>,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": Array [
+                  <option
+                    value={10}
+                  >
+                    10
+                  </option>,
+                  <option
+                    value={25}
+                  >
+                    25
+                  </option>,
+                  <option
+                    value={50}
+                  >
+                    50
+                  </option>,
+                  <option
+                    value={100}
+                  >
+                    100
+                  </option>,
+                ],
+                "className": "select",
+                "onChange": [Function],
+                "value": 10,
+              },
+              "ref": null,
+              "rendered": Array [
+                Object {
+                  "instance": <option
+                    value="10"
+                  >
+                    10
+                  </option>,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": "10",
+                    "value": 10,
+                  },
+                  "ref": null,
+                  "rendered": Array [
+                    "10",
+                  ],
+                  "type": "option",
+                },
+                Object {
+                  "instance": <option
+                    value="25"
+                  >
+                    25
+                  </option>,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": "25",
+                    "value": 25,
+                  },
+                  "ref": null,
+                  "rendered": Array [
+                    "25",
+                  ],
+                  "type": "option",
+                },
+                Object {
+                  "instance": <option
+                    value="50"
+                  >
+                    50
+                  </option>,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": "50",
+                    "value": 50,
+                  },
+                  "ref": null,
+                  "rendered": Array [
+                    "50",
+                  ],
+                  "type": "option",
+                },
+                Object {
+                  "instance": <option
+                    value="100"
+                  >
+                    100
+                  </option>,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": "100",
+                    "value": 100,
+                  },
+                  "ref": null,
+                  "rendered": Array [
+                    "100",
+                  ],
+                  "type": "option",
+                },
+              ],
+              "type": "select",
+            },
+          ],
+          "type": "form",
+        },
+        Object {
+          "instance": <div
+            class="page-panel"
+          >
+            <button
+              class="disabled"
+              type="button"
+            >
+              <img
+                alt="text"
+                class="nav-icon"
+                src="first-page-icon.svg"
+              />
+            </button>
+            <button
+              class="disabled"
+              type="button"
+            >
+              <img
+                alt="text"
+                class="nav-icon"
+                src="previous-page-icon.svg"
+              />
+            </button>
+            <input
+              class="form-input"
+              name="pageNumber"
+              type="text"
+              value="1"
+            />
+            <button
+              class="page-btn icon-btn"
+              type="button"
+            >
+              <img
+                alt="text"
+                class="nav-icon"
+                src="next-page-icon.svg"
+              />
+            </button>
+            <button
+              class="page-btn icon-btn"
+              type="button"
+            >
+              <img
+                alt="text"
+                class="nav-icon"
+                src="last-page-icon.svg"
+              />
+            </button>
+          </div>,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              <button
+                className="disabled"
+                onClick={[Function]}
+                type="button"
+              >
+                <img
+                  alt="text"
+                  className="nav-icon"
+                  src="first-page-icon.svg"
+                />
+              </button>,
+              <button
+                className="disabled"
+                onClick={[Function]}
+                type="button"
+              >
+                <img
+                  alt="text"
+                  className="nav-icon"
+                  src="previous-page-icon.svg"
+                />
+              </button>,
+              <input
+                className="form-input"
+                name="pageNumber"
+                onChange={[Function]}
+                type="text"
+                value={1}
+              />,
+              <button
+                className="page-btn icon-btn"
+                onClick={[Function]}
+                type="button"
+              >
+                <img
+                  alt="text"
+                  className="nav-icon"
+                  src="next-page-icon.svg"
+                />
+              </button>,
+              <button
+                className="page-btn icon-btn"
+                onClick={[Function]}
+                type="button"
+              >
+                <img
+                  alt="text"
+                  className="nav-icon"
+                  src="last-page-icon.svg"
+                />
+              </button>,
+            ],
+            "className": "page-panel",
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": <button
+                class="disabled"
+                type="button"
+              >
+                <img
+                  alt="text"
+                  class="nav-icon"
+                  src="first-page-icon.svg"
+                />
+              </button>,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": <img
+                  alt="text"
+                  className="nav-icon"
+                  src="first-page-icon.svg"
+                />,
+                "className": "disabled",
+                "onClick": [Function],
+                "type": "button",
+              },
+              "ref": null,
+              "rendered": Array [
+                Object {
+                  "instance": <img
+                    alt="text"
+                    class="nav-icon"
+                    src="first-page-icon.svg"
+                  />,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "alt": "text",
+                    "className": "nav-icon",
+                    "src": "first-page-icon.svg",
+                  },
+                  "ref": null,
+                  "rendered": Array [
+                    undefined,
+                  ],
+                  "type": "img",
+                },
+              ],
+              "type": "button",
+            },
+            Object {
+              "instance": <button
+                class="disabled"
+                type="button"
+              >
+                <img
+                  alt="text"
+                  class="nav-icon"
+                  src="previous-page-icon.svg"
+                />
+              </button>,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": <img
+                  alt="text"
+                  className="nav-icon"
+                  src="previous-page-icon.svg"
+                />,
+                "className": "disabled",
+                "onClick": [Function],
+                "type": "button",
+              },
+              "ref": null,
+              "rendered": Array [
+                Object {
+                  "instance": <img
+                    alt="text"
+                    class="nav-icon"
+                    src="previous-page-icon.svg"
+                  />,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "alt": "text",
+                    "className": "nav-icon",
+                    "src": "previous-page-icon.svg",
+                  },
+                  "ref": null,
+                  "rendered": Array [
+                    undefined,
+                  ],
+                  "type": "img",
+                },
+              ],
+              "type": "button",
+            },
+            Object {
+              "instance": <input
+                class="form-input"
+                name="pageNumber"
+                type="text"
+                value="1"
+              />,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "className": "form-input",
+                "name": "pageNumber",
+                "onChange": [Function],
+                "type": "text",
+                "value": 1,
+              },
+              "ref": null,
+              "rendered": Array [
+                undefined,
+              ],
+              "type": "input",
+            },
+            Object {
+              "instance": <button
+                class="page-btn icon-btn"
+                type="button"
+              >
+                <img
+                  alt="text"
+                  class="nav-icon"
+                  src="next-page-icon.svg"
+                />
+              </button>,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": <img
+                  alt="text"
+                  className="nav-icon"
+                  src="next-page-icon.svg"
+                />,
+                "className": "page-btn icon-btn",
+                "onClick": [Function],
+                "type": "button",
+              },
+              "ref": null,
+              "rendered": Array [
+                Object {
+                  "instance": <img
+                    alt="text"
+                    class="nav-icon"
+                    src="next-page-icon.svg"
+                  />,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "alt": "text",
+                    "className": "nav-icon",
+                    "src": "next-page-icon.svg",
+                  },
+                  "ref": null,
+                  "rendered": Array [
+                    undefined,
+                  ],
+                  "type": "img",
+                },
+              ],
+              "type": "button",
+            },
+            Object {
+              "instance": <button
+                class="page-btn icon-btn"
+                type="button"
+              >
+                <img
+                  alt="text"
+                  class="nav-icon"
+                  src="last-page-icon.svg"
+                />
+              </button>,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": <img
+                  alt="text"
+                  className="nav-icon"
+                  src="last-page-icon.svg"
+                />,
+                "className": "page-btn icon-btn",
+                "onClick": [Function],
+                "type": "button",
+              },
+              "ref": null,
+              "rendered": Array [
+                Object {
+                  "instance": <img
+                    alt="text"
+                    class="nav-icon"
+                    src="last-page-icon.svg"
+                  />,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "alt": "text",
+                    "className": "nav-icon",
+                    "src": "last-page-icon.svg",
+                  },
+                  "ref": null,
+                  "rendered": Array [
+                    undefined,
+                  ],
+                  "type": "img",
+                },
+              ],
+              "type": "button",
+            },
+          ],
+          "type": "div",
+        },
+      ],
+      "type": "div",
+    },
+    "type": [Function],
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "function",
+      "props": Object {
+        "handlePagination": [MockFunction],
+        "limit": 10,
+        "onChangeRowCount": [MockFunction],
+        "onPageChange": [MockFunction],
+        "pageNumber": 1,
+        "pagination": Object {
+          "currentPage": 1,
+          "numberOfPages": 1120,
+        },
+      },
+      "ref": null,
+      "rendered": Object {
+        "instance": <div
+          class="pagination"
+        >
+          <div
+            class="center-item"
+          >
+            <p>
+              Page 1 of 1120
+            </p>
+          </div>
+          <form>
+            <label
+              for="rows-per-page"
+            >
+              Items per page
+            </label>
+            <select
+              class="select"
+            >
+              <option
+                value="10"
+              >
+                10
+              </option>
+              <option
+                value="25"
+              >
+                25
+              </option>
+              <option
+                value="50"
+              >
+                50
+              </option>
+              <option
+                value="100"
+              >
+                100
+              </option>
+            </select>
+          </form>
+          <div
+            class="page-panel"
+          >
+            <button
+              class="disabled"
+              type="button"
+            >
+              <img
+                alt="text"
+                class="nav-icon"
+                src="first-page-icon.svg"
+              />
+            </button>
+            <button
+              class="disabled"
+              type="button"
+            >
+              <img
+                alt="text"
+                class="nav-icon"
+                src="previous-page-icon.svg"
+              />
+            </button>
+            <input
+              class="form-input"
+              name="pageNumber"
+              type="text"
+              value="1"
+            />
+            <button
+              class="page-btn icon-btn"
+              type="button"
+            >
+              <img
+                alt="text"
+                class="nav-icon"
+                src="next-page-icon.svg"
+              />
+            </button>
+            <button
+              class="page-btn icon-btn"
+              type="button"
+            >
+              <img
+                alt="text"
+                class="nav-icon"
+                src="last-page-icon.svg"
+              />
+            </button>
+          </div>
+        </div>,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            <div
+              className="center-item"
+            >
+              <p>
+                Page 1 of 1120
+              </p>
+            </div>,
+            <form>
+              <label
+                htmlFor="rows-per-page"
+              >
+                Items per page
+              </label>
+              <select
+                className="select"
+                onChange={[Function]}
+                value={10}
+              >
+                <option
+                  value={10}
+                >
+                  10
+                </option>
+                <option
+                  value={25}
+                >
+                  25
+                </option>
+                <option
+                  value={50}
+                >
+                  50
+                </option>
+                <option
+                  value={100}
+                >
+                  100
+                </option>
+              </select>
+            </form>,
+            <div
+              className="page-panel"
+            >
+              <button
+                className="disabled"
+                onClick={[Function]}
+                type="button"
+              >
+                <img
+                  alt="text"
+                  className="nav-icon"
+                  src="first-page-icon.svg"
+                />
+              </button>
+              <button
+                className="disabled"
+                onClick={[Function]}
+                type="button"
+              >
+                <img
+                  alt="text"
+                  className="nav-icon"
+                  src="previous-page-icon.svg"
+                />
+              </button>
+              <input
+                className="form-input"
+                name="pageNumber"
+                onChange={[Function]}
+                type="text"
+                value={1}
+              />
+              <button
+                className="page-btn icon-btn"
+                onClick={[Function]}
+                type="button"
+              >
+                <img
+                  alt="text"
+                  className="nav-icon"
+                  src="next-page-icon.svg"
+                />
+              </button>
+              <button
+                className="page-btn icon-btn"
+                onClick={[Function]}
+                type="button"
+              >
+                <img
+                  alt="text"
+                  className="nav-icon"
+                  src="last-page-icon.svg"
+                />
+              </button>
+            </div>,
+          ],
+          "className": "pagination",
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": <div
+              class="center-item"
+            >
+              <p>
+                Page 1 of 1120
+              </p>
+            </div>,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": <p>
+                Page 1 of 1120
+              </p>,
+              "className": "center-item",
+            },
+            "ref": null,
+            "rendered": Array [
+              Object {
+                "instance": <p>
+                  Page 1 of 1120
+                </p>,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": "Page 1 of 1120",
+                },
+                "ref": null,
+                "rendered": Array [
+                  "Page 1 of 1120",
+                ],
+                "type": "p",
+              },
+            ],
+            "type": "div",
+          },
+          Object {
+            "instance": <form>
+              <label
+                for="rows-per-page"
+              >
+                Items per page
+              </label>
+              <select
+                class="select"
+              >
+                <option
+                  value="10"
+                >
+                  10
+                </option>
+                <option
+                  value="25"
+                >
+                  25
+                </option>
+                <option
+                  value="50"
+                >
+                  50
+                </option>
+                <option
+                  value="100"
+                >
+                  100
+                </option>
+              </select>
+            </form>,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": Array [
+                <label
+                  htmlFor="rows-per-page"
+                >
+                  Items per page
+                </label>,
+                <select
+                  className="select"
+                  onChange={[Function]}
+                  value={10}
+                >
+                  <option
+                    value={10}
+                  >
+                    10
+                  </option>
+                  <option
+                    value={25}
+                  >
+                    25
+                  </option>
+                  <option
+                    value={50}
+                  >
+                    50
+                  </option>
+                  <option
+                    value={100}
+                  >
+                    100
+                  </option>
+                </select>,
+              ],
+            },
+            "ref": null,
+            "rendered": Array [
+              Object {
+                "instance": <label
+                  for="rows-per-page"
+                >
+                  Items per page
+                </label>,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": "Items per page",
+                  "htmlFor": "rows-per-page",
+                },
+                "ref": null,
+                "rendered": Array [
+                  "Items per page",
+                ],
+                "type": "label",
+              },
+              Object {
+                "instance": <select
+                  class="select"
+                >
+                  <option
+                    value="10"
+                  >
+                    10
+                  </option>
+                  <option
+                    value="25"
+                  >
+                    25
+                  </option>
+                  <option
+                    value="50"
+                  >
+                    50
+                  </option>
+                  <option
+                    value="100"
+                  >
+                    100
+                  </option>
+                </select>,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": Array [
+                    <option
+                      value={10}
+                    >
+                      10
+                    </option>,
+                    <option
+                      value={25}
+                    >
+                      25
+                    </option>,
+                    <option
+                      value={50}
+                    >
+                      50
+                    </option>,
+                    <option
+                      value={100}
+                    >
+                      100
+                    </option>,
+                  ],
+                  "className": "select",
+                  "onChange": [Function],
+                  "value": 10,
+                },
+                "ref": null,
+                "rendered": Array [
+                  Object {
+                    "instance": <option
+                      value="10"
+                    >
+                      10
+                    </option>,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": "10",
+                      "value": 10,
+                    },
+                    "ref": null,
+                    "rendered": Array [
+                      "10",
+                    ],
+                    "type": "option",
+                  },
+                  Object {
+                    "instance": <option
+                      value="25"
+                    >
+                      25
+                    </option>,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": "25",
+                      "value": 25,
+                    },
+                    "ref": null,
+                    "rendered": Array [
+                      "25",
+                    ],
+                    "type": "option",
+                  },
+                  Object {
+                    "instance": <option
+                      value="50"
+                    >
+                      50
+                    </option>,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": "50",
+                      "value": 50,
+                    },
+                    "ref": null,
+                    "rendered": Array [
+                      "50",
+                    ],
+                    "type": "option",
+                  },
+                  Object {
+                    "instance": <option
+                      value="100"
+                    >
+                      100
+                    </option>,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": "100",
+                      "value": 100,
+                    },
+                    "ref": null,
+                    "rendered": Array [
+                      "100",
+                    ],
+                    "type": "option",
+                  },
+                ],
+                "type": "select",
+              },
+            ],
+            "type": "form",
+          },
+          Object {
+            "instance": <div
+              class="page-panel"
+            >
+              <button
+                class="disabled"
+                type="button"
+              >
+                <img
+                  alt="text"
+                  class="nav-icon"
+                  src="first-page-icon.svg"
+                />
+              </button>
+              <button
+                class="disabled"
+                type="button"
+              >
+                <img
+                  alt="text"
+                  class="nav-icon"
+                  src="previous-page-icon.svg"
+                />
+              </button>
+              <input
+                class="form-input"
+                name="pageNumber"
+                type="text"
+                value="1"
+              />
+              <button
+                class="page-btn icon-btn"
+                type="button"
+              >
+                <img
+                  alt="text"
+                  class="nav-icon"
+                  src="next-page-icon.svg"
+                />
+              </button>
+              <button
+                class="page-btn icon-btn"
+                type="button"
+              >
+                <img
+                  alt="text"
+                  class="nav-icon"
+                  src="last-page-icon.svg"
+                />
+              </button>
+            </div>,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": Array [
+                <button
+                  className="disabled"
+                  onClick={[Function]}
+                  type="button"
+                >
+                  <img
+                    alt="text"
+                    className="nav-icon"
+                    src="first-page-icon.svg"
+                  />
+                </button>,
+                <button
+                  className="disabled"
+                  onClick={[Function]}
+                  type="button"
+                >
+                  <img
+                    alt="text"
+                    className="nav-icon"
+                    src="previous-page-icon.svg"
+                  />
+                </button>,
+                <input
+                  className="form-input"
+                  name="pageNumber"
+                  onChange={[Function]}
+                  type="text"
+                  value={1}
+                />,
+                <button
+                  className="page-btn icon-btn"
+                  onClick={[Function]}
+                  type="button"
+                >
+                  <img
+                    alt="text"
+                    className="nav-icon"
+                    src="next-page-icon.svg"
+                  />
+                </button>,
+                <button
+                  className="page-btn icon-btn"
+                  onClick={[Function]}
+                  type="button"
+                >
+                  <img
+                    alt="text"
+                    className="nav-icon"
+                    src="last-page-icon.svg"
+                  />
+                </button>,
+              ],
+              "className": "page-panel",
+            },
+            "ref": null,
+            "rendered": Array [
+              Object {
+                "instance": <button
+                  class="disabled"
+                  type="button"
+                >
+                  <img
+                    alt="text"
+                    class="nav-icon"
+                    src="first-page-icon.svg"
+                  />
+                </button>,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": <img
+                    alt="text"
+                    className="nav-icon"
+                    src="first-page-icon.svg"
+                  />,
+                  "className": "disabled",
+                  "onClick": [Function],
+                  "type": "button",
+                },
+                "ref": null,
+                "rendered": Array [
+                  Object {
+                    "instance": <img
+                      alt="text"
+                      class="nav-icon"
+                      src="first-page-icon.svg"
+                    />,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "alt": "text",
+                      "className": "nav-icon",
+                      "src": "first-page-icon.svg",
+                    },
+                    "ref": null,
+                    "rendered": Array [
+                      undefined,
+                    ],
+                    "type": "img",
+                  },
+                ],
+                "type": "button",
+              },
+              Object {
+                "instance": <button
+                  class="disabled"
+                  type="button"
+                >
+                  <img
+                    alt="text"
+                    class="nav-icon"
+                    src="previous-page-icon.svg"
+                  />
+                </button>,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": <img
+                    alt="text"
+                    className="nav-icon"
+                    src="previous-page-icon.svg"
+                  />,
+                  "className": "disabled",
+                  "onClick": [Function],
+                  "type": "button",
+                },
+                "ref": null,
+                "rendered": Array [
+                  Object {
+                    "instance": <img
+                      alt="text"
+                      class="nav-icon"
+                      src="previous-page-icon.svg"
+                    />,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "alt": "text",
+                      "className": "nav-icon",
+                      "src": "previous-page-icon.svg",
+                    },
+                    "ref": null,
+                    "rendered": Array [
+                      undefined,
+                    ],
+                    "type": "img",
+                  },
+                ],
+                "type": "button",
+              },
+              Object {
+                "instance": <input
+                  class="form-input"
+                  name="pageNumber"
+                  type="text"
+                  value="1"
+                />,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "className": "form-input",
+                  "name": "pageNumber",
+                  "onChange": [Function],
+                  "type": "text",
+                  "value": 1,
+                },
+                "ref": null,
+                "rendered": Array [
+                  undefined,
+                ],
+                "type": "input",
+              },
+              Object {
+                "instance": <button
+                  class="page-btn icon-btn"
+                  type="button"
+                >
+                  <img
+                    alt="text"
+                    class="nav-icon"
+                    src="next-page-icon.svg"
+                  />
+                </button>,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": <img
+                    alt="text"
+                    className="nav-icon"
+                    src="next-page-icon.svg"
+                  />,
+                  "className": "page-btn icon-btn",
+                  "onClick": [Function],
+                  "type": "button",
+                },
+                "ref": null,
+                "rendered": Array [
+                  Object {
+                    "instance": <img
+                      alt="text"
+                      class="nav-icon"
+                      src="next-page-icon.svg"
+                    />,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "alt": "text",
+                      "className": "nav-icon",
+                      "src": "next-page-icon.svg",
+                    },
+                    "ref": null,
+                    "rendered": Array [
+                      undefined,
+                    ],
+                    "type": "img",
+                  },
+                ],
+                "type": "button",
+              },
+              Object {
+                "instance": <button
+                  class="page-btn icon-btn"
+                  type="button"
+                >
+                  <img
+                    alt="text"
+                    class="nav-icon"
+                    src="last-page-icon.svg"
+                  />
+                </button>,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": <img
+                    alt="text"
+                    className="nav-icon"
+                    src="last-page-icon.svg"
+                  />,
+                  "className": "page-btn icon-btn",
+                  "onClick": [Function],
+                  "type": "button",
+                },
+                "ref": null,
+                "rendered": Array [
+                  Object {
+                    "instance": <img
+                      alt="text"
+                      class="nav-icon"
+                      src="last-page-icon.svg"
+                    />,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "alt": "text",
+                      "className": "nav-icon",
+                      "src": "last-page-icon.svg",
+                    },
+                    "ref": null,
+                    "rendered": Array [
+                      undefined,
+                    ],
+                    "type": "img",
+                  },
+                ],
+                "type": "button",
+              },
+            ],
+            "type": "div",
+          },
+        ],
+        "type": "div",
+      },
+      "type": [Function],
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+        "legacyContextMode": "parent",
+        "lifecycles": Object {
+          "componentDidUpdate": Object {
+            "onSetState": true,
+          },
+          "getChildContext": Object {
+            "calledByRenderer": false,
+          },
+          "getDerivedStateFromProps": true,
+          "getSnapshotBeforeUpdate": true,
+          "setState": Object {
+            "skipsComponentDidUpdateOnNullish": true,
+          },
+        },
+      },
+    },
+  },
+}
+`;
