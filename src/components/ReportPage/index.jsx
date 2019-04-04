@@ -435,11 +435,13 @@ export class ReportPage extends Component {
     );
   }
 }
+
 export const mapStateToProps = state => ({
   realTimeReport: state.realTimeReport,
   automation: state.automation,
   stats: state.stats,
 });
+
 export const mapDispatchToProps = dispatch => ({
   fetchAllAutomation: (pagination, filters) => dispatch(fetchAutomation(pagination, filters)),
   fetchUpdates: () => dispatch(fetchRealTimeReport()),
@@ -447,6 +449,7 @@ export const mapDispatchToProps = dispatch => ({
   fetchStat: () => dispatch(fetchStatsRequest()),
   retryFailedAutomation: () => dispatch(retryAutomation()),
 });
+
 ReportPage.propTypes = {
   currentUser: PropTypes.object.isRequired,
   removeCurrentUser: PropTypes.func,
@@ -461,12 +464,14 @@ ReportPage.propTypes = {
   realTimeReport: PropTypes.array,
   resetUpdates: PropTypes.func,
 };
+
 ReportPage.defaultProps = {
   removeCurrentUser: () => { },
   fetchUpdates: () => { },
   resetUpdates: () => { },
   realTimeReport: [],
 };
+
 export default connect(
   mapStateToProps,
   mapDispatchToProps,
