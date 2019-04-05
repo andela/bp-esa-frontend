@@ -1,11 +1,12 @@
 /* eslint-disable no-return-assign */
 /* eslint-disable no-fallthrough */
 /* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
+/* eslint-disable react/no-unused-state */
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import 'toastr/toastr.scss';
 import { connect } from 'react-redux';
-import { fetchAutomation } from '../../redux/actions/automation';
+import { fetchAutomation, retryAutomation } from '../../redux/actions/automationActions';
 import Header from '../Header';
 import Filter from '../Filter';
 import Search from '../Search';
@@ -77,6 +78,11 @@ export class ReportPage extends PureComponent {
     this.setState({ isModalOpen: true });
   }
 
+  handleRetryAutomation = (automationId) => {
+    const { retryFailedAutomation } = this.props;
+    retryFailedAutomation(automationId);
+  }
+
   closeModal = () => {
     this.setState({ isModalOpen: false });
   }
@@ -137,10 +143,9 @@ export class ReportPage extends PureComponent {
 
   renderInfoIcon = report => (
     <div className="info- ">
-      <i className="fa fa-info-circle" onClick={() => { this.openModal(); this.changeModalTypes(report); }} />
+      <i className="fa fa-info-circle" onClick={() => { this.openModal(); this.changeModalTypes(report); }} id="info-icon" />
     </div>
   );
-
 
   renderTableRows() {
     const { automation: { data } } = this.props;
@@ -152,13 +157,7 @@ export class ReportPage extends PureComponent {
         <tr key={id}>
           <td className="numbering">{index + 1}</td>
           <td className="column1">{this.formatDates(updatedAt)}</td>
-          <td
-            className="fellow"
-            onClick={() => window.open(`https://ais.andela.com/people/${fellowId}`)}
-            title={fellowName}
-          >
-            {fellowName}
-          </td>
+          <td className="fellow" onClick={() => window.open(`https://ais.andela.com/people/${fellowId}`)} title={fellowName}>{fellowName}</td>
           <td title={report.partnerName}>{partnerName}</td>
           <td>{type}</td>
           <td>{this.renderAutomationStatus(report.slackAutomations.status, report, 'slack')}</td>
@@ -176,7 +175,7 @@ export class ReportPage extends PureComponent {
     const {
       viewMode, isModalOpen, modalContent, filters,
     } = this.state;
-    const { automation: { data, isLoading } } = this.props;
+    const { automation: { data, isLoading, retryingAutomation } } = this.props;
     return (
       viewMode === 'listView'
         ? (
@@ -220,10 +219,13 @@ export class ReportPage extends PureComponent {
             }
             </div>
             <AutomationDetails
+              data={data}
               isModalOpen={isModalOpen}
               closeModal={this.closeModal}
               modalContent={modalContent}
               formatDates={this.formatDates}
+              retryingAutomation={retryingAutomation}
+              handleRetryAutomation={() => this.handleRetryAutomation()}
             />
           </div>
         )
@@ -234,6 +236,8 @@ export class ReportPage extends PureComponent {
               isLoading={isLoading}
               openModal={this.openModal}
               changeModalTypes={this.changeModalTypes}
+              retryingAutomation={retryingAutomation}
+              handleRetryAutomation={() => this.handleRetryAutomation()}
             />
             <AutomationDetails
               isModalOpen={isModalOpen}
@@ -243,7 +247,6 @@ export class ReportPage extends PureComponent {
             />
           </div>
         )
-
     );
   };
 
@@ -304,6 +307,7 @@ export const mapStateToProps = state => ({
 export const mapDispatchToProps = dispatch => ({
   fetchAllAutomation: () => dispatch(fetchAutomation()),
   fetchStat: () => dispatch(fetchStatsRequest()),
+  retryFailedAutomation: () => dispatch(retryAutomation()),
 });
 
 ReportPage.propTypes = {
@@ -315,6 +319,7 @@ ReportPage.propTypes = {
   location: PropTypes.object.isRequired,
   fetchStat: PropTypes.func.isRequired,
   stats: PropTypes.object.isRequired,
+  retryFailedAutomation: PropTypes.func.isRequired,
 };
 
 ReportPage.defaultProps = {

@@ -60,6 +60,9 @@ const props = {
     },
     date: '2017-09-29 01:22',
   },
+  isLoading: false,
+  retryingAutomation: false,
+  handleRetryAutomation: jest.fn(),
 };
 
 const getComponent = () => mount(<AutomationDetails {...props} />);

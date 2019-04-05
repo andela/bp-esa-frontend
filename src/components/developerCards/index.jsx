@@ -6,6 +6,7 @@ import Spinner from '../Spinner';
 import InfoIcon from '../../assets/icons/Info.svg';
 import onBoarding from '../../assets/icons/vectorpaint.svg';
 import './developerCard.scss';
+import RetryButton from '../Buttons/RetryButton/RetryButton';
 
 class DeveloperCard extends Component {
   renderDetails = (classNameDiv, classNameSpan, card) => (
@@ -16,14 +17,27 @@ class DeveloperCard extends Component {
     </div>
   );
 
-  renderStatusBand = (className, status) => (
-    <div className={className}>
-      <span id={`${status.toLowerCase()}`}>
-        {status}
-        {status === 'FAILURE' && <button type="button">RETRY</button> }
-      </span>
-    </div>
-  );
+  renderStatusBand = (className, status, cardId) => {
+    const { retryingAutomation, handleRetryAutomation, data } = this.props;
+    return (
+      <div className={className}>
+        <span id={`${status.toLowerCase()}`}>
+          {status}
+          {
+            status === 'FAILURE'
+            && (
+              <RetryButton
+                retryingAutomation={retryingAutomation}
+                handleRetryAutomation={() => handleRetryAutomation(cardId)}
+                data={data}
+                id="retry-automation"
+              />
+            )
+          }
+        </span>
+      </div>
+    );
+  };
 
   renderActivity = (channels, metric, card) => (
     <div className="status-container">
@@ -31,6 +45,7 @@ class DeveloperCard extends Component {
         channels.map((name, index) => {
           const fieldName = card[`${name}Automations`][`${name}Activities`];
           return (
+            // eslint-disable-next-line react/no-array-index-key
             <div key={index}>
               {_.upperCase(name)}
               <span>
@@ -80,7 +95,7 @@ class DeveloperCard extends Component {
           {this.renderDetails('developerDetails', 'developerName', card.fellowName)}
           {this.renderDetails('partnerName', '', card.partnerName)}
           {this.renderDetails('developerDetails', 'date', moment(card.updatedAt).format('MM/DD/YYYY, h:mm a'))}
-          {this.renderStatusBand('status-band', card.freckleAutomations.status.toUpperCase())}
+          {this.renderStatusBand('status-band', card.freckleAutomations.status.toUpperCase(), card.id)}
           {this.renderActivity(['slack', 'email', 'freckle'], metric, card)}
         </div>
       );
@@ -99,9 +114,16 @@ class DeveloperCard extends Component {
 
 DeveloperCard.propTypes = {
   data: PropTypes.array.isRequired,
-  isLoading: PropTypes.bool.isRequired,
   openModal: PropTypes.func.isRequired,
   changeModalTypes: PropTypes.func.isRequired,
+  isLoading: PropTypes.bool,
+  retryingAutomation: PropTypes.bool,
+  handleRetryAutomation: PropTypes.func.isRequired,
+};
+
+DeveloperCard.defaultProps = {
+  isLoading: false,
+  retryingAutomation: false,
 };
 
 export default DeveloperCard;
