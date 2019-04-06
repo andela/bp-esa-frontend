@@ -30,7 +30,7 @@ ShallowWrapper {
   Symbol(enzyme.__node__): Object {
     "instance": null,
     "key": undefined,
-    "nodeType": "host",
+    "nodeType": "function",
     "props": Object {
       "children": Array [
         <Header
@@ -47,130 +47,12 @@ ShallowWrapper {
           history={Object {}}
           removeCurrentUser={[MockFunction]}
         />,
+        <ReportNavBar
+          filter={[Function]}
+        />,
         <div
           id="report-page"
         >
-          <div
-            className="filter-box"
-          >
-            <p>
-              Filters
-            </p>
-            <Filter
-              filterSet="automationStatus"
-              handleFilterChange={[Function]}
-              options={
-                Array [
-                  Object {
-                    "id": 1,
-                    "text": "Failed Automations",
-                    "type": "checkbox",
-                    "value": "FAILED_AUTOMATIONS",
-                  },
-                  Object {
-                    "id": 2,
-                    "text": "Successful Automations",
-                    "type": "checkbox",
-                    "value": "SUCCESSFUL_AUTOMATIONS",
-                  },
-                  Object {
-                    "id": 3,
-                    "text": "Failed Slack Automations",
-                    "type": "checkbox",
-                    "value": "FAILED_SLACK_AUTOMATIONS",
-                  },
-                  Object {
-                    "id": 4,
-                    "text": "Failed Email Automation",
-                    "type": "checkbox",
-                    "value": "FAILED_EMAIL_AUTOMATIONS",
-                  },
-                  Object {
-                    "id": 5,
-                    "text": "Failed Freckle Automation",
-                    "type": "checkbox",
-                    "value": "FAILED_FRECKLE_AUTOMATIONS",
-                  },
-                  Object {
-                    "id": 6,
-                    "text": "Successful Slack Automations",
-                    "type": "checkbox",
-                    "value": "SUCCESSFUL_SLACK_AUTOMATIONS",
-                  },
-                  Object {
-                    "id": 7,
-                    "text": "Successful Email Automation",
-                    "type": "checkbox",
-                    "value": "SUCCESSFUL_EMAIL_AUTOMATIONS",
-                  },
-                  Object {
-                    "id": 8,
-                    "text": "Successful Freckle Automation",
-                    "type": "checkbox",
-                    "value": "SUCCESSFUL_FRECKLE_AUTOMATIONS",
-                  },
-                ]
-              }
-              title="Automation Status"
-            />
-            <Filter
-              filterSet="automationType"
-              handleFilterChange={[Function]}
-              options={
-                Array [
-                  Object {
-                    "id": 1,
-                    "text": "Onboarding",
-                    "type": "checkbox",
-                    "value": "ONBOARDING",
-                  },
-                  Object {
-                    "id": 2,
-                    "text": "Offboarding",
-                    "type": "checkbox",
-                    "value": "OFFBOARDING",
-                  },
-                ]
-              }
-              title="Automation Type"
-            />
-            <Filter
-              filterSet="date"
-              handleFilterChange={[Function]}
-              options={
-                Array [
-                  Object {
-                    "id": 1,
-                    "text": "From",
-                    "type": "date",
-                  },
-                  Object {
-                    "id": 2,
-                    "text": "To",
-                    "type": "date",
-                  },
-                ]
-              }
-              title="Date"
-            />
-            <Search
-              handleSearch={[Function]}
-            />
-          </div>
-          <FiltersBar
-            filters={
-              Object {
-                "automationStatus": Array [],
-                "automationType": Array [],
-                "date": Object {
-                  "from": "",
-                  "to": "",
-                },
-                "length": 0,
-                "updated": false,
-              }
-            }
-          />
           <div
             className="table-header"
           >
@@ -221,7 +103,6 @@ ShallowWrapper {
             formatDates={[Function]}
             isModalOpen={false}
             modalContent={Object {}}
-            modalType=""
           />
         </div>,
       ],
@@ -251,130 +132,20 @@ ShallowWrapper {
       Object {
         "instance": null,
         "key": undefined,
+        "nodeType": "function",
+        "props": Object {
+          "filter": [Function],
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
         "nodeType": "host",
         "props": Object {
           "children": Array [
-            <div
-              className="filter-box"
-            >
-              <p>
-                Filters
-              </p>
-              <Filter
-                filterSet="automationStatus"
-                handleFilterChange={[Function]}
-                options={
-                  Array [
-                    Object {
-                      "id": 1,
-                      "text": "Failed Automations",
-                      "type": "checkbox",
-                      "value": "FAILED_AUTOMATIONS",
-                    },
-                    Object {
-                      "id": 2,
-                      "text": "Successful Automations",
-                      "type": "checkbox",
-                      "value": "SUCCESSFUL_AUTOMATIONS",
-                    },
-                    Object {
-                      "id": 3,
-                      "text": "Failed Slack Automations",
-                      "type": "checkbox",
-                      "value": "FAILED_SLACK_AUTOMATIONS",
-                    },
-                    Object {
-                      "id": 4,
-                      "text": "Failed Email Automation",
-                      "type": "checkbox",
-                      "value": "FAILED_EMAIL_AUTOMATIONS",
-                    },
-                    Object {
-                      "id": 5,
-                      "text": "Failed Freckle Automation",
-                      "type": "checkbox",
-                      "value": "FAILED_FRECKLE_AUTOMATIONS",
-                    },
-                    Object {
-                      "id": 6,
-                      "text": "Successful Slack Automations",
-                      "type": "checkbox",
-                      "value": "SUCCESSFUL_SLACK_AUTOMATIONS",
-                    },
-                    Object {
-                      "id": 7,
-                      "text": "Successful Email Automation",
-                      "type": "checkbox",
-                      "value": "SUCCESSFUL_EMAIL_AUTOMATIONS",
-                    },
-                    Object {
-                      "id": 8,
-                      "text": "Successful Freckle Automation",
-                      "type": "checkbox",
-                      "value": "SUCCESSFUL_FRECKLE_AUTOMATIONS",
-                    },
-                  ]
-                }
-                title="Automation Status"
-              />
-              <Filter
-                filterSet="automationType"
-                handleFilterChange={[Function]}
-                options={
-                  Array [
-                    Object {
-                      "id": 1,
-                      "text": "Onboarding",
-                      "type": "checkbox",
-                      "value": "ONBOARDING",
-                    },
-                    Object {
-                      "id": 2,
-                      "text": "Offboarding",
-                      "type": "checkbox",
-                      "value": "OFFBOARDING",
-                    },
-                  ]
-                }
-                title="Automation Type"
-              />
-              <Filter
-                filterSet="date"
-                handleFilterChange={[Function]}
-                options={
-                  Array [
-                    Object {
-                      "id": 1,
-                      "text": "From",
-                      "type": "date",
-                    },
-                    Object {
-                      "id": 2,
-                      "text": "To",
-                      "type": "date",
-                    },
-                  ]
-                }
-                title="Date"
-              />
-              <Search
-                handleSearch={[Function]}
-              />
-            </div>,
-            <FiltersBar
-              filters={
-                Object {
-                  "automationStatus": Array [],
-                  "automationType": Array [],
-                  "date": Object {
-                    "from": "",
-                    "to": "",
-                  },
-                  "length": 0,
-                  "updated": false,
-                }
-              }
-            />,
             <div
               className="table-header"
             >
@@ -425,289 +196,12 @@ ShallowWrapper {
               formatDates={[Function]}
               isModalOpen={false}
               modalContent={Object {}}
-              modalType=""
             />,
           ],
           "id": "report-page",
         },
         "ref": null,
         "rendered": Array [
-          Object {
-            "instance": null,
-            "key": undefined,
-            "nodeType": "host",
-            "props": Object {
-              "children": Array [
-                <p>
-                  Filters
-                </p>,
-                Array [
-                  <Filter
-                    filterSet="automationStatus"
-                    handleFilterChange={[Function]}
-                    options={
-                      Array [
-                        Object {
-                          "id": 1,
-                          "text": "Failed Automations",
-                          "type": "checkbox",
-                          "value": "FAILED_AUTOMATIONS",
-                        },
-                        Object {
-                          "id": 2,
-                          "text": "Successful Automations",
-                          "type": "checkbox",
-                          "value": "SUCCESSFUL_AUTOMATIONS",
-                        },
-                        Object {
-                          "id": 3,
-                          "text": "Failed Slack Automations",
-                          "type": "checkbox",
-                          "value": "FAILED_SLACK_AUTOMATIONS",
-                        },
-                        Object {
-                          "id": 4,
-                          "text": "Failed Email Automation",
-                          "type": "checkbox",
-                          "value": "FAILED_EMAIL_AUTOMATIONS",
-                        },
-                        Object {
-                          "id": 5,
-                          "text": "Failed Freckle Automation",
-                          "type": "checkbox",
-                          "value": "FAILED_FRECKLE_AUTOMATIONS",
-                        },
-                        Object {
-                          "id": 6,
-                          "text": "Successful Slack Automations",
-                          "type": "checkbox",
-                          "value": "SUCCESSFUL_SLACK_AUTOMATIONS",
-                        },
-                        Object {
-                          "id": 7,
-                          "text": "Successful Email Automation",
-                          "type": "checkbox",
-                          "value": "SUCCESSFUL_EMAIL_AUTOMATIONS",
-                        },
-                        Object {
-                          "id": 8,
-                          "text": "Successful Freckle Automation",
-                          "type": "checkbox",
-                          "value": "SUCCESSFUL_FRECKLE_AUTOMATIONS",
-                        },
-                      ]
-                    }
-                    title="Automation Status"
-                  />,
-                  <Filter
-                    filterSet="automationType"
-                    handleFilterChange={[Function]}
-                    options={
-                      Array [
-                        Object {
-                          "id": 1,
-                          "text": "Onboarding",
-                          "type": "checkbox",
-                          "value": "ONBOARDING",
-                        },
-                        Object {
-                          "id": 2,
-                          "text": "Offboarding",
-                          "type": "checkbox",
-                          "value": "OFFBOARDING",
-                        },
-                      ]
-                    }
-                    title="Automation Type"
-                  />,
-                  <Filter
-                    filterSet="date"
-                    handleFilterChange={[Function]}
-                    options={
-                      Array [
-                        Object {
-                          "id": 1,
-                          "text": "From",
-                          "type": "date",
-                        },
-                        Object {
-                          "id": 2,
-                          "text": "To",
-                          "type": "date",
-                        },
-                      ]
-                    }
-                    title="Date"
-                  />,
-                ],
-                <Search
-                  handleSearch={[Function]}
-                />,
-              ],
-              "className": "filter-box",
-            },
-            "ref": null,
-            "rendered": Array [
-              Object {
-                "instance": null,
-                "key": undefined,
-                "nodeType": "host",
-                "props": Object {
-                  "children": "Filters",
-                },
-                "ref": null,
-                "rendered": "Filters",
-                "type": "p",
-              },
-              Object {
-                "instance": null,
-                "key": "1",
-                "nodeType": "class",
-                "props": Object {
-                  "filterSet": "automationStatus",
-                  "handleFilterChange": [Function],
-                  "options": Array [
-                    Object {
-                      "id": 1,
-                      "text": "Failed Automations",
-                      "type": "checkbox",
-                      "value": "FAILED_AUTOMATIONS",
-                    },
-                    Object {
-                      "id": 2,
-                      "text": "Successful Automations",
-                      "type": "checkbox",
-                      "value": "SUCCESSFUL_AUTOMATIONS",
-                    },
-                    Object {
-                      "id": 3,
-                      "text": "Failed Slack Automations",
-                      "type": "checkbox",
-                      "value": "FAILED_SLACK_AUTOMATIONS",
-                    },
-                    Object {
-                      "id": 4,
-                      "text": "Failed Email Automation",
-                      "type": "checkbox",
-                      "value": "FAILED_EMAIL_AUTOMATIONS",
-                    },
-                    Object {
-                      "id": 5,
-                      "text": "Failed Freckle Automation",
-                      "type": "checkbox",
-                      "value": "FAILED_FRECKLE_AUTOMATIONS",
-                    },
-                    Object {
-                      "id": 6,
-                      "text": "Successful Slack Automations",
-                      "type": "checkbox",
-                      "value": "SUCCESSFUL_SLACK_AUTOMATIONS",
-                    },
-                    Object {
-                      "id": 7,
-                      "text": "Successful Email Automation",
-                      "type": "checkbox",
-                      "value": "SUCCESSFUL_EMAIL_AUTOMATIONS",
-                    },
-                    Object {
-                      "id": 8,
-                      "text": "Successful Freckle Automation",
-                      "type": "checkbox",
-                      "value": "SUCCESSFUL_FRECKLE_AUTOMATIONS",
-                    },
-                  ],
-                  "title": "Automation Status",
-                },
-                "ref": null,
-                "rendered": null,
-                "type": [Function],
-              },
-              Object {
-                "instance": null,
-                "key": "3",
-                "nodeType": "class",
-                "props": Object {
-                  "filterSet": "automationType",
-                  "handleFilterChange": [Function],
-                  "options": Array [
-                    Object {
-                      "id": 1,
-                      "text": "Onboarding",
-                      "type": "checkbox",
-                      "value": "ONBOARDING",
-                    },
-                    Object {
-                      "id": 2,
-                      "text": "Offboarding",
-                      "type": "checkbox",
-                      "value": "OFFBOARDING",
-                    },
-                  ],
-                  "title": "Automation Type",
-                },
-                "ref": null,
-                "rendered": null,
-                "type": [Function],
-              },
-              Object {
-                "instance": null,
-                "key": "2",
-                "nodeType": "class",
-                "props": Object {
-                  "filterSet": "date",
-                  "handleFilterChange": [Function],
-                  "options": Array [
-                    Object {
-                      "id": 1,
-                      "text": "From",
-                      "type": "date",
-                    },
-                    Object {
-                      "id": 2,
-                      "text": "To",
-                      "type": "date",
-                    },
-                  ],
-                  "title": "Date",
-                },
-                "ref": null,
-                "rendered": null,
-                "type": [Function],
-              },
-              Object {
-                "instance": null,
-                "key": undefined,
-                "nodeType": "class",
-                "props": Object {
-                  "handleSearch": [Function],
-                },
-                "ref": null,
-                "rendered": null,
-                "type": [Function],
-              },
-            ],
-            "type": "div",
-          },
-          Object {
-            "instance": null,
-            "key": undefined,
-            "nodeType": "class",
-            "props": Object {
-              "filters": Object {
-                "automationStatus": Array [],
-                "automationType": Array [],
-                "date": Object {
-                  "from": "",
-                  "to": "",
-                },
-                "length": 0,
-                "updated": false,
-              },
-            },
-            "ref": null,
-            "rendered": null,
-            "type": [Function],
-          },
           Object {
             "instance": null,
             "key": undefined,
@@ -990,7 +484,7 @@ ShallowWrapper {
               "formatDates": [Function],
               "isModalOpen": false,
               "modalContent": Object {},
-              "modalType": "",
+              "modalType": undefined,
             },
             "ref": null,
             "rendered": null,
@@ -1000,13 +494,13 @@ ShallowWrapper {
         "type": "div",
       },
     ],
-    "type": "div",
+    "type": Symbol(react.fragment),
   },
   Symbol(enzyme.__nodes__): Array [
     Object {
       "instance": null,
       "key": undefined,
-      "nodeType": "host",
+      "nodeType": "function",
       "props": Object {
         "children": Array [
           <Header
@@ -1023,130 +517,12 @@ ShallowWrapper {
             history={Object {}}
             removeCurrentUser={[MockFunction]}
           />,
+          <ReportNavBar
+            filter={[Function]}
+          />,
           <div
             id="report-page"
           >
-            <div
-              className="filter-box"
-            >
-              <p>
-                Filters
-              </p>
-              <Filter
-                filterSet="automationStatus"
-                handleFilterChange={[Function]}
-                options={
-                  Array [
-                    Object {
-                      "id": 1,
-                      "text": "Failed Automations",
-                      "type": "checkbox",
-                      "value": "FAILED_AUTOMATIONS",
-                    },
-                    Object {
-                      "id": 2,
-                      "text": "Successful Automations",
-                      "type": "checkbox",
-                      "value": "SUCCESSFUL_AUTOMATIONS",
-                    },
-                    Object {
-                      "id": 3,
-                      "text": "Failed Slack Automations",
-                      "type": "checkbox",
-                      "value": "FAILED_SLACK_AUTOMATIONS",
-                    },
-                    Object {
-                      "id": 4,
-                      "text": "Failed Email Automation",
-                      "type": "checkbox",
-                      "value": "FAILED_EMAIL_AUTOMATIONS",
-                    },
-                    Object {
-                      "id": 5,
-                      "text": "Failed Freckle Automation",
-                      "type": "checkbox",
-                      "value": "FAILED_FRECKLE_AUTOMATIONS",
-                    },
-                    Object {
-                      "id": 6,
-                      "text": "Successful Slack Automations",
-                      "type": "checkbox",
-                      "value": "SUCCESSFUL_SLACK_AUTOMATIONS",
-                    },
-                    Object {
-                      "id": 7,
-                      "text": "Successful Email Automation",
-                      "type": "checkbox",
-                      "value": "SUCCESSFUL_EMAIL_AUTOMATIONS",
-                    },
-                    Object {
-                      "id": 8,
-                      "text": "Successful Freckle Automation",
-                      "type": "checkbox",
-                      "value": "SUCCESSFUL_FRECKLE_AUTOMATIONS",
-                    },
-                  ]
-                }
-                title="Automation Status"
-              />
-              <Filter
-                filterSet="automationType"
-                handleFilterChange={[Function]}
-                options={
-                  Array [
-                    Object {
-                      "id": 1,
-                      "text": "Onboarding",
-                      "type": "checkbox",
-                      "value": "ONBOARDING",
-                    },
-                    Object {
-                      "id": 2,
-                      "text": "Offboarding",
-                      "type": "checkbox",
-                      "value": "OFFBOARDING",
-                    },
-                  ]
-                }
-                title="Automation Type"
-              />
-              <Filter
-                filterSet="date"
-                handleFilterChange={[Function]}
-                options={
-                  Array [
-                    Object {
-                      "id": 1,
-                      "text": "From",
-                      "type": "date",
-                    },
-                    Object {
-                      "id": 2,
-                      "text": "To",
-                      "type": "date",
-                    },
-                  ]
-                }
-                title="Date"
-              />
-              <Search
-                handleSearch={[Function]}
-              />
-            </div>
-            <FiltersBar
-              filters={
-                Object {
-                  "automationStatus": Array [],
-                  "automationType": Array [],
-                  "date": Object {
-                    "from": "",
-                    "to": "",
-                  },
-                  "length": 0,
-                  "updated": false,
-                }
-              }
-            />
             <div
               className="table-header"
             >
@@ -1197,7 +573,6 @@ ShallowWrapper {
               formatDates={[Function]}
               isModalOpen={false}
               modalContent={Object {}}
-              modalType=""
             />
           </div>,
         ],
@@ -1227,130 +602,20 @@ ShallowWrapper {
         Object {
           "instance": null,
           "key": undefined,
+          "nodeType": "function",
+          "props": Object {
+            "filter": [Function],
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
           "nodeType": "host",
           "props": Object {
             "children": Array [
-              <div
-                className="filter-box"
-              >
-                <p>
-                  Filters
-                </p>
-                <Filter
-                  filterSet="automationStatus"
-                  handleFilterChange={[Function]}
-                  options={
-                    Array [
-                      Object {
-                        "id": 1,
-                        "text": "Failed Automations",
-                        "type": "checkbox",
-                        "value": "FAILED_AUTOMATIONS",
-                      },
-                      Object {
-                        "id": 2,
-                        "text": "Successful Automations",
-                        "type": "checkbox",
-                        "value": "SUCCESSFUL_AUTOMATIONS",
-                      },
-                      Object {
-                        "id": 3,
-                        "text": "Failed Slack Automations",
-                        "type": "checkbox",
-                        "value": "FAILED_SLACK_AUTOMATIONS",
-                      },
-                      Object {
-                        "id": 4,
-                        "text": "Failed Email Automation",
-                        "type": "checkbox",
-                        "value": "FAILED_EMAIL_AUTOMATIONS",
-                      },
-                      Object {
-                        "id": 5,
-                        "text": "Failed Freckle Automation",
-                        "type": "checkbox",
-                        "value": "FAILED_FRECKLE_AUTOMATIONS",
-                      },
-                      Object {
-                        "id": 6,
-                        "text": "Successful Slack Automations",
-                        "type": "checkbox",
-                        "value": "SUCCESSFUL_SLACK_AUTOMATIONS",
-                      },
-                      Object {
-                        "id": 7,
-                        "text": "Successful Email Automation",
-                        "type": "checkbox",
-                        "value": "SUCCESSFUL_EMAIL_AUTOMATIONS",
-                      },
-                      Object {
-                        "id": 8,
-                        "text": "Successful Freckle Automation",
-                        "type": "checkbox",
-                        "value": "SUCCESSFUL_FRECKLE_AUTOMATIONS",
-                      },
-                    ]
-                  }
-                  title="Automation Status"
-                />
-                <Filter
-                  filterSet="automationType"
-                  handleFilterChange={[Function]}
-                  options={
-                    Array [
-                      Object {
-                        "id": 1,
-                        "text": "Onboarding",
-                        "type": "checkbox",
-                        "value": "ONBOARDING",
-                      },
-                      Object {
-                        "id": 2,
-                        "text": "Offboarding",
-                        "type": "checkbox",
-                        "value": "OFFBOARDING",
-                      },
-                    ]
-                  }
-                  title="Automation Type"
-                />
-                <Filter
-                  filterSet="date"
-                  handleFilterChange={[Function]}
-                  options={
-                    Array [
-                      Object {
-                        "id": 1,
-                        "text": "From",
-                        "type": "date",
-                      },
-                      Object {
-                        "id": 2,
-                        "text": "To",
-                        "type": "date",
-                      },
-                    ]
-                  }
-                  title="Date"
-                />
-                <Search
-                  handleSearch={[Function]}
-                />
-              </div>,
-              <FiltersBar
-                filters={
-                  Object {
-                    "automationStatus": Array [],
-                    "automationType": Array [],
-                    "date": Object {
-                      "from": "",
-                      "to": "",
-                    },
-                    "length": 0,
-                    "updated": false,
-                  }
-                }
-              />,
               <div
                 className="table-header"
               >
@@ -1401,289 +666,12 @@ ShallowWrapper {
                 formatDates={[Function]}
                 isModalOpen={false}
                 modalContent={Object {}}
-                modalType=""
               />,
             ],
             "id": "report-page",
           },
           "ref": null,
           "rendered": Array [
-            Object {
-              "instance": null,
-              "key": undefined,
-              "nodeType": "host",
-              "props": Object {
-                "children": Array [
-                  <p>
-                    Filters
-                  </p>,
-                  Array [
-                    <Filter
-                      filterSet="automationStatus"
-                      handleFilterChange={[Function]}
-                      options={
-                        Array [
-                          Object {
-                            "id": 1,
-                            "text": "Failed Automations",
-                            "type": "checkbox",
-                            "value": "FAILED_AUTOMATIONS",
-                          },
-                          Object {
-                            "id": 2,
-                            "text": "Successful Automations",
-                            "type": "checkbox",
-                            "value": "SUCCESSFUL_AUTOMATIONS",
-                          },
-                          Object {
-                            "id": 3,
-                            "text": "Failed Slack Automations",
-                            "type": "checkbox",
-                            "value": "FAILED_SLACK_AUTOMATIONS",
-                          },
-                          Object {
-                            "id": 4,
-                            "text": "Failed Email Automation",
-                            "type": "checkbox",
-                            "value": "FAILED_EMAIL_AUTOMATIONS",
-                          },
-                          Object {
-                            "id": 5,
-                            "text": "Failed Freckle Automation",
-                            "type": "checkbox",
-                            "value": "FAILED_FRECKLE_AUTOMATIONS",
-                          },
-                          Object {
-                            "id": 6,
-                            "text": "Successful Slack Automations",
-                            "type": "checkbox",
-                            "value": "SUCCESSFUL_SLACK_AUTOMATIONS",
-                          },
-                          Object {
-                            "id": 7,
-                            "text": "Successful Email Automation",
-                            "type": "checkbox",
-                            "value": "SUCCESSFUL_EMAIL_AUTOMATIONS",
-                          },
-                          Object {
-                            "id": 8,
-                            "text": "Successful Freckle Automation",
-                            "type": "checkbox",
-                            "value": "SUCCESSFUL_FRECKLE_AUTOMATIONS",
-                          },
-                        ]
-                      }
-                      title="Automation Status"
-                    />,
-                    <Filter
-                      filterSet="automationType"
-                      handleFilterChange={[Function]}
-                      options={
-                        Array [
-                          Object {
-                            "id": 1,
-                            "text": "Onboarding",
-                            "type": "checkbox",
-                            "value": "ONBOARDING",
-                          },
-                          Object {
-                            "id": 2,
-                            "text": "Offboarding",
-                            "type": "checkbox",
-                            "value": "OFFBOARDING",
-                          },
-                        ]
-                      }
-                      title="Automation Type"
-                    />,
-                    <Filter
-                      filterSet="date"
-                      handleFilterChange={[Function]}
-                      options={
-                        Array [
-                          Object {
-                            "id": 1,
-                            "text": "From",
-                            "type": "date",
-                          },
-                          Object {
-                            "id": 2,
-                            "text": "To",
-                            "type": "date",
-                          },
-                        ]
-                      }
-                      title="Date"
-                    />,
-                  ],
-                  <Search
-                    handleSearch={[Function]}
-                  />,
-                ],
-                "className": "filter-box",
-              },
-              "ref": null,
-              "rendered": Array [
-                Object {
-                  "instance": null,
-                  "key": undefined,
-                  "nodeType": "host",
-                  "props": Object {
-                    "children": "Filters",
-                  },
-                  "ref": null,
-                  "rendered": "Filters",
-                  "type": "p",
-                },
-                Object {
-                  "instance": null,
-                  "key": "1",
-                  "nodeType": "class",
-                  "props": Object {
-                    "filterSet": "automationStatus",
-                    "handleFilterChange": [Function],
-                    "options": Array [
-                      Object {
-                        "id": 1,
-                        "text": "Failed Automations",
-                        "type": "checkbox",
-                        "value": "FAILED_AUTOMATIONS",
-                      },
-                      Object {
-                        "id": 2,
-                        "text": "Successful Automations",
-                        "type": "checkbox",
-                        "value": "SUCCESSFUL_AUTOMATIONS",
-                      },
-                      Object {
-                        "id": 3,
-                        "text": "Failed Slack Automations",
-                        "type": "checkbox",
-                        "value": "FAILED_SLACK_AUTOMATIONS",
-                      },
-                      Object {
-                        "id": 4,
-                        "text": "Failed Email Automation",
-                        "type": "checkbox",
-                        "value": "FAILED_EMAIL_AUTOMATIONS",
-                      },
-                      Object {
-                        "id": 5,
-                        "text": "Failed Freckle Automation",
-                        "type": "checkbox",
-                        "value": "FAILED_FRECKLE_AUTOMATIONS",
-                      },
-                      Object {
-                        "id": 6,
-                        "text": "Successful Slack Automations",
-                        "type": "checkbox",
-                        "value": "SUCCESSFUL_SLACK_AUTOMATIONS",
-                      },
-                      Object {
-                        "id": 7,
-                        "text": "Successful Email Automation",
-                        "type": "checkbox",
-                        "value": "SUCCESSFUL_EMAIL_AUTOMATIONS",
-                      },
-                      Object {
-                        "id": 8,
-                        "text": "Successful Freckle Automation",
-                        "type": "checkbox",
-                        "value": "SUCCESSFUL_FRECKLE_AUTOMATIONS",
-                      },
-                    ],
-                    "title": "Automation Status",
-                  },
-                  "ref": null,
-                  "rendered": null,
-                  "type": [Function],
-                },
-                Object {
-                  "instance": null,
-                  "key": "3",
-                  "nodeType": "class",
-                  "props": Object {
-                    "filterSet": "automationType",
-                    "handleFilterChange": [Function],
-                    "options": Array [
-                      Object {
-                        "id": 1,
-                        "text": "Onboarding",
-                        "type": "checkbox",
-                        "value": "ONBOARDING",
-                      },
-                      Object {
-                        "id": 2,
-                        "text": "Offboarding",
-                        "type": "checkbox",
-                        "value": "OFFBOARDING",
-                      },
-                    ],
-                    "title": "Automation Type",
-                  },
-                  "ref": null,
-                  "rendered": null,
-                  "type": [Function],
-                },
-                Object {
-                  "instance": null,
-                  "key": "2",
-                  "nodeType": "class",
-                  "props": Object {
-                    "filterSet": "date",
-                    "handleFilterChange": [Function],
-                    "options": Array [
-                      Object {
-                        "id": 1,
-                        "text": "From",
-                        "type": "date",
-                      },
-                      Object {
-                        "id": 2,
-                        "text": "To",
-                        "type": "date",
-                      },
-                    ],
-                    "title": "Date",
-                  },
-                  "ref": null,
-                  "rendered": null,
-                  "type": [Function],
-                },
-                Object {
-                  "instance": null,
-                  "key": undefined,
-                  "nodeType": "class",
-                  "props": Object {
-                    "handleSearch": [Function],
-                  },
-                  "ref": null,
-                  "rendered": null,
-                  "type": [Function],
-                },
-              ],
-              "type": "div",
-            },
-            Object {
-              "instance": null,
-              "key": undefined,
-              "nodeType": "class",
-              "props": Object {
-                "filters": Object {
-                  "automationStatus": Array [],
-                  "automationType": Array [],
-                  "date": Object {
-                    "from": "",
-                    "to": "",
-                  },
-                  "length": 0,
-                  "updated": false,
-                },
-              },
-              "ref": null,
-              "rendered": null,
-              "type": [Function],
-            },
             Object {
               "instance": null,
               "key": undefined,
@@ -1966,7 +954,7 @@ ShallowWrapper {
                 "formatDates": [Function],
                 "isModalOpen": false,
                 "modalContent": Object {},
-                "modalType": "",
+                "modalType": undefined,
               },
               "ref": null,
               "rendered": null,
@@ -1976,7 +964,7 @@ ShallowWrapper {
           "type": "div",
         },
       ],
-      "type": "div",
+      "type": Symbol(react.fragment),
     },
   ],
   Symbol(enzyme.__options__): Object {
