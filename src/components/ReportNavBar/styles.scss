@@ -16,7 +16,8 @@
     color: #889;
   }
   .report-navbar {
-    display: grid;
+    // display: grid;
+    display:block;
     color: #667;
     grid-template-columns: max-content max-content 1fr;
     align-items: center;
