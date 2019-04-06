@@ -72,5 +72,6 @@ workflows:
           filters:
             branches:
               only:
-                - "1.0"
+                - "develop"
+                - "master"
           
