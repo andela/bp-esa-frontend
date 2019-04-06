@@ -47,7 +47,7 @@ export default function Pagination({
       <div className="pagination">
         <div className="center-item">
           <p>
-            {`Page ${currentPage} of ${pages}`}
+            {`Page ${currentPage} of ${pages > 0 ? pages : 1}`}
           </p>
         </div>
         {renderLimitDropdown()}
