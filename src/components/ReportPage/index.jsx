@@ -23,6 +23,7 @@ class ReportPage extends PureComponent {
     super(props);
     this.filter = this.filter.bind(this);
     this.state = {
+      tableHeaders: ['Date', 'Fellow Name', 'Partner Name', 'Type', 'Slack','Email', 'Freckle'],
       reportData: [],
       isModalOpen: false,
       modalContent: {},
@@ -204,6 +205,11 @@ class ReportPage extends PureComponent {
       </tr>
     )));
   }
+  showEmptyRow(){
+    const rowStyle={ textAlign: 'center'};
+
+    return (<tr colspan="8" style={ rowStyle }><td>No Data Available</td></tr>)
+  }
 
   render() {
     const { currentUser, removeCurrentUser, history } = this.props;
@@ -229,13 +235,9 @@ class ReportPage extends PureComponent {
               <thead>
                 <tr>
                   <th className="numbering">#</th>
-                  <th>Date</th>
-                  <th>Fellow Name</th>
-                  <th>Partner Name</th>
-                  <th>Type</th>
-                  <th>Slack</th>
-                  <th>Email</th>
-                  <th>Freckle</th>
+                  {this.state.tableHeaders.map( (head, index) => {
+                    return <th>{head}</th>
+                  })}
                 </tr>
               </thead>
             </table>
@@ -248,7 +250,7 @@ class ReportPage extends PureComponent {
                   <Fragment>
                     <table className="report-table">
                       <tbody>
-                        {this.renderTableRows()}
+                        {this.state.reportData && this.state.reportData.length > 0 ? this.renderTableRows() : this.showEmptyRow() }
                       </tbody>
                     </table>
                     <Pagination
