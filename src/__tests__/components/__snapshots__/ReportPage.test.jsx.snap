@@ -325,27 +325,29 @@ ShallowWrapper {
                       >
                         #
                       </th>,
-                      <th>
-                        Date
-                      </th>,
-                      <th>
-                        Fellow Name
-                      </th>,
-                      <th>
-                        Partner Name
-                      </th>,
-                      <th>
-                        Type
-                      </th>,
-                      <th>
-                        Slack
-                      </th>,
-                      <th>
-                        Email
-                      </th>,
-                      <th>
-                        Freckle
-                      </th>,
+                      Array [
+                        <th>
+                          Date
+                        </th>,
+                        <th>
+                          Fellow Name
+                        </th>,
+                        <th>
+                          Partner Name
+                        </th>,
+                        <th>
+                          Type
+                        </th>,
+                        <th>
+                          Slack
+                        </th>,
+                        <th>
+                          Email
+                        </th>,
+                        <th>
+                          Freckle
+                        </th>,
+                      ],
                     ],
                   },
                   "ref": null,
@@ -793,27 +795,29 @@ ShallowWrapper {
                         >
                           #
                         </th>,
-                        <th>
-                          Date
-                        </th>,
-                        <th>
-                          Fellow Name
-                        </th>,
-                        <th>
-                          Partner Name
-                        </th>,
-                        <th>
-                          Type
-                        </th>,
-                        <th>
-                          Slack
-                        </th>,
-                        <th>
-                          Email
-                        </th>,
-                        <th>
-                          Freckle
-                        </th>,
+                        Array [
+                          <th>
+                            Date
+                          </th>,
+                          <th>
+                            Fellow Name
+                          </th>,
+                          <th>
+                            Partner Name
+                          </th>,
+                          <th>
+                            Type
+                          </th>,
+                          <th>
+                            Slack
+                          </th>,
+                          <th>
+                            Email
+                          </th>,
+                          <th>
+                            Freckle
+                          </th>,
+                        ],
                       ],
                     },
                     "ref": null,
