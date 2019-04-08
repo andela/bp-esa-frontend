@@ -2,7 +2,11 @@ import React, { Component } from 'react';
 
 class Login extends Component {
   onLogin = () => {
-    const url = `https://api-prod.andela.com/login?redirect_url=${process.env.REACT_APP_URL}`;
+    let redirectUrl = process.env.REACT_APP_URL;
+    if(typeof process.env.NODE_ENV !== 'undefined' && process.env.NODE_ENV == 'production'){
+      redirectUrl = 'https://esa.andela.com';
+    }
+    const url = `https://api-prod.andela.com/login?redirect_url=${redirectUrl}`;
     window.location.replace(url);
   }
 
