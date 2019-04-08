@@ -6,11 +6,10 @@ ShallowWrapper {
   Symbol(enzyme.__unrendered__): <Header
     currentUser={
       Object {
-        "additionalUserInfo": Object {
-          "profile": Object {
-            "name": "",
-            "picture": "",
-          },
+        "UserInfo": Object {
+          "firstName": "Jane",
+          "lastName": "Doe",
+          "picture": "https://test-image.jpg",
         },
       }
     }
@@ -61,15 +60,17 @@ ShallowWrapper {
             className="user-name"
           >
             Hello, 
-            
+            Jane Doe
             !
           </div>
           <div
             className="image-container"
             onClick={[Function]}
           >
-            <i
-              className="fa fa-2x fa-user-circle"
+            <img
+              alt="user-icon"
+              className="user-image"
+              src="https://test-image.jpg"
             />
             <i
               className="fa fa-caret-down custom"
@@ -181,15 +182,17 @@ ShallowWrapper {
               className="user-name"
             >
               Hello, 
-              
+              Jane Doe
               !
             </div>,
             <div
               className="image-container"
               onClick={[Function]}
             >
-              <i
-                className="fa fa-2x fa-user-circle"
+              <img
+                alt="user-icon"
+                className="user-image"
+                src="https://test-image.jpg"
               />
               <i
                 className="fa fa-caret-down custom"
@@ -224,7 +227,7 @@ ShallowWrapper {
             "props": Object {
               "children": Array [
                 "Hello, ",
-                "",
+                "Jane Doe",
                 "!",
               ],
               "className": "user-name",
@@ -232,7 +235,7 @@ ShallowWrapper {
             "ref": null,
             "rendered": Array [
               "Hello, ",
-              "",
+              "Jane Doe",
               "!",
             ],
             "type": "div",
@@ -243,8 +246,10 @@ ShallowWrapper {
             "nodeType": "host",
             "props": Object {
               "children": Array [
-                <i
-                  className="fa fa-2x fa-user-circle"
+                <img
+                  alt="user-icon"
+                  className="user-image"
+                  src="https://test-image.jpg"
                 />,
                 <i
                   className="fa fa-caret-down custom"
@@ -277,11 +282,13 @@ ShallowWrapper {
                 "key": undefined,
                 "nodeType": "host",
                 "props": Object {
-                  "className": "fa fa-2x fa-user-circle",
+                  "alt": "user-icon",
+                  "className": "user-image",
+                  "src": "https://test-image.jpg",
                 },
                 "ref": null,
                 "rendered": null,
-                "type": "i",
+                "type": "img",
               },
               Object {
                 "instance": null,
@@ -404,15 +411,17 @@ ShallowWrapper {
               className="user-name"
             >
               Hello, 
-              
+              Jane Doe
               !
             </div>
             <div
               className="image-container"
               onClick={[Function]}
             >
-              <i
-                className="fa fa-2x fa-user-circle"
+              <img
+                alt="user-icon"
+                className="user-image"
+                src="https://test-image.jpg"
               />
               <i
                 className="fa fa-caret-down custom"
@@ -524,15 +533,17 @@ ShallowWrapper {
                 className="user-name"
               >
                 Hello, 
-                
+                Jane Doe
                 !
               </div>,
               <div
                 className="image-container"
                 onClick={[Function]}
               >
-                <i
-                  className="fa fa-2x fa-user-circle"
+                <img
+                  alt="user-icon"
+                  className="user-image"
+                  src="https://test-image.jpg"
                 />
                 <i
                   className="fa fa-caret-down custom"
@@ -567,7 +578,7 @@ ShallowWrapper {
               "props": Object {
                 "children": Array [
                   "Hello, ",
-                  "",
+                  "Jane Doe",
                   "!",
                 ],
                 "className": "user-name",
@@ -575,7 +586,7 @@ ShallowWrapper {
               "ref": null,
               "rendered": Array [
                 "Hello, ",
-                "",
+                "Jane Doe",
                 "!",
               ],
               "type": "div",
@@ -586,8 +597,10 @@ ShallowWrapper {
               "nodeType": "host",
               "props": Object {
                 "children": Array [
-                  <i
-                    className="fa fa-2x fa-user-circle"
+                  <img
+                    alt="user-icon"
+                    className="user-image"
+                    src="https://test-image.jpg"
                   />,
                   <i
                     className="fa fa-caret-down custom"
@@ -620,11 +633,13 @@ ShallowWrapper {
                   "key": undefined,
                   "nodeType": "host",
                   "props": Object {
-                    "className": "fa fa-2x fa-user-circle",
+                    "alt": "user-icon",
+                    "className": "user-image",
+                    "src": "https://test-image.jpg",
                   },
                   "ref": null,
                   "rendered": null,
-                  "type": "i",
+                  "type": "img",
                 },
                 Object {
                   "instance": null,

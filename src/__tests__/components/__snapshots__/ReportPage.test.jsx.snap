@@ -6,11 +6,10 @@ ShallowWrapper {
   Symbol(enzyme.__unrendered__): <ReportPage
     currentUser={
       Object {
-        "additionalUserInfo": Object {
-          "profile": Object {
-            "name": "",
-            "picture": "",
-          },
+        "UserInfo": Object {
+          "firstName": "Jane",
+          "lastName": "Doe",
+          "picture": "https://test-image.jpg",
         },
       }
     }
@@ -36,11 +35,10 @@ ShallowWrapper {
         <Header
           currentUser={
             Object {
-              "additionalUserInfo": Object {
-                "profile": Object {
-                  "name": "",
-                  "picture": "",
-                },
+              "UserInfo": Object {
+                "firstName": "Jane",
+                "lastName": "Doe",
+                "picture": "https://test-image.jpg",
               },
             }
           }
@@ -110,11 +108,10 @@ ShallowWrapper {
         "nodeType": "class",
         "props": Object {
           "currentUser": Object {
-            "additionalUserInfo": Object {
-              "profile": Object {
-                "name": "",
-                "picture": "",
-              },
+            "UserInfo": Object {
+              "firstName": "Jane",
+              "lastName": "Doe",
+              "picture": "https://test-image.jpg",
             },
           },
           "history": Object {},
@@ -484,11 +481,10 @@ ShallowWrapper {
           <Header
             currentUser={
               Object {
-                "additionalUserInfo": Object {
-                  "profile": Object {
-                    "name": "",
-                    "picture": "",
-                  },
+                "UserInfo": Object {
+                  "firstName": "Jane",
+                  "lastName": "Doe",
+                  "picture": "https://test-image.jpg",
                 },
               }
             }
@@ -558,11 +554,10 @@ ShallowWrapper {
           "nodeType": "class",
           "props": Object {
             "currentUser": Object {
-              "additionalUserInfo": Object {
-                "profile": Object {
-                  "name": "",
-                  "picture": "",
-                },
+              "UserInfo": Object {
+                "firstName": "Jane",
+                "lastName": "Doe",
+                "picture": "https://test-image.jpg",
               },
             },
             "history": Object {},

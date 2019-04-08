@@ -1,25 +1,9 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-import { notify } from 'react-notify-toast';
-import { doSignInWithGoogle } from '../firebase';
 
 class Login extends Component {
   onLogin = () => {
-    const { setCurrentUser, history } = this.props;
-    doSignInWithGoogle().then((user) => {
-      if (user.user.email.match(/.*@andela.com$/)) {
-        setCurrentUser(user);
-        history.push('/');
-        notify.show(`Hello ${user.user.displayName} ! You have Logged in Successfully!`, 'success');
-      } else {
-        notify.show('Login failed! Please login with your andela email!', 'error');
-      }
-    })
-      .catch((error) => {
-        if (error) {
-          notify.show('Unable to login with google!', 'error');
-        }
-      });
+    const url = `https://api-prod.andela.com/login?redirect_url=${process.env.REACT_APP_URL}`;
+    window.location.replace(url);
   }
 
   render() {
@@ -35,7 +19,7 @@ class Login extends Component {
           </div>
           <div className="login_link">
             {/* eslint-disable jsx-a11y/anchor-is-valid */}
-            <a href="#" onClick={() => this.onLogin()}>
+            <a className="loginUrl" href="#" onClick={() => this.onLogin()}>
               <img src="/google.png" alt="google-icon" />
               <span>LOGIN TO GET STARTED</span>
             </a>
@@ -45,14 +29,5 @@ class Login extends Component {
     );
   }
 }
-
-Login.propTypes = {
-  setCurrentUser: PropTypes.func,
-  history: PropTypes.object.isRequired,
-};
-
-Login.defaultProps = {
-  setCurrentUser: () => {},
-};
 
 export default Login;
