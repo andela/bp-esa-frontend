@@ -25,6 +25,7 @@ export const Checkbox = ({
       name={name}
       checked={checkCondition}
       {...rest}
+      readOnly
     />
     <span className="checkmark" />
   </React.Fragment>
@@ -36,6 +37,7 @@ export const Checkbox = ({
       name={name}
       checked={checkCondition}
       {...rest}
+      readOnly
     />
     <span className="checkmark" />
     {label}

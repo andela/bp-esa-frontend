@@ -98,12 +98,7 @@ ShallowWrapper {
               size="large"
             />
           </div>
-          <AutomationDetails
-            closeModal={[Function]}
-            formatDates={[Function]}
-            isModalOpen={false}
-            modalContent={Object {}}
-          />
+          
         </div>,
       ],
     },
@@ -191,12 +186,7 @@ ShallowWrapper {
                 size="large"
               />
             </div>,
-            <AutomationDetails
-              closeModal={[Function]}
-              formatDates={[Function]}
-              isModalOpen={false}
-              modalContent={Object {}}
-            />,
+            "",
           ],
           "id": "report-page",
         },
@@ -328,27 +318,29 @@ ShallowWrapper {
                       >
                         #
                       </th>,
-                      <th>
-                        Date
-                      </th>,
-                      <th>
-                        Fellow Name
-                      </th>,
-                      <th>
-                        Partner Name
-                      </th>,
-                      <th>
-                        Type
-                      </th>,
-                      <th>
-                        Slack
-                      </th>,
-                      <th>
-                        Email
-                      </th>,
-                      <th>
-                        Freckle
-                      </th>,
+                      Array [
+                        <th>
+                          Date
+                        </th>,
+                        <th>
+                          Fellow Name
+                        </th>,
+                        <th>
+                          Partner Name
+                        </th>,
+                        <th>
+                          Type
+                        </th>,
+                        <th>
+                          Slack
+                        </th>,
+                        <th>
+                          Email
+                        </th>,
+                        <th>
+                          Freckle
+                        </th>,
+                      ],
                     ],
                   },
                   "ref": null,
@@ -367,7 +359,7 @@ ShallowWrapper {
                     },
                     Object {
                       "instance": null,
-                      "key": undefined,
+                      "key": "Date",
                       "nodeType": "host",
                       "props": Object {
                         "children": "Date",
@@ -378,7 +370,7 @@ ShallowWrapper {
                     },
                     Object {
                       "instance": null,
-                      "key": undefined,
+                      "key": "Fellow Name",
                       "nodeType": "host",
                       "props": Object {
                         "children": "Fellow Name",
@@ -389,7 +381,7 @@ ShallowWrapper {
                     },
                     Object {
                       "instance": null,
-                      "key": undefined,
+                      "key": "Partner Name",
                       "nodeType": "host",
                       "props": Object {
                         "children": "Partner Name",
@@ -400,7 +392,7 @@ ShallowWrapper {
                     },
                     Object {
                       "instance": null,
-                      "key": undefined,
+                      "key": "Type",
                       "nodeType": "host",
                       "props": Object {
                         "children": "Type",
@@ -411,7 +403,7 @@ ShallowWrapper {
                     },
                     Object {
                       "instance": null,
-                      "key": undefined,
+                      "key": "Slack",
                       "nodeType": "host",
                       "props": Object {
                         "children": "Slack",
@@ -422,7 +414,7 @@ ShallowWrapper {
                     },
                     Object {
                       "instance": null,
-                      "key": undefined,
+                      "key": "Email",
                       "nodeType": "host",
                       "props": Object {
                         "children": "Email",
@@ -433,7 +425,7 @@ ShallowWrapper {
                     },
                     Object {
                       "instance": null,
-                      "key": undefined,
+                      "key": "Freckle",
                       "nodeType": "host",
                       "props": Object {
                         "children": "Freckle",
@@ -475,21 +467,7 @@ ShallowWrapper {
             },
             "type": "div",
           },
-          Object {
-            "instance": null,
-            "key": undefined,
-            "nodeType": "class",
-            "props": Object {
-              "closeModal": [Function],
-              "formatDates": [Function],
-              "isModalOpen": false,
-              "modalContent": Object {},
-              "modalType": undefined,
-            },
-            "ref": null,
-            "rendered": null,
-            "type": [Function],
-          },
+          "",
         ],
         "type": "div",
       },
@@ -568,12 +546,7 @@ ShallowWrapper {
                 size="large"
               />
             </div>
-            <AutomationDetails
-              closeModal={[Function]}
-              formatDates={[Function]}
-              isModalOpen={false}
-              modalContent={Object {}}
-            />
+            
           </div>,
         ],
       },
@@ -661,12 +634,7 @@ ShallowWrapper {
                   size="large"
                 />
               </div>,
-              <AutomationDetails
-                closeModal={[Function]}
-                formatDates={[Function]}
-                isModalOpen={false}
-                modalContent={Object {}}
-              />,
+              "",
             ],
             "id": "report-page",
           },
@@ -798,27 +766,29 @@ ShallowWrapper {
                         >
                           #
                         </th>,
-                        <th>
-                          Date
-                        </th>,
-                        <th>
-                          Fellow Name
-                        </th>,
-                        <th>
-                          Partner Name
-                        </th>,
-                        <th>
-                          Type
-                        </th>,
-                        <th>
-                          Slack
-                        </th>,
-                        <th>
-                          Email
-                        </th>,
-                        <th>
-                          Freckle
-                        </th>,
+                        Array [
+                          <th>
+                            Date
+                          </th>,
+                          <th>
+                            Fellow Name
+                          </th>,
+                          <th>
+                            Partner Name
+                          </th>,
+                          <th>
+                            Type
+                          </th>,
+                          <th>
+                            Slack
+                          </th>,
+                          <th>
+                            Email
+                          </th>,
+                          <th>
+                            Freckle
+                          </th>,
+                        ],
                       ],
                     },
                     "ref": null,
@@ -837,7 +807,7 @@ ShallowWrapper {
                       },
                       Object {
                         "instance": null,
-                        "key": undefined,
+                        "key": "Date",
                         "nodeType": "host",
                         "props": Object {
                           "children": "Date",
@@ -848,7 +818,7 @@ ShallowWrapper {
                       },
                       Object {
                         "instance": null,
-                        "key": undefined,
+                        "key": "Fellow Name",
                         "nodeType": "host",
                         "props": Object {
                           "children": "Fellow Name",
@@ -859,7 +829,7 @@ ShallowWrapper {
                       },
                       Object {
                         "instance": null,
-                        "key": undefined,
+                        "key": "Partner Name",
                         "nodeType": "host",
                         "props": Object {
                           "children": "Partner Name",
@@ -870,7 +840,7 @@ ShallowWrapper {
                       },
                       Object {
                         "instance": null,
-                        "key": undefined,
+                        "key": "Type",
                         "nodeType": "host",
                         "props": Object {
                           "children": "Type",
@@ -881,7 +851,7 @@ ShallowWrapper {
                       },
                       Object {
                         "instance": null,
-                        "key": undefined,
+                        "key": "Slack",
                         "nodeType": "host",
                         "props": Object {
                           "children": "Slack",
@@ -892,7 +862,7 @@ ShallowWrapper {
                       },
                       Object {
                         "instance": null,
-                        "key": undefined,
+                        "key": "Email",
                         "nodeType": "host",
                         "props": Object {
                           "children": "Email",
@@ -903,7 +873,7 @@ ShallowWrapper {
                       },
                       Object {
                         "instance": null,
-                        "key": undefined,
+                        "key": "Freckle",
                         "nodeType": "host",
                         "props": Object {
                           "children": "Freckle",
@@ -945,21 +915,7 @@ ShallowWrapper {
               },
               "type": "div",
             },
-            Object {
-              "instance": null,
-              "key": undefined,
-              "nodeType": "class",
-              "props": Object {
-                "closeModal": [Function],
-                "formatDates": [Function],
-                "isModalOpen": false,
-                "modalContent": Object {},
-                "modalType": undefined,
-              },
-              "ref": null,
-              "rendered": null,
-              "type": [Function],
-            },
+            "",
           ],
           "type": "div",
         },

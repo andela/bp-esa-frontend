@@ -1,5 +1,6 @@
 import React from 'react';
 import axios from 'axios';
+import { notify } from 'react-notify-toast';
 import ReportPage from '../../components/ReportPage';
 
 const props = {
@@ -82,6 +83,9 @@ class CustomError extends Error {
 const getComponent = () => shallow(<ReportPage {...props} />);
 
 describe('<ReportPage />', () => {
+  beforeAll(() => {
+    Object.defineProperty(notify, 'show', { value: () => jest.fn(), writable: true });
+  });
   it('should render as expected', () => {
     expect(getComponent()).toMatchSnapshot();
   });

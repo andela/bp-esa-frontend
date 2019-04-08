@@ -29,6 +29,7 @@ ShallowWrapper {
           checked={false}
           id="test-checkbox"
           name="test"
+          readOnly={true}
           type="checkbox"
         />,
         <span
@@ -49,6 +50,7 @@ ShallowWrapper {
           "checked": false,
           "id": "test-checkbox",
           "name": "test",
+          "readOnly": true,
           "type": "checkbox",
         },
         "ref": null,
@@ -81,6 +83,7 @@ ShallowWrapper {
             checked={false}
             id="test-checkbox"
             name="test"
+            readOnly={true}
             type="checkbox"
           />,
           <span
@@ -101,6 +104,7 @@ ShallowWrapper {
             "checked": false,
             "id": "test-checkbox",
             "name": "test",
+            "readOnly": true,
             "type": "checkbox",
           },
           "ref": null,
@@ -176,6 +180,7 @@ ShallowWrapper {
           checked={false}
           id="test-checkbox2"
           name="test2"
+          readOnly={true}
           type="checkbox"
         />,
         <span
@@ -193,6 +198,7 @@ ShallowWrapper {
           "checked": false,
           "id": "test-checkbox2",
           "name": "test2",
+          "readOnly": true,
           "type": "checkbox",
         },
         "ref": null,
@@ -224,6 +230,7 @@ ShallowWrapper {
             checked={false}
             id="test-checkbox2"
             name="test2"
+            readOnly={true}
             type="checkbox"
           />,
           <span
@@ -241,6 +248,7 @@ ShallowWrapper {
             "checked": false,
             "id": "test-checkbox2",
             "name": "test2",
+            "readOnly": true,
             "type": "checkbox",
           },
           "ref": null,
@@ -315,7 +323,7 @@ ShallowWrapper {
       "disabled": false,
       "disabledKeyboardNavigation": false,
       "dropdownMode": "select",
-      "maxDate": "2019-04-05T14:57:01.825Z",
+      "maxDate": "2019-04-08T06:56:38.005Z",
       "monthsShown": 1,
       "nextMonthButtonLabel": "Next month",
       "onBlur": [Function],
@@ -356,7 +364,7 @@ ShallowWrapper {
         "disabled": false,
         "disabledKeyboardNavigation": false,
         "dropdownMode": "select",
-        "maxDate": "2019-04-05T14:57:01.825Z",
+        "maxDate": "2019-04-08T06:56:38.005Z",
         "monthsShown": 1,
         "nextMonthButtonLabel": "Next month",
         "onBlur": [Function],
@@ -413,21 +421,7 @@ exports[`The FilterComponent component should not regress 1`] = `
 ShallowWrapper {
   Symbol(enzyme.__root__): [Circular],
   Symbol(enzyme.__unrendered__): <FilterComponent
-    filter={
-      Object {
-        "date": Object {
-          "from": "",
-          "to": "",
-        },
-        "emailAutomation": "",
-        "freckleAutomation": "",
-        "searchBy": "",
-        "searchTerm": "",
-        "showFilterDropdown": false,
-        "slackAutomation": "",
-        "type": "",
-      }
-    }
+    filter={[MockFunction]}
   />,
   Symbol(enzyme.__renderer__): Object {
     "batchedUpdates": [Function],
