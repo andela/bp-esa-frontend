@@ -18,11 +18,10 @@ axios.get = axiosGetMock;
 const filterSpy = sinon.spy(ReportPage.prototype, 'filter');
 const historyMock = { push: jest.fn() };
 const currentUserMock = {
-  additionalUserInfo: {
-    profile: {
-      name: 'Mock User',
-      picture: 'https://img.mock',
-    },
+  UserInfo: {
+    firstName: 'Jane',
+    lastName: 'Doe',
+    picture: 'https://test-image.jpg',
   },
 };
 

@@ -6,11 +6,10 @@ import Header from '../../components/Header';
 jest.mock('../../firebase');
 const props = {
   currentUser: {
-    additionalUserInfo: {
-      profile: {
-        name: '',
-        picture: '',
-      },
+    UserInfo: {
+      firstName: 'Jane',
+      lastName: 'Doe',
+      picture: 'https://test-image.jpg',
     },
   },
   removeCurrentUser: jest.fn(),

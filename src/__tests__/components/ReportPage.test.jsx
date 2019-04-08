@@ -4,11 +4,10 @@ import ReportPage from '../../components/ReportPage';
 
 const props = {
   currentUser: {
-    additionalUserInfo: {
-      profile: {
-        name: '',
-        picture: '',
-      },
+    UserInfo: {
+      firstName: 'Jane',
+      lastName: 'Doe',
+      picture: 'https://test-image.jpg',
     },
   },
   history: {},

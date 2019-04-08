@@ -51,6 +51,7 @@ ShallowWrapper {
           className="login_link"
         >
           <a
+            className="loginUrl"
             href="#"
             onClick={[Function]}
           >
@@ -96,6 +97,7 @@ ShallowWrapper {
             className="login_link"
           >
             <a
+              className="loginUrl"
               href="#"
               onClick={[Function]}
             >
@@ -189,6 +191,7 @@ ShallowWrapper {
           "nodeType": "host",
           "props": Object {
             "children": <a
+              className="loginUrl"
               href="#"
               onClick={[Function]}
             >
@@ -217,6 +220,7 @@ ShallowWrapper {
                   LOGIN TO GET STARTED
                 </span>,
               ],
+              "className": "loginUrl",
               "href": "#",
               "onClick": [Function],
             },
@@ -287,6 +291,7 @@ ShallowWrapper {
             className="login_link"
           >
             <a
+              className="loginUrl"
               href="#"
               onClick={[Function]}
             >
@@ -332,6 +337,7 @@ ShallowWrapper {
               className="login_link"
             >
               <a
+                className="loginUrl"
                 href="#"
                 onClick={[Function]}
               >
@@ -425,6 +431,7 @@ ShallowWrapper {
             "nodeType": "host",
             "props": Object {
               "children": <a
+                className="loginUrl"
                 href="#"
                 onClick={[Function]}
               >
@@ -453,6 +460,7 @@ ShallowWrapper {
                     LOGIN TO GET STARTED
                   </span>,
                 ],
+                "className": "loginUrl",
                 "href": "#",
                 "onClick": [Function],
               },
