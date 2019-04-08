@@ -6,6 +6,7 @@ import URL from 'url';
 import PropTypes from 'prop-types';
 import axios from 'axios';
 import _ from 'lodash';
+import { notify } from 'react-notify-toast';
 import Header from '../Header';
 import './styles.scss';
 import AutomationDetails from '../AutomationDetails';
@@ -23,8 +24,9 @@ class ReportPage extends PureComponent {
     super(props);
     this.filter = this.filter.bind(this);
     this.state = {
-      tableHeaders: ['Date', 'Fellow Name', 'Partner Name', 'Type', 'Slack','Email', 'Freckle'],
+      tableHeaders: ['Date', 'Fellow Name', 'Partner Name', 'Type', 'Slack', 'Email', 'Freckle'],
       reportData: [],
+      tableMessage: '',
       isModalOpen: false,
       modalContent: {},
       isLoadingReports: false,
@@ -51,6 +53,7 @@ class ReportPage extends PureComponent {
     const { isLoadingReports, query } = this.state;
     this.setState({
       isLoadingReports: !isLoadingReports,
+      tableMessage: '',
     });
     let offset;
     const parsedAutomationsURL = URL.parse(automationsURL);
@@ -73,7 +76,14 @@ class ReportPage extends PureComponent {
           },
         }));
       })
-      .catch(error => error.response);
+      .catch((error) => {
+        notify.show('There was a problem connecting to server, please try again later', 'error');
+        this.setState(() => ({
+          isLoadingReports: false,
+          reportData: [],
+        }));
+        return error.response;
+      });
   };
 
   openModal = () => {
@@ -205,15 +215,18 @@ class ReportPage extends PureComponent {
       </tr>
     )));
   }
-  showEmptyRow(){
-    const rowStyle={ textAlign: 'center'};
 
-    return (<tr colspan="8" style={ rowStyle }><td>No Data Available</td></tr>)
+  showEmptyRow() {
+    const rowStyle = { textAlign: 'center' };
+
+    return (<tr colSpan="8" style={rowStyle}><td>No Data Available</td></tr>);
   }
 
   render() {
     const { currentUser, removeCurrentUser, history } = this.props;
-    const { isLoadingReports, pagination } = this.state;
+    const {
+      isLoadingReports, pagination, reportData, tableHeaders,
+    } = this.state;
     const {
       isModalOpen, modalContent, type,
     } = this.state;
@@ -233,12 +246,7 @@ class ReportPage extends PureComponent {
           <div className="table-header">
             <table className="report-table">
               <thead>
-                <tr>
-                  <th className="numbering">#</th>
-                  {this.state.tableHeaders.map( (head, index) => {
-                    return <th>{head}</th>
-                  })}
-                </tr>
+                {this.setupHeader(tableHeaders)}
               </thead>
             </table>
           </div>
@@ -250,7 +258,7 @@ class ReportPage extends PureComponent {
                   <Fragment>
                     <table className="report-table">
                       <tbody>
-                        {this.state.reportData && this.state.reportData.length > 0 ? this.renderTableRows() : this.showEmptyRow() }
+                        {this.hasData(reportData) ? this.renderTableRows() : this.showEmptyRow() }
                       </tbody>
                     </table>
                     <Pagination
@@ -264,15 +272,36 @@ class ReportPage extends PureComponent {
                 )
             }
           </div>
-          <AutomationDetails
-            isModalOpen={isModalOpen}
-            closeModal={this.closeModal}
-            modalType={type}
-            modalContent={modalContent}
-            formatDates={this.formatDates}
-          />
+          {this.hasData(reportData) ? (
+            this.addAutomationDetailModal(isModalOpen, type, modalContent)
+          ) : ''}
         </div>
       </Fragment>
+    );
+  }
+
+  addAutomationDetailModal(isModalOpen, type, modalContent) {
+    return (
+      <AutomationDetails
+        isModalOpen={isModalOpen}
+        closeModal={this.closeModal}
+        modalType={type}
+        modalContent={modalContent}
+        formatDates={this.formatDates}
+      />
+    );
+  }
+
+  hasData(reportData) {
+    return reportData && reportData.length > 0;
+  }
+
+  setupHeader(tableHeaders) {
+    return (
+      <tr>
+        <th className="numbering">#</th>
+        {tableHeaders.map(head => <th key={head}>{head}</th>)}
+      </tr>
     );
   }
 }
