@@ -65,14 +65,15 @@ class AutomationDetails extends PureComponent {
               {modalType === 'email' ? <th>Sent to</th> : <th>Channel</th>}
               {modalType === 'email' ? <th>Subject</th> : <th>Auto Type</th>}
               <th>Status</th>
+              <th>Status Message</th>
             </tr>
           </thead>
         </table>
         <div className="automation-table">
           {contents.map((content) => {
-            const { emailTo } = content;
+            const { recipient } = content;
             return (
-              <div key={modalType === 'email' ? emailTo : uuid.v4()} className="table-body-details">
+              <div key={modalType === 'email' ? recipient : uuid.v4()} className="table-body-details">
                 <table className="details-table">
                   <tbody>
                     <tr>
@@ -90,12 +91,12 @@ class AutomationDetails extends PureComponent {
 
   renderTableData = (content, modalType) => {
     const {
-      channelName, type, emailTo, subject, status,
+      channelName, type, recipient, subject, status, statusMessage,
     } = content;
     let automationMedia = channelName;
     let automationTitle = type;
     if (modalType === 'email') {
-      automationMedia = emailTo;
+      automationMedia = recipient;
       automationTitle = subject;
     }
     return (
@@ -103,6 +104,7 @@ class AutomationDetails extends PureComponent {
         <td>{automationMedia}</td>
         <td>{automationTitle}</td>
         {status === 'success' ? <td>Success</td> : <td>Failed</td>}
+        <td>{statusMessage}</td>
       </React.Fragment>
     );
   }
