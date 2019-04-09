@@ -43,6 +43,7 @@
   padding: 10% 5%;
   height: 100vh;
   width: 30%;
+  min-width: 380px;
   margin: auto;
   color: white;
   box-shadow: inset -3px 0 1px 0 rgba(34,34,34,.327), -3px 0 1px 0 rgba(34,34,34,.327);
@@ -87,6 +88,12 @@ img.logo {
   margin-bottom: 10%
 }
 
+@media only screen and (max-width: 900px) {
+    .login_title h1 {
+        font-size: 30px;
+    }
+}
+
 .login_link {
     background-color: #fff;
     border-radius: 3%;
@@ -103,7 +110,7 @@ img.logo {
 
 .login_link a {
     color: #aaa;
-    font-size: 0.5vw;
+    font-size: 13px;
 }
 
 /* Styling the SideBar component */
