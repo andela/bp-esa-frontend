@@ -2,7 +2,7 @@ import React from 'react';
 import configureStore from 'redux-mock-store';
 import { mount } from 'enzyme';
 import { Provider } from 'react-redux';
-import ReportPageComponent, { ReportPage } from '../../components/ReportPage';
+import { ReportPage } from '../../components/ReportPage';
 import sampleReports from '../../fixtures/fixtures';
 
 const mockStore = configureStore();
@@ -39,6 +39,9 @@ describe('ReportPage Component', () => {
     removeCurrentUser: jest.fn(),
     formatDates: jest.fn(),
     fetchAllAutomation: jest.fn(() => Promise.resolve()),
+    fetchUpdates: jest.fn(),
+    resetUpdates: jest.fn(),
+    realTimeReport: [sampleReports.data],
   };
   let component;
 
@@ -93,6 +96,20 @@ describe('ReportPage Component', () => {
         .find('#list-icon');
       viewButton.simulate('click');
       expect(component.state().viewMode).toEqual('listView');
+    });
+  });
+
+  describe('Test component methods', () => {
+    it('should handle update tab', () => {
+      const updateTab = component.find('.update-tab');
+      updateTab.simulate('click');
+      expect(props.resetUpdates).toHaveBeenCalled();
+    });
+
+    it('should handle page navigation', () => {
+      const nextPageBtn = component.find('.page-btn').first();
+      nextPageBtn.simulate('click');
+      expect(props.fetchAllAutomation).toHaveBeenCalled();
     });
   });
 });

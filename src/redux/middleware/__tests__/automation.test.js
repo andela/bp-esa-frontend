@@ -17,9 +17,7 @@ describe('Automation Saga', () => {
     },
   };
 
-  const error = {
-
-  };
+  const error = {};
 
 
   it('should fetch automation successfully', () => expectSaga(watchFetchFellows)

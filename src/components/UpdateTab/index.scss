@@ -1,0 +1,43 @@
+@-webkit-keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.update-tab{
+  border: none;
+  border-radius: 5px;
+  margin-top: 20px;
+  text-align: center;
+  width: 100%;
+  padding: 15px;
+  background: lighten($color: #385de0, $amount: 40%);
+  cursor: pointer;
+  color: lighten($color: #385de0, $amount: 10%);
+  transition: background-color, 0.2s;
+  -webkit-animation: fade-in 0.3s cubic-bezier(0.550, 0.055, 0.675, 0.190) both;
+	animation: fade-in 0.5s cubic-bezier(0.550, 0.055, 0.675, 0.190) both;
+
+  &:hover{
+    background-color: lighten($color: #385de0, $amount: 35%);
+  }
+  &:focus{
+    outline: none;
+  }
+}
+
+.card-width{
+  margin: 4px 80px 10px 80px;
+  width: 88.8% !important;
+}
