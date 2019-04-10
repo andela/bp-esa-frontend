@@ -3,7 +3,9 @@
 /* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
-import axios from 'axios';
+import 'toastr/toastr.scss';
+import { connect } from 'react-redux';
+import { fetchAutomation } from '../../redux/actions/automation';
 import Header from '../Header';
 import Filter from '../Filter';
 import Search from '../Search';
@@ -14,13 +16,15 @@ import AutomationDetails from '../AutomationDetails';
 import Spinner from '../Spinner';
 import listenToSocketEvent from '../../realTime';
 import ReportNavBar from '../ReportNavBar';
+import DeveloperCard from '../developerCards';
 
 
 /* eslint-disable class-methods-use-this */
-class ReportPage extends PureComponent {
+export class ReportPage extends PureComponent {
   constructor() {
     super();
     this.state = {
+      viewMode: 'cardView',
       reportData: [],
       filters: {
         automationStatus: [],
@@ -34,18 +38,18 @@ class ReportPage extends PureComponent {
       isModalOpen: false,
       modalContent: {},
       type: '',
-      isLoadingReports: false,
     };
   }
 
-  async componentDidMount() {
+  componentDidMount() {
+    const { fetchAllAutomation, location: { search } } = this.props;
+    const params = new URLSearchParams(search);
+    const view = params.get('view');
+    this.setState({ viewMode: view });
     this.connectToSocket('newAutomation');
-    const reportData = await this.reportData();
-    this.setState({
-      isLoadingReports: false,
-      reportData,
-    });
+    fetchAllAutomation();
   }
+
 
   componentDidUpdate() {
     const { filters } = this.state;
@@ -54,19 +58,6 @@ class ReportPage extends PureComponent {
     }
   }
 
-  reportData = async () => {
-    const { isLoadingReports } = this.state;
-    this.setState({
-      isLoadingReports: !isLoadingReports,
-    });
-    const { REACT_APP_BACKEND_URL } = process.env;
-    const url = `${REACT_APP_BACKEND_URL}/api/v1/automations`;
-    const data = await axios
-      .get(url)
-      .then(response => response.data.data)
-      .catch(error => error.response);
-    return data;
-  };
 
   connectToSocket = (event) => {
     listenToSocketEvent(event, data => this.updateReportData(data));
@@ -74,7 +65,7 @@ class ReportPage extends PureComponent {
 
   updateReportData = (data) => {
     const { reportData } = this.state;
-    const newData = [...data, ...reportData];
+    const newData = [ data, ...reportData ];
     this.setState({ reportData: newData });
   }
 
@@ -150,14 +141,6 @@ class ReportPage extends PureComponent {
     } else {
       this.setState({ searchResult: false });
     }
-  }
-
-  openModal = () => {
-    this.setState({ isModalOpen: true });
-  }
-
-  closeModal = () => {
-    this.setState({ isModalOpen: false });
   }
 
   formatDates = (date) => {
@@ -253,9 +236,6 @@ class ReportPage extends PureComponent {
     });
   }
 
-  changeModalTypes(report, type) {
-    this.setState({ modalContent: report, type });
-  }
 
   statusBreakdown(automation, type) {
     const activities = automation[`${type}Automations`][`${type}Activities`] || [];
@@ -273,16 +253,13 @@ class ReportPage extends PureComponent {
 
   renderAutomationStatus(automationStatus, report, type) {
     return (
-      <span>
+      <span className={`${automationStatus}-text`}>
         {automationStatus}
-&nbsp;
-        <span className={`${automationStatus}-text`}>
+        &nbsp;
+        <div className="metrics">
           {this.statusBreakdown(report, type)}
-        </span>
-        <i
-          className={`fa fa-info-circle ${automationStatus}`}
-          onClick={() => { this.openModal(); this.changeModalTypes(report, type); }}
-        />
+        </div>
+
       </span>
     );
   }
@@ -303,77 +280,84 @@ class ReportPage extends PureComponent {
     return <Search handleSearch={this.doSearch} />;
   }
 
-  renderTableRows() {
-    const {
-      filters, filteredReport, reportData, searchResult,
-    } = this.state;
-    const reports = filters.length || searchResult ? filteredReport : reportData;
-    const finalReports = reports || [];
-    return (finalReports.map((report, index) => (
-      <tr key={report.id}>
-        <td className="numbering">{index + 1}</td>
-        <td className="column1">{this.formatDates(report.updatedAt)}</td>
 
-        <td
-          className="fellow"
-          onClick={() => window.open(`https://ais.andela.com/people/${report.fellowId}`)}
-          title={report.fellowName}
-        >
-          {report.fellowName}
-        </td>
-        <td title={report.partnerName}>{report.partnerName}</td>
-        <td>{report.type}</td>
-        <td>{this.renderAutomationStatus(report.slackAutomations.status, report, 'slack')}</td>
-        <td>{this.renderAutomationStatus(report.emailAutomations.status, report, 'email')}</td>
-        <td>{this.renderAutomationStatus(report.freckleAutomations.status, report, 'freckle')}</td>
-      </tr>
-    )));
+  renderView = view => () => {
+    const { history } = this.props;
+    history.push(`/?view=${view}View`);
+    this.setState({ viewMode: `${view}View` });
+  };
+
+  renderInfoIcon = () => (
+    <div className="info-icon">
+      <i className="fa fa-info-circle" />
+    </div>
+  );
+
+
+  renderTableRows() {
+    const { automation: { data } } = this.props;
+    return (data.map((report, index) => {
+      const { id, updatedAt, fellowId, fellowName, partnerName, type } = report;
+      return (
+        <tr key={id}>
+          <td className="numbering">{index + 1}</td>
+          <td className="column1">{this.formatDates(updatedAt)}</td>
+          <td
+            className="fellow"
+            onClick={() => window.open(`https://ais.andela.com/people/${fellowId}`)}
+            title={fellowName}
+          >
+            {fellowName}
+          </td>
+          <td title={report.partnerName}>{partnerName}</td>
+          <td>{type}</td>
+          <td>{this.renderAutomationStatus(report.slackAutomations.status, report, 'slack')}</td>
+          <td>{this.renderAutomationStatus(report.emailAutomations.status, report, 'email')}</td>
+          <td>
+            {this.renderAutomationStatus(report.freckleAutomations.status, report, 'freckle')}
+            {this.renderInfoIcon()}
+          </td>
+        </tr>
+      );
+    }));
   }
 
-  render() {
-    const { currentUser, removeCurrentUser, history } = this.props;
-    const { isLoadingReports } = this.state;
+  renderListCard = () => {
     const {
-      isModalOpen, modalContent, type, filters,
+      viewMode, isModalOpen, modalContent, type, filters,
     } = this.state;
-
-    // eslint-disable-next-line react/destructuring-assignment
+    const { automation: { data, isLoading } } = this.props;
     return (
-      <div>
-        <Header
-          currentUser={currentUser}
-          removeCurrentUser={removeCurrentUser}
-          history={history}
-        />
-        <ReportNavBar />
-        <div id="report-page">
-          <div className="filter-box">
-            <p>Filters</p>
-            {this.renderFilters()}
-            {this.renderSearch()}
-          </div>
-          <FiltersBar
-            filters={filters}
-          />
-          <div className="table-header">
-            <table className="report-table">
-              <thead>
-                <tr>
-                  <th className="numbering">#</th>
-                  <th>Date</th>
-                  <th>Fellow Name</th>
-                  <th>Partner Name</th>
-                  <th>Type</th>
-                  <th>Slack</th>
-                  <th>Email</th>
-                  <th>Freckle</th>
-                </tr>
-              </thead>
-            </table>
-          </div>
-          <div className="table-body">
-            {
-              isLoadingReports
+      viewMode === 'listView'
+        ? (
+          <div id="report-page">
+            <div className="filter-box">
+              <p>Filters</p>
+              {this.renderFilters()}
+              {this.renderSearch()}
+            </div>
+            <FiltersBar
+              filters={filters}
+            />
+            <div className="table-header">
+              <table className="report-table">
+                <thead className="report-table-header">
+                  <tr>
+                    <th className="numbering">#</th>
+                    <th>Date</th>
+                    <th>Fellow Name</th>
+                    <th>Partner Name</th>
+                    <th>Type</th>
+                    <th>Slack</th>
+                    <th>Email</th>
+                    <th>Freckle</th>
+                  </tr>
+                </thead>
+              </table>
+            </div>
+            <div className="table-body">
+              {
+              isLoading
                 ? <Spinner />
                 : (
                   <table className="report-table">
@@ -383,28 +367,69 @@ class ReportPage extends PureComponent {
                   </table>
                 )
             }
+            </div>
+            <AutomationDetails
+              isModalOpen={isModalOpen}
+              closeModal={this.closeModal}
+              modalType={type}
+              modalContent={modalContent}
+              formatDates={this.formatDates}
+            />
           </div>
-          <AutomationDetails
-            isModalOpen={isModalOpen}
-            closeModal={this.closeModal}
-            modalType={type}
-            modalContent={modalContent}
-            formatDates={this.formatDates}
-          />
-        </div>
+        ) : <DeveloperCard data={data} isLoading={isLoading} />
+
+    );
+  };
+
+
+  render() {
+    const {
+      currentUser, removeCurrentUser, history,
+    } = this.props;
+    const { automation: { error } } = this.props;
+    // eslint-disable-next-line react/destructuring-assignment
+    return (
+      <div>
+        <Header
+          currentUser={currentUser}
+          removeCurrentUser={removeCurrentUser}
+          history={history}
+        />
+        <ReportNavBar renderView={this.renderView} />
+        {Object.keys(error).length === 0
+          ? this.renderListCard()
+          : (
+            <div className="body-error">
+              <span className="error-message">{error.error}</span>
+            </div>
+          )}
       </div>
     );
   }
 }
 
+const mapStateToProps = state => ({
+  automation: state.automation,
+});
+
+const mapDispatchToProps = dispatch => ({
+  fetchAllAutomation: () => dispatch(fetchAutomation()),
+});
+
 ReportPage.propTypes = {
   currentUser: PropTypes.object.isRequired,
   removeCurrentUser: PropTypes.func,
   history: PropTypes.object.isRequired,
+  automation: PropTypes.object.isRequired,
+  fetchAllAutomation: PropTypes.func.isRequired,
+  location: PropTypes.object.isRequired,
 };
 
 ReportPage.defaultProps = {
   removeCurrentUser: () => { },
 };
 
-export default ReportPage;
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps,
+)(ReportPage);

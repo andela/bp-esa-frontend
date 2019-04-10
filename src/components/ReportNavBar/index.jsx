@@ -2,7 +2,8 @@ import * as React from 'react';
 import PropTypes from 'proptypes';
 import './styles.scss';
 
-const ReportNavBar = ({ isStats }) => (
+
+const ReportNavBar = ({ isStats, renderView }) => (
   <div className="report-navbar-container">
     <div className="left-navbar">
       {isStats
@@ -18,7 +19,7 @@ const ReportNavBar = ({ isStats }) => (
       !isStats && (
         <div className="right-navbar">
           <p>View:</p>
-          <svg version="1.1" viewBox="0.0 0.0 960.0 720.0" fill="none" stroke="none" strokeLinecap="square" strokeMiterlimit="10" xmlnsXlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" className="view-button">
+          <svg version="1.1" viewBox="0.0 0.0 960.0 720.0" fill="none" stroke="none" strokeLinecap="square" strokeMiterlimit="10" xmlnsXlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" id="card-icon" className="view-button" onClick={renderView('card')}>
             <clipPath id="p.0"><path d="m0 0l960.0 0l0 720.0l-960.0 0l0 -720.0z" clipRule="nonzero" /></clipPath>
             <g clipPath="url(#p.0)">
               <path fill="#000000" fillOpacity="0.0" d="m0 0l960.0 0l0 720.0l-960.0 0z" fillRule="evenodd" />
@@ -43,7 +44,7 @@ const ReportNavBar = ({ isStats }) => (
             </g>
           </svg>
 
-          <svg height="512pt" viewBox="0 -52 512.00001 512" width="512pt" xmlns="http://www.w3.org/2000/svg" className="view-button">
+          <svg height="512pt" viewBox="0 -52 512.00001 512" width="512pt" xmlns="http://www.w3.org/2000/svg" id="list-icon" className="view-button" onClick={renderView('list')}>
             <path d="m0 113.292969h113.292969v-113.292969h-113.292969zm30.003906-83.289063h53.289063v53.289063h-53.289063zm0 0" />
             <path d="m149.296875 0v113.292969h362.703125v-113.292969zm332.699219 83.292969h-302.695313v-53.289063h302.695313zm0 0" />
             <path d="m0 260.300781h113.292969v-113.292969h-113.292969zm30.003906-83.292969h53.289063v53.289063h-53.289063zm0 0" />
@@ -63,6 +64,8 @@ const ReportNavBar = ({ isStats }) => (
 
 ReportNavBar.propTypes = {
   isStats: PropTypes.bool,
+  renderView: PropTypes.func.isRequired,
+
 };
 
 ReportNavBar.defaultProps = {
