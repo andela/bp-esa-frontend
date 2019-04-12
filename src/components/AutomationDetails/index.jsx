@@ -29,7 +29,7 @@ class AutomationDetails extends PureComponent {
   renderCommonDetails = (modalContent, modalType) => {
     const {
       fellowName, partnerName, createdAt, slackAutomations,
-      emailAutomations, freckleAutomations,
+      emailAutomations, freckleAutomations, email,
     } = modalContent;
     const { formatDates } = this.props;
     const date = formatDates(createdAt);
@@ -37,12 +37,14 @@ class AutomationDetails extends PureComponent {
       <div className="flex-container">
         <div className="modal-data">
           <h2 className="modal-labels"> Developer Name:</h2>
+          <h2 className="modal-labels"> Developer Email:</h2>
           <h4 className="modal-labels"> Partner Name:</h4>
           <h4 className="modal-labels"> Date:</h4>
           <h4 className="modal-labels"> Status:</h4>
         </div>
         <div className="modal-data">
           <h4 className="modal-values">{fellowName}</h4>
+          <h4 className="modal-values">{email}</h4>
           <h4 className="modal-values">{partnerName}</h4>
           <h4 className="modal-values">{date}</h4>
           {modalType === 'slack' && this.renderAutomation(slackAutomations.status)}
