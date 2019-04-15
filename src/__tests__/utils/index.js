@@ -27,4 +27,11 @@ describe('test utils', () => {
     const currentPage = pageChange(value, numberOfPages);
     expect(currentPage).toEqual(1);
   });
+
+  // it('returns the current page', () => {
+  //   const value = 2;
+  //   const numberOfPages = 10;
+  //   const currentPage = pageChange(value, numberOfPages);
+  //   expect(currentPage).toEqual(value);
+  // });
 });
