@@ -6,6 +6,7 @@ ShallowWrapper {
   Symbol(enzyme.__unrendered__): <UpdateTab
     handleUpdates={[MockFunction]}
     numberOfItems={1}
+    view="listView"
   />,
   Symbol(enzyme.__renderer__): Object {
     "batchedUpdates": [Function],
@@ -22,14 +23,13 @@ ShallowWrapper {
     "nodeType": "host",
     "props": Object {
       "children": <button
-        className="upload-tab"
+        className="update-tab false"
         onClick={[MockFunction]}
         type="button"
       >
-        Load new updates(
-         
+        Load new updates  [
         1
-        )
+        ]
       </button>,
     },
     "ref": null,
@@ -39,21 +39,19 @@ ShallowWrapper {
       "nodeType": "host",
       "props": Object {
         "children": Array [
-          "Load new updates(",
-          " ",
+          "Load new updates  [",
           1,
-          ")",
+          "]",
         ],
-        "className": "upload-tab",
+        "className": "update-tab false",
         "onClick": [MockFunction],
         "type": "button",
       },
       "ref": null,
       "rendered": Array [
-        "Load new updates(",
-        " ",
+        "Load new updates  [",
         1,
-        ")",
+        "]",
       ],
       "type": "button",
     },
@@ -66,14 +64,13 @@ ShallowWrapper {
       "nodeType": "host",
       "props": Object {
         "children": <button
-          className="upload-tab"
+          className="update-tab false"
           onClick={[MockFunction]}
           type="button"
         >
-          Load new updates(
-           
+          Load new updates  [
           1
-          )
+          ]
         </button>,
       },
       "ref": null,
@@ -83,21 +80,19 @@ ShallowWrapper {
         "nodeType": "host",
         "props": Object {
           "children": Array [
-            "Load new updates(",
-            " ",
+            "Load new updates  [",
             1,
-            ")",
+            "]",
           ],
-          "className": "upload-tab",
+          "className": "update-tab false",
           "onClick": [MockFunction],
           "type": "button",
         },
         "ref": null,
         "rendered": Array [
-          "Load new updates(",
-          " ",
+          "Load new updates  [",
           1,
-          ")",
+          "]",
         ],
         "type": "button",
       },
@@ -116,7 +111,10 @@ ShallowWrapper {
           "getChildContext": Object {
             "calledByRenderer": false,
           },
-          "getDerivedStateFromProps": true,
+          "getDerivedStateFromError": true,
+          "getDerivedStateFromProps": Object {
+            "hasShouldComponentUpdateBug": false,
+          },
           "getSnapshotBeforeUpdate": true,
           "setState": Object {
             "skipsComponentDidUpdateOnNullish": true,

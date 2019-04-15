@@ -1,95 +1,23 @@
-/* global mount */˝
+/* global mount */
 import React from 'react';
 import configureStore from 'redux-mock-store';
 import ReportComponent, { ReportPage, mapDispatchToProps, mapStateToProps } from '../../components/ReportPage';
+import { sampleReports, stats } from '../../fixtures/fixtures';
 
-const sampleReports = {
-  data: [
-    {
-      id: 1,
-      fellowName: 'Tunmise, Sandile',
-      partnerName: 'Andela',
-      type: 'onboarding',
-      slackAutomations: {
-        status: 'failure',
-        slackActivities: [14],
-      },
-      freckleAutomations: {
-        status: 'failure',
-        freckleActivities: [{
-          projectId: 34,
-          type: 'projectCreation',
-          status: 'failure',
-        }],
-      },
-      emailAutomations: {
-        status: 'success',
-        emailActivities: [10],
-      },
-      updatedAt: '2017-09-29 ',
-    },
-    {
-      id: 2,
-      fellowName: 'Shakira, Shakira',
-      partnerName: 'ESA',
-      type: 'offboarding',
-      slackAutomations: {
-        status: 'success',
-        slackActivities: [14],
-      },
-      freckleAutomations: {
-        status: 'success',
-        freckleActivities: [{
-          projectId: 34,
-          type: 'projectCreation',
-          status: 'failure',
-        }],
-      },
-      emailAutomations: {
-        status: 'success',
-        emailActivities: [10],
-      },
-      updatedAt: '2018-09-29',
-    },
-  ],
-  pagination: {
-    currentPage: 1,
-    numberOfPages: 6556,
-    dataCount: '13112',
-    nextPage: 2,
+const state = {
+  automation: {
+    data: sampleReports.data,
+    error: { error: '' },
+    isLoading: false,
+    pagination: sampleReports.pagination,
   },
-};
-
-const stats = {
-  isLoading: false,
-  data: {
-    automation: {
-      success: 1,
-      total: 191,
-    },
-    onboarding: {
-      success: 1,
-      total: 191,
-    },
-    offboarding: {
-      success: 1,
-      total: 191,
-    },
-    freckle: {
-      success: 1,
-      total: 191,
-    },
-    slack: {
-      success: 1,
-      total: 191,
-    },
-    email: {
-      success: 1,
-      total: 191,
-    },
-  },
+  stats,
   error: {},
+  isLoading: false,
 };
+
+const mockStore = configureStore();
+const store = mockStore(state);
 
 describe('ReportPage Component', () => {
   const props = {
@@ -117,12 +45,17 @@ describe('ReportPage Component', () => {
     resetUpdates: jest.fn(),
     fetchStat: jest.fn(),
     realTimeReport: sampleReports.data,
+    retryFailedAutomation: jest.fn,
   };
   let component;
 
   beforeEach(() => {
     component = mount(<ReportPage {...props} />);
   });
+
+  afterEach(() => {
+    component.unmount();
+  })
 
   it('should render as expected', () => {
     const title = component.find('.text');
@@ -143,6 +76,20 @@ describe('ReportPage Component', () => {
     expect(global.open).toHaveBeenCalled();
   });
 
+  it('updates the page limit', () => {
+    const { pagination, filters } = component.state();
+    const limitSelection = component.find('.select');
+    limitSelection.simulate('change', { target: { value: 25 } });
+    expect(component.state('pagination').limit).toEqual(25);
+    expect(props.fetchAllAutomation).toHaveBeenCalledWith(pagination, filters);
+  });
+
+  it('updates the current page state when user types in the input box', () => {
+    const currentPageInput = component.find('.form-input');
+    currentPageInput.simulate('change', { target: { value: 30 } });
+    expect(component.state('tempCurrentPage')).toEqual(30);
+  });
+
   describe('render view', () => {
     let wrapper;
     it('should render view of listCard', () => {
@@ -160,33 +107,20 @@ describe('ReportPage Component', () => {
       expect(component.instance().state.isModalOpen).toEqual(false);
     });
 
-    it('should render automation modal view of cardView', () => {
-      component.setState({
-        reportData: sampleReports.data,
-        isLoadingReports: false,
-        viewMode: 'cardView',
-      });
-      const infoIcon = component
-        .find('.card').at(0)
-        .find('.info-cont')
-        .find('.info-icon')
-        .at(0);
-
-      infoIcon.simulate('click');
-      component.find('.modal-close-button-group').simulate('click');
-      expect(component.instance().state.isModalOpen).toEqual(false);
-    });
-
     describe('render view', () => {
-      it('should render view of listCard', () => {
-        const tableBody = component.find('.table-body').find('.report-table');
-        expect(tableBody).toBeDefined();
+      it('should render card view', () => {
+        const viewButton = component
+          .find('.report-navbar-container')
+          .find('.report-navbar')
+          .find('#card-icon');
+        viewButton.simulate('click');
+        expect(component.state().viewMode).toEqual('cardView');
       });
 
       it('should render list', () => {
         const viewButton = component
           .find('.report-navbar-container')
-          .find('.right-navbar')
+          .find('.report-navbar')
           .find('#list-icon');
         viewButton.simulate('click');
         expect(component.state().viewMode).toEqual('listView');
@@ -217,6 +151,7 @@ describe('ReportPage Component', () => {
       expect(instance.handleRetryAutomation).toBeCalled;
     });
   });
+
   describe('The mapStateToProps', () => {
     it('should return the expected props object', () => {
       const storeState = {
@@ -233,15 +168,39 @@ describe('ReportPage Component', () => {
   });
 
   describe('The mapDispatchToProps', () => {
-    it('should ensure that fetchStat is mapped to props', () => {
-      const dispatch = jest.fn();
-      const expectedProps = mapDispatchToProps(dispatch);
+    let dispatch;
+    let expectedProps;
 
+    beforeEach(() => {
+      dispatch = jest.fn();
+      expectedProps = mapDispatchToProps(dispatch);
+    });
+
+    it('should ensure that fetchStat is mapped to props', () => {
+      expectedProps.fetchStat();
+      expect(dispatch).toHaveBeenCalled();
+    });
+
+    it('should ensure that fetchAllAutomation is mapped to props', () => {
+      expectedProps.fetchAllAutomation();
+      expect(dispatch).toHaveBeenCalled();
+    });
+
+    it('should ensure that fetchUpdates is mapped to props', () => {
+      expectedProps.fetchUpdates();
+      expect(dispatch).toHaveBeenCalled();
+    });
+
+    it('should ensure that resetUpdates is mapped to props', () => {
+      expectedProps.resetUpdates();
+      expect(dispatch).toHaveBeenCalled();
+    });
+
+    it('should ensure that fetchStat is mapped to props', () => {
       expectedProps.fetchStat();
       expect(dispatch).toHaveBeenCalled();
     });
   });
-
 
   describe('Test component methods', () => {
     it('should handle update tab', () => {
@@ -256,15 +215,6 @@ describe('ReportPage Component', () => {
       expect(props.fetchAllAutomation).toHaveBeenCalled();
       const tableBody = component.find('.table-body').find('.report-table');
       expect(tableBody).toBeDefined();
-    });
-
-    it('should render list', () => {
-      const viewButton = component
-        .find('.report-navbar-container')
-        .find('.right-navbar')
-        .find('#list-icon');
-      viewButton.simulate('click');
-      expect(component.state().viewMode).toEqual('listView');
     });
   });
 });

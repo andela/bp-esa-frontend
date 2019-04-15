@@ -10,9 +10,11 @@ describe('Pagination Component', () => {
     },
     limit: 10,
     pageNumber: 1,
+    currentPage: 2,
     handlePagination: jest.fn(),
     onPageChange: jest.fn(),
     onChangeRowCount: jest.fn(),
+    tempCurrentPage: false,
   };
 
   let wrapper;

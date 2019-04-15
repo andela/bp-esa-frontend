@@ -74,6 +74,7 @@ describe('Filter Component Integration', () => {
       location={{ search: '?view=listView' }}
       fetchStat={() => {}}
       stats={stats}
+      retryFailedAutomation={jest.fn()}
     />);
   });
 
@@ -86,6 +87,7 @@ describe('Filter Component Integration', () => {
   it('should render the filter component', () => {
     expect(reportPage.find(FilterComponent)).toHaveLength(1);
   });
+
   it('should call the filter function when the filters are applied', () => {
     reportPage.find('div.filter-button').simulate('click');
     expect(reportPage.find(FilterDropdown)).toHaveLength(1);
@@ -94,7 +96,7 @@ describe('Filter Component Integration', () => {
     const [arg] = filterSpy.lastCall.args;
     expect(arg).toEqual(filterInitialState);
     expect(fetchAllAutomationMock).toHaveBeenCalledWith(
-      { currentPage: 1, limit: 25 },
+      { currentPage: 1, limit: 10 },
       filterInitialState,
     );
   });

@@ -5,36 +5,10 @@ import { throwError } from 'redux-saga-test-plan/providers';
 import { watchFetchStats } from '../statSagas';
 import StatsAPI from '../../api/automationStatApi';
 import { fetchStatsFailure, fetchStatsRequest, fetchStatsSuccess } from '../../actions/automationStats';
+import { stats } from '../../../fixtures/fixtures';
 
 describe('The statistics saga', () => {
-  const expectedResponse = {
-    data: {
-      automation: {
-        success: 1,
-        total: 191,
-      },
-      onboarding: {
-        success: 1,
-        total: 191,
-      },
-      offboarding: {
-        success: 1,
-        total: 191,
-      },
-      freckle: {
-        success: 1,
-        total: 191,
-      },
-      slack: {
-        success: 1,
-        total: 191,
-      },
-      email: {
-        success: 1,
-        total: 191,
-      },
-    },
-  };
+  const expectedResponse = stats;
 
   it('should fetch statistics successfully', () => expectSaga(watchFetchStats)
     .provide([

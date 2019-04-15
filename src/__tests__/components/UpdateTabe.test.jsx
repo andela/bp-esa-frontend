@@ -6,6 +6,7 @@ describe('Update Tab', () => {
   const props = {
     numberOfItems: 1,
     handleUpdates: jest.fn(),
+    view: 'listView',
   };
   let wrapper;
 

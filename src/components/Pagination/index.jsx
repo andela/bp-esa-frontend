@@ -69,7 +69,6 @@ function Pagination({
       </div>
     </>
   );
-
   return (
     <>
       {renderPaginationPanel(numberOfPages, currentPage)}
@@ -83,8 +82,8 @@ Pagination.propTypes = {
   onPageChange: PropTypes.func.isRequired,
   onChangeRowCount: PropTypes.func.isRequired,
   limit: PropTypes.number.isRequired,
-  tempCurrentPage: PropTypes.oneOfType([PropTypes.number, PropTypes.bool]).isRequired,
-  currentPage: PropTypes.number.isRequired,
+  tempCurrentPage: PropTypes.oneOfType([PropTypes.number, PropTypes.string, PropTypes.bool]).isRequired,
+  currentPage: PropTypes.oneOfType([PropTypes.number, PropTypes.string]).isRequired,
 };
 
 export default Pagination;

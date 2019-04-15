@@ -3,6 +3,7 @@
 exports[`Pagination Component renders the pagination component 1`] = `
 ReactWrapper {
   Symbol(enzyme.__unrendered__): <Pagination
+    currentPage={2}
     handlePagination={[MockFunction]}
     limit={10}
     onChangeRowCount={[MockFunction]}
@@ -14,10 +15,12 @@ ReactWrapper {
         "numberOfPages": 1120,
       }
     }
+    tempCurrentPage={false}
   />,
   Symbol(enzyme.__renderer__): Object {
     "batchedUpdates": [Function],
     "getNode": [Function],
+    "getWrappingComponentRenderer": [Function],
     "render": [Function],
     "simulateError": [Function],
     "simulateEvent": [Function],
@@ -29,6 +32,7 @@ ReactWrapper {
     "key": undefined,
     "nodeType": "function",
     "props": Object {
+      "currentPage": 2,
       "handlePagination": [MockFunction],
       "limit": 10,
       "onChangeRowCount": [MockFunction],
@@ -38,6 +42,7 @@ ReactWrapper {
         "currentPage": 1,
         "numberOfPages": 1120,
       },
+      "tempCurrentPage": false,
     },
     "ref": null,
     "rendered": Object {
@@ -48,7 +53,7 @@ ReactWrapper {
           class="center-item"
         >
           <p>
-            Page 1 of 1120
+            Page 2 of 1120
           </p>
         </div>
         <form>
@@ -86,7 +91,7 @@ ReactWrapper {
           class="page-panel"
         >
           <button
-            class="disabled"
+            class="page-btn icon-btn"
             type="button"
           >
             <img
@@ -96,7 +101,7 @@ ReactWrapper {
             />
           </button>
           <button
-            class="disabled"
+            class="page-btn icon-btn"
             type="button"
           >
             <img
@@ -106,10 +111,14 @@ ReactWrapper {
             />
           </button>
           <input
+            autocomplete="off"
             class="form-input"
+            data-state-name="tempCurrentPage"
+            max="1120"
+            min="1"
             name="pageNumber"
-            type="text"
-            value="1"
+            type="number"
+            value="2"
           />
           <button
             class="page-btn icon-btn"
@@ -141,7 +150,7 @@ ReactWrapper {
             className="center-item"
           >
             <p>
-              Page 1 of 1120
+              Page 2 of 1120
             </p>
           </div>,
           <form>
@@ -181,7 +190,7 @@ ReactWrapper {
             className="page-panel"
           >
             <button
-              className="disabled"
+              className="page-btn icon-btn"
               onClick={[Function]}
               type="button"
             >
@@ -192,7 +201,7 @@ ReactWrapper {
               />
             </button>
             <button
-              className="disabled"
+              className="page-btn icon-btn"
               onClick={[Function]}
               type="button"
             >
@@ -203,11 +212,15 @@ ReactWrapper {
               />
             </button>
             <input
+              autoComplete="off"
               className="form-input"
+              data-state-name="tempCurrentPage"
+              max={1120}
+              min={1}
               name="pageNumber"
               onChange={[Function]}
-              type="text"
-              value={1}
+              type="number"
+              value={2}
             />
             <button
               className="page-btn icon-btn"
@@ -242,14 +255,14 @@ ReactWrapper {
             class="center-item"
           >
             <p>
-              Page 1 of 1120
+              Page 2 of 1120
             </p>
           </div>,
           "key": undefined,
           "nodeType": "host",
           "props": Object {
             "children": <p>
-              Page 1 of 1120
+              Page 2 of 1120
             </p>,
             "className": "center-item",
           },
@@ -257,16 +270,16 @@ ReactWrapper {
           "rendered": Array [
             Object {
               "instance": <p>
-                Page 1 of 1120
+                Page 2 of 1120
               </p>,
               "key": undefined,
               "nodeType": "host",
               "props": Object {
-                "children": "Page 1 of 1120",
+                "children": "Page 2 of 1120",
               },
               "ref": null,
               "rendered": Array [
-                "Page 1 of 1120",
+                "Page 2 of 1120",
               ],
               "type": "p",
             },
@@ -501,7 +514,7 @@ ReactWrapper {
             class="page-panel"
           >
             <button
-              class="disabled"
+              class="page-btn icon-btn"
               type="button"
             >
               <img
@@ -511,7 +524,7 @@ ReactWrapper {
               />
             </button>
             <button
-              class="disabled"
+              class="page-btn icon-btn"
               type="button"
             >
               <img
@@ -521,10 +534,14 @@ ReactWrapper {
               />
             </button>
             <input
+              autocomplete="off"
               class="form-input"
+              data-state-name="tempCurrentPage"
+              max="1120"
+              min="1"
               name="pageNumber"
-              type="text"
-              value="1"
+              type="number"
+              value="2"
             />
             <button
               class="page-btn icon-btn"
@@ -552,7 +569,7 @@ ReactWrapper {
           "props": Object {
             "children": Array [
               <button
-                className="disabled"
+                className="page-btn icon-btn"
                 onClick={[Function]}
                 type="button"
               >
@@ -563,7 +580,7 @@ ReactWrapper {
                 />
               </button>,
               <button
-                className="disabled"
+                className="page-btn icon-btn"
                 onClick={[Function]}
                 type="button"
               >
@@ -574,11 +591,15 @@ ReactWrapper {
                 />
               </button>,
               <input
+                autoComplete="off"
                 className="form-input"
+                data-state-name="tempCurrentPage"
+                max={1120}
+                min={1}
                 name="pageNumber"
                 onChange={[Function]}
-                type="text"
-                value={1}
+                type="number"
+                value={2}
               />,
               <button
                 className="page-btn icon-btn"
@@ -609,7 +630,7 @@ ReactWrapper {
           "rendered": Array [
             Object {
               "instance": <button
-                class="disabled"
+                class="page-btn icon-btn"
                 type="button"
               >
                 <img
@@ -626,7 +647,7 @@ ReactWrapper {
                   className="nav-icon"
                   src="first-page-icon.svg"
                 />,
-                "className": "disabled",
+                "className": "page-btn icon-btn",
                 "onClick": [Function],
                 "type": "button",
               },
@@ -656,7 +677,7 @@ ReactWrapper {
             },
             Object {
               "instance": <button
-                class="disabled"
+                class="page-btn icon-btn"
                 type="button"
               >
                 <img
@@ -673,7 +694,7 @@ ReactWrapper {
                   className="nav-icon"
                   src="previous-page-icon.svg"
                 />,
-                "className": "disabled",
+                "className": "page-btn icon-btn",
                 "onClick": [Function],
                 "type": "button",
               },
@@ -703,19 +724,27 @@ ReactWrapper {
             },
             Object {
               "instance": <input
+                autocomplete="off"
                 class="form-input"
+                data-state-name="tempCurrentPage"
+                max="1120"
+                min="1"
                 name="pageNumber"
-                type="text"
-                value="1"
+                type="number"
+                value="2"
               />,
               "key": undefined,
               "nodeType": "host",
               "props": Object {
+                "autoComplete": "off",
                 "className": "form-input",
+                "data-state-name": "tempCurrentPage",
+                "max": 1120,
+                "min": 1,
                 "name": "pageNumber",
                 "onChange": [Function],
-                "type": "text",
-                "value": 1,
+                "type": "number",
+                "value": 2,
               },
               "ref": null,
               "rendered": Array [
@@ -831,6 +860,7 @@ ReactWrapper {
       "key": undefined,
       "nodeType": "function",
       "props": Object {
+        "currentPage": 2,
         "handlePagination": [MockFunction],
         "limit": 10,
         "onChangeRowCount": [MockFunction],
@@ -840,6 +870,7 @@ ReactWrapper {
           "currentPage": 1,
           "numberOfPages": 1120,
         },
+        "tempCurrentPage": false,
       },
       "ref": null,
       "rendered": Object {
@@ -850,7 +881,7 @@ ReactWrapper {
             class="center-item"
           >
             <p>
-              Page 1 of 1120
+              Page 2 of 1120
             </p>
           </div>
           <form>
@@ -888,7 +919,7 @@ ReactWrapper {
             class="page-panel"
           >
             <button
-              class="disabled"
+              class="page-btn icon-btn"
               type="button"
             >
               <img
@@ -898,7 +929,7 @@ ReactWrapper {
               />
             </button>
             <button
-              class="disabled"
+              class="page-btn icon-btn"
               type="button"
             >
               <img
@@ -908,10 +939,14 @@ ReactWrapper {
               />
             </button>
             <input
+              autocomplete="off"
               class="form-input"
+              data-state-name="tempCurrentPage"
+              max="1120"
+              min="1"
               name="pageNumber"
-              type="text"
-              value="1"
+              type="number"
+              value="2"
             />
             <button
               class="page-btn icon-btn"
@@ -943,7 +978,7 @@ ReactWrapper {
               className="center-item"
             >
               <p>
-                Page 1 of 1120
+                Page 2 of 1120
               </p>
             </div>,
             <form>
@@ -983,7 +1018,7 @@ ReactWrapper {
               className="page-panel"
             >
               <button
-                className="disabled"
+                className="page-btn icon-btn"
                 onClick={[Function]}
                 type="button"
               >
@@ -994,7 +1029,7 @@ ReactWrapper {
                 />
               </button>
               <button
-                className="disabled"
+                className="page-btn icon-btn"
                 onClick={[Function]}
                 type="button"
               >
@@ -1005,11 +1040,15 @@ ReactWrapper {
                 />
               </button>
               <input
+                autoComplete="off"
                 className="form-input"
+                data-state-name="tempCurrentPage"
+                max={1120}
+                min={1}
                 name="pageNumber"
                 onChange={[Function]}
-                type="text"
-                value={1}
+                type="number"
+                value={2}
               />
               <button
                 className="page-btn icon-btn"
@@ -1044,14 +1083,14 @@ ReactWrapper {
               class="center-item"
             >
               <p>
-                Page 1 of 1120
+                Page 2 of 1120
               </p>
             </div>,
             "key": undefined,
             "nodeType": "host",
             "props": Object {
               "children": <p>
-                Page 1 of 1120
+                Page 2 of 1120
               </p>,
               "className": "center-item",
             },
@@ -1059,16 +1098,16 @@ ReactWrapper {
             "rendered": Array [
               Object {
                 "instance": <p>
-                  Page 1 of 1120
+                  Page 2 of 1120
                 </p>,
                 "key": undefined,
                 "nodeType": "host",
                 "props": Object {
-                  "children": "Page 1 of 1120",
+                  "children": "Page 2 of 1120",
                 },
                 "ref": null,
                 "rendered": Array [
-                  "Page 1 of 1120",
+                  "Page 2 of 1120",
                 ],
                 "type": "p",
               },
@@ -1303,7 +1342,7 @@ ReactWrapper {
               class="page-panel"
             >
               <button
-                class="disabled"
+                class="page-btn icon-btn"
                 type="button"
               >
                 <img
@@ -1313,7 +1352,7 @@ ReactWrapper {
                 />
               </button>
               <button
-                class="disabled"
+                class="page-btn icon-btn"
                 type="button"
               >
                 <img
@@ -1323,10 +1362,14 @@ ReactWrapper {
                 />
               </button>
               <input
+                autocomplete="off"
                 class="form-input"
+                data-state-name="tempCurrentPage"
+                max="1120"
+                min="1"
                 name="pageNumber"
-                type="text"
-                value="1"
+                type="number"
+                value="2"
               />
               <button
                 class="page-btn icon-btn"
@@ -1354,7 +1397,7 @@ ReactWrapper {
             "props": Object {
               "children": Array [
                 <button
-                  className="disabled"
+                  className="page-btn icon-btn"
                   onClick={[Function]}
                   type="button"
                 >
@@ -1365,7 +1408,7 @@ ReactWrapper {
                   />
                 </button>,
                 <button
-                  className="disabled"
+                  className="page-btn icon-btn"
                   onClick={[Function]}
                   type="button"
                 >
@@ -1376,11 +1419,15 @@ ReactWrapper {
                   />
                 </button>,
                 <input
+                  autoComplete="off"
                   className="form-input"
+                  data-state-name="tempCurrentPage"
+                  max={1120}
+                  min={1}
                   name="pageNumber"
                   onChange={[Function]}
-                  type="text"
-                  value={1}
+                  type="number"
+                  value={2}
                 />,
                 <button
                   className="page-btn icon-btn"
@@ -1411,7 +1458,7 @@ ReactWrapper {
             "rendered": Array [
               Object {
                 "instance": <button
-                  class="disabled"
+                  class="page-btn icon-btn"
                   type="button"
                 >
                   <img
@@ -1428,7 +1475,7 @@ ReactWrapper {
                     className="nav-icon"
                     src="first-page-icon.svg"
                   />,
-                  "className": "disabled",
+                  "className": "page-btn icon-btn",
                   "onClick": [Function],
                   "type": "button",
                 },
@@ -1458,7 +1505,7 @@ ReactWrapper {
               },
               Object {
                 "instance": <button
-                  class="disabled"
+                  class="page-btn icon-btn"
                   type="button"
                 >
                   <img
@@ -1475,7 +1522,7 @@ ReactWrapper {
                     className="nav-icon"
                     src="previous-page-icon.svg"
                   />,
-                  "className": "disabled",
+                  "className": "page-btn icon-btn",
                   "onClick": [Function],
                   "type": "button",
                 },
@@ -1505,19 +1552,27 @@ ReactWrapper {
               },
               Object {
                 "instance": <input
+                  autocomplete="off"
                   class="form-input"
+                  data-state-name="tempCurrentPage"
+                  max="1120"
+                  min="1"
                   name="pageNumber"
-                  type="text"
-                  value="1"
+                  type="number"
+                  value="2"
                 />,
                 "key": undefined,
                 "nodeType": "host",
                 "props": Object {
+                  "autoComplete": "off",
                   "className": "form-input",
+                  "data-state-name": "tempCurrentPage",
+                  "max": 1120,
+                  "min": 1,
                   "name": "pageNumber",
                   "onChange": [Function],
-                  "type": "text",
-                  "value": 1,
+                  "type": "number",
+                  "value": 2,
                 },
                 "ref": null,
                 "rendered": Array [
@@ -1640,7 +1695,10 @@ ReactWrapper {
           "getChildContext": Object {
             "calledByRenderer": false,
           },
-          "getDerivedStateFromProps": true,
+          "getDerivedStateFromError": true,
+          "getDerivedStateFromProps": Object {
+            "hasShouldComponentUpdateBug": false,
+          },
           "getSnapshotBeforeUpdate": true,
           "setState": Object {
             "skipsComponentDidUpdateOnNullish": true,

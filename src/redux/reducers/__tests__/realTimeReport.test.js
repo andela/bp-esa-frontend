@@ -1,11 +1,11 @@
 import realTimeReportReducer from '../realTimeReport';
 import { SET_REAL_TIME_DATA, RESET_REAL_TIME_DATA_SUCCESS } from '../../constants';
-import sampleData from '../fixtures/fixtures';
+import { sampleReports } from '../../../fixtures/fixtures';
 
 describe('Real Time Report reducer', () => {
   const initialState = [];
-  const updatedState = [{ ...sampleData }];
-  const data = sampleData.data[0];
+  const updatedState = [{ ...sampleReports }];
+  const data = sampleReports.data[0];
 
   it('should return initial state', () => {
     const res = realTimeReportReducer(undefined, { type: 'NOT_AN_ACTION' });

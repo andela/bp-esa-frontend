@@ -120,7 +120,7 @@ class AutomationDetails extends PureComponent {
     const { slackAutomations } = modalContent;
     const slackActivities = (slackAutomations && slackAutomations.slackActivities) || [];
     return (slackActivities.map(content => (
-      <div key={content.id}>
+      <div key={content.slackUserId}>
         <div className="automation-content">
           <div className="content-row name">{content.channelName}</div>
           <div className="content-row type">{content.type}</div>
@@ -132,7 +132,7 @@ class AutomationDetails extends PureComponent {
 
   renderEmailDetails = (modalContent) => {
     const { emailAutomations } = modalContent;
-    const emailActivities = (emailAutomations && emailAutomations.emailActivities) || [];
+    const emailActivities = (emailAutomations && emailAutomations.emailActivities) || [];    
     return (emailActivities.map(content => (
       <div key={content.id}>
         <div className="automation-content">

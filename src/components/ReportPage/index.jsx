@@ -2,7 +2,7 @@
 /* eslint-disable no-fallthrough */
 /* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
 /* eslint-disable react/no-unused-state */
-import React, { Component, Fragment } from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import 'toastr/toastr.scss';
 import { connect } from 'react-redux';
@@ -21,32 +21,16 @@ import { filterInitialState } from '../FilterComponent';
 import StatsCard from '../StatsCard';
 import { fetchStatsRequest } from '../../redux/actions/automationStats';
 import { fetchRealTimeReport, resetRealTimeReport } from '../../redux/actions/realTimeReport';
-import pageNavigation from '../../utils/utils';
-
 
 /* eslint-disable class-methods-use-this */
 export class ReportPage extends Component {
-  handleOnKeyPress = _.debounce(() => {
-    const { pagination: { currentPage: page, limit: pageLimit } } = this.state;
-    const { fetchAllAutomation } = this.props;
-
-    if (page === '') {
-      return;
-    }
-
-    fetchAllAutomation(page, pageLimit);
-  }, 1000);
-
   constructor() {
     super();
     this.state = {
       viewMode: 'cardView',
       filters: filterInitialState,
-      pagination: {
-        currentPage: 1,
-        limit: 25,
-      },
       isLoadingReports: false,
+      reportData: [],
       pagination: {
         currentPage: 1,
         limit: 10,
@@ -114,7 +98,7 @@ export class ReportPage extends Component {
       default:
         return currentPage;
     }
-  };
+  }
 
   handlePagination = (action) => {
     const { pagination: { currentPage } } = this.state;
@@ -122,7 +106,17 @@ export class ReportPage extends Component {
     const page = this.pageNavigation(action, currentPage, numberOfPages);
     this.setPaginationState({ currentPage: page });
     resetUpdates();
-  };
+  }
+
+  handleUpdates = (e) => {
+    e.preventDefault();
+    const { fetchAllAutomation, resetUpdates } = this.props;
+    const { pagination, filters } = this.state;
+
+    resetUpdates();
+    fetchAllAutomation(pagination, filters);
+    this.setPaginationState({ currentPage: 1 });
+  }
 
   setPaginationState = (pagination) => {
     this.setState(prevState => ({
@@ -137,7 +131,8 @@ export class ReportPage extends Component {
 
   onPageChange = (event) => {
     event.preventDefault();
-    this.setState({ tempCurrentPage: event.target.value }, this.handleOnKeyPress);
+    const page = parseInt(event.target.value, 10);
+    this.setState({ tempCurrentPage: page }, this.handleOnKeyPress);
   };
 
   onChangeRowCount = (event) => {
@@ -155,6 +150,21 @@ export class ReportPage extends Component {
       minute: 'numeric',
     };
     return new Date(date).toLocaleDateString('en-US', dateFormat);
+  };
+
+  toggleModal = () => {
+    this.setState(prevState => ({
+      isModalOpen: !prevState.isModalOpen,
+    }));
+  }
+
+  handleRetryAutomation = (automationId) => {
+    const { retryFailedAutomation } = this.props;
+    retryFailedAutomation(automationId);
+  }
+
+  changeModalTypes = (report) => {
+    this.setState({ modalContent: report });
   };
 
   // Do not change to arrow function because in the tests,
@@ -175,23 +185,6 @@ export class ReportPage extends Component {
         filters,
       }));
   }
-
-  openModal = () => {
-    this.setState({ isModalOpen: true });
-  };
-
-  handleRetryAutomation = (automationId) => {
-    const { retryFailedAutomation } = this.props;
-    retryFailedAutomation(automationId);
-  }
-
-  closeModal = () => {
-    this.setState({ isModalOpen: false });
-  };
-
-  changeModalTypes = (report) => {
-    this.setState({ modalContent: report });
-  };
 
   runFilters(report) {
     const { filters } = this.state;
@@ -255,7 +248,7 @@ export class ReportPage extends Component {
 
   renderInfoIcon = report => (
     <div className="info- ">
-      <i className="fa fa-info-circle" onClick={() => { this.openModal(); this.changeModalTypes(report); }} id="info-icon" />
+      <i className="fa fa-info-circle" onClick={() => { this.toggleModal(); this.changeModalTypes(report); }} id="info-icon" />
     </div>
   );
 
@@ -298,7 +291,13 @@ export class ReportPage extends Component {
     const { viewMode } = this.state;
     const { realTimeReport } = this.props;
     return realTimeReport.length > 0
-    && <UpdateTab numberOfItems={realTimeReport.length} handleUpdates={this.handleUpdates} view={viewMode} />;
+    && (
+    <UpdateTab
+      numberOfItems={realTimeReport.length}
+      handleUpdates={this.handleUpdates}
+      view={viewMode}
+    />
+    );
   }
 
   renderListCard = () => {
@@ -336,7 +335,7 @@ export class ReportPage extends Component {
             <AutomationDetails
               data={data}
               isModalOpen={isModalOpen}
-              closeModal={this.closeModal}
+              closeModal={this.toggleModal}
               modalContent={modalContent}
               formatDates={this.formatDates}
               retryingAutomation={retryingAutomation}
@@ -350,14 +349,14 @@ export class ReportPage extends Component {
             <DeveloperCard
               data={data}
               isLoading={isLoading}
-              openModal={this.openModal}
+              openModal={this.toggleModal}
               changeModalTypes={this.changeModalTypes}
               retryingAutomation={retryingAutomation}
               handleRetryAutomation={() => this.handleRetryAutomation()}
             />
             <AutomationDetails
               isModalOpen={isModalOpen}
-              closeModal={this.closeModal}
+              closeModal={this.toggleModal}
               modalContent={modalContent}
               formatDates={this.formatDates}
             />
@@ -381,7 +380,11 @@ export class ReportPage extends Component {
   }
 
   render() {
-    const { pagination: { limit }, tempCurrentPage } = this.state;
+    const {
+      pagination: { limit, currentPage },
+      tempCurrentPage,
+    } = this.state;
+
     const {
       currentUser,
       removeCurrentUser,
@@ -419,6 +422,7 @@ export class ReportPage extends Component {
                       onPageChange={this.onPageChange}
                       onChangeRowCount={this.onChangeRowCount}
                       limit={limit}
+                      currentPage={currentPage}
                       tempCurrentPage={tempCurrentPage}
                     />
                   </React.Fragment>
@@ -466,9 +470,9 @@ ReportPage.propTypes = {
 };
 
 ReportPage.defaultProps = {
-  removeCurrentUser: () => { },
-  fetchUpdates: () => { },
-  resetUpdates: () => { },
+  removeCurrentUser: () => {},
+  fetchUpdates: () => {},
+  resetUpdates: () => {},
   realTimeReport: [],
 };
 
