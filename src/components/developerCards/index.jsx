@@ -57,7 +57,7 @@ class DeveloperCard extends Component {
   );
 
   renderCards =() => {
-    const { data } = this.props;
+    const { data, openModal, changeModalTypes } = this.props;
     const automation = length => length !== 0;
     const automationMetric = (activities, status) => (
       _.filter(activities, { status }).length
@@ -74,7 +74,7 @@ class DeveloperCard extends Component {
         <div className="card" key={card.id}>
           <div className="info-cont">
             <img className="info-icon onBoarding-icon" src={onBoarding} alt="onboarding icon" />
-            <img className="info-icon" src={InfoIcon} alt="info icon" />
+            <img className="info-icon" src={InfoIcon} alt="info icon" role="presentation" onClick={() => { openModal(); changeModalTypes(card); }} />
           </div>
           {this.renderDeveloperPic(firstInitials, secondInitials)}
           {this.renderDetails('developerDetails', 'developerName', card.fellowName)}
@@ -99,9 +99,9 @@ class DeveloperCard extends Component {
 
 DeveloperCard.propTypes = {
   data: PropTypes.array.isRequired,
-  isLoading: PropTypes.bool,
+  isLoading: PropTypes.bool.isRequired,
+  openModal: PropTypes.func.isRequired,
+  changeModalTypes: PropTypes.func.isRequired,
 };
-
-
 
 export default DeveloperCard;

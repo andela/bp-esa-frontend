@@ -1,7 +1,6 @@
 import React from 'react';
 import { mount } from 'enzyme';
 import AutomationDetails from '../../components/AutomationDetails';
-import ReportPage from '../../components/ReportPage';
 
 const props = {
   history: {},
@@ -11,10 +10,9 @@ const props = {
   formatDates: jest.fn(),
   isModalOpen: false,
   closeModal: jest.fn(),
-  modalType: 'slack',
   modalContent: {
     id: 1,
-    fellowName: 'Tunmise',
+    fellowName: 'Tunmise, Tunmise',
     partnerName: 'Andela',
     type: 'Onboarding',
     slackAutomations: {
@@ -64,27 +62,121 @@ const props = {
   },
 };
 
-const getComponent = () => shallow(<AutomationDetails {...props} />);
+const getComponent = () => mount(<AutomationDetails {...props} />);
 
 describe('Automation details', () => {
   it('should render slack details', () => {
-    expect(getComponent()).toMatchSnapshot();
+    const component = getComponent();
+    expect(component.instance().state.modalType).toEqual('slack');
   });
 
   it('should render email details', () => {
     const component = getComponent();
-    component.setProps({
-      modalType: 'email',
-    });
-    expect(getComponent()).toMatchSnapshot();
-    expect(component.find('.table-body-details')).toBeTruthy();
+    component.find('#email').simulate('click');
+    expect(component.instance().state.modalType).toEqual('email');
   });
 
   it('should render freckle details', () => {
     const component = getComponent();
-    component.setProps({
-      modalType: 'freckle',
-    });
-    expect(getComponent()).toMatchSnapshot();
+    component.find('#freckle').simulate('click');
+    expect(component.instance().state.modalType).toEqual('freckle');
+  });
+
+  it('should render freckle details with no activities', () => {
+    const prop = {
+      history: {},
+      currentUser: {
+        additionalUserInfo: { profile: { name: 'Kelvin', picture: 'ddff' } },
+      },
+      formatDates: jest.fn(),
+      isModalOpen: false,
+      closeModal: jest.fn(),
+      modalContent: {
+        id: 1,
+        fellowName: 'Tunmise, Tunmise',
+        partnerName: 'Andela',
+        type: 'Onboarding',
+        slackAutomations: {
+          status: 'success',
+          slackActivities: [
+            {
+              channelName: 'andela-int',
+              type: 'Addition',
+              status: 'success',
+            },
+            {
+              channelName: 'andela',
+              type: 'Removal',
+              status: 'success',
+            },
+          ],
+        },
+        freckleAutomations: {
+          status: 'failure',
+        },
+        emailAutomations: {
+          status: 'success',
+          emailActivities: [{
+            id: 1,
+            emailTo: 'Tunmise.ogunniyi@andela.com',
+            subject: 'Onboarding',
+            status: 'success',
+          },
+          {
+            id: 2,
+            emailTo: 'Tunmise.ogunniyi@andela.com',
+            subject: 'Onboarding',
+            status: 'success',
+          },
+          ],
+        },
+        date: '2017-09-29 01:22',
+      },
+    };
+    const component = mount(<AutomationDetails {...prop} />);
+    component.find('#freckle').simulate('click');
+    expect(component.instance().state.modalType).toEqual('freckle');
+  });
+  it('should render email details with no activities', () => {
+    const prop = {
+      history: {},
+      currentUser: {
+        additionalUserInfo: { profile: { name: 'Kelvin', picture: 'ddff' } },
+      },
+      formatDates: jest.fn(),
+      isModalOpen: false,
+      closeModal: jest.fn(),
+      modalContent: {
+        id: 1,
+        fellowName: 'Tunmise, Tunmise',
+        partnerName: 'Andela',
+        type: 'Onboarding',
+        slackAutomations: {
+          status: 'success',
+          slackActivities: [
+            {
+              channelName: 'andela-int',
+              type: 'Addition',
+              status: 'success',
+            },
+            {
+              channelName: 'andela',
+              type: 'Removal',
+              status: 'success',
+            },
+          ],
+        },
+        freckleAutomations: {
+          status: 'failure',
+        },
+        emailAutomations: {
+          status: 'success',
+        },
+        date: '2017-09-29 01:22',
+      },
+    };
+    const component = mount(<AutomationDetails {...prop} />);
+    component.find('#email').simulate('click');
+    expect(component.instance().state.modalType).toEqual('email');
   });
 });
