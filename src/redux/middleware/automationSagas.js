@@ -10,19 +10,20 @@ import {
 } from '../actions/automationActions';
 import { FETCH_AUTOMATION, RETRY_AUTOMATION } from '../constants';
 
-export function* fetchFellows() {
+export function* fetchAutomations(payload) {
+  const { pagination, filters } = payload;
   try {
-    const response = yield call(AutomationAPI.getFellows);
+    const response = yield call(AutomationAPI.getAutomations, pagination, filters);
     yield put(fetchAutomationSuccess(response.data));
   } catch (e) {
-    const error = { error: 'Possible Network error, Please reload!' };
-    yield put(fetchAutomationError(error));
-    toastr.error('Possible Network error, Please reload!');
+    const error = 'Possible Network error, Please reload!';
+    yield put(fetchAutomationError({ error }));
+    toastr.error(error);
   }
 }
 
 export function* watchFetchFellows() {
-  yield takeLatest(FETCH_AUTOMATION, fetchFellows);
+  yield takeLatest(FETCH_AUTOMATION, fetchAutomations);
 }
 
 export function* retryAutomation(action) {

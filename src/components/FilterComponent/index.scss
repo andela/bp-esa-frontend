@@ -1,0 +1,481 @@
+.filter-container {
+  display: grid;
+  justify-self: right;
+  width: 90%;
+  .filter-box {
+    display: flex;
+    position: relative;
+
+    .search-input {
+      box-sizing: border-box;
+      border-radius: 3px 0 0 3px;
+      background-color: rgba(255,255,255,0.9);
+      border: 1px solid #CCD;
+      outline: none;
+      padding: 0.25em 0.5em;
+      height: 2.625em;
+      width: 1%;
+      flex: 1 1 auto;
+      max-width: 100%;
+
+    }
+    .filter-button {
+      width: 2.625em;
+      height: 2.625em;
+      box-sizing: border-box;
+      border-radius: 0 3px 3px 0;
+      background-color: rgba(255,254,254,0.9);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      // Border
+      border-width: 0.5px 0.5px 0.5px 0;
+      border-style: solid;
+      border-color: #CCD;
+
+      cursor: pointer;
+
+      .filter-button-icon {
+        height: 1.3125em;
+        width: 1.3125em;
+        display: block;
+        transform: rotate(270deg);
+      }
+    }
+
+    // This is the parent of the filter dropdown
+    .filter-dropdown-parent {
+      position: absolute;
+      z-index: 3;
+      display: grid;
+      grid-template-rows: repeat(4, max-content);
+      grid-gap: 0.5em;
+
+      width: 100%;
+      min-width: max-content;
+      padding: 1em;
+      top: calc(100% - 2px);
+      right: 0;
+      border-radius: 0 0 3px 3px;
+      box-shadow: 0 2px 0.3em #BCBCBC;
+
+      // Hide the browser's checkbox button
+      input[type="checkbox"]{
+        position: absolute;
+        opacity: 0;
+        cursor: pointer;
+        height: 0;
+        width: 0;
+      }
+
+      // Show a custom checkmark
+      .checkmark {
+        position: absolute;
+        height: 0.875em;
+        width: 0.875em;
+        border: 1px solid #3359df;
+        border-radius: 3px;
+        cursor: pointer;
+
+        &::after {
+          content: "";
+          position: absolute;
+          left: 2px;
+          top: -1px;
+          width: 5px;
+          height: 10px;
+          border: solid white;
+          border-width: 0 2px 2px 0;
+          -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+          display: none;
+        }
+      }
+
+      input:checked ~ .checkmark {
+        background-color: #3359df;
+
+        &::after {
+          display: block;
+        }
+      }
+
+      & , >* {
+        border: 0.5px solid #DDE;
+        background-color: #FEFEFE;
+        text-transform: capitalize;
+      }
+
+      >* {
+        border-radius: 3px;
+        padding: 0.75em;
+      }
+
+      * {
+        margin: 0;
+      }
+
+      .search-by {
+        display: grid;
+        grid-template-areas:
+                'searchTitle searchTitle'
+                'fellow partner';
+        grid-column-gap: 0.625em;
+
+        &-title {
+          grid-area: searchTitle;
+        }
+
+        &-fellow-label, &-partner-label{
+          position: relative;
+          padding-left: 1.5em;
+          .checkmark {
+            top: 0.3em;
+            left: 0;
+          }
+        }
+
+        &-fellow-label {
+          grid-area: fellow;
+        }
+
+        &-partner-label {
+          grid-area: partner;
+        }
+
+      }
+
+      .automation-type {
+        display: grid;
+        grid-template-areas:
+                'automationTypeTitle automationTypeTitle'
+                'onboarding offboarding';
+        grid-column-gap: 0.625em;
+
+        &-title {
+          grid-area: automationTypeTitle;
+        }
+        &-onboarding-label, &-offboarding-label{
+          position: relative;
+          padding-left: 1.5em;
+          .checkmark {
+            top: 0.3em;
+            left: 0;
+          }
+        }
+
+        &-onboarding-label {
+          grid-area: onboarding;
+        }
+        &-offboarding-label {
+          grid-area: offboarding;
+        }
+      }
+
+      .automation-status {
+        table, th, td {
+          border: none;
+          padding: 0;
+          margin: 0;
+        }
+
+        table {
+          display: grid;
+          grid-row-gap: 0.325em;
+        }
+
+        // Common tr properties
+        tr {
+          display: grid;
+          place-items: center;
+          width: 100%;
+          grid-column-gap: 0.625em;
+          grid-template-columns: repeat(3, 60px);
+        }
+
+        thead {
+          tr {
+            border-bottom: 1px solid #DDE;
+
+            th {
+              font-weight: 400;
+              width: 60px;
+            }
+
+            th:nth-child(2), th:last-child {
+              text-align: center;
+            }
+          }
+        }
+
+        tbody {
+          display: grid;
+
+          tr {
+
+            td:nth-child(1){
+              justify-self: left;
+            }
+
+            td {
+              display: block;
+              position: relative;
+              width: 60px;
+              height: 24px;
+
+              input[type="checkbox"] {
+                position: absolute;
+                height: 0.875em;
+                width: 0.875em;
+                z-index: 1;
+
+                &, & ~ .checkmark {
+                  top: 3px;
+                  left: calc(50% - 0.875em/2);
+                }
+
+                & ~ .checkmark {
+                  z-index: 0;
+                }
+              }
+            }
+
+          }
+        }
+
+      }
+
+      .automation-date {
+        display: grid;
+
+        input {
+          outline: none;
+          border: none;
+          // Two box shadows, the first is meant to hide 2px of the second one
+          // so that it looks like a thin border
+          box-shadow: 0 -2px 0 #FEFEFE inset, 0 -3px 0 #CCD inset;
+          max-width: 130px;
+          color: #667;
+          padding-left: 0.75em;
+        }
+
+        label {
+          display: grid;
+          grid-template-columns: 25% 75%;
+          span {
+            align-self: flex-end;
+          }
+        }
+
+        .custom-date-picker {
+          font-size: 0.8rem;
+          font-family: 'DIN Pro', serif;
+
+          button {
+            width: 10px;
+            height: 10px;
+          }
+
+          .react-datepicker {
+            &__header {
+              padding: 8px 5px 0 5px;
+            }
+
+            &__month {
+              padding: 5px;
+            }
+
+            &__current-month, &__day-names > div, &__day {
+              color: #667;
+            }
+
+            &__time-container {
+              display: none;
+            }
+
+            &__navigation {
+              &--next {
+                &--with-time {
+                  right: 0;
+                }
+              }
+            }
+
+            &__day {
+              width: 1.7rem;
+              height: 1.7rem;
+              &--today {
+                color: #3359df;
+                font-weight: 900;
+              }
+
+              &--selected, &--keyboard-selected {
+                color: #FFF;
+                background-color: #3359df;
+              }
+
+              &--disabled {
+                opacity: 0.5;
+              }
+            }
+          }
+        }
+      }
+
+      .apply-filters {
+        text-transform: uppercase;
+        outline: none;
+        color: #667;
+        height: 30px;
+        width: 100px;
+        font-size: 0.625em;
+        padding: 0;
+        justify-self: right;
+        transition: color 100ms ease-out, background 100ms ease-in;
+
+        &:hover {
+          background: #3359df;
+          color: #FEFEFE;
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (min-width:500px) {
+  .filter-container {
+    width: 100%;
+    .filter-box {
+      .filter-dropdown-parent {
+        .checkmark {
+          &::after {
+            left: 3px;
+            top: 0;
+          }
+        }
+
+        .automation-status {
+          table {
+            tr {
+              grid-column-gap: 2em;
+            }
+          }
+        }
+
+        .automation-date {
+          input {
+            max-width: 150px;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (min-width:600px) {
+  .filter-container {
+    .filter-box {
+      .filter-dropdown-parent {
+        .automation-date {
+          display: inline-grid;
+          grid-template-columns: repeat(2, 50%);
+          grid-column-gap: 12px;
+
+          label {
+            grid-template-columns: max-content 1fr;
+            grid-column-gap: 5px;
+          }
+
+          .custom-date-picker {
+            .react-datepicker {
+              &__time-container {
+                display: block;
+              }
+
+              &__navigation {
+                &--next {
+                  &--with-time {
+                    right: 80px;
+                  }
+                }
+              }
+            }
+          }
+        }
+
+        .apply-filters {
+          width: 120px;
+          height: 20px;
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (min-width:700px) and (max-width: 850px) {
+  .filter-container {
+    .filter-box {
+      .filter-dropdown-parent {
+        .automation-date {
+          display: inline-grid;
+          grid-template-columns: max-content;
+
+          label {
+            display: grid;
+            grid-template-columns: 25% 75%;
+
+            span {
+              align-self: flex-end;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (min-width:1500px) {
+  .filter-container {
+    .filter-box {
+      .filter-dropdown-parent {
+        .automation-status{
+          table {
+            tr {
+              grid-column-gap: 3em;
+            }
+          }
+        }
+
+        .automation-date {
+          label[for="to"] {
+            .custom-date-picker {
+              right: 40px;
+            }
+          }
+
+          .custom-date-picker {
+            font-size: 1rem;
+
+            .react-datepicker {
+              &__current-month {
+                font-size: 1rem;
+              }
+
+              &__day {
+                width: 2rem;
+                height: 2rem;
+              }
+            }
+          }
+        }
+
+        .apply-filters {
+          font-size: 0.75em;
+          height: 25px;
+          width: 150px;
+        }
+      }
+    }
+  }
+}

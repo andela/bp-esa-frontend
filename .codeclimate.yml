@@ -11,3 +11,9 @@ checks:
   identical-code:
     config:
       threshold: 75
+  method-lines:
+    config:
+      threshold: 50
+  method-count:
+    config:
+      threshold: 25

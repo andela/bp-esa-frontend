@@ -99,7 +99,7 @@ class Header extends PureComponent {
             data-toggle="signout-dropdown-toggler"
           >
             <i className="fa fa-caret-down" data-toggle="signout-dropdown-toggler" />
-            <div className="signout-dropdown-parent">
+            <div className={classNames('signout-dropdown-parent', { visible: signoutDropDownIsVisible })}>
               <div className={classNames('signout-dropdown', { visible: signoutDropDownIsVisible })}>
                 <button type="button" className="logout-button" onClick={() => this.onLogout()}>
                   <i className="fa fa-sign-out-alt" />

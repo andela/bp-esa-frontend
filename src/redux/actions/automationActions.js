@@ -7,8 +7,10 @@ import {
   RETRY_AUTOMATION_FAILURE,
 } from '../constants';
 
-export const fetchAutomation = () => ({
+export const fetchAutomation = (pagination, filters) => ({
   type: FETCH_AUTOMATION,
+  pagination,
+  filters,
 });
 
 export const fetchAutomationSuccess = automation => ({

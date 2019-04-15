@@ -1,8 +1,7 @@
+/* global mount */
 import React from 'react';
-import { mount } from 'enzyme';
 import configureStore from 'redux-mock-store';
 import { Provider } from 'react-redux';
-import axios from 'axios';
 import ReportComponent, { mapStateToProps, mapDispatchToProps, ReportPage } from '../../components/ReportPage';
 
 const sampleReports = [
@@ -99,7 +98,16 @@ const store = mockStore(state);
 
 
 const props = {
-  automation: { data: sampleReports, error: {} },
+  automation: {
+    data: sampleReports,
+    error: {},
+    idLoading: false,
+    pagination: {
+      currentPage: 1,
+      numberOfPages: 1,
+      dataCount: '2',
+    },
+  },
   location: { search: '?view=cardView' },
   currentUser: {
     additionalUserInfo: {
@@ -140,18 +148,6 @@ describe('<ReportPage />', () => {
   it('should render as expected', () => {
     const title = getComponent().find('.text');
     expect(title.text()).toEqual('ESA Dashboard');
-  });
-
-  describe('componenDidUpdate method', () => {
-    it('should call componentDidUpdate method', () => {
-      const componentDidMountMethod = jest.spyOn(ReportPage.prototype, 'componentDidMount');
-      mount(
-        <Provider store={store}>
-          <ReportPage {...props} />
-        </Provider>,
-      );
-      expect(componentDidMountMethod).toHaveBeenCalledTimes(1);
-    });
   });
 
   describe('ReportPageComponent', () => {
