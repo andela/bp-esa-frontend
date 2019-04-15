@@ -17,6 +17,8 @@ import Spinner from '../Spinner';
 import listenToSocketEvent from '../../realTime';
 import ReportNavBar from '../ReportNavBar';
 import DeveloperCard from '../developerCards';
+import StatsCard from '../StatsCard';
+import { fetchStatsRequest } from '../../redux/actions/automationStats';
 
 
 /* eslint-disable class-methods-use-this */
@@ -39,11 +41,12 @@ export class ReportPage extends PureComponent {
   }
 
   componentDidMount() {
-    const { fetchAllAutomation, location: { search } } = this.props;
+    const { fetchStat, fetchAllAutomation, location: { search } } = this.props;
     const params = new URLSearchParams(search);
     const view = params.get('view');
     this.setState({ viewMode: view });
     this.connectToSocket('newAutomation');
+    fetchStat();
     fetchAllAutomation();
   }
 
@@ -244,12 +247,26 @@ export class ReportPage extends PureComponent {
     );
   };
 
+  renderStatisticsCards = () => {
+    const { stats } = this.props;
+    const statisticsKey = Object.keys(stats.data);
+    return (
+      <React.Fragment>
+        {
+          statisticsKey.map(index => (
+            <StatsCard key={index} type={index} stat={stats.data[index]} />
+          ))
+        }
+      </React.Fragment>
+    );
+  }
+
 
   render() {
     const {
       currentUser, removeCurrentUser, history,
     } = this.props;
-    const { automation: { error } } = this.props;
+    const { stats, automation: { error } } = this.props;
     // eslint-disable-next-line react/destructuring-assignment
     return (
       <div>
@@ -258,6 +275,14 @@ export class ReportPage extends PureComponent {
           removeCurrentUser={removeCurrentUser}
           history={history}
         />
+        <ReportNavBar isStats />
+        <div className="stats-wrapper">
+          {
+            stats.isLoading
+              ? <div className="loader-container"><Spinner size="medium" /></div>
+              : this.renderStatisticsCards()
+          }
+        </div>
         <ReportNavBar renderView={this.renderView} />
         {Object.keys(error).length === 0
           ? this.renderListCard()
@@ -271,12 +296,14 @@ export class ReportPage extends PureComponent {
   }
 }
 
-const mapStateToProps = state => ({
+export const mapStateToProps = state => ({
   automation: state.automation,
+  stats: state.stats,
 });
 
-const mapDispatchToProps = dispatch => ({
+export const mapDispatchToProps = dispatch => ({
   fetchAllAutomation: () => dispatch(fetchAutomation()),
+  fetchStat: () => dispatch(fetchStatsRequest()),
 });
 
 ReportPage.propTypes = {
@@ -286,6 +313,8 @@ ReportPage.propTypes = {
   automation: PropTypes.object.isRequired,
   fetchAllAutomation: PropTypes.func.isRequired,
   location: PropTypes.object.isRequired,
+  fetchStat: PropTypes.func.isRequired,
+  stats: PropTypes.object.isRequired,
 };
 
 ReportPage.defaultProps = {
