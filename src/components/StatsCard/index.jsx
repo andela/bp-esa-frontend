@@ -15,7 +15,7 @@ class StatsCard extends PureComponent {
     return (
       <div className="stat-container">
         <div className="stat-icon">
-          <img src={`/${type}.png`} alt="icon" />
+          <img src={`/${capitalizeFirstLetter(type)}.png`} alt="icon" />
           <p>{capitalizeFirstLetter(type)}</p>
         </div>
         <div id={`${type}`} className="stat-content" />
