@@ -175,10 +175,13 @@ class ReportPage extends PureComponent {
   }
 
   renderAutomationStatus(automationStatus, report, type) {
+    if (report[`${type}Automations`][`${type}Activities`].length < 1) {
+      return (<span>NONE</span>);
+    }
     return (
       <span>
         {automationStatus}
-&nbsp;
+          &nbsp;
         <span className={`${automationStatus}-text`}>
           {this.statusBreakdown(report, type)}
         </span>
