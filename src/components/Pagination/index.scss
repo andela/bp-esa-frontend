@@ -27,8 +27,8 @@
     }
 
     &.icon-btn{
-      display: flex;
       justify-content: center;
+      background-color: #fff;;
 
       &.nav-text{
         padding: 5px;
@@ -65,6 +65,7 @@
   min-width: 40px;
   border: none;
   margin: 5px;
+  background: #fff;;
 }
 
 .form-input{
