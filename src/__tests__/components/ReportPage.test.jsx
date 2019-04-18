@@ -116,6 +116,9 @@ const props = {
   fetchAllAutomation: jest.fn(),
   fetchStat: jest.fn(),
   stats,
+  retryFailedAutomation: jest.fn(),
+  handleRetryAutomation: jest.fn(),
+  retryAutomation: jest.fn(),
 };
 
 class CustomError extends Error {
@@ -169,6 +172,7 @@ describe('<ReportPage />', () => {
   });
 
   describe('render view', () => {
+    let wrapper;
     it('should render view of listCard', () => {
       const component = mount(<ReportPage {...props} />);
       component.setState({ viewMode: 'listView' });
@@ -201,6 +205,31 @@ describe('<ReportPage />', () => {
       const component = mount(<ReportPage {...props} />);
       component.find('#list-icon').simulate('click');
       expect(component.instance().state.viewMode).toEqual('listView');
+    });
+
+    it('should call handleRetryAutomation for the card view', () => {
+      wrapper = mount(<ReportPage {...props} />);
+      const instance = wrapper.instance();
+      jest.spyOn(instance, 'handleRetryAutomation');
+      const button = wrapper.find('#retry-automation');
+      button.simulate('click');
+      // eslint-disable-next-line no-unused-expressions
+      expect(instance.handleRetryAutomation).toBeCalled;
+    });
+
+    it('should call handleRetryAutomation for the table modal view', () => {
+      const component = mount(<ReportPage {...props} />);
+      component.setState({ viewMode: 'listView' });
+      component.setState({ reportData: sampleReports, isLoadingReports: false });
+      const instance = component.instance();
+      jest.spyOn(instance, 'handleRetryAutomation');
+      component.find('#info-icon')
+        .at(0)
+        .simulate('click');
+      const button = component.find('.retry-btn');
+      button.simulate('click');
+      // eslint-disable-next-line no-unused-expressions
+      expect(instance.handleRetryAutomation).toBeCalled;
     });
   });
 

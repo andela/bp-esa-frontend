@@ -1,0 +1,23 @@
+.retry-btn {
+  // margin-left:3%;
+  height: 20px;
+  width: 60px;
+  font-size: 12px;
+  color: #0D8CE7;
+  font-family: Arial;
+  font-size: 10px;
+  line-height: 18px;
+  text-align: center;
+  margin: 0 auto;
+}
+
+button:disabled {
+  opacity: 0.85;
+}
+button:disabled:hover {
+  cursor: no-drop;
+}
+button:active {
+  background: none;
+  outline: none;
+}

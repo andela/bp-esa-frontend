@@ -3,6 +3,7 @@ import React, { PureComponent } from 'react';
 import PropTypes from 'proptypes';
 import _ from 'lodash';
 import './styles.scss';
+import RetryButton from '../Buttons/RetryButton/RetryButton';
 
 
 class AutomationDetails extends PureComponent {
@@ -18,8 +19,10 @@ class AutomationDetails extends PureComponent {
     this.setState({ modalType: id });
   }
 
-  renderDeveloperInfo = (modalContent) => {
-    const { formatDates } = this.props;
+  renderDeveloperInfo = (modalContent, cardId) => {
+    const {
+      formatDates, retryingAutomation, handleRetryAutomation, data,
+    } = this.props;
     const { slackAutomations, emailAutomations, freckleAutomations } = modalContent;
     const slackStatus = (slackAutomations && slackAutomations.status) || '';
     const emailStatus = (emailAutomations && emailAutomations.status) || '';
@@ -45,9 +48,12 @@ class AutomationDetails extends PureComponent {
             <h1 className="automation-type">{modalContent.type}</h1>
             <h1 className="dot">.</h1>
             {slackStatus === 'failure' || emailStatus === 'failure' || freckleStatus === 'failure' ? <h1 className="automation-status">Failed</h1> : <h1 className="automation-status success">Success</h1>}
-            <button type="button" className="retry-button-group">
-              <h1 className="retry">RETRY</h1>
-            </button>
+            <RetryButton
+              retryingAutomation={retryingAutomation}
+              handleRetryAutomation={() => handleRetryAutomation(cardId)}
+              data={data}
+              id="retry-automation-details"
+            />
           </div>
           <h1 className="automation-date">{formatDates(modalContent.updatedAt)}</h1>
         </div>
@@ -170,7 +176,7 @@ class AutomationDetails extends PureComponent {
       <div className={modalClass}>
         <div className="modal-overlay" onClick={closeModal} />
         <div className="modal-body">
-          {this.renderDeveloperInfo(modalContent)}
+          {this.renderDeveloperInfo(modalContent, modalContent.id)}
           {this.renderChannelTabs()}
           {this.renderTitles(modalType)}
           {this.renderDetails(modalType, modalContent)}
@@ -190,6 +196,15 @@ AutomationDetails.propTypes = {
   closeModal: PropTypes.func.isRequired,
   modalContent: PropTypes.object.isRequired,
   formatDates: PropTypes.func.isRequired,
+  data: PropTypes.array,
+  retryingAutomation: PropTypes.bool,
+  handleRetryAutomation: PropTypes.func,
+};
+
+AutomationDetails.defaultProps = {
+  retryingAutomation: false,
+  data: [],
+  handleRetryAutomation: () => {},
 };
 
 export default AutomationDetails;
