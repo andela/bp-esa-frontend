@@ -26,3 +26,4 @@ yarn-error.log*
 
 .nyc_output
 .env
+*.env.json
