@@ -2,7 +2,7 @@ import { call } from 'redux-saga/effects';
 import { expectSaga } from 'redux-saga-test-plan';
 import * as matchers from 'redux-saga-test-plan/matchers';
 import { throwError } from 'redux-saga-test-plan/providers';
-
+import axios from 'axios';
 import AutomationAPI from '../../api/automationAPI';
 import {
   FETCH_AUTOMATION_SUCCESS,
@@ -13,6 +13,9 @@ import {
   RETRY_AUTOMATION_FAILURE,
 } from '../../constants';
 import { watchFetchFellows, watchRetryAutomation } from '../automationSagas';
+import { filterInitialState } from '../../../components/FilterComponent';
+
+jest.mock('axios');
 
 describe('Automation Saga', () => {
   describe('Fetch Automation Saga', () => {
@@ -29,26 +32,35 @@ describe('Automation Saga', () => {
     };
 
 
-    it('should fetch automation successfully', () => expectSaga(watchFetchFellows)
-      .provide([
-        [call(AutomationAPI.getFellows), response],
-      ])
-      .put({
-        type: FETCH_AUTOMATION_SUCCESS,
-        payload: {
-          data: {},
-          message: 'Successfully fetched automations',
-          status: 'success',
-        },
-      })
-      .dispatch({
-        type: FETCH_AUTOMATION,
-      })
-      .silentRun());
+    it('should fetch automation successfully', () => {
+      axios.get = jest.fn().mockResolvedValue(response);
+
+      return expectSaga(watchFetchFellows)
+        .provide([
+          [call(AutomationAPI.getAutomations), response],
+        ])
+        .put({
+          type: FETCH_AUTOMATION_SUCCESS,
+          payload: {
+            data: {},
+            message: 'Successfully fetched automations',
+            status: 'success',
+          },
+        })
+        .dispatch({
+          type: FETCH_AUTOMATION,
+          pagination: {
+            currentPage: 1,
+            limit: 25,
+          },
+          filters: filterInitialState,
+        })
+        .silentRun();
+    });
 
     it('should test fetch automation failure', () => expectSaga(watchFetchFellows)
       .provide([
-        [matchers.call.fn(AutomationAPI.getFellows), throwError(error)],
+        [matchers.call.fn(AutomationAPI.getAutomations), throwError(error)],
       ])
       .put({
         type: FETCH_AUTOMATION_FAILURE,

@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import _ from 'lodash';
 import Spinner from '../Spinner';
 import InfoIcon from '../../assets/icons/Info.svg';
-import onBoarding from '../../assets/icons/vectorpaint.svg';
+import offboarding from '../../assets/icons/offboarding.svg';
 import './developerCard.scss';
 import RetryButton from '../Buttons/RetryButton/RetryButton';
 
@@ -71,7 +71,7 @@ class DeveloperCard extends Component {
     </div>
   );
 
-  renderCards =() => {
+  renderCards = () => {
     const { data, openModal, changeModalTypes } = this.props;
     const automation = length => length !== 0;
     const automationMetric = (activities, status) => (
@@ -88,7 +88,8 @@ class DeveloperCard extends Component {
       return (
         <div className="card" key={card.id}>
           <div className="info-cont">
-            <img className="info-icon onBoarding-icon" src={onBoarding} alt="onboarding icon" />
+            { /* TODO Update the onboarding icon to match mockups */}
+            <img className="info-icon onBoarding-icon" src={offboarding} alt="onboarding icon" />
             <img className="info-icon" src={InfoIcon} alt="info icon" role="presentation" onClick={() => { openModal(); changeModalTypes(card); }} />
           </div>
           {this.renderDeveloperPic(firstInitials, secondInitials)}

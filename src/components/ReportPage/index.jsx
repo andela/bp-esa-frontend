@@ -2,65 +2,124 @@
 /* eslint-disable no-fallthrough */
 /* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
 /* eslint-disable react/no-unused-state */
-import React, { PureComponent } from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import 'toastr/toastr.scss';
 import { connect } from 'react-redux';
+import _ from 'lodash';
 import { fetchAutomation, retryAutomation } from '../../redux/actions/automationActions';
-import Header from '../Header';
-import Filter from '../Filter';
-import Search from '../Search';
-import * as constants from '../constants';
-import FiltersBar from '../FiltersBar';
-import './styles.scss';
 import AutomationDetails from '../AutomationDetails';
-import Spinner from '../Spinner';
+import Header from '../Header';
 import listenToSocketEvent from '../../realTime';
+import Pagination from '../Pagination';
 import ReportNavBar from '../ReportNavBar';
 import DeveloperCard from '../developerCards';
+import Spinner from '../Spinner';
+import './styles.scss';
+import { filterInitialState } from '../FilterComponent';
 import StatsCard from '../StatsCard';
 import { fetchStatsRequest } from '../../redux/actions/automationStats';
 
 
 /* eslint-disable class-methods-use-this */
-export class ReportPage extends PureComponent {
-  constructor() {
-    super();
+export class ReportPage extends Component {
+  constructor(props) {
+    super(props);
     this.state = {
       viewMode: 'cardView',
-      reportData: [],
-      filters: {
-        automationStatus: [],
-        automationType: [],
-        date: { from: '', to: '' },
-        length: 0,
-        updated: false,
+      filters: filterInitialState,
+      pagination: {
+        currentPage: 1,
+        limit: 25,
       },
       isModalOpen: false,
       modalContent: {},
+      tempCurrentPage: false,
     };
+
+    this.filter = this.filter.bind(this);
   }
 
   componentDidMount() {
     const { fetchStat, fetchAllAutomation, location: { search } } = this.props;
+    const { pagination, filters } = this.state;
+    fetchAllAutomation(pagination, filters);
     const params = new URLSearchParams(search);
     const view = params.get('view');
     this.setState({ viewMode: view });
     this.connectToSocket('newAutomation');
+
+    this.handleOnKeyPress = _.debounce(() => {
+      const { tempCurrentPage } = this.state;
+      this.setPaginationState({ currentPage: tempCurrentPage });
+    }, 1000);
     fetchStat();
-    fetchAllAutomation();
+  }
+
+  shouldComponentUpdate(nextProps, nextState) {
+    const { pagination: nextStatePagination, filters: nextStateFilters } = nextState;
+    const { pagination: currentStatePagination, filters: currentStateFilters } = this.state;
+    const { fetchAllAutomation } = this.props;
+    if (JSON.stringify(nextStatePagination) !== JSON.stringify(currentStatePagination)
+      || JSON.stringify(nextStateFilters) !== JSON.stringify(currentStateFilters)) {
+      fetchAllAutomation(nextStatePagination, nextStateFilters);
+    }
+    return true;
   }
 
   connectToSocket = (event) => {
     listenToSocketEvent(event, data => this.updateReportData(data));
-  }
+  };
 
   updateReportData = (data) => {
     const { reportData } = this.state;
     const newData = [data, ...reportData];
     this.setState({ reportData: newData });
-  }
+  };
 
+  pageNavigation = (action, currentPage, numberOfPages) => {
+    switch (action) {
+      case 'nextPage':
+        return currentPage === numberOfPages ? currentPage : currentPage + 1;
+      case 'previousPage':
+        return currentPage === 1 ? currentPage : currentPage - 1;
+      case 'firstPage':
+        return 1;
+      case 'lastPage':
+        return numberOfPages;
+      default:
+        return currentPage;
+    }
+  };
+
+  handlePagination = (action) => {
+    const { pagination: { currentPage } } = this.state;
+    const { automation: { pagination: { numberOfPages } } } = this.props;
+    const page = this.pageNavigation(action, currentPage, numberOfPages);
+    this.setPaginationState({ currentPage: page });
+  };
+
+  setPaginationState = (pagination) => {
+    this.setState(prevState => ({
+      ...prevState,
+      pagination: {
+        ...prevState.pagination,
+        ...pagination,
+      },
+      tempCurrentPage: false,
+    }));
+  };
+
+  onPageChange = (event) => {
+    event.preventDefault();
+    this.setState({ tempCurrentPage: event.target.value }, this.handleOnKeyPress);
+  };
+
+  onChangeRowCount = (event) => {
+    event.preventDefault();
+    const limit = parseInt(event.target.value, 10);
+    this.setPaginationState({ currentPage: 1, limit });
+  };
 
   formatDates = (date) => {
     const dateFormat = {
@@ -70,13 +129,31 @@ export class ReportPage extends PureComponent {
       hour: 'numeric',
       minute: 'numeric',
     };
-    const formattedDate = new Date(date).toLocaleDateString('en-US', dateFormat);
-    return formattedDate;
+    return new Date(date).toLocaleDateString('en-US', dateFormat);
+  };
+
+  // Do not change to arrow function because in the tests,
+  // we spy on this function and it has to be on this class's prototype
+  // Arrow function definitions do not have a bound prototype
+  filter(filters) {
+    // reset the showFilterDropdown flag to be same as the filterInitialState
+    /* eslint-disable-next-line no-param-reassign */
+    filters.showFilterDropdown = false;
+    const { filters: stateFilters } = this.state;
+    if (JSON.stringify(stateFilters) === JSON.stringify(filters)) {
+      return;
+    }
+    this.setState(prevState => (
+      {
+        ...prevState,
+        pagination: { ...prevState.pagination, currentPage: 1 },
+        filters,
+      }));
   }
 
   openModal = () => {
     this.setState({ isModalOpen: true });
-  }
+  };
 
   handleRetryAutomation = (automationId) => {
     const { retryFailedAutomation } = this.props;
@@ -85,11 +162,11 @@ export class ReportPage extends PureComponent {
 
   closeModal = () => {
     this.setState({ isModalOpen: false });
-  }
+  };
 
   changeModalTypes = (report) => {
     this.setState({ modalContent: report });
-  }
+  };
 
   statusBreakdown(automation, type) {
     const activities = automation[`${type}Automations`][`${type}Activities`] || [];
@@ -118,23 +195,6 @@ export class ReportPage extends PureComponent {
     );
   }
 
-  renderFilters() {
-    return constants.filters.map(filter => (
-      <Filter
-        key={filter.id}
-        filterSet={filter.filterSet}
-        title={filter.title}
-        options={filter.options}
-        handleFilterChange={this.setFilter}
-      />
-    ));
-  }
-
-  renderSearch() {
-    return <Search handleSearch={this.doSearch} />;
-  }
-
-
   renderView = view => () => {
     const { history } = this.props;
     history.push(`/?view=${view}View`);
@@ -157,7 +217,13 @@ export class ReportPage extends PureComponent {
         <tr key={id}>
           <td className="numbering">{index + 1}</td>
           <td className="column1">{this.formatDates(updatedAt)}</td>
-          <td className="fellow" onClick={() => window.open(`https://ais.andela.com/people/${fellowId}`)} title={fellowName}>{fellowName}</td>
+          <td
+            className="fellow"
+            onClick={() => window.open(`https://ais.andela.com/people/${fellowId}`)}
+            title={fellowName}
+          >
+            {fellowName}
+          </td>
           <td title={report.partnerName}>{partnerName}</td>
           <td>{type}</td>
           <td>{this.renderAutomationStatus(report.slackAutomations.status, report, 'slack')}</td>
@@ -172,22 +238,12 @@ export class ReportPage extends PureComponent {
   }
 
   renderListCard = () => {
-    const {
-      viewMode, isModalOpen, modalContent, filters,
-    } = this.state;
+    const { viewMode, isModalOpen, modalContent } = this.state;
     const { automation: { data, isLoading, retryingAutomation } } = this.props;
     return (
       viewMode === 'listView'
         ? (
           <div id="report-page">
-            <div className="filter-box">
-              <p>Filters</p>
-              {this.renderFilters()}
-              {this.renderSearch()}
-            </div>
-            <FiltersBar
-              filters={filters}
-            />
             <div className="table-header">
               <table className="report-table">
                 <thead className="report-table-header">
@@ -206,17 +262,11 @@ export class ReportPage extends PureComponent {
               </table>
             </div>
             <div className="table-body">
-              {
-              isLoading
-                ? <Spinner />
-                : (
-                  <table className="report-table">
-                    <tbody>
-                      {this.renderTableRows()}
-                    </tbody>
-                  </table>
-                )
-            }
+              <table className="report-table">
+                <tbody>
+                  {this.renderTableRows()}
+                </tbody>
+              </table>
             </div>
             <AutomationDetails
               data={data}
@@ -247,6 +297,7 @@ export class ReportPage extends PureComponent {
             />
           </div>
         )
+
     );
   };
 
@@ -266,13 +317,17 @@ export class ReportPage extends PureComponent {
 
 
   render() {
+    const { pagination: { limit }, tempCurrentPage } = this.state;
     const {
-      currentUser, removeCurrentUser, history,
+      currentUser,
+      removeCurrentUser,
+      history, automation: { error, isLoading },
+      automation,
+      stats,
     } = this.props;
-    const { stats, automation: { error } } = this.props;
-    // eslint-disable-next-line react/destructuring-assignment
+
     return (
-      <div>
+      <React.Fragment>
         <Header
           currentUser={currentUser}
           removeCurrentUser={removeCurrentUser}
@@ -286,15 +341,33 @@ export class ReportPage extends PureComponent {
               : this.renderStatisticsCards()
           }
         </div>
-        <ReportNavBar renderView={this.renderView} />
-        {Object.keys(error).length === 0
-          ? this.renderListCard()
-          : (
-            <div className="body-error">
-              <span className="error-message">{error.error}</span>
-            </div>
-          )}
-      </div>
+        <ReportNavBar renderView={this.renderView} filter={this.filter} />
+        {
+          isLoading ? <Spinner /> : (
+            <React.Fragment>
+              {Object.keys(error).length === 0
+                ? (
+                  <React.Fragment>
+                    {this.renderListCard()}
+                    <Pagination
+                      pagination={automation.pagination}
+                      handlePagination={this.handlePagination}
+                      onPageChange={this.onPageChange}
+                      onChangeRowCount={this.onChangeRowCount}
+                      limit={limit}
+                      tempCurrentPage={tempCurrentPage}
+                    />
+                  </React.Fragment>
+                )
+                : (
+                  <div className="body-error">
+                    <span className="error-message">{error.error}</span>
+                  </div>
+                )}
+            </React.Fragment>
+          )
+        }
+      </React.Fragment>
     );
   }
 }
@@ -305,7 +378,7 @@ export const mapStateToProps = state => ({
 });
 
 export const mapDispatchToProps = dispatch => ({
-  fetchAllAutomation: () => dispatch(fetchAutomation()),
+  fetchAllAutomation: (pagination, filters) => dispatch(fetchAutomation(pagination, filters)),
   fetchStat: () => dispatch(fetchStatsRequest()),
   retryFailedAutomation: () => dispatch(retryAutomation()),
 });

@@ -8,21 +8,36 @@ import {
 } from '../constants';
 
 let dataUpdate;
-const initialState = {
+export const initialState = {
   isLoading: false,
   data: [],
   error: {},
+  pagination: {},
   retryingAutomation: false,
 };
 
 export default (state = initialState, action) => {
   switch (action.type) {
     case FETCH_AUTOMATION:
-      return { ...state, isLoading: true };
+      return {
+        ...state,
+        isLoading: true,
+      };
+
     case FETCH_AUTOMATION_SUCCESS:
-      return { ...state, data: action.payload.data, isLoading: false };
+      return {
+        ...state,
+        data: action.payload.data,
+        isLoading: false,
+        pagination: action.payload.pagination,
+      };
+
     case FETCH_AUTOMATION_FAILURE:
-      return { ...state, error: action.payload, isLoading: false };
+      return {
+        ...state,
+        error: action.payload,
+        isLoading: false,
+      };
     case RETRY_AUTOMATION:
       return { ...state, retryingAutomation: true };
     case RETRY_AUTOMATION_SUCCESS:

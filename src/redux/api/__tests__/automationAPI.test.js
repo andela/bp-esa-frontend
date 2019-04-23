@@ -1,8 +1,15 @@
+import axios from 'axios';
 import moxios from 'moxios';
+import URL from 'url';
 import AutomationAPI from '../automationAPI';
-import resolveUrl from '..';
+import { filterInitialState } from '../../../components/FilterComponent';
+import {
+  emailAutomations,
+  freckleAutomations,
+  slackAutomations,
+} from '../../../components/FilterComponent/FilterDropdown';
 
-const baseUrl = resolveUrl();
+jest.mock('axios');
 const mockUrl = 'http://www.mocky.io/v2/5cabcd7a300000680010325b?mocky-delay=2000ms';
 
 describe('Automation API', () => {
@@ -15,14 +22,23 @@ describe('Automation API', () => {
   });
 
   it('should return data from API', async (done) => {
-    moxios.stubRequest(`${baseUrl}/automations/`, {
-      status: 200,
-      statusText: 'OK',
-      response: {
-        hello: 'HI',
-      },
-    });
-    await AutomationAPI.getFellows();
+    axios.get = jest.fn();
+    const pagination = { currentPage: 1, limit: 10 };
+
+    await AutomationAPI.getAutomations(pagination, filterInitialState);
+    expect(axios.get).toHaveBeenCalledTimes(1);
+    const [[url]] = axios.get.mock.calls;
+    const { query } = URL.parse(url, true);
+    expect(query).toHaveProperty(emailAutomations);
+    expect(query).toHaveProperty(freckleAutomations);
+    expect(query).toHaveProperty(slackAutomations);
+    expect(query).toHaveProperty('searchTerm');
+    expect(query).toHaveProperty('searchBy');
+    expect(query).toHaveProperty('type');
+    expect(query).toHaveProperty('date[from]');
+    expect(query).toHaveProperty('date[to]');
+    expect(query).toHaveProperty('page', pagination.currentPage.toString());
+    expect(query).toHaveProperty('limit', pagination.limit.toString());
     done();
   });
 
