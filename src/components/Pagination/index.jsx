@@ -7,7 +7,7 @@ import previousPageIcon from '../../assets/previous-page-icon.svg';
 import './index.scss';
 
 function Pagination({
-  pagination: { numberOfPages, currentPage }, limit,
+  pagination: { numberOfPages }, limit, currentPage,
   handlePagination, onPageChange, onChangeRowCount, tempCurrentPage,
 }) {
   const renderButton = (icon, text, handleNav, disabled) => (
@@ -62,14 +62,13 @@ function Pagination({
         <div className="page-panel">
           {renderButton(firstPageIcon, 'firstPage', handlePagination, (!(page > 1)))}
           {renderButton(previousPageIcon, 'previousPage', handlePagination, (!(page > 1)))}
-          {renderPageNumber(page, tempCurrentPage)}
+          {renderPageNumber(currentPage, tempCurrentPage)}
           {renderButton(nextPageIcon, 'nextPage', handlePagination, (!(page < pages)))}
           {renderButton(lastPageIcon, 'lastPage', handlePagination, (!(page < pages)))}
         </div>
       </div>
     </>
   );
-
   return (
     <>
       {renderPaginationPanel(numberOfPages, currentPage)}
@@ -83,7 +82,8 @@ Pagination.propTypes = {
   onPageChange: PropTypes.func.isRequired,
   onChangeRowCount: PropTypes.func.isRequired,
   limit: PropTypes.number.isRequired,
-  tempCurrentPage: PropTypes.oneOfType([PropTypes.number, PropTypes.bool]).isRequired,
+  tempCurrentPage: PropTypes.oneOfType([PropTypes.number, PropTypes.string, PropTypes.bool]).isRequired,
+  currentPage: PropTypes.oneOfType([PropTypes.number, PropTypes.string]).isRequired,
 };
 
 export default Pagination;

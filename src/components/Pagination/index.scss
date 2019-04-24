@@ -68,13 +68,16 @@
 }
 
  .form-input{
-    border: none;
-    width: 30px;
-    border-bottom: 1px solid gray;
+    border: 1px solid rgb(199, 199, 199);
+    width: 50px;
+    height: 35px;
     text-align: center;
-    color: gray;
+    color: #385de0;
+    border-radius: 4px;
+    padding-left: 10px;
 
      &:focus{
+      border: 1px solid #385de0;
       outline: none;
     }
 }

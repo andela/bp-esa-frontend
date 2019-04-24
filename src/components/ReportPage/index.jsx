@@ -12,6 +12,7 @@ import AutomationDetails from '../AutomationDetails';
 import Header from '../Header';
 import listenToSocketEvent from '../../realTime';
 import Pagination from '../Pagination';
+import UpdateTab from '../UpdateTab';
 import ReportNavBar from '../ReportNavBar';
 import DeveloperCard from '../developerCards';
 import Spinner from '../Spinner';
@@ -19,19 +20,23 @@ import './styles.scss';
 import { filterInitialState } from '../FilterComponent';
 import StatsCard from '../StatsCard';
 import { fetchStatsRequest } from '../../redux/actions/automationStats';
-
+import { fetchRealTimeReport, resetRealTimeReport } from '../../redux/actions/realTimeReport';
 
 /* eslint-disable class-methods-use-this */
 export class ReportPage extends Component {
-  constructor(props) {
-    super(props);
+  constructor() {
+    super();
     this.state = {
       viewMode: 'cardView',
       filters: filterInitialState,
+      isLoadingReports: false,
+      reportData: [],
       pagination: {
         currentPage: 1,
-        limit: 25,
+        limit: 10,
       },
+      searchResult: false,
+      filteredReport: [],
       isModalOpen: false,
       modalContent: {},
       tempCurrentPage: false,
@@ -40,10 +45,11 @@ export class ReportPage extends Component {
     this.filter = this.filter.bind(this);
   }
 
-  componentDidMount() {
+  async componentDidMount() {
     const { fetchStat, fetchAllAutomation, location: { search } } = this.props;
     const { pagination, filters } = this.state;
     fetchAllAutomation(pagination, filters);
+
     const params = new URLSearchParams(search);
     const view = params.get('view');
     this.setState({ viewMode: view });
@@ -72,6 +78,8 @@ export class ReportPage extends Component {
   };
 
   updateReportData = (data) => {
+    const { fetchUpdates } = this.props;
+    fetchUpdates(data);
     const { reportData } = this.state;
     const newData = [data, ...reportData];
     this.setState({ reportData: newData });
@@ -90,14 +98,25 @@ export class ReportPage extends Component {
       default:
         return currentPage;
     }
-  };
+  }
 
   handlePagination = (action) => {
     const { pagination: { currentPage } } = this.state;
-    const { automation: { pagination: { numberOfPages } } } = this.props;
+    const { automation: { pagination: { numberOfPages } }, resetUpdates } = this.props;
     const page = this.pageNavigation(action, currentPage, numberOfPages);
     this.setPaginationState({ currentPage: page });
-  };
+    resetUpdates();
+  }
+
+  handleUpdates = (e) => {
+    e.preventDefault();
+    const { fetchAllAutomation, resetUpdates } = this.props;
+    const { pagination, filters } = this.state;
+
+    resetUpdates();
+    fetchAllAutomation(pagination, filters);
+    this.setPaginationState({ currentPage: 1 });
+  }
 
   setPaginationState = (pagination) => {
     this.setState(prevState => ({
@@ -112,7 +131,8 @@ export class ReportPage extends Component {
 
   onPageChange = (event) => {
     event.preventDefault();
-    this.setState({ tempCurrentPage: event.target.value }, this.handleOnKeyPress);
+    const page = parseInt(event.target.value, 10);
+    this.setState({ tempCurrentPage: page }, this.handleOnKeyPress);
   };
 
   onChangeRowCount = (event) => {
@@ -130,6 +150,21 @@ export class ReportPage extends Component {
       minute: 'numeric',
     };
     return new Date(date).toLocaleDateString('en-US', dateFormat);
+  };
+
+  toggleModal = () => {
+    this.setState(prevState => ({
+      isModalOpen: !prevState.isModalOpen,
+    }));
+  }
+
+  handleRetryAutomation = (automationId) => {
+    const { retryFailedAutomation } = this.props;
+    retryFailedAutomation(automationId);
+  }
+
+  changeModalTypes = (report) => {
+    this.setState({ modalContent: report });
   };
 
   // Do not change to arrow function because in the tests,
@@ -151,22 +186,32 @@ export class ReportPage extends Component {
       }));
   }
 
-  openModal = () => {
-    this.setState({ isModalOpen: true });
-  };
-
-  handleRetryAutomation = (automationId) => {
-    const { retryFailedAutomation } = this.props;
-    retryFailedAutomation(automationId);
+  runFilters(report) {
+    const { filters } = this.state;
+    const filterResult = [];
+    if (filters.automationStatus.length) {
+      filterResult.push(this.filterWithAutomationStatus(report));
+    }
+    if (filters.automationType.length) {
+      filterResult.push(this.filterWithAutomationType(report));
+    }
+    if (filters.date.from && filters.date.to) {
+      filterResult.push(this.filterWithDate(report.updatedAt));
+    }
+    return filterResult.every(result => result === true);
   }
 
-  closeModal = () => {
-    this.setState({ isModalOpen: false });
-  };
-
-  changeModalTypes = (report) => {
-    this.setState({ modalContent: report });
-  };
+  filterReports() {
+    const { reportData, filters: previousFilters } = this.state;
+    const filteredReport = reportData.filter(report => this.runFilters(report));
+    this.setState({
+      filteredReport,
+      filters: {
+        ...previousFilters,
+        updated: false,
+      },
+    });
+  }
 
   statusBreakdown(automation, type) {
     const activities = automation[`${type}Automations`][`${type}Activities`] || [];
@@ -203,7 +248,7 @@ export class ReportPage extends Component {
 
   renderInfoIcon = report => (
     <div className="info- ">
-      <i className="fa fa-info-circle" onClick={() => { this.openModal(); this.changeModalTypes(report); }} id="info-icon" />
+      <i className="fa fa-info-circle" onClick={() => { this.toggleModal(); this.changeModalTypes(report); }} id="info-icon" />
     </div>
   );
 
@@ -211,7 +256,12 @@ export class ReportPage extends Component {
     const { automation: { data } } = this.props;
     return (data.map((report, index) => {
       const {
-        id, updatedAt, fellowId, fellowName, partnerName, type,
+        id,
+        updatedAt,
+        fellowId,
+        fellowName,
+        partnerName,
+        type,
       } = report;
       return (
         <tr key={id}>
@@ -237,6 +287,19 @@ export class ReportPage extends Component {
     }));
   }
 
+  renderUpdateTab = () => {
+    const { viewMode } = this.state;
+    const { realTimeReport } = this.props;
+    return realTimeReport.length > 0
+    && (
+    <UpdateTab
+      numberOfItems={realTimeReport.length}
+      handleUpdates={this.handleUpdates}
+      view={viewMode}
+    />
+    );
+  }
+
   renderListCard = () => {
     const { viewMode, isModalOpen, modalContent } = this.state;
     const { automation: { data, isLoading, retryingAutomation } } = this.props;
@@ -244,6 +307,7 @@ export class ReportPage extends Component {
       viewMode === 'listView'
         ? (
           <div id="report-page">
+            {this.renderUpdateTab()}
             <div className="table-header">
               <table className="report-table">
                 <thead className="report-table-header">
@@ -271,7 +335,7 @@ export class ReportPage extends Component {
             <AutomationDetails
               data={data}
               isModalOpen={isModalOpen}
-              closeModal={this.closeModal}
+              closeModal={this.toggleModal}
               modalContent={modalContent}
               formatDates={this.formatDates}
               retryingAutomation={retryingAutomation}
@@ -281,23 +345,23 @@ export class ReportPage extends Component {
         )
         : (
           <div>
+            {this.renderUpdateTab()}
             <DeveloperCard
               data={data}
               isLoading={isLoading}
-              openModal={this.openModal}
+              openModal={this.toggleModal}
               changeModalTypes={this.changeModalTypes}
               retryingAutomation={retryingAutomation}
               handleRetryAutomation={() => this.handleRetryAutomation()}
             />
             <AutomationDetails
               isModalOpen={isModalOpen}
-              closeModal={this.closeModal}
+              closeModal={this.toggleModal}
               modalContent={modalContent}
               formatDates={this.formatDates}
             />
           </div>
         )
-
     );
   };
 
@@ -315,9 +379,12 @@ export class ReportPage extends Component {
     );
   }
 
-
   render() {
-    const { pagination: { limit }, tempCurrentPage } = this.state;
+    const {
+      pagination: { limit, currentPage },
+      tempCurrentPage,
+    } = this.state;
+
     const {
       currentUser,
       removeCurrentUser,
@@ -355,6 +422,7 @@ export class ReportPage extends Component {
                       onPageChange={this.onPageChange}
                       onChangeRowCount={this.onChangeRowCount}
                       limit={limit}
+                      currentPage={currentPage}
                       tempCurrentPage={tempCurrentPage}
                     />
                   </React.Fragment>
@@ -373,12 +441,15 @@ export class ReportPage extends Component {
 }
 
 export const mapStateToProps = state => ({
+  realTimeReport: state.realTimeReport,
   automation: state.automation,
   stats: state.stats,
 });
 
 export const mapDispatchToProps = dispatch => ({
   fetchAllAutomation: (pagination, filters) => dispatch(fetchAutomation(pagination, filters)),
+  fetchUpdates: () => dispatch(fetchRealTimeReport()),
+  resetUpdates: () => dispatch(resetRealTimeReport()),
   fetchStat: () => dispatch(fetchStatsRequest()),
   retryFailedAutomation: () => dispatch(retryAutomation()),
 });
@@ -393,10 +464,16 @@ ReportPage.propTypes = {
   fetchStat: PropTypes.func.isRequired,
   stats: PropTypes.object.isRequired,
   retryFailedAutomation: PropTypes.func.isRequired,
+  fetchUpdates: PropTypes.func,
+  realTimeReport: PropTypes.array,
+  resetUpdates: PropTypes.func,
 };
 
 ReportPage.defaultProps = {
-  removeCurrentUser: () => { },
+  removeCurrentUser: () => {},
+  fetchUpdates: () => {},
+  resetUpdates: () => {},
+  realTimeReport: [],
 };
 
 export default connect(
