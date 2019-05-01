@@ -1,0 +1,42 @@
+{
+  "status": "success",
+  "message": "Successfully fetched automations",
+  "data": [{
+          "id": 11734,
+          "fellowId": "1e5fc5d0-5403-4ed2-afd8-5976122cb98a",
+          "email": "valentine.mayaki@andela.com",
+          "fellowName": "Annabelle, Conn",
+          "partnerId": "-KXGyJcC1oimjQgFj184",
+          "partnerName": "Lincon, Abraham",
+          "type": "offboarding",
+          "createdAt": "2019-05-01T22:25:37.541Z",
+          "updatedAt": "2019-05-01T22:25:37.541Z",
+          "slackAutomations": {
+              "status": "failure",
+              "slackActivities": [
+                  {
+                      "status": "failure",
+                      "statusMessage": "An API error occurred: channel_not_found",
+                      "type": "kick",
+                      "channelId": null,
+                      "channelName": null,
+                      "slackUserId": null
+                  }
+              ]
+          },
+          "emailAutomations": {
+              "status": "failure",
+              "emailActivities": []
+          },
+          "freckleAutomations": {
+              "status": "failure",
+              "freckleActivities": []
+          }
+      }],
+  "pagination": {
+    "currentPage": 1, 
+    "numberOfPages": 2, 
+    "dataCount": "5", 
+    "nextPage": 2
+   }
+}

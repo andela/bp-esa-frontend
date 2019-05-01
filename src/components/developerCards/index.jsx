@@ -80,7 +80,7 @@ class DeveloperCard extends Component {
     const metric = (activities, status) => (
       automation(activities.length) ? automationMetric(activities, status) : 0
     );
-    return data.map((card) => {
+    return data.map((card, index) => {
       const name = card.fellowName;
       const newName = _.split(name, ',');
       const firstInitials = newName[0].charAt(0);
@@ -90,7 +90,7 @@ class DeveloperCard extends Component {
           <div className="info-cont">
             { /* TODO Update the onboarding icon to match mockups */}
             <img className="info-icon onBoarding-icon" src={offboarding} alt="onboarding icon" />
-            <img className="info-icon" src={InfoIcon} alt="info icon" role="presentation" onClick={() => { openModal(); changeModalTypes(card); }} />
+            <img className="info-icon" src={InfoIcon} alt="info icon" role="presentation" onClick={() => { openModal(); changeModalTypes(card); }} id={`${index}-id`} />
           </div>
           {this.renderDeveloperPic(firstInitials, secondInitials)}
           {this.renderDetails('developerDetails', 'developerName', card.fellowName)}
