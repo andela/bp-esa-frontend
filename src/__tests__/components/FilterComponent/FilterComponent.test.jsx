@@ -61,7 +61,7 @@ describe('The FilterComponent Mounted', () => {
     });
 
     describe('the Search by section', () => {
-      it('should search by fellow name', () => {
+      it('should search by engineer\'s name', () => {
         let fellowInput = filterComponent.find(`input#search-by-${fellowName}`);
         expect(fellowInput).toHaveLength(1);
         /* This is to simulate the input being checked in readiness

@@ -314,7 +314,7 @@ export class ReportPage extends Component {
                   <tr>
                     <th className="numbering">#</th>
                     <th>Date</th>
-                    <th>Developer</th>
+                    <th>Engineer Name</th>
                     <th>Partner Name</th>
                     <th>Type</th>
                     <th>Slack</th>

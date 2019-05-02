@@ -62,7 +62,7 @@ describe('ReportPage Component', () => {
     expect(title.text()).toEqual('ESA Dashboard');
   });
 
-  it('should redirect to the AIS page when you click the fellow name', () => {
+  it('should redirect to the AIS page when you click the engineer\'s name', () => {
     component.setState({ viewMode: 'listView' });
     const redirectToAIS = component.find('.table-body')
       .find('.report-table')
