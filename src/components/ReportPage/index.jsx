@@ -258,8 +258,8 @@ export class ReportPage extends Component {
       const {
         id,
         updatedAt,
-        fellowId,
-        fellowName,
+        fellowId: developerId ,
+        fellowName: developerName,
         partnerName,
         type,
       } = report;
@@ -269,10 +269,10 @@ export class ReportPage extends Component {
           <td className="column1">{this.formatDates(updatedAt)}</td>
           <td
             className="fellow"
-            onClick={() => window.open(`https://ais.andela.com/people/${fellowId}`)}
-            title={fellowName}
+            onClick={() => window.open(`https://ais.andela.com/people/${developerId}`)}
+            title={developerName}
           >
-            {fellowName}
+            {developerName}
           </td>
           <td title={report.partnerName}>{partnerName}</td>
           <td>{type}</td>
@@ -314,7 +314,7 @@ export class ReportPage extends Component {
                   <tr>
                     <th className="numbering">#</th>
                     <th>Date</th>
-                    <th>Fellow Name</th>
+                    <th>Developer</th>
                     <th>Partner Name</th>
                     <th>Type</th>
                     <th>Slack</th>
