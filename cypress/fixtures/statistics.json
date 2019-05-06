@@ -1,0 +1,26 @@
+{
+  "automation": {
+    "total": 10,
+    "success": 0
+  },
+  "onboarding": {
+    "total": 10,
+    "success": 5
+  },
+  "offboarding": {
+    "total": 60,
+    "success": 10
+  },
+  "slack": {
+    "total": 10,
+    "success": 0
+  },
+  "freckle": {
+    "total": 40,
+    "success": 5
+  },
+  "email": {
+    "total": 45,
+    "success": 6
+  }
+}
