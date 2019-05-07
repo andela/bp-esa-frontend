@@ -62,7 +62,9 @@
     "test:watch": "react-scripts test -u --coverage --watch",
     "eject": "react-scripts eject",
     "lint": "eslint ./src/components",
-    "test:end2end": "cypress open"
+    "test:end2end": "cypress open",
+    "cy:run": "cypress run --record --key 4466c2c1-ecf4-484a-ae6e-ae88b291d5d9",
+    "test:e2e": "start-server-and-test start http://localhost:3000 cy:run"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -85,7 +87,8 @@
     "node-sass": "^4.11.0",
     "redux-mock-store": "^1.5.3",
     "redux-saga-test-plan": "^3.7.0",
-    "sass-loader": "^7.1.0"
+    "sass-loader": "^7.1.0",
+    "start-server-and-test": "^1.9.0"
   },
   "proxy": "https://api-staging-esa.andela.com/"
 }
