@@ -3,7 +3,7 @@ describe('statistic cards', () => {
     const data = {
       fixture: 'statistics.json',
       method: 'GET',
-      route: '/automations/stats',
+      route: '/api/v1/automations/stats',
     };
     cy.setApi(data)
       .authenticateUser();

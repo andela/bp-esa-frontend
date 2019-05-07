@@ -6,11 +6,12 @@ version: 2
 defaults: &defaults
     docker:
       # specify the version you desire here
-      - image: circleci/node:10.8.0      
+      - image: cypress/base:10
       # Specify service dependencies here if necessary
       # CircleCI maintains a library of pre-built images
       # documented at https://circleci.com/docs/2.0/circleci-images/
     working_directory: ~/repo
+    parallelism: 1
 jobs:
   build:
     <<: *defaults
@@ -19,7 +20,7 @@ jobs:
       # Download and cache dependencies
       - restore_cache:
           keys:
-          - v1-dependencies-{{ checksum "package.json" }}
+          - v1-dependencies-{{ checksum "yarn.lock" }}
           # fallback to using the latest cache if no exact match is found
           - v1-dependencies-
       - run:
@@ -28,7 +29,8 @@ jobs:
       - save_cache:
           paths:
             - node_modules
-          key: v1-dependencies-{{ checksum "package.json" }}
+          key: v1-dependencies-{{ checksum "yarn.lock" }}
+
       - attach_workspace:
           at: ~/repo/tmp
       - run:
@@ -42,9 +44,14 @@ jobs:
             ./cc-test-reporter before-build
             yarn test
             ./cc-test-reporter after-build --coverage-input-type lcov --exit-code $?
+      - run:
+          name: Run end to end test
+          command: yarn test:e2e
+
       - store_artifacts:
           path: coverage
           prefix: coverage
+
   deploy_staging: # Deploy application to GCP staging
     docker:
       - image: circleci/node:10.15.0
