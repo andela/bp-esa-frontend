@@ -130,3 +130,6 @@ table .report_table, th, td {
     font-family: 'DIN Pro', sans-serif;
     box-sizing: border-box;
 }
+body {
+    background-color: #fafafa;
+}
