@@ -22,7 +22,7 @@ class Card extends React.Component {
           {title}
         </div>
         {
-          component()
+          component
         }
       </div>
     );
