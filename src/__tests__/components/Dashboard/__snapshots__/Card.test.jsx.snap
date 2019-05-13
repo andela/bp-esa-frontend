@@ -708,7 +708,15 @@ ReactWrapper {
           "_debugIsCurrentlyTiming": false,
           "_debugOwner": [Circular],
           "_debugSource": Object {
+<<<<<<< HEAD
             "fileName": "/Users/wagubibrian/Desktop/bootcamp/projects/esa/bp-esa-frontend/src/components/Dashboard/Card.jsx",
+=======
+<<<<<<< HEAD:src/__tests__/components/Dashboard/__snapshots__/Card.test.jsx.snap
+            "fileName": "/Users/kevinkoech/Documents/bp-esa-frontend/src/components/Dashboard/Card.jsx",
+=======
+            "fileName": "/Users/feloh/Desktop/ESA/bp-esa-frontend/src/components/Dashboard/DashboardCard.jsx",
+>>>>>>> ft(upselling-partners-card): design a card showing partners who have added more developers:src/__tests__/components/Dashboard/__snapshots__/DashboardCard.test.jsx.snap
+>>>>>>> ft(upselling-partners-card): design a card showing partners who have added more developers
             "lineNumber": 20,
           },
           "actualDuration": 0,
@@ -720,7 +728,15 @@ ReactWrapper {
             "_debugIsCurrentlyTiming": false,
             "_debugOwner": [Circular],
             "_debugSource": Object {
+<<<<<<< HEAD
               "fileName": "/Users/wagubibrian/Desktop/bootcamp/projects/esa/bp-esa-frontend/src/components/Dashboard/Card.jsx",
+=======
+<<<<<<< HEAD:src/__tests__/components/Dashboard/__snapshots__/Card.test.jsx.snap
+              "fileName": "/Users/kevinkoech/Documents/bp-esa-frontend/src/components/Dashboard/Card.jsx",
+=======
+              "fileName": "/Users/feloh/Desktop/ESA/bp-esa-frontend/src/components/Dashboard/DashboardCard.jsx",
+>>>>>>> ft(upselling-partners-card): design a card showing partners who have added more developers:src/__tests__/components/Dashboard/__snapshots__/DashboardCard.test.jsx.snap
+>>>>>>> ft(upselling-partners-card): design a card showing partners who have added more developers
               "lineNumber": 21,
             },
             "actualDuration": 0,
@@ -777,7 +793,11 @@ ReactWrapper {
               >
                 Title Card
               </div>,
+<<<<<<< HEAD:src/__tests__/components/Dashboard/__snapshots__/Card.test.jsx.snap
               undefined,
+=======
+              [MockFunction],
+>>>>>>> ft(upselling-partners-card): design a card showing partners who have added more developers:src/__tests__/components/Dashboard/__snapshots__/DashboardCard.test.jsx.snap
             ],
             "className": "dashboard-card class",
           },
@@ -791,7 +811,11 @@ ReactWrapper {
               >
                 Title Card
               </div>,
+<<<<<<< HEAD:src/__tests__/components/Dashboard/__snapshots__/Card.test.jsx.snap
               undefined,
+=======
+              [MockFunction],
+>>>>>>> ft(upselling-partners-card): design a card showing partners who have added more developers:src/__tests__/components/Dashboard/__snapshots__/DashboardCard.test.jsx.snap
             ],
             "className": "dashboard-card class",
           },
@@ -1590,7 +1614,11 @@ ReactWrapper {
           >
             Title Card
           </div>,
+<<<<<<< HEAD:src/__tests__/components/Dashboard/__snapshots__/Card.test.jsx.snap
           undefined,
+=======
+          [MockFunction],
+>>>>>>> ft(upselling-partners-card): design a card showing partners who have added more developers:src/__tests__/components/Dashboard/__snapshots__/DashboardCard.test.jsx.snap
         ],
         "className": "dashboard-card class",
       },
@@ -2299,7 +2327,15 @@ ReactWrapper {
             "_debugIsCurrentlyTiming": false,
             "_debugOwner": [Circular],
             "_debugSource": Object {
+<<<<<<< HEAD
               "fileName": "/Users/wagubibrian/Desktop/bootcamp/projects/esa/bp-esa-frontend/src/components/Dashboard/Card.jsx",
+=======
+<<<<<<< HEAD:src/__tests__/components/Dashboard/__snapshots__/Card.test.jsx.snap
+              "fileName": "/Users/kevinkoech/Documents/bp-esa-frontend/src/components/Dashboard/Card.jsx",
+=======
+              "fileName": "/Users/feloh/Desktop/ESA/bp-esa-frontend/src/components/Dashboard/DashboardCard.jsx",
+>>>>>>> ft(upselling-partners-card): design a card showing partners who have added more developers:src/__tests__/components/Dashboard/__snapshots__/DashboardCard.test.jsx.snap
+>>>>>>> ft(upselling-partners-card): design a card showing partners who have added more developers
               "lineNumber": 20,
             },
             "actualDuration": 0,
@@ -2311,7 +2347,15 @@ ReactWrapper {
               "_debugIsCurrentlyTiming": false,
               "_debugOwner": [Circular],
               "_debugSource": Object {
+<<<<<<< HEAD
                 "fileName": "/Users/wagubibrian/Desktop/bootcamp/projects/esa/bp-esa-frontend/src/components/Dashboard/Card.jsx",
+=======
+<<<<<<< HEAD:src/__tests__/components/Dashboard/__snapshots__/Card.test.jsx.snap
+                "fileName": "/Users/kevinkoech/Documents/bp-esa-frontend/src/components/Dashboard/Card.jsx",
+=======
+                "fileName": "/Users/feloh/Desktop/ESA/bp-esa-frontend/src/components/Dashboard/DashboardCard.jsx",
+>>>>>>> ft(upselling-partners-card): design a card showing partners who have added more developers:src/__tests__/components/Dashboard/__snapshots__/DashboardCard.test.jsx.snap
+>>>>>>> ft(upselling-partners-card): design a card showing partners who have added more developers
                 "lineNumber": 21,
               },
               "actualDuration": 0,
@@ -2368,7 +2412,11 @@ ReactWrapper {
                 >
                   Title Card
                 </div>,
+<<<<<<< HEAD:src/__tests__/components/Dashboard/__snapshots__/Card.test.jsx.snap
                 undefined,
+=======
+                [MockFunction],
+>>>>>>> ft(upselling-partners-card): design a card showing partners who have added more developers:src/__tests__/components/Dashboard/__snapshots__/DashboardCard.test.jsx.snap
               ],
               "className": "dashboard-card class",
             },
@@ -2382,7 +2430,11 @@ ReactWrapper {
                 >
                   Title Card
                 </div>,
+<<<<<<< HEAD:src/__tests__/components/Dashboard/__snapshots__/Card.test.jsx.snap
                 undefined,
+=======
+                [MockFunction],
+>>>>>>> ft(upselling-partners-card): design a card showing partners who have added more developers:src/__tests__/components/Dashboard/__snapshots__/DashboardCard.test.jsx.snap
               ],
               "className": "dashboard-card class",
             },
@@ -3181,7 +3233,11 @@ ReactWrapper {
             >
               Title Card
             </div>,
+<<<<<<< HEAD:src/__tests__/components/Dashboard/__snapshots__/Card.test.jsx.snap
             undefined,
+=======
+            [MockFunction],
+>>>>>>> ft(upselling-partners-card): design a card showing partners who have added more developers:src/__tests__/components/Dashboard/__snapshots__/DashboardCard.test.jsx.snap
           ],
           "className": "dashboard-card class",
         },

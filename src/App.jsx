@@ -5,7 +5,7 @@ import {
 import PropTypes from 'prop-types';
 import Notifications from 'react-notify-toast';
 import Login from './components/Login';
-import ReportPage from './components/ReportPage';
+import ReportPage from './components/ReportPage'; //eslint-disable-line
 import Dashboard from './components/Dashboard';
 
 const AuthenticatedRoute = ({ component: Component, authenticated, ...rest }) => (

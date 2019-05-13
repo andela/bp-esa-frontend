@@ -1,8 +1,18 @@
+// Styling for displaying components in the dashboard
+.dashboard-content {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+};
+
+// Common styling for the reusable card
 .dashboard-card {
-  background-color: white;
+  background-color: #f0f0f0;
   padding: 16px;
   overflow: auto;
-}
+};
+
+// Common styling for the title
 .title {
   color: #667;
   font-family: DinPro;
@@ -11,4 +21,64 @@
   line-height: 24px;
   letter-spacing: -0.11px;
   font-size: 20px;
-}
+  padding-left: 10px;
+};
+
+// Partner engagement card  styling
+.engagement {
+  height: 400px;
+  width: 900px;
+  margin: 30px;
+};
+
+// Styling for partner upselling card
+.upselling {
+  height: 400px;
+  width: 380px;
+  margin: 30px;
+};
+
+// Styling for partner activity card
+.activity {
+  height: 356px;
+  width: 812px;
+  margin: 30px;
+};
+
+/**
+* Styling for displaying information inside
+* the upselling partners card
+*/
+ul {
+  padding: 10px;
+  box-sizing: border-box;
+};
+ul li {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  background:rgba(255, 255, 255, .1);
+  padding: 15px 5px;
+  color: black;
+  margin: 10px 0;
+  transition: .5s;
+};
+.partner-name {
+  width: 290px;
+  color: #667;
+  font-family: "DIN Pro";
+  font-size: 18px;
+  letter-spacing: -0.1px;
+  line-height: 22px;
+};
+.developers {
+  width: 20px;
+  color: #667;
+  font-family: "DIN Pro";
+  font-size: 18px;
+  font-weight: 500;
+  letter-spacing: -0.1px;
+  line-height: 22px;
+  text-align: right;
+};

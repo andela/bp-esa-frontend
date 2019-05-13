@@ -6,6 +6,28 @@ import Card from './Card';
 import Header from '../Header';
 
 class Dashboard extends React.Component {
+  partnerStats = [
+    {
+      name: 'Git Prime Git Prime',
+      devNum: 30,
+    },
+    {
+      name: 'Medeable, inc',
+      devNum: 40,
+    },
+    {
+      name: 'Building Robotics inc',
+      devNum: 60,
+    },
+    {
+      name: 'Reaction Commerce, inc',
+      devNum: 9,
+    },
+    {
+      name: 'Crux Informatics',
+      devNum: 13,
+    },
+  ];
   /*
   Use case Example for dashboard card
   component is a function that returns a component
@@ -37,8 +59,15 @@ class Dashboard extends React.Component {
         <Card
           classes="upselling"
           title="Upselling Partners"
+          component={this.renderUpsellingStats(this.partnerStats)}
+        />
+
+        <Card
+          classes="activity"
+          title="Activity"
           component={() => {}}
         />
+
       </div>
     );
   }

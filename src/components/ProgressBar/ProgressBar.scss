@@ -1,0 +1,15 @@
+// sytling fof container thats holds the filler bar;
+.progress {
+  height: 3px;
+  right: 20px;
+  border-radius: 5px;
+};
+
+// styling for the filler that shows progress
+.filler {
+  background-color: #3359DF;
+  height: 100%;
+  width: 100%;
+  border-radius: inherit;
+  transition: width .2s ease-in;
+};

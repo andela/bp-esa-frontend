@@ -31,4 +31,11 @@ describe('test dashboard', () => {
     );
     expect(wrapper.find('#header').length).toEqual(1);
   });
+
+  it('should render the partners upselling card', () => {
+    const wrapper = mount(<Dashboard />);
+    const upsellingCard = wrapper.find('.upselling');
+    const title = upsellingCard.find('.title');
+    expect(title.text()).toEqual('Upselling Partners');
+  });
 });
