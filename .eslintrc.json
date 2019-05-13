@@ -1,10 +1,11 @@
 {
   "root": true,
-  "extends": "airbnb",
+  "extends": [ "airbnb", "plugin:cypress/recommended" ],
   "plugins": [
     "react",
     "jsx-a11y",
-    "import"
+    "import",
+    "cypress"
   ],
   "env": {
     "es6": true,
@@ -12,7 +13,8 @@
     "jest": true
   },
   "globals": {
-    "shallow": true
+    "shallow": true,
+    "cy": true
   },
   "parser": "babel-eslint",
   "parserOptions": {
