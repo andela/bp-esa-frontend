@@ -52,18 +52,20 @@
 ul {
   padding: 10px;
   box-sizing: border-box;
+
+  li {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    background:rgba(255, 255, 255, .1);
+    padding: 15px 5px;
+    color: black;
+    margin: 10px 0;
+    transition: .5s;
+  };
 };
-ul li {
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-  flex-wrap: wrap;
-  background:rgba(255, 255, 255, .1);
-  padding: 15px 5px;
-  color: black;
-  margin: 10px 0;
-  transition: .5s;
-};
+
 .partner-name {
   width: 290px;
   color: #667;

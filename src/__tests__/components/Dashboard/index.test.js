@@ -22,18 +22,17 @@ describe('test dashboard', () => {
   };
   const mockStore = configureStore();
   const store = mockStore(state);
+  const wrapper = mount(
+    // eslint-disable-next-line react/jsx-filename-extension
+    <Provider store={store}>
+      <Dashboard {...props} />
+    </Provider>,
+  );
   it('renders a header', () => {
-    const wrapper = mount(
-      // eslint-disable-next-line react/jsx-filename-extension
-      <Provider store={store}>
-        <Dashboard {...props} />
-      </Provider>,
-    );
     expect(wrapper.find('#header').length).toEqual(1);
   });
 
   it('should render the partners upselling card', () => {
-    const wrapper = mount(<Dashboard />);
     const upsellingCard = wrapper.find('.upselling');
     const title = upsellingCard.find('.title');
     expect(title.text()).toEqual('Upselling Partners');

@@ -33,11 +33,11 @@ ReactWrapper {
     "instance": Card {
       "_reactInternalFiber": FiberNode {
         "_debugHookTypes": null,
-        "_debugID": 75,
+        "_debugID": 63,
         "_debugIsCurrentlyTiming": false,
         "_debugOwner": FiberNode {
           "_debugHookTypes": null,
-          "_debugID": 74,
+          "_debugID": 62,
           "_debugIsCurrentlyTiming": false,
           "_debugOwner": null,
           "_debugSource": null,
@@ -97,7 +97,7 @@ ReactWrapper {
           "mode": 0,
           "nextEffect": FiberNode {
             "_debugHookTypes": null,
-            "_debugID": 72,
+            "_debugID": 60,
             "_debugIsCurrentlyTiming": false,
             "_debugOwner": null,
             "_debugSource": null,
@@ -105,7 +105,7 @@ ReactWrapper {
             "actualStartTime": -1,
             "alternate": FiberNode {
               "_debugHookTypes": null,
-              "_debugID": 72,
+              "_debugID": 60,
               "_debugIsCurrentlyTiming": false,
               "_debugOwner": null,
               "_debugSource": null,
@@ -152,7 +152,7 @@ ReactWrapper {
                 "finishedWork": null,
                 "firstBatch": null,
                 "hydrate": false,
-                "interactionThreadID": 17,
+                "interactionThreadID": 15,
                 "latestPendingTime": 0,
                 "latestPingedTime": 0,
                 "latestSuspendedTime": 0,
@@ -304,7 +304,7 @@ ReactWrapper {
               "finishedWork": null,
               "firstBatch": null,
               "hydrate": false,
-              "interactionThreadID": 17,
+              "interactionThreadID": 15,
               "latestPendingTime": 0,
               "latestPingedTime": 0,
               "latestSuspendedTime": 0,
@@ -379,7 +379,7 @@ ReactWrapper {
           "ref": null,
           "return": FiberNode {
             "_debugHookTypes": null,
-            "_debugID": 72,
+            "_debugID": 60,
             "_debugIsCurrentlyTiming": false,
             "_debugOwner": null,
             "_debugSource": null,
@@ -387,7 +387,7 @@ ReactWrapper {
             "actualStartTime": -1,
             "alternate": FiberNode {
               "_debugHookTypes": null,
-              "_debugID": 72,
+              "_debugID": 60,
               "_debugIsCurrentlyTiming": false,
               "_debugOwner": null,
               "_debugSource": null,
@@ -434,7 +434,7 @@ ReactWrapper {
                 "finishedWork": null,
                 "firstBatch": null,
                 "hydrate": false,
-                "interactionThreadID": 17,
+                "interactionThreadID": 15,
                 "latestPendingTime": 0,
                 "latestPingedTime": 0,
                 "latestSuspendedTime": 0,
@@ -586,7 +586,7 @@ ReactWrapper {
               "finishedWork": null,
               "firstBatch": null,
               "hydrate": false,
-              "interactionThreadID": 17,
+              "interactionThreadID": 15,
               "latestPendingTime": 0,
               "latestPingedTime": 0,
               "latestSuspendedTime": 0,
@@ -704,56 +704,24 @@ ReactWrapper {
         "alternate": null,
         "child": FiberNode {
           "_debugHookTypes": null,
-          "_debugID": 76,
+          "_debugID": 64,
           "_debugIsCurrentlyTiming": false,
           "_debugOwner": [Circular],
           "_debugSource": Object {
-<<<<<<< HEAD
-            "fileName": "/Users/wagubibrian/Desktop/bootcamp/projects/esa/bp-esa-frontend/src/components/Dashboard/Card.jsx",
-=======
-<<<<<<< HEAD:src/__tests__/components/Dashboard/__snapshots__/Card.test.jsx.snap
-<<<<<<< HEAD:src/__tests__/components/Dashboard/__snapshots__/Card.test.jsx.snap
-            "fileName": "/Users/kevinkoech/Documents/bp-esa-frontend/src/components/Dashboard/Card.jsx",
-=======
-=======
-<<<<<<< HEAD
->>>>>>> feat(dashboard): card housing components:src/__tests__/components/Dashboard/__snapshots__/DashboardCard.test.jsx.snap
-            "fileName": "/Users/feloh/Desktop/ESA/bp-esa-frontend/src/components/Dashboard/DashboardCard.jsx",
->>>>>>> ft(upselling-partners-card): design a card showing partners who have added more developers:src/__tests__/components/Dashboard/__snapshots__/DashboardCard.test.jsx.snap
->>>>>>> ft(upselling-partners-card): design a card showing partners who have added more developers
+            "fileName": "/Users/feloh/Desktop/ESA/bp-esa-frontend/src/components/Dashboard/Card.jsx",
             "lineNumber": 20,
-=======
-            "fileName": "/Users/kevinkoech/Documents/bp-esa-frontend/src/components/Dashboard/DashboardCard.jsx",
-            "lineNumber": 19,
->>>>>>> feat(dashboard): card housing components
           },
           "actualDuration": 0,
           "actualStartTime": -1,
           "alternate": null,
           "child": FiberNode {
             "_debugHookTypes": null,
-            "_debugID": 77,
+            "_debugID": 65,
             "_debugIsCurrentlyTiming": false,
             "_debugOwner": [Circular],
             "_debugSource": Object {
-<<<<<<< HEAD
-              "fileName": "/Users/wagubibrian/Desktop/bootcamp/projects/esa/bp-esa-frontend/src/components/Dashboard/Card.jsx",
-=======
-<<<<<<< HEAD:src/__tests__/components/Dashboard/__snapshots__/Card.test.jsx.snap
-<<<<<<< HEAD:src/__tests__/components/Dashboard/__snapshots__/Card.test.jsx.snap
-              "fileName": "/Users/kevinkoech/Documents/bp-esa-frontend/src/components/Dashboard/Card.jsx",
-=======
-=======
-<<<<<<< HEAD
->>>>>>> feat(dashboard): card housing components:src/__tests__/components/Dashboard/__snapshots__/DashboardCard.test.jsx.snap
-              "fileName": "/Users/feloh/Desktop/ESA/bp-esa-frontend/src/components/Dashboard/DashboardCard.jsx",
->>>>>>> ft(upselling-partners-card): design a card showing partners who have added more developers:src/__tests__/components/Dashboard/__snapshots__/DashboardCard.test.jsx.snap
->>>>>>> ft(upselling-partners-card): design a card showing partners who have added more developers
+              "fileName": "/Users/feloh/Desktop/ESA/bp-esa-frontend/src/components/Dashboard/Card.jsx",
               "lineNumber": 21,
-=======
-              "fileName": "/Users/kevinkoech/Documents/bp-esa-frontend/src/components/Dashboard/DashboardCard.jsx",
-              "lineNumber": 20,
->>>>>>> feat(dashboard): card housing components
             },
             "actualDuration": 0,
             "actualStartTime": -1,
@@ -803,52 +771,28 @@ ReactWrapper {
           "key": null,
           "lastEffect": null,
           "memoizedProps": Object {
-<<<<<<< HEAD
             "children": Array [
               <div
                 className="title"
               >
                 Title Card
               </div>,
-<<<<<<< HEAD:src/__tests__/components/Dashboard/__snapshots__/Card.test.jsx.snap
               undefined,
-=======
-              [MockFunction],
->>>>>>> ft(upselling-partners-card): design a card showing partners who have added more developers:src/__tests__/components/Dashboard/__snapshots__/DashboardCard.test.jsx.snap
             ],
-=======
-            "children": <div
-              className="title"
-            >
-              Title Card
-            </div>,
->>>>>>> feat(dashboard): card housing components
             "className": "dashboard-card class",
           },
           "memoizedState": null,
           "mode": 0,
           "nextEffect": null,
           "pendingProps": Object {
-<<<<<<< HEAD
             "children": Array [
               <div
                 className="title"
               >
                 Title Card
               </div>,
-<<<<<<< HEAD:src/__tests__/components/Dashboard/__snapshots__/Card.test.jsx.snap
               undefined,
-=======
-              [MockFunction],
->>>>>>> ft(upselling-partners-card): design a card showing partners who have added more developers:src/__tests__/components/Dashboard/__snapshots__/DashboardCard.test.jsx.snap
             ],
-=======
-            "children": <div
-              className="title"
-            >
-              Title Card
-            </div>,
->>>>>>> feat(dashboard): card housing components
             "className": "dashboard-card class",
           },
           "ref": null,
@@ -914,7 +858,7 @@ ReactWrapper {
         "ref": null,
         "return": FiberNode {
           "_debugHookTypes": null,
-          "_debugID": 74,
+          "_debugID": 62,
           "_debugIsCurrentlyTiming": false,
           "_debugOwner": null,
           "_debugSource": null,
@@ -974,7 +918,7 @@ ReactWrapper {
           "mode": 0,
           "nextEffect": FiberNode {
             "_debugHookTypes": null,
-            "_debugID": 72,
+            "_debugID": 60,
             "_debugIsCurrentlyTiming": false,
             "_debugOwner": null,
             "_debugSource": null,
@@ -982,7 +926,7 @@ ReactWrapper {
             "actualStartTime": -1,
             "alternate": FiberNode {
               "_debugHookTypes": null,
-              "_debugID": 72,
+              "_debugID": 60,
               "_debugIsCurrentlyTiming": false,
               "_debugOwner": null,
               "_debugSource": null,
@@ -1029,7 +973,7 @@ ReactWrapper {
                 "finishedWork": null,
                 "firstBatch": null,
                 "hydrate": false,
-                "interactionThreadID": 17,
+                "interactionThreadID": 15,
                 "latestPendingTime": 0,
                 "latestPingedTime": 0,
                 "latestSuspendedTime": 0,
@@ -1181,7 +1125,7 @@ ReactWrapper {
               "finishedWork": null,
               "firstBatch": null,
               "hydrate": false,
-              "interactionThreadID": 17,
+              "interactionThreadID": 15,
               "latestPendingTime": 0,
               "latestPingedTime": 0,
               "latestSuspendedTime": 0,
@@ -1256,7 +1200,7 @@ ReactWrapper {
           "ref": null,
           "return": FiberNode {
             "_debugHookTypes": null,
-            "_debugID": 72,
+            "_debugID": 60,
             "_debugIsCurrentlyTiming": false,
             "_debugOwner": null,
             "_debugSource": null,
@@ -1264,7 +1208,7 @@ ReactWrapper {
             "actualStartTime": -1,
             "alternate": FiberNode {
               "_debugHookTypes": null,
-              "_debugID": 72,
+              "_debugID": 60,
               "_debugIsCurrentlyTiming": false,
               "_debugOwner": null,
               "_debugSource": null,
@@ -1311,7 +1255,7 @@ ReactWrapper {
                 "finishedWork": null,
                 "firstBatch": null,
                 "hydrate": false,
-                "interactionThreadID": 17,
+                "interactionThreadID": 15,
                 "latestPendingTime": 0,
                 "latestPingedTime": 0,
                 "latestSuspendedTime": 0,
@@ -1463,7 +1407,7 @@ ReactWrapper {
               "finishedWork": null,
               "firstBatch": null,
               "hydrate": false,
-              "interactionThreadID": 17,
+              "interactionThreadID": 15,
               "latestPendingTime": 0,
               "latestPingedTime": 0,
               "latestSuspendedTime": 0,
@@ -1640,26 +1584,14 @@ ReactWrapper {
       "key": undefined,
       "nodeType": "host",
       "props": Object {
-<<<<<<< HEAD
         "children": Array [
           <div
             className="title"
           >
             Title Card
           </div>,
-<<<<<<< HEAD:src/__tests__/components/Dashboard/__snapshots__/Card.test.jsx.snap
           undefined,
-=======
-          [MockFunction],
->>>>>>> ft(upselling-partners-card): design a card showing partners who have added more developers:src/__tests__/components/Dashboard/__snapshots__/DashboardCard.test.jsx.snap
         ],
-=======
-        "children": <div
-          className="title"
-        >
-          Title Card
-        </div>,
->>>>>>> feat(dashboard): card housing components
         "className": "dashboard-card class",
       },
       "ref": null,
@@ -1692,11 +1624,11 @@ ReactWrapper {
       "instance": Card {
         "_reactInternalFiber": FiberNode {
           "_debugHookTypes": null,
-          "_debugID": 75,
+          "_debugID": 63,
           "_debugIsCurrentlyTiming": false,
           "_debugOwner": FiberNode {
             "_debugHookTypes": null,
-            "_debugID": 74,
+            "_debugID": 62,
             "_debugIsCurrentlyTiming": false,
             "_debugOwner": null,
             "_debugSource": null,
@@ -1756,7 +1688,7 @@ ReactWrapper {
             "mode": 0,
             "nextEffect": FiberNode {
               "_debugHookTypes": null,
-              "_debugID": 72,
+              "_debugID": 60,
               "_debugIsCurrentlyTiming": false,
               "_debugOwner": null,
               "_debugSource": null,
@@ -1764,7 +1696,7 @@ ReactWrapper {
               "actualStartTime": -1,
               "alternate": FiberNode {
                 "_debugHookTypes": null,
-                "_debugID": 72,
+                "_debugID": 60,
                 "_debugIsCurrentlyTiming": false,
                 "_debugOwner": null,
                 "_debugSource": null,
@@ -1811,7 +1743,7 @@ ReactWrapper {
                   "finishedWork": null,
                   "firstBatch": null,
                   "hydrate": false,
-                  "interactionThreadID": 17,
+                  "interactionThreadID": 15,
                   "latestPendingTime": 0,
                   "latestPingedTime": 0,
                   "latestSuspendedTime": 0,
@@ -1963,7 +1895,7 @@ ReactWrapper {
                 "finishedWork": null,
                 "firstBatch": null,
                 "hydrate": false,
-                "interactionThreadID": 17,
+                "interactionThreadID": 15,
                 "latestPendingTime": 0,
                 "latestPingedTime": 0,
                 "latestSuspendedTime": 0,
@@ -2038,7 +1970,7 @@ ReactWrapper {
             "ref": null,
             "return": FiberNode {
               "_debugHookTypes": null,
-              "_debugID": 72,
+              "_debugID": 60,
               "_debugIsCurrentlyTiming": false,
               "_debugOwner": null,
               "_debugSource": null,
@@ -2046,7 +1978,7 @@ ReactWrapper {
               "actualStartTime": -1,
               "alternate": FiberNode {
                 "_debugHookTypes": null,
-                "_debugID": 72,
+                "_debugID": 60,
                 "_debugIsCurrentlyTiming": false,
                 "_debugOwner": null,
                 "_debugSource": null,
@@ -2093,7 +2025,7 @@ ReactWrapper {
                   "finishedWork": null,
                   "firstBatch": null,
                   "hydrate": false,
-                  "interactionThreadID": 17,
+                  "interactionThreadID": 15,
                   "latestPendingTime": 0,
                   "latestPingedTime": 0,
                   "latestSuspendedTime": 0,
@@ -2245,7 +2177,7 @@ ReactWrapper {
                 "finishedWork": null,
                 "firstBatch": null,
                 "hydrate": false,
-                "interactionThreadID": 17,
+                "interactionThreadID": 15,
                 "latestPendingTime": 0,
                 "latestPingedTime": 0,
                 "latestSuspendedTime": 0,
@@ -2363,56 +2295,24 @@ ReactWrapper {
           "alternate": null,
           "child": FiberNode {
             "_debugHookTypes": null,
-            "_debugID": 76,
+            "_debugID": 64,
             "_debugIsCurrentlyTiming": false,
             "_debugOwner": [Circular],
             "_debugSource": Object {
-<<<<<<< HEAD
-              "fileName": "/Users/wagubibrian/Desktop/bootcamp/projects/esa/bp-esa-frontend/src/components/Dashboard/Card.jsx",
-=======
-<<<<<<< HEAD:src/__tests__/components/Dashboard/__snapshots__/Card.test.jsx.snap
-<<<<<<< HEAD:src/__tests__/components/Dashboard/__snapshots__/Card.test.jsx.snap
-              "fileName": "/Users/kevinkoech/Documents/bp-esa-frontend/src/components/Dashboard/Card.jsx",
-=======
-=======
-<<<<<<< HEAD
->>>>>>> feat(dashboard): card housing components:src/__tests__/components/Dashboard/__snapshots__/DashboardCard.test.jsx.snap
-              "fileName": "/Users/feloh/Desktop/ESA/bp-esa-frontend/src/components/Dashboard/DashboardCard.jsx",
->>>>>>> ft(upselling-partners-card): design a card showing partners who have added more developers:src/__tests__/components/Dashboard/__snapshots__/DashboardCard.test.jsx.snap
->>>>>>> ft(upselling-partners-card): design a card showing partners who have added more developers
+              "fileName": "/Users/feloh/Desktop/ESA/bp-esa-frontend/src/components/Dashboard/Card.jsx",
               "lineNumber": 20,
-=======
-              "fileName": "/Users/kevinkoech/Documents/bp-esa-frontend/src/components/Dashboard/DashboardCard.jsx",
-              "lineNumber": 19,
->>>>>>> feat(dashboard): card housing components
             },
             "actualDuration": 0,
             "actualStartTime": -1,
             "alternate": null,
             "child": FiberNode {
               "_debugHookTypes": null,
-              "_debugID": 77,
+              "_debugID": 65,
               "_debugIsCurrentlyTiming": false,
               "_debugOwner": [Circular],
               "_debugSource": Object {
-<<<<<<< HEAD
-                "fileName": "/Users/wagubibrian/Desktop/bootcamp/projects/esa/bp-esa-frontend/src/components/Dashboard/Card.jsx",
-=======
-<<<<<<< HEAD:src/__tests__/components/Dashboard/__snapshots__/Card.test.jsx.snap
-<<<<<<< HEAD:src/__tests__/components/Dashboard/__snapshots__/Card.test.jsx.snap
-                "fileName": "/Users/kevinkoech/Documents/bp-esa-frontend/src/components/Dashboard/Card.jsx",
-=======
-=======
-<<<<<<< HEAD
->>>>>>> feat(dashboard): card housing components:src/__tests__/components/Dashboard/__snapshots__/DashboardCard.test.jsx.snap
-                "fileName": "/Users/feloh/Desktop/ESA/bp-esa-frontend/src/components/Dashboard/DashboardCard.jsx",
->>>>>>> ft(upselling-partners-card): design a card showing partners who have added more developers:src/__tests__/components/Dashboard/__snapshots__/DashboardCard.test.jsx.snap
->>>>>>> ft(upselling-partners-card): design a card showing partners who have added more developers
+                "fileName": "/Users/feloh/Desktop/ESA/bp-esa-frontend/src/components/Dashboard/Card.jsx",
                 "lineNumber": 21,
-=======
-                "fileName": "/Users/kevinkoech/Documents/bp-esa-frontend/src/components/Dashboard/DashboardCard.jsx",
-                "lineNumber": 20,
->>>>>>> feat(dashboard): card housing components
               },
               "actualDuration": 0,
               "actualStartTime": -1,
@@ -2462,52 +2362,28 @@ ReactWrapper {
             "key": null,
             "lastEffect": null,
             "memoizedProps": Object {
-<<<<<<< HEAD
               "children": Array [
                 <div
                   className="title"
                 >
                   Title Card
                 </div>,
-<<<<<<< HEAD:src/__tests__/components/Dashboard/__snapshots__/Card.test.jsx.snap
                 undefined,
-=======
-                [MockFunction],
->>>>>>> ft(upselling-partners-card): design a card showing partners who have added more developers:src/__tests__/components/Dashboard/__snapshots__/DashboardCard.test.jsx.snap
               ],
-=======
-              "children": <div
-                className="title"
-              >
-                Title Card
-              </div>,
->>>>>>> feat(dashboard): card housing components
               "className": "dashboard-card class",
             },
             "memoizedState": null,
             "mode": 0,
             "nextEffect": null,
             "pendingProps": Object {
-<<<<<<< HEAD
               "children": Array [
                 <div
                   className="title"
                 >
                   Title Card
                 </div>,
-<<<<<<< HEAD:src/__tests__/components/Dashboard/__snapshots__/Card.test.jsx.snap
                 undefined,
-=======
-                [MockFunction],
->>>>>>> ft(upselling-partners-card): design a card showing partners who have added more developers:src/__tests__/components/Dashboard/__snapshots__/DashboardCard.test.jsx.snap
               ],
-=======
-              "children": <div
-                className="title"
-              >
-                Title Card
-              </div>,
->>>>>>> feat(dashboard): card housing components
               "className": "dashboard-card class",
             },
             "ref": null,
@@ -2573,7 +2449,7 @@ ReactWrapper {
           "ref": null,
           "return": FiberNode {
             "_debugHookTypes": null,
-            "_debugID": 74,
+            "_debugID": 62,
             "_debugIsCurrentlyTiming": false,
             "_debugOwner": null,
             "_debugSource": null,
@@ -2633,7 +2509,7 @@ ReactWrapper {
             "mode": 0,
             "nextEffect": FiberNode {
               "_debugHookTypes": null,
-              "_debugID": 72,
+              "_debugID": 60,
               "_debugIsCurrentlyTiming": false,
               "_debugOwner": null,
               "_debugSource": null,
@@ -2641,7 +2517,7 @@ ReactWrapper {
               "actualStartTime": -1,
               "alternate": FiberNode {
                 "_debugHookTypes": null,
-                "_debugID": 72,
+                "_debugID": 60,
                 "_debugIsCurrentlyTiming": false,
                 "_debugOwner": null,
                 "_debugSource": null,
@@ -2688,7 +2564,7 @@ ReactWrapper {
                   "finishedWork": null,
                   "firstBatch": null,
                   "hydrate": false,
-                  "interactionThreadID": 17,
+                  "interactionThreadID": 15,
                   "latestPendingTime": 0,
                   "latestPingedTime": 0,
                   "latestSuspendedTime": 0,
@@ -2840,7 +2716,7 @@ ReactWrapper {
                 "finishedWork": null,
                 "firstBatch": null,
                 "hydrate": false,
-                "interactionThreadID": 17,
+                "interactionThreadID": 15,
                 "latestPendingTime": 0,
                 "latestPingedTime": 0,
                 "latestSuspendedTime": 0,
@@ -2915,7 +2791,7 @@ ReactWrapper {
             "ref": null,
             "return": FiberNode {
               "_debugHookTypes": null,
-              "_debugID": 72,
+              "_debugID": 60,
               "_debugIsCurrentlyTiming": false,
               "_debugOwner": null,
               "_debugSource": null,
@@ -2923,7 +2799,7 @@ ReactWrapper {
               "actualStartTime": -1,
               "alternate": FiberNode {
                 "_debugHookTypes": null,
-                "_debugID": 72,
+                "_debugID": 60,
                 "_debugIsCurrentlyTiming": false,
                 "_debugOwner": null,
                 "_debugSource": null,
@@ -2970,7 +2846,7 @@ ReactWrapper {
                   "finishedWork": null,
                   "firstBatch": null,
                   "hydrate": false,
-                  "interactionThreadID": 17,
+                  "interactionThreadID": 15,
                   "latestPendingTime": 0,
                   "latestPingedTime": 0,
                   "latestSuspendedTime": 0,
@@ -3122,7 +2998,7 @@ ReactWrapper {
                 "finishedWork": null,
                 "firstBatch": null,
                 "hydrate": false,
-                "interactionThreadID": 17,
+                "interactionThreadID": 15,
                 "latestPendingTime": 0,
                 "latestPingedTime": 0,
                 "latestSuspendedTime": 0,
@@ -3299,26 +3175,14 @@ ReactWrapper {
         "key": undefined,
         "nodeType": "host",
         "props": Object {
-<<<<<<< HEAD
           "children": Array [
             <div
               className="title"
             >
               Title Card
             </div>,
-<<<<<<< HEAD:src/__tests__/components/Dashboard/__snapshots__/Card.test.jsx.snap
             undefined,
-=======
-            [MockFunction],
->>>>>>> ft(upselling-partners-card): design a card showing partners who have added more developers:src/__tests__/components/Dashboard/__snapshots__/DashboardCard.test.jsx.snap
           ],
-=======
-          "children": <div
-            className="title"
-          >
-            Title Card
-          </div>,
->>>>>>> feat(dashboard): card housing components
           "className": "dashboard-card class",
         },
         "ref": null,

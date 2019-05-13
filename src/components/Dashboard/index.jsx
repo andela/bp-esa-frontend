@@ -4,26 +4,32 @@ import './dashboard.scss';
 import PropTypes from 'prop-types';
 import Card from './Card';
 import Header from '../Header';
+import ProgressBar from '../ProgressBar/ProgressBar';
 
 class Dashboard extends React.Component {
   partnerStats = [
     {
+      id: 1,
       name: 'Git Prime Git Prime',
       devNum: 30,
     },
     {
+      id: 2,
       name: 'Medeable, inc',
       devNum: 40,
     },
     {
+      id: 3,
       name: 'Building Robotics inc',
       devNum: 60,
     },
     {
+      id: 4,
       name: 'Reaction Commerce, inc',
       devNum: 9,
     },
     {
+      id: 5,
       name: 'Crux Informatics',
       devNum: 13,
     },
@@ -37,6 +43,18 @@ class Dashboard extends React.Component {
   your Upselling jsx component and pass it as props.
    */
 
+  renderUpsellingStats = partnerStats => () => (
+    <ul>
+      { partnerStats.map(stat => (
+        <li key={stat.id}>
+          <span className="partner-name">{stat.name}</span>
+          <span className="developers">{stat.devNum}</span>
+          <ProgressBar upselledDevs={stat.devNum} />
+        </li>
+      ))}
+    </ul>
+  );
+
   render() {
     const {
       currentUser,
@@ -44,7 +62,7 @@ class Dashboard extends React.Component {
       history,
     } = this.props;
     return (
-      <div className="dashboard">
+      <div className="dashboard-content">
         <Header
           currentUser={currentUser}
           history={history}

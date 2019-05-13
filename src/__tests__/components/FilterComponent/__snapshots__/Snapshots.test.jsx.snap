@@ -197,15 +197,7 @@ ShallowWrapper {
       "disabled": false,
       "disabledKeyboardNavigation": false,
       "dropdownMode": "select",
-<<<<<<< HEAD
-      "maxDate": "2019-05-23T12:26:49.091Z",
-=======
-<<<<<<< HEAD
-      "maxDate": "2019-05-20T12:16:20.080Z",
-=======
-      "maxDate": "2019-05-13T12:40:43.670Z",
->>>>>>> ft(upselling-partners-card): design a card showing partners who have added more developers
->>>>>>> ft(upselling-partners-card): design a card showing partners who have added more developers
+      "maxDate": "2019-05-24T09:40:02.646Z",
       "monthsShown": 1,
       "nextMonthButtonLabel": "Next month",
       "onBlur": [Function],
@@ -246,15 +238,7 @@ ShallowWrapper {
         "disabled": false,
         "disabledKeyboardNavigation": false,
         "dropdownMode": "select",
-<<<<<<< HEAD
-        "maxDate": "2019-05-23T12:26:49.091Z",
-=======
-<<<<<<< HEAD
-        "maxDate": "2019-05-20T12:16:20.080Z",
-=======
-        "maxDate": "2019-05-13T12:40:43.670Z",
->>>>>>> ft(upselling-partners-card): design a card showing partners who have added more developers
->>>>>>> ft(upselling-partners-card): design a card showing partners who have added more developers
+        "maxDate": "2019-05-24T09:40:02.646Z",
         "monthsShown": 1,
         "nextMonthButtonLabel": "Next month",
         "onBlur": [Function],
