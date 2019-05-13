@@ -14,7 +14,6 @@ const props = {
     partnerName: "Hammes, O'Keefe and Hilll",
     slackAutomations: { status: 'failure', slackActivities: [7] },
   }],
-  isLoading: false,
   retryingAutomation: false,
   handleRetryAutomation: jest.fn(),
 };
@@ -23,6 +22,7 @@ describe('rendering', () => {
   let wrapper;
 
   beforeEach(() => {
+    // eslint-disable-next-line react/jsx-filename-extension
     wrapper = mount(<DeveloperCardComponent {...props} />);
   });
 
