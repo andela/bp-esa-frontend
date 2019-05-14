@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 const userState = Cypress.env('state');
 const apiUrl = Cypress.env('apiUrl');
 
@@ -10,7 +11,7 @@ Cypress.Commands.add('setApi', ({ fixture, method, route }) => {
     .then((response) => {
       cy.server();
       cy.route({
-        method, url: `${apiUrl}${route}`, response
-      })
-    })
+        method, url: `${apiUrl}${route}`, response,
+      });
+    });
 });
