@@ -6,6 +6,7 @@ import PropTypes from 'prop-types';
 import Notifications from 'react-notify-toast';
 import Login from './components/Login';
 import ReportPage from './components/ReportPage';
+import PartnerStats from './components/PartnerStatsCard';
 
 const AuthenticatedRoute = ({ component: Component, authenticated, ...rest }) => (
   <Route
@@ -74,6 +75,14 @@ class App extends React.PureComponent {
               exact
               path="/"
               component={ReportPage}
+              authenticated={authenticated}
+              currentUser={currentUser}
+              removeCurrentUser={this.removeCurrentUser}
+            />
+            <AuthenticatedRoute
+              exact
+              path="/newPage"
+              component={PartnerStats}
               authenticated={authenticated}
               currentUser={currentUser}
               removeCurrentUser={this.removeCurrentUser}
