@@ -1,6 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import StatsCard from '../../../components/StatsCard';
+import StatsCard from '../../../components/StatsCard/index';
 
 const props = {
   stat: {

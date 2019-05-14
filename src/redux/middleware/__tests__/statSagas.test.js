@@ -12,17 +12,17 @@ describe('The statistics saga', () => {
 
   it('should fetch statistics successfully', () => expectSaga(watchFetchStats)
     .provide([
-      [call(StatsAPI.getStats), expectedResponse],
+      [call(StatsAPI.getStats, 'days'), expectedResponse],
     ])
     .put(fetchStatsSuccess(expectedResponse.data))
-    .dispatch(fetchStatsRequest())
+    .dispatch(fetchStatsRequest('days'))
     .silentRun());
 
   it('should test dispatch FETCH_AUTOMATION_FAILURE on failure', () => expectSaga(watchFetchStats)
     .provide([
-      [matchers.call.fn(StatsAPI.getStats), throwError({})],
+      [matchers.call.fn(StatsAPI.getStats, 'days'), throwError({})],
     ])
     .put(fetchStatsFailure({}))
-    .dispatch(fetchStatsRequest())
+    .dispatch(fetchStatsRequest('days'))
     .silentRun());
 });

@@ -4,8 +4,8 @@ import resolveUrl from '.';
 const baseUrl = resolveUrl();
 
 class StatsAPI {
-  static async getStats() {
-    return axios.get(`${baseUrl}/automations/stats`);
+  static async getStats(period) {
+    return axios.get(`${baseUrl}/automations/stats/?duration=${period}`, );
   }
 }
 

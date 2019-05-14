@@ -2,8 +2,9 @@ import * as React from 'react';
 import PropTypes from 'proptypes';
 import './styles.scss';
 import FilterComponent from '../FilterComponent';
+import Dropdown from '../StatsCard/Dropdown';
 
-const ReportNavBar = ({ isStats, renderView, viewMode, ...props }) => {
+const ReportNavBar = ({ isStats, fetchStat, renderView, viewMode, ...props }) => {
   const activeTableView = viewMode === 'listView' ? '-active' : '';
   const activeCardView = viewMode === 'cardView' ? '-active' : '';
   return (
@@ -12,8 +13,7 @@ const ReportNavBar = ({ isStats, renderView, viewMode, ...props }) => {
       isStats ? (
         <div className="left-navbar">
           <React.Fragment>
-            Automations stats for Today
-            <img src="/drop-down.png" alt="down" />
+            <Dropdown {...props} fetchStat={fetchStat} />
           </React.Fragment>
         </div>
       ) : (

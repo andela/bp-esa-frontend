@@ -18,7 +18,7 @@ import DeveloperCard from '../developerCards';
 import Spinner from '../Spinner';
 import './styles.scss';
 import { filterInitialState } from '../FilterComponent';
-import StatsCard from '../StatsCard';
+import StatsCard from '../StatsCard/index';
 import { fetchStatsRequest } from '../../redux/actions/automationStats';
 import { fetchRealTimeReport, resetRealTimeReport } from '../../redux/actions/realTimeReport';
 
@@ -61,7 +61,7 @@ export class ReportPage extends Component {
       const { tempCurrentPage } = this.state;
       this.setPaginationState({ currentPage: tempCurrentPage });
     }, 1000);
-    fetchStat();
+    fetchStat('days');
   }
 
   shouldComponentUpdate(nextProps, nextState) {
@@ -386,13 +386,13 @@ export class ReportPage extends Component {
       pagination: { limit, currentPage },
       tempCurrentPage, viewMode,
     } = this.state;
-
     const {
       currentUser,
       removeCurrentUser,
       history, automation: { error, isLoading },
       automation,
       stats,
+      fetchStat,
     } = this.props;
 
     return (
@@ -403,7 +403,7 @@ export class ReportPage extends Component {
           history={history}
           activeTab="automations"
         />
-        <ReportNavBar isStats />
+        <ReportNavBar isStats fetchStat={fetchStat} />
         <div className="stats-wrapper">
           {
             stats.isLoading
@@ -453,7 +453,7 @@ export const mapDispatchToProps = dispatch => ({
   fetchAllAutomation: (pagination, filters) => dispatch(fetchAutomation(pagination, filters)),
   fetchUpdates: () => dispatch(fetchRealTimeReport()),
   resetUpdates: () => dispatch(resetRealTimeReport()),
-  fetchStat: () => dispatch(fetchStatsRequest()),
+  fetchStat: (period) => dispatch(fetchStatsRequest(period)),
   retryFailedAutomation: () => dispatch(retryAutomation()),
 });
 
