@@ -68,9 +68,8 @@
     -moz-box-sizing: border-box;
     box-sizing: border-box;
     padding: 0.2375em 0.4375em;
-    border: 1px solid #FBFBFB;
     border-radius: 5px;
-
+    margin-left: 10px;
     display: inline-grid;
     place-items: center;
     grid-template-columns: repeat(2, min-content);
@@ -185,6 +184,30 @@
 
     }
   }
+  //pills
+  .pills {
+    display: inline-grid;
+    grid-template-columns: repeat(3, max-content);
+    grid-gap: 5px;
+    justify-self: right;
+    .active {
+      background-color: #708be9;
+      border: 1px solid rgba(155,174,240,1) !important;
+    }
+    .nav-links {
+      display: inline-grid;
+      border: 1px solid #708be9;
+      border-radius: 5px;
+      margin-right: 1em;
+      a {
+        text-decoration: none;
+        color: white;
+        padding: .1435em 1.5em;
+        font-size: 16px;
+      }
+    }
+  }
+  //pills
 }
 
 @media only screen and (min-width: 450px) {
