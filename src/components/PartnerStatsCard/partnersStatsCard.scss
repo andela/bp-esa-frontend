@@ -1,0 +1,38 @@
+.partner-stats-container {
+  display: grid;
+  grid-template-columns: repeat(2, 297.5px);
+  grid-column-gap: 35px;
+  grid-row-gap: 17px;
+  margin: 20px;
+
+  .partner-stats {
+    box-sizing: border-box;
+    height: 108px;
+    width: 297.5px;
+    border-radius: 5px;
+    background-color: #FFF;
+    border: 1px solid #EEF;
+    padding: 10px 10px;
+    font-family: "DIN Pro";
+
+
+    .title {
+      height: 22px;
+      width: 130px;
+      color: #889;
+      font-size: 18px;
+      letter-spacing: -0.1px;
+      line-height: 22px;
+      margin-bottom: 14px;
+    }
+
+    .stats-value {
+      height: 40px;
+      width: 21px;
+      color: #667;
+      font-size: 40px;
+      letter-spacing: -0.22px;
+      line-height: 48px;
+    }
+  }
+}
