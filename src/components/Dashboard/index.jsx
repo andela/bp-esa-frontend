@@ -1,6 +1,9 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import './dashboard.scss';
+import PropTypes from 'prop-types';
 import Card from './Card';
+import Header from '../Header';
 
 class Dashboard extends React.Component {
   /*
@@ -11,15 +14,21 @@ class Dashboard extends React.Component {
   You will create a function renderUpselling that returns
   your Upselling jsx component and pass it as props.
    */
-  renderUpselling = () => (
-    <div>
-        upselling component
-    </div>
-  );
 
   render() {
+    const {
+      currentUser,
+      removeCurrentUser,
+      history,
+    } = this.props;
     return (
-      <>
+      <div className="dashboard">
+        <Header
+          currentUser={currentUser}
+          history={history}
+          removeCurrentUser={removeCurrentUser}
+          activeTab="dashboard"
+        />
         <Card
           classes="engagement"
           title="Engagement Trends"
@@ -28,11 +37,21 @@ class Dashboard extends React.Component {
         <Card
           classes="upselling"
           title="Upselling Partners"
-          component={this.renderUpselling}
+          component={() => {}}
         />
-      </>
+      </div>
     );
   }
 }
 
-export default Dashboard;
+Dashboard.propTypes = {
+  currentUser: PropTypes.object.isRequired,
+  removeCurrentUser: PropTypes.func,
+  history: PropTypes.object.isRequired,
+};
+
+Dashboard.defaultProps = {
+  removeCurrentUser: () => {},
+};
+
+export default connect(null, {})(Dashboard);

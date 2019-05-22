@@ -59,7 +59,7 @@ describe('ReportPage Component', () => {
 
   it('should render as expected', () => {
     const title = component.find('.text');
-    expect(title.text()).toEqual('ESA Dashboard');
+    expect(title.text()).toEqual('ESA');
   });
 
   it('should redirect to the AIS page when you click the engineer\'s name', () => {

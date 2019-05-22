@@ -38,7 +38,7 @@ class Header extends PureComponent {
     notify.show('You have Logged out Successfully!', 'success');
   };
 
-  render() {
+  userInfo = () => {
     const { signoutDropDownIsVisible } = this.state;
     const { currentUser } = this.props;
     const {
@@ -53,63 +53,89 @@ class Header extends PureComponent {
       initials = `${firstName[0]}${secondName[0]}`;
     }
     return (
+      <div
+        className="user-info-container"
+        data-toggle="signout-dropdown-toggler"
+        onClick={this.toggleSignoutDropDown}
+      >
+        <div
+          className="current-user"
+          data-toggle="signout-dropdown-toggler"
+        >
+          <div
+            className="user-name"
+            data-initials={initials}
+            data-name={name}
+            data-toggle="signout-dropdown-toggler"
+          />
+          <div
+            className="image-container"
+            data-toggle="signout-dropdown-toggler"
+          >
+            {picture ? (
+              <img
+                src={picture}
+                alt="user-icon"
+                className="user-image"
+                data-toggle="signout-dropdown-toggler"
+              />
+            ) : (
+              <i
+                className="fa fa-user-circle"
+                data-toggle="signout-dropdown-toggler"
+              />
+            )}
+          </div>
+        </div>
+        <div
+          className={classNames('caret-down', { visible: signoutDropDownIsVisible })}
+          data-toggle="signout-dropdown-toggler"
+        >
+          <i className="fa fa-caret-down" data-toggle="signout-dropdown-toggler" />
+          <div className={classNames('signout-dropdown-parent', { visible: signoutDropDownIsVisible })}>
+            <div className={classNames('signout-dropdown', { visible: signoutDropDownIsVisible })}>
+              <button type="button" className="logout-button" onClick={() => this.onLogout()}>
+                <i className="fa fa-sign-out-alt" />
+                <span>Sign Out</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  };
+
+  navigationPills = () => {
+    const { activeTab } = this.props;
+    const active = tabName => (activeTab === tabName ? 'active' : '');
+    return (
+      <div className="pills">
+        {/* dashboard pill */}
+        <div className={`nav-links ${active('dashboard')}`}>
+          <div className={activeTab}>
+            <a href="/dashboard">Dashboard</a>
+          </div>
+        </div>
+        {/* automations pill */}
+        <div className={`nav-links ${active('automations')}`}>
+          <a href="/">Automations</a>
+        </div>
+        {/* user pill */}
+        {this.userInfo()}
+      </div>
+    );
+  };
+
+  render() {
+    return (
       <div id="header" ref={(node) => { this.node = node; }}>
         <div className="brand">
           <a href="/">
             <div className="header-logo"><img src="/logo.png" alt="Andela Logo" /></div>
-            <span className="text">ESA Dashboard</span>
+            <span className="text">ESA</span>
           </a>
         </div>
-        <div
-          className="user-info-container"
-          data-toggle="signout-dropdown-toggler"
-          onClick={this.toggleSignoutDropDown}
-        >
-          <div
-            className="current-user"
-            data-toggle="signout-dropdown-toggler"
-          >
-            <div
-              className="user-name"
-              data-initials={initials}
-              data-name={name}
-              data-toggle="signout-dropdown-toggler"
-            />
-            <div
-              className="image-container"
-              data-toggle="signout-dropdown-toggler"
-            >
-              {picture ? (
-                <img
-                  src={picture}
-                  alt="user-icon"
-                  className="user-image"
-                  data-toggle="signout-dropdown-toggler"
-                />
-              ) : (
-                <i
-                  className="fa fa-user-circle"
-                  data-toggle="signout-dropdown-toggler"
-                />
-              )}
-            </div>
-          </div>
-          <div
-            className={classNames('caret-down', { visible: signoutDropDownIsVisible })}
-            data-toggle="signout-dropdown-toggler"
-          >
-            <i className="fa fa-caret-down" data-toggle="signout-dropdown-toggler" />
-            <div className={classNames('signout-dropdown-parent', { visible: signoutDropDownIsVisible })}>
-              <div className={classNames('signout-dropdown', { visible: signoutDropDownIsVisible })}>
-                <button type="button" className="logout-button" onClick={() => this.onLogout()}>
-                  <i className="fa fa-sign-out-alt" />
-                  <span>Sign Out</span>
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-
+        {this.navigationPills()}
       </div>
     );
   }
@@ -119,6 +145,7 @@ Header.propTypes = {
   currentUser: PropTypes.object.isRequired,
   removeCurrentUser: PropTypes.func,
   history: PropTypes.object.isRequired,
+  activeTab: PropTypes.string.isRequired,
 };
 
 Header.defaultProps = {

@@ -399,6 +399,7 @@ export class ReportPage extends Component {
           currentUser={currentUser}
           removeCurrentUser={removeCurrentUser}
           history={history}
+          activeTab="automations"
         />
         <ReportNavBar isStats />
         <div className="stats-wrapper">
