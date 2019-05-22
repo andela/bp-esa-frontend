@@ -52,7 +52,9 @@ export class ReportPage extends Component {
 
     const params = new URLSearchParams(search);
     const view = params.get('view');
-    this.setState({ viewMode: view });
+    if (view !== null) {
+      this.setState({ viewMode: view });
+    }
     this.connectToSocket('newAutomation');
 
     this.handleOnKeyPress = _.debounce(() => {
@@ -258,7 +260,7 @@ export class ReportPage extends Component {
       const {
         id,
         updatedAt,
-        fellowId: developerId ,
+        fellowId: developerId,
         fellowName: developerName,
         partnerName,
         type,
@@ -382,7 +384,7 @@ export class ReportPage extends Component {
   render() {
     const {
       pagination: { limit, currentPage },
-      tempCurrentPage,
+      tempCurrentPage, viewMode,
     } = this.state;
 
     const {
@@ -409,7 +411,7 @@ export class ReportPage extends Component {
               : this.renderStatisticsCards()
           }
         </div>
-        <ReportNavBar renderView={this.renderView} filter={this.filter} />
+        <ReportNavBar renderView={this.renderView} filter={this.filter} viewMode={viewMode} />
         {
           isLoading ? <Spinner /> : (
             <React.Fragment>
