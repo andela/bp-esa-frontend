@@ -27,11 +27,17 @@
       margin: 0;
     }
 
-    .view-button {
+    .view-button{
       height: 2em;
       width: 2em;
       cursor: pointer;
       fill: #AAB;
+      &-active{
+        height: 2em;
+        width: 2em;
+        cursor: pointer;
+        fill: #667;
+      }
     }
     .view-button:active, .view-button:hover {
       fill: #667;
