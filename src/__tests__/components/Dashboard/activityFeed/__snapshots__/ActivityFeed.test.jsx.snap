@@ -1,0 +1,803 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Activity Feed renders correctly 1`] = `
+ReactWrapper {
+  Symbol(enzyme.__unrendered__): <ActivityFeed
+    reportData={
+      Array [
+        Object {
+          "fellowName": "Kitika, Kelvin",
+          "type": "offboarding",
+          "updatedAt": "2019-05-15T13:47:04.608Z",
+        },
+      ]
+    }
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "getWrappingComponentRenderer": [Function],
+    "render": [Function],
+    "simulateError": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "function",
+    "props": Object {
+      "reportData": Array [
+        Object {
+          "fellowName": "Kitika, Kelvin",
+          "type": "offboarding",
+          "updatedAt": "2019-05-15T13:47:04.608Z",
+        },
+      ],
+    },
+    "ref": null,
+    "rendered": Object {
+      "instance": <div
+        class="activity-feed-container"
+      >
+        <div
+          class="feeds-initials"
+        >
+          <span>
+            KK
+          </span>
+        </div>
+        <div
+          class="feeds-content"
+        >
+          <span
+            class="feed-description"
+          >
+            <span
+              class="bold"
+            >
+               Kelvin Kitika
+            </span>
+            <span>
+               was 
+            </span>
+            <span
+              class="offboarding"
+            >
+              offboarded
+            </span>
+            <span>
+               from 
+            </span>
+            <span
+              class="bold"
+            />
+          </span>
+          <span
+            class="feed-date"
+          >
+            05/15/2019, 16:47
+          </span>
+        </div>
+      </div>,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": Array [
+          <div
+            className="feeds-initials"
+          >
+            <span>
+              KK
+            </span>
+          </div>,
+          <div
+            className="feeds-content"
+          >
+            <span
+              className="feed-description"
+            >
+              <span
+                className="bold"
+              >
+                 Kelvin Kitika
+              </span>
+              <span>
+                 was 
+              </span>
+              <span
+                className="offboarding"
+              >
+                offboarded
+              </span>
+              <span>
+                 from 
+              </span>
+              <span
+                className="bold"
+              />
+            </span>
+            <span
+              className="feed-date"
+            >
+              05/15/2019, 16:47
+            </span>
+          </div>,
+        ],
+        "className": "activity-feed-container",
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": <div
+            class="feeds-initials"
+          >
+            <span>
+              KK
+            </span>
+          </div>,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": <span>
+              KK
+            </span>,
+            "className": "feeds-initials",
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": <span>
+                KK
+              </span>,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": "KK",
+              },
+              "ref": null,
+              "rendered": Array [
+                "KK",
+              ],
+              "type": "span",
+            },
+          ],
+          "type": "div",
+        },
+        Object {
+          "instance": <div
+            class="feeds-content"
+          >
+            <span
+              class="feed-description"
+            >
+              <span
+                class="bold"
+              >
+                 Kelvin Kitika
+              </span>
+              <span>
+                 was 
+              </span>
+              <span
+                class="offboarding"
+              >
+                offboarded
+              </span>
+              <span>
+                 from 
+              </span>
+              <span
+                class="bold"
+              />
+            </span>
+            <span
+              class="feed-date"
+            >
+              05/15/2019, 16:47
+            </span>
+          </div>,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              <span
+                className="feed-description"
+              >
+                <span
+                  className="bold"
+                >
+                   Kelvin Kitika
+                </span>
+                <span>
+                   was 
+                </span>
+                <span
+                  className="offboarding"
+                >
+                  offboarded
+                </span>
+                <span>
+                   from 
+                </span>
+                <span
+                  className="bold"
+                />
+              </span>,
+              <span
+                className="feed-date"
+              >
+                05/15/2019, 16:47
+              </span>,
+            ],
+            "className": "feeds-content",
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": <span
+                class="feed-description"
+              >
+                <span
+                  class="bold"
+                >
+                   Kelvin Kitika
+                </span>
+                <span>
+                   was 
+                </span>
+                <span
+                  class="offboarding"
+                >
+                  offboarded
+                </span>
+                <span>
+                   from 
+                </span>
+                <span
+                  class="bold"
+                />
+              </span>,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": Array [
+                  <span
+                    className="bold"
+                  >
+                     Kelvin Kitika
+                  </span>,
+                  <span>
+                     was 
+                  </span>,
+                  <span
+                    className="offboarding"
+                  >
+                    offboarded
+                  </span>,
+                  <span>
+                     from 
+                  </span>,
+                  <span
+                    className="bold"
+                  />,
+                ],
+                "className": "feed-description",
+              },
+              "ref": null,
+              "rendered": Array [
+                Object {
+                  "instance": <span
+                    class="bold"
+                  >
+                     Kelvin Kitika
+                  </span>,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": " Kelvin Kitika",
+                    "className": "bold",
+                  },
+                  "ref": null,
+                  "rendered": Array [
+                    " Kelvin Kitika",
+                  ],
+                  "type": "span",
+                },
+                Object {
+                  "instance": <span>
+                     was 
+                  </span>,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": " was ",
+                  },
+                  "ref": null,
+                  "rendered": Array [
+                    " was ",
+                  ],
+                  "type": "span",
+                },
+                Object {
+                  "instance": <span
+                    class="offboarding"
+                  >
+                    offboarded
+                  </span>,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": "offboarded",
+                    "className": "offboarding",
+                  },
+                  "ref": null,
+                  "rendered": Array [
+                    "offboarded",
+                  ],
+                  "type": "span",
+                },
+                Object {
+                  "instance": <span>
+                     from 
+                  </span>,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": " from ",
+                  },
+                  "ref": null,
+                  "rendered": Array [
+                    " from ",
+                  ],
+                  "type": "span",
+                },
+                Object {
+                  "instance": <span
+                    class="bold"
+                  />,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": undefined,
+                    "className": "bold",
+                  },
+                  "ref": null,
+                  "rendered": Array [
+                    undefined,
+                  ],
+                  "type": "span",
+                },
+              ],
+              "type": "span",
+            },
+            Object {
+              "instance": <span
+                class="feed-date"
+              >
+                05/15/2019, 16:47
+              </span>,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": "05/15/2019, 16:47",
+                "className": "feed-date",
+              },
+              "ref": null,
+              "rendered": Array [
+                "05/15/2019, 16:47",
+              ],
+              "type": "span",
+            },
+          ],
+          "type": "div",
+        },
+      ],
+      "type": "div",
+    },
+    "type": [Function],
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "function",
+      "props": Object {
+        "reportData": Array [
+          Object {
+            "fellowName": "Kitika, Kelvin",
+            "type": "offboarding",
+            "updatedAt": "2019-05-15T13:47:04.608Z",
+          },
+        ],
+      },
+      "ref": null,
+      "rendered": Object {
+        "instance": <div
+          class="activity-feed-container"
+        >
+          <div
+            class="feeds-initials"
+          >
+            <span>
+              KK
+            </span>
+          </div>
+          <div
+            class="feeds-content"
+          >
+            <span
+              class="feed-description"
+            >
+              <span
+                class="bold"
+              >
+                 Kelvin Kitika
+              </span>
+              <span>
+                 was 
+              </span>
+              <span
+                class="offboarding"
+              >
+                offboarded
+              </span>
+              <span>
+                 from 
+              </span>
+              <span
+                class="bold"
+              />
+            </span>
+            <span
+              class="feed-date"
+            >
+              05/15/2019, 16:47
+            </span>
+          </div>
+        </div>,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            <div
+              className="feeds-initials"
+            >
+              <span>
+                KK
+              </span>
+            </div>,
+            <div
+              className="feeds-content"
+            >
+              <span
+                className="feed-description"
+              >
+                <span
+                  className="bold"
+                >
+                   Kelvin Kitika
+                </span>
+                <span>
+                   was 
+                </span>
+                <span
+                  className="offboarding"
+                >
+                  offboarded
+                </span>
+                <span>
+                   from 
+                </span>
+                <span
+                  className="bold"
+                />
+              </span>
+              <span
+                className="feed-date"
+              >
+                05/15/2019, 16:47
+              </span>
+            </div>,
+          ],
+          "className": "activity-feed-container",
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": <div
+              class="feeds-initials"
+            >
+              <span>
+                KK
+              </span>
+            </div>,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": <span>
+                KK
+              </span>,
+              "className": "feeds-initials",
+            },
+            "ref": null,
+            "rendered": Array [
+              Object {
+                "instance": <span>
+                  KK
+                </span>,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": "KK",
+                },
+                "ref": null,
+                "rendered": Array [
+                  "KK",
+                ],
+                "type": "span",
+              },
+            ],
+            "type": "div",
+          },
+          Object {
+            "instance": <div
+              class="feeds-content"
+            >
+              <span
+                class="feed-description"
+              >
+                <span
+                  class="bold"
+                >
+                   Kelvin Kitika
+                </span>
+                <span>
+                   was 
+                </span>
+                <span
+                  class="offboarding"
+                >
+                  offboarded
+                </span>
+                <span>
+                   from 
+                </span>
+                <span
+                  class="bold"
+                />
+              </span>
+              <span
+                class="feed-date"
+              >
+                05/15/2019, 16:47
+              </span>
+            </div>,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": Array [
+                <span
+                  className="feed-description"
+                >
+                  <span
+                    className="bold"
+                  >
+                     Kelvin Kitika
+                  </span>
+                  <span>
+                     was 
+                  </span>
+                  <span
+                    className="offboarding"
+                  >
+                    offboarded
+                  </span>
+                  <span>
+                     from 
+                  </span>
+                  <span
+                    className="bold"
+                  />
+                </span>,
+                <span
+                  className="feed-date"
+                >
+                  05/15/2019, 16:47
+                </span>,
+              ],
+              "className": "feeds-content",
+            },
+            "ref": null,
+            "rendered": Array [
+              Object {
+                "instance": <span
+                  class="feed-description"
+                >
+                  <span
+                    class="bold"
+                  >
+                     Kelvin Kitika
+                  </span>
+                  <span>
+                     was 
+                  </span>
+                  <span
+                    class="offboarding"
+                  >
+                    offboarded
+                  </span>
+                  <span>
+                     from 
+                  </span>
+                  <span
+                    class="bold"
+                  />
+                </span>,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": Array [
+                    <span
+                      className="bold"
+                    >
+                       Kelvin Kitika
+                    </span>,
+                    <span>
+                       was 
+                    </span>,
+                    <span
+                      className="offboarding"
+                    >
+                      offboarded
+                    </span>,
+                    <span>
+                       from 
+                    </span>,
+                    <span
+                      className="bold"
+                    />,
+                  ],
+                  "className": "feed-description",
+                },
+                "ref": null,
+                "rendered": Array [
+                  Object {
+                    "instance": <span
+                      class="bold"
+                    >
+                       Kelvin Kitika
+                    </span>,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": " Kelvin Kitika",
+                      "className": "bold",
+                    },
+                    "ref": null,
+                    "rendered": Array [
+                      " Kelvin Kitika",
+                    ],
+                    "type": "span",
+                  },
+                  Object {
+                    "instance": <span>
+                       was 
+                    </span>,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": " was ",
+                    },
+                    "ref": null,
+                    "rendered": Array [
+                      " was ",
+                    ],
+                    "type": "span",
+                  },
+                  Object {
+                    "instance": <span
+                      class="offboarding"
+                    >
+                      offboarded
+                    </span>,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": "offboarded",
+                      "className": "offboarding",
+                    },
+                    "ref": null,
+                    "rendered": Array [
+                      "offboarded",
+                    ],
+                    "type": "span",
+                  },
+                  Object {
+                    "instance": <span>
+                       from 
+                    </span>,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": " from ",
+                    },
+                    "ref": null,
+                    "rendered": Array [
+                      " from ",
+                    ],
+                    "type": "span",
+                  },
+                  Object {
+                    "instance": <span
+                      class="bold"
+                    />,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": undefined,
+                      "className": "bold",
+                    },
+                    "ref": null,
+                    "rendered": Array [
+                      undefined,
+                    ],
+                    "type": "span",
+                  },
+                ],
+                "type": "span",
+              },
+              Object {
+                "instance": <span
+                  class="feed-date"
+                >
+                  05/15/2019, 16:47
+                </span>,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": "05/15/2019, 16:47",
+                  "className": "feed-date",
+                },
+                "ref": null,
+                "rendered": Array [
+                  "05/15/2019, 16:47",
+                ],
+                "type": "span",
+              },
+            ],
+            "type": "div",
+          },
+        ],
+        "type": "div",
+      },
+      "type": [Function],
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+        "legacyContextMode": "parent",
+        "lifecycles": Object {
+          "componentDidUpdate": Object {
+            "onSetState": true,
+          },
+          "getChildContext": Object {
+            "calledByRenderer": false,
+          },
+          "getDerivedStateFromError": true,
+          "getDerivedStateFromProps": Object {
+            "hasShouldComponentUpdateBug": false,
+          },
+          "getSnapshotBeforeUpdate": true,
+          "setState": Object {
+            "skipsComponentDidUpdateOnNullish": true,
+          },
+        },
+      },
+    },
+  },
+}
+`;

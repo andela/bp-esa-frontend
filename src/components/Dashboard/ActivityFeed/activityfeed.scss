@@ -1,0 +1,92 @@
+.activity-feed-card {
+  box-sizing: border-box;
+  height: 385px;
+  width: 812px;
+  border-radius: 5px;
+  background-color: #FFF;
+  border: 1px solid #EEF;
+  overflow: hidden;
+
+  .activity-feed-no-activity {
+    position: relative;
+    left: 35%;
+    top: 35%;
+    color: #667;
+    font-size: 18px;
+    letter-spacing: -0.1px;
+    line-height: 22px;
+  }
+
+  .activity-feed-container{
+    margin: 20px 0 20px 0;
+    height: 46px;
+    width: 500px;
+    display: flex;
+    flex-direction: row;
+    animation: 1s fade-on-mount;
+
+    @keyframes fade-on-mount {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+
+    .feeds-initials {
+      height: 100%;
+      width: 3em;
+      border-radius: 50%;
+      background-color: #DDE;
+      color: #667;
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .feeds-content{
+      padding-left: 1em;
+      width: 100%;
+
+      .feed-description {
+        height: 22px;
+        width: 31px;
+        color: #667;
+        font-size: 18px;
+        font-weight: 300;
+        letter-spacing: -0.1px;
+        line-height: 22px;
+        position: relative;
+        top: 25%;
+
+        .bold{
+          font-weight: normal;
+        }
+
+
+        span {
+          &.offboarding {
+            color: #D32F2F;
+          }
+
+          &.onboarding {
+            color: #43A047;
+          }
+        }
+      }
+
+      .feed-date{
+        height: 15px;
+        width: 113px;
+        color: #889;
+        font-size: 12px;
+        letter-spacing: -0.07px;
+        line-height: 15px;
+        display: block;
+      }
+
+    }
+  }
+}

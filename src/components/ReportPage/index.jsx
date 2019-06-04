@@ -394,7 +394,6 @@ export class ReportPage extends Component {
       stats,
       fetchStat,
     } = this.props;
-
     return (
       <React.Fragment>
         <Header
