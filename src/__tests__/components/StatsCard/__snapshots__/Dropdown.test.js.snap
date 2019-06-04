@@ -1,0 +1,1375 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Dropdown should render as expected 1`] = `
+Dropdown {
+  "_reactInternalFiber": FiberNode {
+    "_debugHookTypes": null,
+    "_debugID": 63,
+    "_debugIsCurrentlyTiming": false,
+    "_debugOwner": FiberNode {
+      "_debugHookTypes": null,
+      "_debugID": 62,
+      "_debugIsCurrentlyTiming": false,
+      "_debugOwner": null,
+      "_debugSource": null,
+      "actualDuration": 0,
+      "actualStartTime": -1,
+      "alternate": null,
+      "child": [Circular],
+      "childExpirationTime": 0,
+      "contextDependencies": null,
+      "effectTag": 1,
+      "elementType": [Function],
+      "expirationTime": 0,
+      "firstEffect": null,
+      "index": 0,
+      "key": null,
+      "lastEffect": null,
+      "memoizedProps": Object {
+        "Component": [Function],
+        "context": null,
+        "props": Object {
+          "fetchStat": [MockFunction],
+        },
+        "wrappingComponentProps": null,
+      },
+      "memoizedState": Object {
+        "context": null,
+        "mount": true,
+        "props": Object {
+          "fetchStat": [MockFunction],
+        },
+        "wrappingComponentProps": null,
+      },
+      "mode": 0,
+      "nextEffect": FiberNode {
+        "_debugHookTypes": null,
+        "_debugID": 60,
+        "_debugIsCurrentlyTiming": false,
+        "_debugOwner": null,
+        "_debugSource": null,
+        "actualDuration": 0,
+        "actualStartTime": -1,
+        "alternate": FiberNode {
+          "_debugHookTypes": null,
+          "_debugID": 60,
+          "_debugIsCurrentlyTiming": false,
+          "_debugOwner": null,
+          "_debugSource": null,
+          "actualDuration": 0,
+          "actualStartTime": -1,
+          "alternate": [Circular],
+          "child": null,
+          "childExpirationTime": 0,
+          "contextDependencies": null,
+          "effectTag": 0,
+          "elementType": null,
+          "expirationTime": 1073741823,
+          "firstEffect": null,
+          "index": 0,
+          "key": null,
+          "lastEffect": null,
+          "memoizedProps": null,
+          "memoizedState": null,
+          "mode": 0,
+          "nextEffect": null,
+          "pendingProps": null,
+          "ref": null,
+          "return": null,
+          "selfBaseDuration": 0,
+          "sibling": null,
+          "stateNode": Object {
+            "containerInfo": <div>
+              <div
+                class="stat-dropdown-container"
+              >
+                Automations stats for
+                <span
+                  class="stat-dropdown-caret"
+                >
+                   today
+                  <img
+                    alt="down"
+                    src="/drop-down.png"
+                  />
+                </span>
+              </div>
+            </div>,
+            "context": Object {},
+            "current": [Circular],
+            "didError": false,
+            "earliestPendingTime": 0,
+            "earliestSuspendedTime": 0,
+            "expirationTime": 0,
+            "finishedWork": null,
+            "firstBatch": null,
+            "hydrate": false,
+            "interactionThreadID": 15,
+            "latestPendingTime": 0,
+            "latestPingedTime": 0,
+            "latestSuspendedTime": 0,
+            "memoizedInteractions": Set {},
+            "nextExpirationTimeToWorkOn": 0,
+            "nextScheduledRoot": null,
+            "pendingChildren": null,
+            "pendingCommitExpirationTime": 0,
+            "pendingContext": null,
+            "pendingInteractionMap": Map {},
+            "pingCache": null,
+            "timeoutHandle": -1,
+          },
+          "tag": 3,
+          "treeBaseDuration": 0,
+          "type": null,
+          "updateQueue": Object {
+            "baseState": null,
+            "firstCapturedEffect": null,
+            "firstCapturedUpdate": null,
+            "firstEffect": null,
+            "firstUpdate": Object {
+              "callback": null,
+              "expirationTime": 1073741823,
+              "next": null,
+              "nextEffect": null,
+              "payload": Object {
+                "element": <WrapperComponent
+                  Component={[Function]}
+                  context={null}
+                  props={
+                    Object {
+                      "fetchStat": [MockFunction],
+                    }
+                  }
+                  wrappingComponentProps={null}
+                />,
+              },
+              "tag": 0,
+            },
+            "lastCapturedEffect": null,
+            "lastCapturedUpdate": null,
+            "lastEffect": null,
+            "lastUpdate": Object {
+              "callback": null,
+              "expirationTime": 1073741823,
+              "next": null,
+              "nextEffect": null,
+              "payload": Object {
+                "element": <WrapperComponent
+                  Component={[Function]}
+                  context={null}
+                  props={
+                    Object {
+                      "fetchStat": [MockFunction],
+                    }
+                  }
+                  wrappingComponentProps={null}
+                />,
+              },
+              "tag": 0,
+            },
+          },
+        },
+        "child": [Circular],
+        "childExpirationTime": 0,
+        "contextDependencies": null,
+        "effectTag": 32,
+        "elementType": null,
+        "expirationTime": 0,
+        "firstEffect": [Circular],
+        "index": 0,
+        "key": null,
+        "lastEffect": [Circular],
+        "memoizedProps": null,
+        "memoizedState": Object {
+          "element": <WrapperComponent
+            Component={[Function]}
+            context={null}
+            props={
+              Object {
+                "fetchStat": [MockFunction],
+              }
+            }
+            wrappingComponentProps={null}
+          />,
+        },
+        "mode": 0,
+        "nextEffect": null,
+        "pendingProps": null,
+        "ref": null,
+        "return": null,
+        "selfBaseDuration": 0,
+        "sibling": null,
+        "stateNode": Object {
+          "containerInfo": <div>
+            <div
+              class="stat-dropdown-container"
+            >
+              Automations stats for
+              <span
+                class="stat-dropdown-caret"
+              >
+                 today
+                <img
+                  alt="down"
+                  src="/drop-down.png"
+                />
+              </span>
+            </div>
+          </div>,
+          "context": Object {},
+          "current": [Circular],
+          "didError": false,
+          "earliestPendingTime": 0,
+          "earliestSuspendedTime": 0,
+          "expirationTime": 0,
+          "finishedWork": null,
+          "firstBatch": null,
+          "hydrate": false,
+          "interactionThreadID": 15,
+          "latestPendingTime": 0,
+          "latestPingedTime": 0,
+          "latestSuspendedTime": 0,
+          "memoizedInteractions": Set {},
+          "nextExpirationTimeToWorkOn": 0,
+          "nextScheduledRoot": null,
+          "pendingChildren": null,
+          "pendingCommitExpirationTime": 0,
+          "pendingContext": null,
+          "pendingInteractionMap": Map {},
+          "pingCache": null,
+          "timeoutHandle": -1,
+        },
+        "tag": 3,
+        "treeBaseDuration": 0,
+        "type": null,
+        "updateQueue": Object {
+          "baseState": Object {
+            "element": <WrapperComponent
+              Component={[Function]}
+              context={null}
+              props={
+                Object {
+                  "fetchStat": [MockFunction],
+                }
+              }
+              wrappingComponentProps={null}
+            />,
+          },
+          "firstCapturedEffect": null,
+          "firstCapturedUpdate": null,
+          "firstEffect": null,
+          "firstUpdate": null,
+          "lastCapturedEffect": null,
+          "lastCapturedUpdate": null,
+          "lastEffect": null,
+          "lastUpdate": null,
+        },
+      },
+      "pendingProps": Object {
+        "Component": [Function],
+        "context": null,
+        "props": Object {
+          "fetchStat": [MockFunction],
+        },
+        "wrappingComponentProps": null,
+      },
+      "ref": null,
+      "return": FiberNode {
+        "_debugHookTypes": null,
+        "_debugID": 60,
+        "_debugIsCurrentlyTiming": false,
+        "_debugOwner": null,
+        "_debugSource": null,
+        "actualDuration": 0,
+        "actualStartTime": -1,
+        "alternate": FiberNode {
+          "_debugHookTypes": null,
+          "_debugID": 60,
+          "_debugIsCurrentlyTiming": false,
+          "_debugOwner": null,
+          "_debugSource": null,
+          "actualDuration": 0,
+          "actualStartTime": -1,
+          "alternate": [Circular],
+          "child": null,
+          "childExpirationTime": 0,
+          "contextDependencies": null,
+          "effectTag": 0,
+          "elementType": null,
+          "expirationTime": 1073741823,
+          "firstEffect": null,
+          "index": 0,
+          "key": null,
+          "lastEffect": null,
+          "memoizedProps": null,
+          "memoizedState": null,
+          "mode": 0,
+          "nextEffect": null,
+          "pendingProps": null,
+          "ref": null,
+          "return": null,
+          "selfBaseDuration": 0,
+          "sibling": null,
+          "stateNode": Object {
+            "containerInfo": <div>
+              <div
+                class="stat-dropdown-container"
+              >
+                Automations stats for
+                <span
+                  class="stat-dropdown-caret"
+                >
+                   today
+                  <img
+                    alt="down"
+                    src="/drop-down.png"
+                  />
+                </span>
+              </div>
+            </div>,
+            "context": Object {},
+            "current": [Circular],
+            "didError": false,
+            "earliestPendingTime": 0,
+            "earliestSuspendedTime": 0,
+            "expirationTime": 0,
+            "finishedWork": null,
+            "firstBatch": null,
+            "hydrate": false,
+            "interactionThreadID": 15,
+            "latestPendingTime": 0,
+            "latestPingedTime": 0,
+            "latestSuspendedTime": 0,
+            "memoizedInteractions": Set {},
+            "nextExpirationTimeToWorkOn": 0,
+            "nextScheduledRoot": null,
+            "pendingChildren": null,
+            "pendingCommitExpirationTime": 0,
+            "pendingContext": null,
+            "pendingInteractionMap": Map {},
+            "pingCache": null,
+            "timeoutHandle": -1,
+          },
+          "tag": 3,
+          "treeBaseDuration": 0,
+          "type": null,
+          "updateQueue": Object {
+            "baseState": null,
+            "firstCapturedEffect": null,
+            "firstCapturedUpdate": null,
+            "firstEffect": null,
+            "firstUpdate": Object {
+              "callback": null,
+              "expirationTime": 1073741823,
+              "next": null,
+              "nextEffect": null,
+              "payload": Object {
+                "element": <WrapperComponent
+                  Component={[Function]}
+                  context={null}
+                  props={
+                    Object {
+                      "fetchStat": [MockFunction],
+                    }
+                  }
+                  wrappingComponentProps={null}
+                />,
+              },
+              "tag": 0,
+            },
+            "lastCapturedEffect": null,
+            "lastCapturedUpdate": null,
+            "lastEffect": null,
+            "lastUpdate": Object {
+              "callback": null,
+              "expirationTime": 1073741823,
+              "next": null,
+              "nextEffect": null,
+              "payload": Object {
+                "element": <WrapperComponent
+                  Component={[Function]}
+                  context={null}
+                  props={
+                    Object {
+                      "fetchStat": [MockFunction],
+                    }
+                  }
+                  wrappingComponentProps={null}
+                />,
+              },
+              "tag": 0,
+            },
+          },
+        },
+        "child": [Circular],
+        "childExpirationTime": 0,
+        "contextDependencies": null,
+        "effectTag": 32,
+        "elementType": null,
+        "expirationTime": 0,
+        "firstEffect": [Circular],
+        "index": 0,
+        "key": null,
+        "lastEffect": [Circular],
+        "memoizedProps": null,
+        "memoizedState": Object {
+          "element": <WrapperComponent
+            Component={[Function]}
+            context={null}
+            props={
+              Object {
+                "fetchStat": [MockFunction],
+              }
+            }
+            wrappingComponentProps={null}
+          />,
+        },
+        "mode": 0,
+        "nextEffect": null,
+        "pendingProps": null,
+        "ref": null,
+        "return": null,
+        "selfBaseDuration": 0,
+        "sibling": null,
+        "stateNode": Object {
+          "containerInfo": <div>
+            <div
+              class="stat-dropdown-container"
+            >
+              Automations stats for
+              <span
+                class="stat-dropdown-caret"
+              >
+                 today
+                <img
+                  alt="down"
+                  src="/drop-down.png"
+                />
+              </span>
+            </div>
+          </div>,
+          "context": Object {},
+          "current": [Circular],
+          "didError": false,
+          "earliestPendingTime": 0,
+          "earliestSuspendedTime": 0,
+          "expirationTime": 0,
+          "finishedWork": null,
+          "firstBatch": null,
+          "hydrate": false,
+          "interactionThreadID": 15,
+          "latestPendingTime": 0,
+          "latestPingedTime": 0,
+          "latestSuspendedTime": 0,
+          "memoizedInteractions": Set {},
+          "nextExpirationTimeToWorkOn": 0,
+          "nextScheduledRoot": null,
+          "pendingChildren": null,
+          "pendingCommitExpirationTime": 0,
+          "pendingContext": null,
+          "pendingInteractionMap": Map {},
+          "pingCache": null,
+          "timeoutHandle": -1,
+        },
+        "tag": 3,
+        "treeBaseDuration": 0,
+        "type": null,
+        "updateQueue": Object {
+          "baseState": Object {
+            "element": <WrapperComponent
+              Component={[Function]}
+              context={null}
+              props={
+                Object {
+                  "fetchStat": [MockFunction],
+                }
+              }
+              wrappingComponentProps={null}
+            />,
+          },
+          "firstCapturedEffect": null,
+          "firstCapturedUpdate": null,
+          "firstEffect": null,
+          "firstUpdate": null,
+          "lastCapturedEffect": null,
+          "lastCapturedUpdate": null,
+          "lastEffect": null,
+          "lastUpdate": null,
+        },
+      },
+      "selfBaseDuration": 0,
+      "sibling": null,
+      "stateNode": WrapperComponent {
+        "_reactInternalFiber": [Circular],
+        "_reactInternalInstance": Object {},
+        "context": Object {},
+        "props": Object {
+          "Component": [Function],
+          "context": null,
+          "props": Object {
+            "fetchStat": [MockFunction],
+          },
+          "wrappingComponentProps": null,
+        },
+        "refs": Object {},
+        "rootFinderInstance": null,
+        "state": Object {
+          "context": null,
+          "mount": true,
+          "props": Object {
+            "fetchStat": [MockFunction],
+          },
+          "wrappingComponentProps": null,
+        },
+        "updater": Object {
+          "enqueueForceUpdate": [Function],
+          "enqueueReplaceState": [Function],
+          "enqueueSetState": [Function],
+          "isMounted": [Function],
+        },
+      },
+      "tag": 1,
+      "treeBaseDuration": 0,
+      "type": [Function],
+      "updateQueue": null,
+    },
+    "_debugSource": null,
+    "actualDuration": 0,
+    "actualStartTime": -1,
+    "alternate": null,
+    "child": FiberNode {
+      "_debugHookTypes": null,
+      "_debugID": 64,
+      "_debugIsCurrentlyTiming": false,
+      "_debugOwner": [Circular],
+      "_debugSource": Object {
+        "fileName": "/Users/davidmuhanguzi/Documents/Andela/D1/bp-esa-frontend/src/components/StatsCard/Dropdown.jsx",
+        "lineNumber": 57,
+      },
+      "actualDuration": 0,
+      "actualStartTime": -1,
+      "alternate": null,
+      "child": FiberNode {
+        "_debugHookTypes": null,
+        "_debugID": 65,
+        "_debugIsCurrentlyTiming": false,
+        "_debugOwner": null,
+        "_debugSource": null,
+        "actualDuration": 0,
+        "actualStartTime": -1,
+        "alternate": null,
+        "child": null,
+        "childExpirationTime": 0,
+        "contextDependencies": null,
+        "effectTag": 0,
+        "elementType": null,
+        "expirationTime": 0,
+        "firstEffect": null,
+        "index": 0,
+        "key": null,
+        "lastEffect": null,
+        "memoizedProps": "Automations stats for",
+        "memoizedState": null,
+        "mode": 0,
+        "nextEffect": null,
+        "pendingProps": "Automations stats for",
+        "ref": null,
+        "return": [Circular],
+        "selfBaseDuration": 0,
+        "sibling": FiberNode {
+          "_debugHookTypes": null,
+          "_debugID": 66,
+          "_debugIsCurrentlyTiming": false,
+          "_debugOwner": [Circular],
+          "_debugSource": Object {
+            "fileName": "/Users/davidmuhanguzi/Documents/Andela/D1/bp-esa-frontend/src/components/StatsCard/Dropdown.jsx",
+            "lineNumber": 59,
+          },
+          "actualDuration": 0,
+          "actualStartTime": -1,
+          "alternate": null,
+          "child": FiberNode {
+            "_debugHookTypes": null,
+            "_debugID": 67,
+            "_debugIsCurrentlyTiming": false,
+            "_debugOwner": null,
+            "_debugSource": null,
+            "actualDuration": 0,
+            "actualStartTime": -1,
+            "alternate": null,
+            "child": null,
+            "childExpirationTime": 0,
+            "contextDependencies": null,
+            "effectTag": 0,
+            "elementType": null,
+            "expirationTime": 0,
+            "firstEffect": null,
+            "index": 0,
+            "key": null,
+            "lastEffect": null,
+            "memoizedProps": " today",
+            "memoizedState": null,
+            "mode": 0,
+            "nextEffect": null,
+            "pendingProps": " today",
+            "ref": null,
+            "return": [Circular],
+            "selfBaseDuration": 0,
+            "sibling": FiberNode {
+              "_debugHookTypes": null,
+              "_debugID": 68,
+              "_debugIsCurrentlyTiming": false,
+              "_debugOwner": [Circular],
+              "_debugSource": Object {
+                "fileName": "/Users/davidmuhanguzi/Documents/Andela/D1/bp-esa-frontend/src/components/StatsCard/Dropdown.jsx",
+                "lineNumber": 60,
+              },
+              "actualDuration": 0,
+              "actualStartTime": -1,
+              "alternate": null,
+              "child": null,
+              "childExpirationTime": 0,
+              "contextDependencies": null,
+              "effectTag": 0,
+              "elementType": "img",
+              "expirationTime": 0,
+              "firstEffect": null,
+              "index": 1,
+              "key": null,
+              "lastEffect": null,
+              "memoizedProps": Object {
+                "alt": "down",
+                "src": "/drop-down.png",
+              },
+              "memoizedState": null,
+              "mode": 0,
+              "nextEffect": null,
+              "pendingProps": Object {
+                "alt": "down",
+                "src": "/drop-down.png",
+              },
+              "ref": null,
+              "return": [Circular],
+              "selfBaseDuration": 0,
+              "sibling": null,
+              "stateNode": <img
+                alt="down"
+                src="/drop-down.png"
+              />,
+              "tag": 5,
+              "treeBaseDuration": 0,
+              "type": "img",
+              "updateQueue": null,
+            },
+            "stateNode":  today,
+            "tag": 6,
+            "treeBaseDuration": 0,
+            "type": null,
+            "updateQueue": null,
+          },
+          "childExpirationTime": 0,
+          "contextDependencies": null,
+          "effectTag": 0,
+          "elementType": "span",
+          "expirationTime": 0,
+          "firstEffect": null,
+          "index": 1,
+          "key": null,
+          "lastEffect": null,
+          "memoizedProps": Object {
+            "children": Array [
+              " today",
+              <img
+                alt="down"
+                src="/drop-down.png"
+              />,
+            ],
+            "className": "stat-dropdown-caret",
+            "onClick": [Function],
+          },
+          "memoizedState": null,
+          "mode": 0,
+          "nextEffect": null,
+          "pendingProps": Object {
+            "children": Array [
+              " today",
+              <img
+                alt="down"
+                src="/drop-down.png"
+              />,
+            ],
+            "className": "stat-dropdown-caret",
+            "onClick": [Function],
+          },
+          "ref": null,
+          "return": [Circular],
+          "selfBaseDuration": 0,
+          "sibling": null,
+          "stateNode": <span
+            class="stat-dropdown-caret"
+          >
+             today
+            <img
+              alt="down"
+              src="/drop-down.png"
+            />
+          </span>,
+          "tag": 5,
+          "treeBaseDuration": 0,
+          "type": "span",
+          "updateQueue": null,
+        },
+        "stateNode": Automations stats for,
+        "tag": 6,
+        "treeBaseDuration": 0,
+        "type": null,
+        "updateQueue": null,
+      },
+      "childExpirationTime": 0,
+      "contextDependencies": null,
+      "effectTag": 0,
+      "elementType": "div",
+      "expirationTime": 0,
+      "firstEffect": null,
+      "index": 0,
+      "key": null,
+      "lastEffect": null,
+      "memoizedProps": Object {
+        "children": Array [
+          "Automations stats for",
+          <span
+            className="stat-dropdown-caret"
+            onClick={[Function]}
+          >
+             today
+            <img
+              alt="down"
+              src="/drop-down.png"
+            />
+          </span>,
+          null,
+        ],
+        "className": "stat-dropdown-container",
+      },
+      "memoizedState": null,
+      "mode": 0,
+      "nextEffect": null,
+      "pendingProps": Object {
+        "children": Array [
+          "Automations stats for",
+          <span
+            className="stat-dropdown-caret"
+            onClick={[Function]}
+          >
+             today
+            <img
+              alt="down"
+              src="/drop-down.png"
+            />
+          </span>,
+          null,
+        ],
+        "className": "stat-dropdown-container",
+      },
+      "ref": null,
+      "return": [Circular],
+      "selfBaseDuration": 0,
+      "sibling": null,
+      "stateNode": <div
+        class="stat-dropdown-container"
+      >
+        Automations stats for
+        <span
+          class="stat-dropdown-caret"
+        >
+           today
+          <img
+            alt="down"
+            src="/drop-down.png"
+          />
+        </span>
+      </div>,
+      "tag": 5,
+      "treeBaseDuration": 0,
+      "type": "div",
+      "updateQueue": null,
+    },
+    "childExpirationTime": 0,
+    "contextDependencies": null,
+    "effectTag": 1,
+    "elementType": [Function],
+    "expirationTime": 0,
+    "firstEffect": null,
+    "index": 0,
+    "key": null,
+    "lastEffect": null,
+    "memoizedProps": Object {
+      "fetchStat": [MockFunction],
+    },
+    "memoizedState": Object {
+      "categoryTitle": "today",
+      "collapse": true,
+    },
+    "mode": 0,
+    "nextEffect": null,
+    "pendingProps": Object {
+      "fetchStat": [MockFunction],
+    },
+    "ref": null,
+    "return": FiberNode {
+      "_debugHookTypes": null,
+      "_debugID": 62,
+      "_debugIsCurrentlyTiming": false,
+      "_debugOwner": null,
+      "_debugSource": null,
+      "actualDuration": 0,
+      "actualStartTime": -1,
+      "alternate": null,
+      "child": [Circular],
+      "childExpirationTime": 0,
+      "contextDependencies": null,
+      "effectTag": 1,
+      "elementType": [Function],
+      "expirationTime": 0,
+      "firstEffect": null,
+      "index": 0,
+      "key": null,
+      "lastEffect": null,
+      "memoizedProps": Object {
+        "Component": [Function],
+        "context": null,
+        "props": Object {
+          "fetchStat": [MockFunction],
+        },
+        "wrappingComponentProps": null,
+      },
+      "memoizedState": Object {
+        "context": null,
+        "mount": true,
+        "props": Object {
+          "fetchStat": [MockFunction],
+        },
+        "wrappingComponentProps": null,
+      },
+      "mode": 0,
+      "nextEffect": FiberNode {
+        "_debugHookTypes": null,
+        "_debugID": 60,
+        "_debugIsCurrentlyTiming": false,
+        "_debugOwner": null,
+        "_debugSource": null,
+        "actualDuration": 0,
+        "actualStartTime": -1,
+        "alternate": FiberNode {
+          "_debugHookTypes": null,
+          "_debugID": 60,
+          "_debugIsCurrentlyTiming": false,
+          "_debugOwner": null,
+          "_debugSource": null,
+          "actualDuration": 0,
+          "actualStartTime": -1,
+          "alternate": [Circular],
+          "child": null,
+          "childExpirationTime": 0,
+          "contextDependencies": null,
+          "effectTag": 0,
+          "elementType": null,
+          "expirationTime": 1073741823,
+          "firstEffect": null,
+          "index": 0,
+          "key": null,
+          "lastEffect": null,
+          "memoizedProps": null,
+          "memoizedState": null,
+          "mode": 0,
+          "nextEffect": null,
+          "pendingProps": null,
+          "ref": null,
+          "return": null,
+          "selfBaseDuration": 0,
+          "sibling": null,
+          "stateNode": Object {
+            "containerInfo": <div>
+              <div
+                class="stat-dropdown-container"
+              >
+                Automations stats for
+                <span
+                  class="stat-dropdown-caret"
+                >
+                   today
+                  <img
+                    alt="down"
+                    src="/drop-down.png"
+                  />
+                </span>
+              </div>
+            </div>,
+            "context": Object {},
+            "current": [Circular],
+            "didError": false,
+            "earliestPendingTime": 0,
+            "earliestSuspendedTime": 0,
+            "expirationTime": 0,
+            "finishedWork": null,
+            "firstBatch": null,
+            "hydrate": false,
+            "interactionThreadID": 15,
+            "latestPendingTime": 0,
+            "latestPingedTime": 0,
+            "latestSuspendedTime": 0,
+            "memoizedInteractions": Set {},
+            "nextExpirationTimeToWorkOn": 0,
+            "nextScheduledRoot": null,
+            "pendingChildren": null,
+            "pendingCommitExpirationTime": 0,
+            "pendingContext": null,
+            "pendingInteractionMap": Map {},
+            "pingCache": null,
+            "timeoutHandle": -1,
+          },
+          "tag": 3,
+          "treeBaseDuration": 0,
+          "type": null,
+          "updateQueue": Object {
+            "baseState": null,
+            "firstCapturedEffect": null,
+            "firstCapturedUpdate": null,
+            "firstEffect": null,
+            "firstUpdate": Object {
+              "callback": null,
+              "expirationTime": 1073741823,
+              "next": null,
+              "nextEffect": null,
+              "payload": Object {
+                "element": <WrapperComponent
+                  Component={[Function]}
+                  context={null}
+                  props={
+                    Object {
+                      "fetchStat": [MockFunction],
+                    }
+                  }
+                  wrappingComponentProps={null}
+                />,
+              },
+              "tag": 0,
+            },
+            "lastCapturedEffect": null,
+            "lastCapturedUpdate": null,
+            "lastEffect": null,
+            "lastUpdate": Object {
+              "callback": null,
+              "expirationTime": 1073741823,
+              "next": null,
+              "nextEffect": null,
+              "payload": Object {
+                "element": <WrapperComponent
+                  Component={[Function]}
+                  context={null}
+                  props={
+                    Object {
+                      "fetchStat": [MockFunction],
+                    }
+                  }
+                  wrappingComponentProps={null}
+                />,
+              },
+              "tag": 0,
+            },
+          },
+        },
+        "child": [Circular],
+        "childExpirationTime": 0,
+        "contextDependencies": null,
+        "effectTag": 32,
+        "elementType": null,
+        "expirationTime": 0,
+        "firstEffect": [Circular],
+        "index": 0,
+        "key": null,
+        "lastEffect": [Circular],
+        "memoizedProps": null,
+        "memoizedState": Object {
+          "element": <WrapperComponent
+            Component={[Function]}
+            context={null}
+            props={
+              Object {
+                "fetchStat": [MockFunction],
+              }
+            }
+            wrappingComponentProps={null}
+          />,
+        },
+        "mode": 0,
+        "nextEffect": null,
+        "pendingProps": null,
+        "ref": null,
+        "return": null,
+        "selfBaseDuration": 0,
+        "sibling": null,
+        "stateNode": Object {
+          "containerInfo": <div>
+            <div
+              class="stat-dropdown-container"
+            >
+              Automations stats for
+              <span
+                class="stat-dropdown-caret"
+              >
+                 today
+                <img
+                  alt="down"
+                  src="/drop-down.png"
+                />
+              </span>
+            </div>
+          </div>,
+          "context": Object {},
+          "current": [Circular],
+          "didError": false,
+          "earliestPendingTime": 0,
+          "earliestSuspendedTime": 0,
+          "expirationTime": 0,
+          "finishedWork": null,
+          "firstBatch": null,
+          "hydrate": false,
+          "interactionThreadID": 15,
+          "latestPendingTime": 0,
+          "latestPingedTime": 0,
+          "latestSuspendedTime": 0,
+          "memoizedInteractions": Set {},
+          "nextExpirationTimeToWorkOn": 0,
+          "nextScheduledRoot": null,
+          "pendingChildren": null,
+          "pendingCommitExpirationTime": 0,
+          "pendingContext": null,
+          "pendingInteractionMap": Map {},
+          "pingCache": null,
+          "timeoutHandle": -1,
+        },
+        "tag": 3,
+        "treeBaseDuration": 0,
+        "type": null,
+        "updateQueue": Object {
+          "baseState": Object {
+            "element": <WrapperComponent
+              Component={[Function]}
+              context={null}
+              props={
+                Object {
+                  "fetchStat": [MockFunction],
+                }
+              }
+              wrappingComponentProps={null}
+            />,
+          },
+          "firstCapturedEffect": null,
+          "firstCapturedUpdate": null,
+          "firstEffect": null,
+          "firstUpdate": null,
+          "lastCapturedEffect": null,
+          "lastCapturedUpdate": null,
+          "lastEffect": null,
+          "lastUpdate": null,
+        },
+      },
+      "pendingProps": Object {
+        "Component": [Function],
+        "context": null,
+        "props": Object {
+          "fetchStat": [MockFunction],
+        },
+        "wrappingComponentProps": null,
+      },
+      "ref": null,
+      "return": FiberNode {
+        "_debugHookTypes": null,
+        "_debugID": 60,
+        "_debugIsCurrentlyTiming": false,
+        "_debugOwner": null,
+        "_debugSource": null,
+        "actualDuration": 0,
+        "actualStartTime": -1,
+        "alternate": FiberNode {
+          "_debugHookTypes": null,
+          "_debugID": 60,
+          "_debugIsCurrentlyTiming": false,
+          "_debugOwner": null,
+          "_debugSource": null,
+          "actualDuration": 0,
+          "actualStartTime": -1,
+          "alternate": [Circular],
+          "child": null,
+          "childExpirationTime": 0,
+          "contextDependencies": null,
+          "effectTag": 0,
+          "elementType": null,
+          "expirationTime": 1073741823,
+          "firstEffect": null,
+          "index": 0,
+          "key": null,
+          "lastEffect": null,
+          "memoizedProps": null,
+          "memoizedState": null,
+          "mode": 0,
+          "nextEffect": null,
+          "pendingProps": null,
+          "ref": null,
+          "return": null,
+          "selfBaseDuration": 0,
+          "sibling": null,
+          "stateNode": Object {
+            "containerInfo": <div>
+              <div
+                class="stat-dropdown-container"
+              >
+                Automations stats for
+                <span
+                  class="stat-dropdown-caret"
+                >
+                   today
+                  <img
+                    alt="down"
+                    src="/drop-down.png"
+                  />
+                </span>
+              </div>
+            </div>,
+            "context": Object {},
+            "current": [Circular],
+            "didError": false,
+            "earliestPendingTime": 0,
+            "earliestSuspendedTime": 0,
+            "expirationTime": 0,
+            "finishedWork": null,
+            "firstBatch": null,
+            "hydrate": false,
+            "interactionThreadID": 15,
+            "latestPendingTime": 0,
+            "latestPingedTime": 0,
+            "latestSuspendedTime": 0,
+            "memoizedInteractions": Set {},
+            "nextExpirationTimeToWorkOn": 0,
+            "nextScheduledRoot": null,
+            "pendingChildren": null,
+            "pendingCommitExpirationTime": 0,
+            "pendingContext": null,
+            "pendingInteractionMap": Map {},
+            "pingCache": null,
+            "timeoutHandle": -1,
+          },
+          "tag": 3,
+          "treeBaseDuration": 0,
+          "type": null,
+          "updateQueue": Object {
+            "baseState": null,
+            "firstCapturedEffect": null,
+            "firstCapturedUpdate": null,
+            "firstEffect": null,
+            "firstUpdate": Object {
+              "callback": null,
+              "expirationTime": 1073741823,
+              "next": null,
+              "nextEffect": null,
+              "payload": Object {
+                "element": <WrapperComponent
+                  Component={[Function]}
+                  context={null}
+                  props={
+                    Object {
+                      "fetchStat": [MockFunction],
+                    }
+                  }
+                  wrappingComponentProps={null}
+                />,
+              },
+              "tag": 0,
+            },
+            "lastCapturedEffect": null,
+            "lastCapturedUpdate": null,
+            "lastEffect": null,
+            "lastUpdate": Object {
+              "callback": null,
+              "expirationTime": 1073741823,
+              "next": null,
+              "nextEffect": null,
+              "payload": Object {
+                "element": <WrapperComponent
+                  Component={[Function]}
+                  context={null}
+                  props={
+                    Object {
+                      "fetchStat": [MockFunction],
+                    }
+                  }
+                  wrappingComponentProps={null}
+                />,
+              },
+              "tag": 0,
+            },
+          },
+        },
+        "child": [Circular],
+        "childExpirationTime": 0,
+        "contextDependencies": null,
+        "effectTag": 32,
+        "elementType": null,
+        "expirationTime": 0,
+        "firstEffect": [Circular],
+        "index": 0,
+        "key": null,
+        "lastEffect": [Circular],
+        "memoizedProps": null,
+        "memoizedState": Object {
+          "element": <WrapperComponent
+            Component={[Function]}
+            context={null}
+            props={
+              Object {
+                "fetchStat": [MockFunction],
+              }
+            }
+            wrappingComponentProps={null}
+          />,
+        },
+        "mode": 0,
+        "nextEffect": null,
+        "pendingProps": null,
+        "ref": null,
+        "return": null,
+        "selfBaseDuration": 0,
+        "sibling": null,
+        "stateNode": Object {
+          "containerInfo": <div>
+            <div
+              class="stat-dropdown-container"
+            >
+              Automations stats for
+              <span
+                class="stat-dropdown-caret"
+              >
+                 today
+                <img
+                  alt="down"
+                  src="/drop-down.png"
+                />
+              </span>
+            </div>
+          </div>,
+          "context": Object {},
+          "current": [Circular],
+          "didError": false,
+          "earliestPendingTime": 0,
+          "earliestSuspendedTime": 0,
+          "expirationTime": 0,
+          "finishedWork": null,
+          "firstBatch": null,
+          "hydrate": false,
+          "interactionThreadID": 15,
+          "latestPendingTime": 0,
+          "latestPingedTime": 0,
+          "latestSuspendedTime": 0,
+          "memoizedInteractions": Set {},
+          "nextExpirationTimeToWorkOn": 0,
+          "nextScheduledRoot": null,
+          "pendingChildren": null,
+          "pendingCommitExpirationTime": 0,
+          "pendingContext": null,
+          "pendingInteractionMap": Map {},
+          "pingCache": null,
+          "timeoutHandle": -1,
+        },
+        "tag": 3,
+        "treeBaseDuration": 0,
+        "type": null,
+        "updateQueue": Object {
+          "baseState": Object {
+            "element": <WrapperComponent
+              Component={[Function]}
+              context={null}
+              props={
+                Object {
+                  "fetchStat": [MockFunction],
+                }
+              }
+              wrappingComponentProps={null}
+            />,
+          },
+          "firstCapturedEffect": null,
+          "firstCapturedUpdate": null,
+          "firstEffect": null,
+          "firstUpdate": null,
+          "lastCapturedEffect": null,
+          "lastCapturedUpdate": null,
+          "lastEffect": null,
+          "lastUpdate": null,
+        },
+      },
+      "selfBaseDuration": 0,
+      "sibling": null,
+      "stateNode": WrapperComponent {
+        "_reactInternalFiber": [Circular],
+        "_reactInternalInstance": Object {},
+        "context": Object {},
+        "props": Object {
+          "Component": [Function],
+          "context": null,
+          "props": Object {
+            "fetchStat": [MockFunction],
+          },
+          "wrappingComponentProps": null,
+        },
+        "refs": Object {},
+        "rootFinderInstance": null,
+        "state": Object {
+          "context": null,
+          "mount": true,
+          "props": Object {
+            "fetchStat": [MockFunction],
+          },
+          "wrappingComponentProps": null,
+        },
+        "updater": Object {
+          "enqueueForceUpdate": [Function],
+          "enqueueReplaceState": [Function],
+          "enqueueSetState": [Function],
+          "isMounted": [Function],
+        },
+      },
+      "tag": 1,
+      "treeBaseDuration": 0,
+      "type": [Function],
+      "updateQueue": null,
+    },
+    "selfBaseDuration": 0,
+    "sibling": null,
+    "stateNode": [Circular],
+    "tag": 1,
+    "treeBaseDuration": 0,
+    "type": [Function],
+    "updateQueue": null,
+  },
+  "_reactInternalInstance": Object {},
+  "closeStatDropdown": [Function],
+  "context": Object {},
+  "hideSection": [Function],
+  "props": Object {
+    "fetchStat": [MockFunction],
+  },
+  "refs": Object {},
+  "selectPeriod": [Function],
+  "showSection": [Function],
+  "state": Object {
+    "categoryTitle": "today",
+    "collapse": true,
+  },
+  "updater": Object {
+    "enqueueForceUpdate": [Function],
+    "enqueueReplaceState": [Function],
+    "enqueueSetState": [Function],
+    "isMounted": [Function],
+  },
+}
+`;

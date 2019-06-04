@@ -4,8 +4,9 @@ import {
   FETCH_STATS_FAILURE,
 } from '../constants';
 
-export const fetchStatsRequest = () => ({
+export const fetchStatsRequest = period => ({
   type: FETCH_STATS_REQUEST,
+  period,
 });
 
 export const fetchStatsSuccess = payload => ({

@@ -63,3 +63,39 @@
     margin: auto;
   }
 }
+
+.stat-dropdown-container {
+  position: relative;
+  display: inline-block;
+
+  .stat-dropdown-caret {
+    border-radius: 5px;
+    margin-left: 4px;
+    padding-right: 4px;
+  }
+
+  .stat-dropdown-caret:hover {
+    cursor: pointer;
+  }
+
+  .stat-dropdown-content {
+    background-color: #FFF;
+    display: block;
+    position: absolute;
+    min-width: 100px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+    z-index: 1;
+    margin: 1% 0 0 73%;
+    text-align: left;
+    font-size: medium;
+
+    .stat-dropdown-item {
+      padding: 5px 10px;
+    }
+    .stat-dropdown-item:hover {
+      background-color: #ddd;
+      cursor: pointer;
+    }
+  }
+}

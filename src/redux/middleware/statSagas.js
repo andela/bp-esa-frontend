@@ -6,9 +6,10 @@ import {
 } from '../actions/automationStats';
 import StatsAPI from '../api/automationStatApi';
 
-export function* fetchStats() {
+export function* fetchStats(action) {
+  const { period } = action;
   try {
-    const response = yield call(StatsAPI.getStats);
+    const response = yield call(StatsAPI.getStats, period);
     yield put(fetchStatsSuccess(response.data));
   } catch (error) {
     yield put(fetchStatsFailure(error));
