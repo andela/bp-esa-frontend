@@ -79,6 +79,13 @@ describe('Automation details', () => {
     expect(component.instance().state.modalType).toEqual('email');
   });
 
+  it('should redirect user to AIS profile', () => {
+    const component = getComponent().find('.fas');
+    component.simulate('click');
+    expect(component.props().title).toEqual('Open Tunmise, Tunmise AIS profile');
+  });
+  
+
   it('should render freckle details', () => {
     const component = getComponent();
     component.find('#freckle').simulate('click');
