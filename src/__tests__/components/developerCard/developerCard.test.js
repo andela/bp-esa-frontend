@@ -12,7 +12,26 @@ const props = {
     fellowName: 'Reyes, Kozey',
     freckleAutomations: { status: 'success', freckleActivities: [14] },
     partnerName: "Hammes, O'Keefe and Hilll",
-    slackAutomations: { status: 'failure', slackActivities: [7] },
+    slackAutomations: {
+      status: 'failure',
+      slackActivities: [
+        {
+          status: 'failure',
+          statusMessage:
+        'An API error occurred: channel_not_found', 
+          type: 'invite',
+          channelId: null,
+          channelName: null,
+        },
+        {
+          status: 'failure',
+          statusMessage:
+        'An API error occurred: channel_not_found',
+          type: 'kick',
+          channelId: null,
+          channelName: null,
+        }],
+    },
   }],
   retryingAutomation: false,
   handleRetryAutomation: jest.fn(),
@@ -50,5 +69,11 @@ describe('rendering', () => {
     infoIcon.simulate('click');
     expect(props.openModal).toHaveBeenCalled();
     expect(props.changeModalTypes).toHaveBeenCalled();
+  });
+
+  it('should display success / total ', () => {
+    const stat = wrapper.find('.status-container > div > span');
+    expect(stat.at(0).contains('0/2')).toEqual(true);
+    expect(stat.at(1).contains('0/1')).toEqual(true);
   });
 });

@@ -49,9 +49,7 @@ class DeveloperCard extends Component {
             <div key={index}>
               {_.upperCase(name)}
               <span>
-                {`${metric(fieldName, 'success')}
-              /
-              ${metric(fieldName, 'failure')}`}
+                {`${metric(fieldName, 'success')}/${fieldName.length}`}
               </span>
             </div>
           );
