@@ -27,19 +27,21 @@ class Login extends Component {
     return (
       <div className="login-page">
         <div className="login-container">
-          <div className="top-blue">
-            <div className="andela-logo">
-              <h1 className="a">A</h1>
-              <img className="logo" src="/logo.png" alt="Andela Logo" />
+          <div className="login-inner-container">
+            <div className="top-blue">
+              <div className="andela-logo">
+                <h1 className="a">A</h1>
+                <img className="logo" src="/logo.png" alt="Andela Logo" />
+              </div>
+              <h1 className="engagement-support-automation">Engagement Support Automation</h1>
+              <h1 className="sign-in-to-get-started">Sign in to get started</h1>
             </div>
-            <h1 className="engagement-support-automation">Engagement Support Automation</h1>
-            <h1 className="sign-in-to-get-started">Sign in to get started</h1>
-          </div>
-          <div className="bottom-white">
-            <button type="button" className="sign-in-button-container" onClick={() => this.onLogin()}>
-              <img className="google-logo" src="/google.png" alt="google-icon" />
-              <span className="sign-in-with-google">Sign in with Google</span>
-            </button>
+            <div className="bottom-white">
+              <button type="button" className="sign-in-button-container" onClick={() => this.onLogin()}>
+                <img className="google-logo" src="/google.png" alt="google-icon" />
+                <span className="sign-in-with-google">Sign in with Google</span>
+              </button>
+            </div>
           </div>
         </div>
       </div>
