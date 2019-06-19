@@ -20,6 +20,11 @@ describe('Automation Card', () => {
       .get('.developerPicture').should('have.class', 'developerPicture');
   });
 
+  it('should contain automation status for success/total', ()=>{
+    cy.get(':nth-child(1) > .status-container > :nth-child(2) > span')
+      .contains('2/2');
+  });
+
   it('should render list view when list icon is clicked', () => {
     cy.get('#list-icon').click();
     cy.get('table')
