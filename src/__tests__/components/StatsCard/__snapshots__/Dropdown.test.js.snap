@@ -543,7 +543,7 @@ Dropdown {
       "_debugIsCurrentlyTiming": false,
       "_debugOwner": [Circular],
       "_debugSource": Object {
-        "fileName": "/Users/paul-kinuthia/projects/nodejs/bp-esa-frontend/src/components/StatsCard/Dropdown.jsx",
+        "fileName": "/Users/davidmuhanguzi/Documents/Andela/D1/bp-esa-frontend/src/components/StatsCard/Dropdown.jsx",
         "lineNumber": 57,
       },
       "actualDuration": 0,
@@ -582,7 +582,7 @@ Dropdown {
           "_debugIsCurrentlyTiming": false,
           "_debugOwner": [Circular],
           "_debugSource": Object {
-            "fileName": "/Users/paul-kinuthia/projects/nodejs/bp-esa-frontend/src/components/StatsCard/Dropdown.jsx",
+            "fileName": "/Users/davidmuhanguzi/Documents/Andela/D1/bp-esa-frontend/src/components/StatsCard/Dropdown.jsx",
             "lineNumber": 59,
           },
           "actualDuration": 0,
@@ -621,7 +621,7 @@ Dropdown {
               "_debugIsCurrentlyTiming": false,
               "_debugOwner": [Circular],
               "_debugSource": Object {
-                "fileName": "/Users/paul-kinuthia/projects/nodejs/bp-esa-frontend/src/components/StatsCard/Dropdown.jsx",
+                "fileName": "/Users/davidmuhanguzi/Documents/Andela/D1/bp-esa-frontend/src/components/StatsCard/Dropdown.jsx",
                 "lineNumber": 60,
               },
               "actualDuration": 0,

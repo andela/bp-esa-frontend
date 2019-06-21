@@ -5,6 +5,7 @@ import _ from 'lodash';
 import Spinner from '../Spinner';
 import InfoIcon from '../../assets/icons/Info.svg';
 import offboarding from '../../assets/icons/offboarding.svg';
+import onboarding from '../../assets/icons/onboarding.svg';
 import './developerCard.scss';
 import RetryButton from '../Buttons/RetryButton/RetryButton';
 
@@ -86,9 +87,22 @@ class DeveloperCard extends Component {
       return (
         <div className="card" key={card.id}>
           <div className="info-cont">
-            { /* TODO Update the onboarding icon to match mockups */}
-            <img className="info-icon onBoarding-icon" src={offboarding} alt="onboarding icon" />
-            <img className="info-icon" src={InfoIcon} alt="info icon" role="presentation" onClick={() => { openModal(); changeModalTypes(card); }} id={`${index}-id`} />
+            {card.type === 'onboarding'
+              ? (
+                <div className="tooltip-container" id="onboarding-info-icon">
+                  <img className="info-icon onBoarding-icon" src={onboarding} alt="onboarding icon" />
+                  <span class="tooltiptext">On-boarding</span>
+                </div>
+              ) : (
+                <div className="tooltip-container" id="offboarding-info-icon">
+                  <img className="info-icon onBoarding-icon" src={offboarding} alt="offboarding icon" />
+                  <span class="tooltiptext">Off-boarding</span>
+                </div>
+              )}
+            <div id="more-info-icon" className="tooltip-container" onClick={() => { openModal(); changeModalTypes(card); }}>
+              <img className="info-icon" src={InfoIcon} alt="info icon" role="presentation" id={`${index}-id`} />
+              <span class="tooltiptext">Details</span>
+            </div>
           </div>
           {this.renderDeveloperPic(firstInitials, secondInitials)}
           {this.renderDetails('developerDetails', 'developerName', card.fellowName)}
