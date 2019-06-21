@@ -23,10 +23,10 @@ class AutomationDetails extends PureComponent {
     const {
       formatDates, retryingAutomation, handleRetryAutomation, data,
     } = this.props;
-    const { slackAutomations, emailAutomations, freckleAutomations } = modalContent;
+    const { slackAutomations, emailAutomations, nokoAutomations } = modalContent;
     const slackStatus = (slackAutomations && slackAutomations.status) || '';
     const emailStatus = (emailAutomations && emailAutomations.status) || '';
-    const freckleStatus = (freckleAutomations && freckleAutomations.slackActivities) || '';
+    const nokoStatus = (nokoAutomations && nokoAutomations.slackActivities) || '';
     const name = _.split(modalContent.fellowName, ',');
     const firstInitial = (modalContent.fellowName && name[0].charAt(0)) || '';
     const secondInitial = (modalContent.fellowName && name[1].charAt(1)) || '';
@@ -47,7 +47,7 @@ class AutomationDetails extends PureComponent {
           <div className="automation-action">
             <h1 className="automation-type">{modalContent.type}</h1>
             <h1 className="dot">.</h1>
-            {slackStatus === 'failure' || emailStatus === 'failure' || freckleStatus === 'failure' ? <h1 className="automation-status">Failed</h1> : <h1 className="automation-status success">Success</h1>}
+            {slackStatus === 'failure' || emailStatus === 'failure' || nokoStatus === 'failure' ? <h1 className="automation-status">Failed</h1> : <h1 className="automation-status success">Success</h1>}
             <RetryButton
               retryingAutomation={retryingAutomation}
               handleRetryAutomation={() => handleRetryAutomation(cardId)}
@@ -68,7 +68,7 @@ class AutomationDetails extends PureComponent {
         <div className="channels-tab-background">
           <button type="button" className={`automations ${modalType === 'slack' ? 'active' : 'deactivated'}`} id="slack" onClick={this.setCurrentAutomationType}>Slack</button>
           <button type="button" className={`automations ${modalType === 'email' ? 'active' : 'deactivated'}`} id="email" onClick={this.setCurrentAutomationType}>Email</button>
-          <button type="button" className={`automations ${modalType === 'freckle' ? 'active' : 'deactivated'}`} id="freckle" onClick={this.setCurrentAutomationType}>Freckle</button>
+          <button type="button" className={`automations ${modalType === 'noko' ? 'active' : 'deactivated'}`} id="noko" onClick={this.setCurrentAutomationType}>Noko</button>
         </div>
       </div>
     );
@@ -79,7 +79,7 @@ class AutomationDetails extends PureComponent {
       <React.Fragment>
         {modalType === 'slack' && this.renderSlackTitles()}
         {modalType === 'email' && this.renderEmailTitles()}
-        {modalType === 'freckle' && this.renderFreckleTitles()}
+        {modalType === 'noko' && this.renderNokoTitles()}
       </React.Fragment>
     );
   }
@@ -100,7 +100,7 @@ class AutomationDetails extends PureComponent {
     </div>
   );
 
-  renderFreckleTitles = () => (
+  renderNokoTitles = () => (
     <div className="slack-table">
       <div className="content-title">Project Tag</div>
       <div className="content-title">Action</div>
@@ -112,7 +112,7 @@ class AutomationDetails extends PureComponent {
     <div className="content-container">
       {modalType === 'slack' && this.renderSlackDetails(modalContent)}
       {modalType === 'email' && this.renderEmailDetails(modalContent)}
-      {modalType === 'freckle' && this.renderFreckleDetails(modalContent)}
+      {modalType === 'noko' && this.renderNokoDetails(modalContent)}
     </div>
   );
 
@@ -144,10 +144,10 @@ class AutomationDetails extends PureComponent {
     )));
   }
 
-  renderFreckleDetails = (modalContent) => {
-    const { freckleAutomations } = modalContent;
-    const freckleActivities = (freckleAutomations && freckleAutomations.freckleActivities) || [];
-    return (freckleActivities.map(content => (
+  renderNokoDetails = (modalContent) => {
+    const { nokoAutomations } = modalContent;
+    const nokoActivities = (nokoAutomations && nokoAutomations.nokoActivities) || [];
+    return (nokoActivities.map(content => (
       <div key={content.id}>
         <div className="automation-content">
           <div className="content-row name">{content.projectId}</div>

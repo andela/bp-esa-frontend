@@ -9,9 +9,9 @@ const sampleReports = {
         status: 'failure',
         slackActivities: [14],
       },
-      freckleAutomations: {
+      nokoAutomations: {
         status: 'failure',
-        freckleActivities: [{
+        nokoActivities: [{
           projectId: 34,
           type: 'projectCreation',
           status: 'failure',
@@ -47,7 +47,7 @@ const stats = {
       success: 1,
       total: 191,
     },
-    freckle: {
+    noko: {
       success: 1,
       total: 191,
     },

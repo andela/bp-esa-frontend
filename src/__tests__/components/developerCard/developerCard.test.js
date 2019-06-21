@@ -10,7 +10,7 @@ const props = {
     id: '10516',
     emailAutomations: { emailActivities: [13] },
     fellowName: 'Reyes, Kozey',
-    freckleAutomations: { status: 'success', freckleActivities: [14] },
+    nokoAutomations: { status: 'success', nokoActivities: [14] },
     partnerName: "Hammes, O'Keefe and Hilll",
     slackAutomations: {
       status: 'failure',

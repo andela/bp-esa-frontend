@@ -29,63 +29,8 @@ ShallowWrapper {
         className="login-container"
       >
         <div
-          className="top-blue"
+          className="login-inner-container"
         >
-          <div
-            className="andela-logo"
-          >
-            <h1
-              className="a"
-            >
-              A
-            </h1>
-            <img
-              alt="Andela Logo"
-              className="logo"
-              src="/logo.png"
-            />
-          </div>
-          <h1
-            className="engagement-support-automation"
-          >
-            Engagement Support Automation
-          </h1>
-          <h1
-            className="sign-in-to-get-started"
-          >
-            Sign in to get started
-          </h1>
-        </div>
-        <div
-          className="bottom-white"
-        >
-          <button
-            className="sign-in-button-container"
-            onClick={[Function]}
-            type="button"
-          >
-            <img
-              alt="google-icon"
-              className="google-logo"
-              src="/google.png"
-            />
-            <span
-              className="sign-in-with-google"
-            >
-              Sign in with Google
-            </span>
-          </button>
-        </div>
-      </div>,
-      "className": "login-page",
-    },
-    "ref": null,
-    "rendered": Object {
-      "instance": null,
-      "key": undefined,
-      "nodeType": "host",
-      "props": Object {
-        "children": Array [
           <div
             className="top-blue"
           >
@@ -113,7 +58,7 @@ ShallowWrapper {
             >
               Sign in to get started
             </h1>
-          </div>,
+          </div>
           <div
             className="bottom-white"
           >
@@ -133,213 +78,19 @@ ShallowWrapper {
                 Sign in with Google
               </span>
             </button>
-          </div>,
-        ],
-        "className": "login-container",
-      },
-      "ref": null,
-      "rendered": Array [
-        Object {
-          "instance": null,
-          "key": undefined,
-          "nodeType": "host",
-          "props": Object {
-            "children": Array [
-              <div
-                className="andela-logo"
-              >
-                <h1
-                  className="a"
-                >
-                  A
-                </h1>
-                <img
-                  alt="Andela Logo"
-                  className="logo"
-                  src="/logo.png"
-                />
-              </div>,
-              <h1
-                className="engagement-support-automation"
-              >
-                Engagement Support Automation
-              </h1>,
-              <h1
-                className="sign-in-to-get-started"
-              >
-                Sign in to get started
-              </h1>,
-            ],
-            "className": "top-blue",
-          },
-          "ref": null,
-          "rendered": Array [
-            Object {
-              "instance": null,
-              "key": undefined,
-              "nodeType": "host",
-              "props": Object {
-                "children": Array [
-                  <h1
-                    className="a"
-                  >
-                    A
-                  </h1>,
-                  <img
-                    alt="Andela Logo"
-                    className="logo"
-                    src="/logo.png"
-                  />,
-                ],
-                "className": "andela-logo",
-              },
-              "ref": null,
-              "rendered": Array [
-                Object {
-                  "instance": null,
-                  "key": undefined,
-                  "nodeType": "host",
-                  "props": Object {
-                    "children": "A",
-                    "className": "a",
-                  },
-                  "ref": null,
-                  "rendered": "A",
-                  "type": "h1",
-                },
-                Object {
-                  "instance": null,
-                  "key": undefined,
-                  "nodeType": "host",
-                  "props": Object {
-                    "alt": "Andela Logo",
-                    "className": "logo",
-                    "src": "/logo.png",
-                  },
-                  "ref": null,
-                  "rendered": null,
-                  "type": "img",
-                },
-              ],
-              "type": "div",
-            },
-            Object {
-              "instance": null,
-              "key": undefined,
-              "nodeType": "host",
-              "props": Object {
-                "children": "Engagement Support Automation",
-                "className": "engagement-support-automation",
-              },
-              "ref": null,
-              "rendered": "Engagement Support Automation",
-              "type": "h1",
-            },
-            Object {
-              "instance": null,
-              "key": undefined,
-              "nodeType": "host",
-              "props": Object {
-                "children": "Sign in to get started",
-                "className": "sign-in-to-get-started",
-              },
-              "ref": null,
-              "rendered": "Sign in to get started",
-              "type": "h1",
-            },
-          ],
-          "type": "div",
-        },
-        Object {
-          "instance": null,
-          "key": undefined,
-          "nodeType": "host",
-          "props": Object {
-            "children": <button
-              className="sign-in-button-container"
-              onClick={[Function]}
-              type="button"
-            >
-              <img
-                alt="google-icon"
-                className="google-logo"
-                src="/google.png"
-              />
-              <span
-                className="sign-in-with-google"
-              >
-                Sign in with Google
-              </span>
-            </button>,
-            "className": "bottom-white",
-          },
-          "ref": null,
-          "rendered": Object {
-            "instance": null,
-            "key": undefined,
-            "nodeType": "host",
-            "props": Object {
-              "children": Array [
-                <img
-                  alt="google-icon"
-                  className="google-logo"
-                  src="/google.png"
-                />,
-                <span
-                  className="sign-in-with-google"
-                >
-                  Sign in with Google
-                </span>,
-              ],
-              "className": "sign-in-button-container",
-              "onClick": [Function],
-              "type": "button",
-            },
-            "ref": null,
-            "rendered": Array [
-              Object {
-                "instance": null,
-                "key": undefined,
-                "nodeType": "host",
-                "props": Object {
-                  "alt": "google-icon",
-                  "className": "google-logo",
-                  "src": "/google.png",
-                },
-                "ref": null,
-                "rendered": null,
-                "type": "img",
-              },
-              Object {
-                "instance": null,
-                "key": undefined,
-                "nodeType": "host",
-                "props": Object {
-                  "children": "Sign in with Google",
-                  "className": "sign-in-with-google",
-                },
-                "ref": null,
-                "rendered": "Sign in with Google",
-                "type": "span",
-              },
-            ],
-            "type": "button",
-          },
-          "type": "div",
-        },
-      ],
-      "type": "div",
+          </div>
+        </div>
+      </div>,
+      "className": "login-page",
     },
-    "type": "div",
-  },
-  Symbol(enzyme.__nodes__): Array [
-    Object {
+    "ref": null,
+    "rendered": Object {
       "instance": null,
       "key": undefined,
       "nodeType": "host",
       "props": Object {
         "children": <div
-          className="login-container"
+          className="login-inner-container"
         >
           <div
             className="top-blue"
@@ -390,7 +141,7 @@ ShallowWrapper {
             </button>
           </div>
         </div>,
-        "className": "login-page",
+        "className": "login-container",
       },
       "ref": null,
       "rendered": Object {
@@ -448,7 +199,7 @@ ShallowWrapper {
               </button>
             </div>,
           ],
-          "className": "login-container",
+          "className": "login-inner-container",
         },
         "ref": null,
         "rendered": Array [
@@ -641,6 +392,387 @@ ShallowWrapper {
             "type": "div",
           },
         ],
+        "type": "div",
+      },
+      "type": "div",
+    },
+    "type": "div",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": <div
+          className="login-container"
+        >
+          <div
+            className="login-inner-container"
+          >
+            <div
+              className="top-blue"
+            >
+              <div
+                className="andela-logo"
+              >
+                <h1
+                  className="a"
+                >
+                  A
+                </h1>
+                <img
+                  alt="Andela Logo"
+                  className="logo"
+                  src="/logo.png"
+                />
+              </div>
+              <h1
+                className="engagement-support-automation"
+              >
+                Engagement Support Automation
+              </h1>
+              <h1
+                className="sign-in-to-get-started"
+              >
+                Sign in to get started
+              </h1>
+            </div>
+            <div
+              className="bottom-white"
+            >
+              <button
+                className="sign-in-button-container"
+                onClick={[Function]}
+                type="button"
+              >
+                <img
+                  alt="google-icon"
+                  className="google-logo"
+                  src="/google.png"
+                />
+                <span
+                  className="sign-in-with-google"
+                >
+                  Sign in with Google
+                </span>
+              </button>
+            </div>
+          </div>
+        </div>,
+        "className": "login-page",
+      },
+      "ref": null,
+      "rendered": Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": <div
+            className="login-inner-container"
+          >
+            <div
+              className="top-blue"
+            >
+              <div
+                className="andela-logo"
+              >
+                <h1
+                  className="a"
+                >
+                  A
+                </h1>
+                <img
+                  alt="Andela Logo"
+                  className="logo"
+                  src="/logo.png"
+                />
+              </div>
+              <h1
+                className="engagement-support-automation"
+              >
+                Engagement Support Automation
+              </h1>
+              <h1
+                className="sign-in-to-get-started"
+              >
+                Sign in to get started
+              </h1>
+            </div>
+            <div
+              className="bottom-white"
+            >
+              <button
+                className="sign-in-button-container"
+                onClick={[Function]}
+                type="button"
+              >
+                <img
+                  alt="google-icon"
+                  className="google-logo"
+                  src="/google.png"
+                />
+                <span
+                  className="sign-in-with-google"
+                >
+                  Sign in with Google
+                </span>
+              </button>
+            </div>
+          </div>,
+          "className": "login-container",
+        },
+        "ref": null,
+        "rendered": Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              <div
+                className="top-blue"
+              >
+                <div
+                  className="andela-logo"
+                >
+                  <h1
+                    className="a"
+                  >
+                    A
+                  </h1>
+                  <img
+                    alt="Andela Logo"
+                    className="logo"
+                    src="/logo.png"
+                  />
+                </div>
+                <h1
+                  className="engagement-support-automation"
+                >
+                  Engagement Support Automation
+                </h1>
+                <h1
+                  className="sign-in-to-get-started"
+                >
+                  Sign in to get started
+                </h1>
+              </div>,
+              <div
+                className="bottom-white"
+              >
+                <button
+                  className="sign-in-button-container"
+                  onClick={[Function]}
+                  type="button"
+                >
+                  <img
+                    alt="google-icon"
+                    className="google-logo"
+                    src="/google.png"
+                  />
+                  <span
+                    className="sign-in-with-google"
+                  >
+                    Sign in with Google
+                  </span>
+                </button>
+              </div>,
+            ],
+            "className": "login-inner-container",
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": Array [
+                  <div
+                    className="andela-logo"
+                  >
+                    <h1
+                      className="a"
+                    >
+                      A
+                    </h1>
+                    <img
+                      alt="Andela Logo"
+                      className="logo"
+                      src="/logo.png"
+                    />
+                  </div>,
+                  <h1
+                    className="engagement-support-automation"
+                  >
+                    Engagement Support Automation
+                  </h1>,
+                  <h1
+                    className="sign-in-to-get-started"
+                  >
+                    Sign in to get started
+                  </h1>,
+                ],
+                "className": "top-blue",
+              },
+              "ref": null,
+              "rendered": Array [
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": Array [
+                      <h1
+                        className="a"
+                      >
+                        A
+                      </h1>,
+                      <img
+                        alt="Andela Logo"
+                        className="logo"
+                        src="/logo.png"
+                      />,
+                    ],
+                    "className": "andela-logo",
+                  },
+                  "ref": null,
+                  "rendered": Array [
+                    Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "host",
+                      "props": Object {
+                        "children": "A",
+                        "className": "a",
+                      },
+                      "ref": null,
+                      "rendered": "A",
+                      "type": "h1",
+                    },
+                    Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "host",
+                      "props": Object {
+                        "alt": "Andela Logo",
+                        "className": "logo",
+                        "src": "/logo.png",
+                      },
+                      "ref": null,
+                      "rendered": null,
+                      "type": "img",
+                    },
+                  ],
+                  "type": "div",
+                },
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": "Engagement Support Automation",
+                    "className": "engagement-support-automation",
+                  },
+                  "ref": null,
+                  "rendered": "Engagement Support Automation",
+                  "type": "h1",
+                },
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": "Sign in to get started",
+                    "className": "sign-in-to-get-started",
+                  },
+                  "ref": null,
+                  "rendered": "Sign in to get started",
+                  "type": "h1",
+                },
+              ],
+              "type": "div",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": <button
+                  className="sign-in-button-container"
+                  onClick={[Function]}
+                  type="button"
+                >
+                  <img
+                    alt="google-icon"
+                    className="google-logo"
+                    src="/google.png"
+                  />
+                  <span
+                    className="sign-in-with-google"
+                  >
+                    Sign in with Google
+                  </span>
+                </button>,
+                "className": "bottom-white",
+              },
+              "ref": null,
+              "rendered": Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": Array [
+                    <img
+                      alt="google-icon"
+                      className="google-logo"
+                      src="/google.png"
+                    />,
+                    <span
+                      className="sign-in-with-google"
+                    >
+                      Sign in with Google
+                    </span>,
+                  ],
+                  "className": "sign-in-button-container",
+                  "onClick": [Function],
+                  "type": "button",
+                },
+                "ref": null,
+                "rendered": Array [
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "alt": "google-icon",
+                      "className": "google-logo",
+                      "src": "/google.png",
+                    },
+                    "ref": null,
+                    "rendered": null,
+                    "type": "img",
+                  },
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": "Sign in with Google",
+                      "className": "sign-in-with-google",
+                    },
+                    "ref": null,
+                    "rendered": "Sign in with Google",
+                    "type": "span",
+                  },
+                ],
+                "type": "button",
+              },
+              "type": "div",
+            },
+          ],
+          "type": "div",
+        },
         "type": "div",
       },
       "type": "div",
