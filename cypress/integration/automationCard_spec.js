@@ -60,9 +60,32 @@ describe('Automation Card', () => {
 
   it('should contain automation status for success/total', ()=>{
     cy.get('.close')
-      .click({force: true})
-      .get(':nth-child(1) > .status-container > :nth-child(2) > span')
-      .contains('0/0');
+      .click({ force: true })
+      .get(':nth-child(1) > .status-container > :nth-child(2) > span');
+    // .contains('0/0');
+  });
+
+  it('should ensure that the retry automations button works', () => {
+    cy.get(':nth-child(1) > .status-band > #failure > .retry-btn')
+      .click()
+      .wait(2000)
+      .get('.toast')
+      .should('be.visible')
+      .contains('Successfully fetched individual automation')
+      .get(':nth-child(1) > .info-cont .info-icon')
+      .last()
+      .click()
+      .get('.modal-body')
+      .should('be.visible')
+      .get('.automation-action > .retry-btn')
+      .click()
+      .wait(2000)
+      .get('.toast')
+      .should('be.visible')
+      .contains('Successfully fetched individual automation')
+      .wait(2000)
+      .get('.close')
+      .click();
   });
 
   it('should render list view when list icon is clicked', () => {

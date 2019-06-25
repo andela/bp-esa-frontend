@@ -30,7 +30,8 @@ export function* retryAutomation(action) {
   try {
     const { automationId } = action;
     const response = yield call(AutomationAPI.retryAutomation, automationId);
-    yield put(retryAutomationSuccess(response.data.data));
+    const [updatedData] = response.data.data;
+    yield put(retryAutomationSuccess(updatedData));
     toastr.success(response.data.message);
   } catch (e) {
     const error = { error: 'Possible Network error, please reload!' };

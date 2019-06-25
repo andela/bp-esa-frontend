@@ -11,7 +11,13 @@ class AutomationDetails extends PureComponent {
     super();
     this.state = {
       modalType: 'slack',
+      updatedModalContext: {},
     };
+  }
+
+  componentWillReceiveProps(nextProps) {
+    const [result] = nextProps.data.filter(modal => modal.id === nextProps.modalContent.id);
+    this.setState({ updatedModalContext: result });
   }
 
   setCurrentAutomationType = (event) => {
@@ -135,7 +141,7 @@ class AutomationDetails extends PureComponent {
 
   renderEmailDetails = (modalContent) => {
     const { emailAutomations } = modalContent;
-    const emailActivities = (emailAutomations && emailAutomations.emailActivities) || [];    
+    const emailActivities = (emailAutomations && emailAutomations.emailActivities) || [];
     return (emailActivities.map(content => (
       <div key={content.id}>
         <div className="automation-content">
@@ -174,15 +180,16 @@ class AutomationDetails extends PureComponent {
       modalContent,
     } = this.props;
     const modalClass = isModalOpen ? 'modal-open' : 'modal-closed';
-    const { modalType } = this.state;
+    const { modalType, updatedModalContext } = this.state;
+    const ModalContentData = updatedModalContext === undefined ? modalContent : updatedModalContext;
     return (
       <div className={modalClass}>
         <div className="modal-overlay" onClick={closeModal} />
         <div className="modal-body">
-          {this.renderDeveloperInfo(modalContent, modalContent.id)}
+          {this.renderDeveloperInfo(ModalContentData, ModalContentData.id)}
           {this.renderChannelTabs()}
           {this.renderTitles(modalType)}
-          {this.renderDetails(modalType, modalContent)}
+          {this.renderDetails(modalType, ModalContentData)}
           <div className="modal-close">
             <button type="button" onClick={() => { this.setState({ modalType: 'slack' }); closeModal(); }} className="modal-close-button-group">
               <h1 className="close">CLOSE</h1>
