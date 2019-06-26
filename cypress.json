@@ -1,4 +1,30 @@
 {
   "baseUrl": "http://localhost:3000",
-  "projectId": "84mdct"
+  "projectId": "84mdct",
+  "env": {
+    "state": {
+      "authenticated": true,
+      "currentUser": {
+        "user": {
+          "uid": "nXr8n9AY1RfE2bSFxjIO6a4XGCg2",
+          "displayName": "ESA Tester",
+          "email": "esa.tester@andela.com",
+          "apiKey": "AIzaSyBWJDqR1_xe7DGaOa6IwO2WxzVjJ5AXQ4A",
+          "appName": "[DEFAULT]",
+          "authDomain": "bp-esa.firebaseapp.com"
+        },
+        "additionalUserInfo": {
+          "profile": {
+            "name": "ESA Tester",
+            "id": "103296915461423039444",
+            "verified_email": true,
+            "hd": "andela.com",
+            "email": "esa.tester@andela.com",
+            "picture": "https://lh4.googleusercontent.com/-s-B6w_SuJsU/AAAAAAAAAAI/AAAAAAAAAAA/ACHi3rc0pOUhqPn70FV1FiJkTm7N-Ee_xQ/photo.jpg"
+          }
+        },
+        "operationType": "signIn"
+      }
+    }
+  }
 }

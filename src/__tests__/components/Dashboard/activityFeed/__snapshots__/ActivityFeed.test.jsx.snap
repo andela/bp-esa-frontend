@@ -77,7 +77,7 @@ ReactWrapper {
           <span
             class="feed-date"
           >
-            05/15/2019, 16:47
+            05/15/2019, 13:47
           </span>
         </div>
       </div>,
@@ -121,7 +121,7 @@ ReactWrapper {
             <span
               className="feed-date"
             >
-              05/15/2019, 16:47
+              05/15/2019, 13:47
             </span>
           </div>,
         ],
@@ -195,7 +195,7 @@ ReactWrapper {
             <span
               class="feed-date"
             >
-              05/15/2019, 16:47
+              05/15/2019, 13:47
             </span>
           </div>,
           "key": undefined,
@@ -228,7 +228,7 @@ ReactWrapper {
               <span
                 className="feed-date"
               >
-                05/15/2019, 16:47
+                05/15/2019, 13:47
               </span>,
             ],
             "className": "feeds-content",
@@ -376,17 +376,17 @@ ReactWrapper {
               "instance": <span
                 class="feed-date"
               >
-                05/15/2019, 16:47
+                05/15/2019, 13:47
               </span>,
               "key": undefined,
               "nodeType": "host",
               "props": Object {
-                "children": "05/15/2019, 16:47",
+                "children": "05/15/2019, 13:47",
                 "className": "feed-date",
               },
               "ref": null,
               "rendered": Array [
-                "05/15/2019, 16:47",
+                "05/15/2019, 13:47",
               ],
               "type": "span",
             },
@@ -453,7 +453,7 @@ ReactWrapper {
             <span
               class="feed-date"
             >
-              05/15/2019, 16:47
+              05/15/2019, 13:47
             </span>
           </div>
         </div>,
@@ -497,7 +497,7 @@ ReactWrapper {
               <span
                 className="feed-date"
               >
-                05/15/2019, 16:47
+                05/15/2019, 13:47
               </span>
             </div>,
           ],
@@ -571,7 +571,7 @@ ReactWrapper {
               <span
                 class="feed-date"
               >
-                05/15/2019, 16:47
+                05/15/2019, 13:47
               </span>
             </div>,
             "key": undefined,
@@ -604,7 +604,7 @@ ReactWrapper {
                 <span
                   className="feed-date"
                 >
-                  05/15/2019, 16:47
+                  05/15/2019, 13:47
                 </span>,
               ],
               "className": "feeds-content",
@@ -752,17 +752,17 @@ ReactWrapper {
                 "instance": <span
                   class="feed-date"
                 >
-                  05/15/2019, 16:47
+                  05/15/2019, 13:47
                 </span>,
                 "key": undefined,
                 "nodeType": "host",
                 "props": Object {
-                  "children": "05/15/2019, 16:47",
+                  "children": "05/15/2019, 13:47",
                   "className": "feed-date",
                 },
                 "ref": null,
                 "rendered": Array [
-                  "05/15/2019, 16:47",
+                  "05/15/2019, 13:47",
                 ],
                 "type": "span",
               },
