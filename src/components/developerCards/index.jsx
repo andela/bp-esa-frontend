@@ -12,29 +12,34 @@ import RetryButton from '../Buttons/RetryButton/RetryButton';
 class DeveloperCard extends Component {
   renderDetails = (classNameDiv, classNameSpan, card) => (
     <div className={classNameDiv}>
-      <span className={classNameSpan}>
-        {card}
-      </span>
+      <span className={classNameSpan}>{card}</span>
     </div>
   );
 
+  replaceFreckleToNoko = (data) => {
+    // eslint-disable-next-line no-restricted-syntax
+    for (const i of data) {
+      const { status } = i.freckleAutomations;
+      const nokoActivities = i.freckleAutomations.freckleActivities;
+      i.nokoAutomations = { status, nokoActivities };
+    }
+  };
+
   renderStatusBand = (className, status, cardId) => {
     const { retryingAutomation, handleRetryAutomation, data } = this.props;
+    this.replaceFreckleToNoko(data);
     return (
       <div className={className}>
         <span id={`${status.toLowerCase()}`}>
           {status}
-          {
-            status === 'FAILURE'
-            && (
-              <RetryButton
-                retryingAutomation={retryingAutomation}
-                handleRetryAutomation={() => handleRetryAutomation(cardId)}
-                data={data}
-                id="retry-automation"
-              />
-            )
-          }
+          {status === 'FAILURE' && (
+            <RetryButton
+              retryingAutomation={retryingAutomation}
+              handleRetryAutomation={() => handleRetryAutomation(cardId)}
+              data={data}
+              id="retry-automation"
+            />
+          )}
         </span>
       </div>
     );
@@ -42,20 +47,16 @@ class DeveloperCard extends Component {
 
   renderActivity = (channels, metric, card) => (
     <div className="status-container">
-      {
-        channels.map((name, index) => {
-          const fieldName = card[`${name}Automations`][`${name}Activities`];
-          return (
-            // eslint-disable-next-line react/no-array-index-key
-            <div key={index}>
-              {_.upperCase(name)}
-              <span>
-                {`${metric(fieldName, 'success')}/${fieldName.length}`}
-              </span>
-            </div>
-          );
-        })
-      }
+      {channels.map((name, index) => {
+        const fieldName = card[`${name}Automations`][`${name}Activities`];
+        return (
+          // eslint-disable-next-line react/no-array-index-key
+          <div key={index}>
+            {_.upperCase(name)}
+            <span>{`${metric(fieldName, 'success')}/${fieldName.length}`}</span>
+          </div>
+        );
+      })}
     </div>
   );
 
@@ -73,12 +74,8 @@ class DeveloperCard extends Component {
   renderCards = () => {
     const { data, openModal, changeModalTypes } = this.props;
     const automation = length => length !== 0;
-    const automationMetric = (activities, status) => (
-      _.filter(activities, { status }).length
-    );
-    const metric = (activities, status) => (
-      automation(activities.length) ? automationMetric(activities, status) : 0
-    );
+    const automationMetric = (activities, status) => _.filter(activities, { status }).length;
+    const metric = (activities, status) => (automation(activities.length) ? automationMetric(activities, status) : 0);
     return data.map((card, index) => {
       const name = card.fellowName;
       const newName = _.split(name, ',');
@@ -91,25 +88,33 @@ class DeveloperCard extends Component {
               ? (
                 <div className="tooltip-container" id="onboarding-info-icon">
                   <img className="info-icon onBoarding-icon" src={onboarding} alt="onboarding icon" />
-                  <span class="tooltiptext">On-boarding</span>
+                  <span className="tooltiptext">On-boarding</span>
                 </div>
               ) : (
                 <div className="tooltip-container" id="offboarding-info-icon">
                   <img className="info-icon onBoarding-icon" src={offboarding} alt="offboarding icon" />
-                  <span class="tooltiptext">Off-boarding</span>
+                  <span className="tooltiptext">Off-boarding</span>
                 </div>
               )}
             <div id="more-info-icon" className="tooltip-container" onClick={() => { openModal(); changeModalTypes(card); }}>
               <img className="info-icon" src={InfoIcon} alt="info icon" role="presentation" id={`${index}-id`} />
-              <span class="tooltiptext">Details</span>
+              <span className="tooltiptext">Details</span>
             </div>
           </div>
           {this.renderDeveloperPic(firstInitials, secondInitials)}
           {this.renderDetails('developerDetails', 'developerName', card.fellowName)}
           {this.renderDetails('partnerName', '', card.partnerName)}
-          {this.renderDetails('developerDetails', 'date', moment(card.updatedAt).format('MM/DD/YYYY, h:mm a'))}
-          {this.renderStatusBand('status-band', card.freckleAutomations.status.toUpperCase(), card.id)}
-          {this.renderActivity(['slack', 'email', 'freckle'], metric, card)}
+          {this.renderDetails(
+            'developerDetails',
+            'date',
+            moment(card.updatedAt).format('MM/DD/YYYY, h:mm a'),
+          )}
+          {this.renderStatusBand(
+            'status-band',
+            card.freckleAutomations.status.toUpperCase(),
+            card.id,
+          )}
+          {this.renderActivity(['slack', 'email', 'noko'], metric, card)}
         </div>
       );
     });
@@ -117,11 +122,7 @@ class DeveloperCard extends Component {
 
   render() {
     const { isLoading } = this.props;
-    return (
-      <div className="cont">
-        {isLoading ? <Spinner /> : this.renderCards()}
-      </div>
-    );
+    return <div className="cont">{isLoading ? <Spinner /> : this.renderCards()}</div>;
   }
 }
 

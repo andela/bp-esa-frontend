@@ -86,10 +86,10 @@ describe('Automation details', () => {
   });
   
 
-  it('should render freckle details', () => {
+  it('should render noko details', () => {
     const component = getComponent();
-    component.find('#freckle').simulate('click');
-    expect(component.instance().state.modalType).toEqual('freckle');
+    component.find('#noko').simulate('click');
+    expect(component.instance().state.modalType).toEqual('noko');
   });
 
   it('should render freckle details with no activities', () => {
@@ -144,8 +144,8 @@ describe('Automation details', () => {
       },
     };
     const component = mount(<AutomationDetails {...prop} />);
-    component.find('#freckle').simulate('click');
-    expect(component.instance().state.modalType).toEqual('freckle');
+    component.find('#noko').simulate('click');
+    expect(component.instance().state.modalType).toEqual('noko');
   });
   it('should render email details with no activities', () => {
     const prop = {

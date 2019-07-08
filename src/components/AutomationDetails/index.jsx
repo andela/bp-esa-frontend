@@ -5,7 +5,6 @@ import _ from 'lodash';
 import './styles.scss';
 import RetryButton from '../Buttons/RetryButton/RetryButton';
 
-
 class AutomationDetails extends PureComponent {
   constructor() {
     super();
@@ -17,7 +16,7 @@ class AutomationDetails extends PureComponent {
   setCurrentAutomationType = (event) => {
     const { id } = event.target;
     this.setState({ modalType: id });
-  }
+  };
 
   renderDeveloperInfo = (modalContent, cardId) => {
     const {
@@ -43,14 +42,21 @@ class AutomationDetails extends PureComponent {
             <h1 className="developer-name">{modalContent.fellowName}</h1>
             <div className="tooltip-container" id='ais-link-icon'>
               <i className="fas fa-external-link-alt" title={`Open ${modalContent.fellowName} AIS profile`} onClick={() => window.open(`https://ais.andela.com/people/${modalContent.fellowId}`)} />
-              <span class="tooltiptext">Link to AIS</span>
+              <span className="tooltiptext">Link to AIS</span>
             </div>
+
           </div>
           <h1 className="partner-name">{modalContent.partnerName}</h1>
           <div className="automation-action">
             <h1 className="automation-type">{modalContent.type}</h1>
             <h1 className="dot">.</h1>
-            {slackStatus === 'failure' || emailStatus === 'failure' || freckleStatus === 'failure' ? <h1 className="automation-status">Failed</h1> : <h1 className="automation-status success">Success</h1>}
+            {slackStatus === 'failure'
+              || emailStatus === 'failure'
+              || freckleStatus === 'failure' ? (
+                <h1 className="automation-status">Failed</h1>
+              ) : (
+                <h1 className="automation-status success">Success</h1>
+              )}
             <RetryButton
               retryingAutomation={retryingAutomation}
               handleRetryAutomation={() => handleRetryAutomation(cardId)}
@@ -62,27 +68,51 @@ class AutomationDetails extends PureComponent {
         </div>
       </div>
     );
-  }
+  };
 
   renderChannelTabs = () => {
     const { modalType } = this.state;
     return (
       <div className="channel-tabs-group">
         <div className="channels-tab-background">
-          <button type="button" className={`automations ${modalType === 'slack' ? 'active' : 'deactivated'}`} id="slack" onClick={this.setCurrentAutomationType}>Slack</button>
-          <button type="button" className={`automations ${modalType === 'email' ? 'active' : 'deactivated'}`} id="email" onClick={this.setCurrentAutomationType}>Email</button>
-          <button type="button" className={`automations ${modalType === 'freckle' ? 'active' : 'deactivated'}`} id="freckle" onClick={this.setCurrentAutomationType}>Freckle</button>
+          <button
+            type="button"
+            className={`automations ${modalType === 'slack' ? 'active' : 'deactivated'}`}
+            id="slack"
+            onClick={this.setCurrentAutomationType}
+          >
+            Slack
+
+          </button>
+          <button
+            type="button"
+            className={`automations ${modalType === 'email' ? 'active' : 'deactivated'}`}
+            id="email"
+            onClick={this.setCurrentAutomationType}
+          >
+            Email
+
+          </button>
+          <button
+            type="button"
+            className={`automations ${modalType === 'noko' ? 'active' : 'deactivated'}`}
+            id="noko"
+            onClick={this.setCurrentAutomationType}
+          >
+            Noko
+
+          </button>
         </div>
       </div>
     );
-  }
+  };
 
   renderTitles(modalType) {
     return (
       <React.Fragment>
         {modalType === 'slack' && this.renderSlackTitles()}
         {modalType === 'email' && this.renderEmailTitles()}
-        {modalType === 'freckle' && this.renderFreckleTitles()}
+        {modalType === 'noko' && this.renderNokoTitles()}
       </React.Fragment>
     );
   }
@@ -103,7 +133,7 @@ class AutomationDetails extends PureComponent {
     </div>
   );
 
-  renderFreckleTitles = () => (
+  renderNokoTitles = () => (
     <div className="slack-table">
       <div className="content-title">Project Tag</div>
       <div className="content-title">Action</div>
@@ -115,14 +145,14 @@ class AutomationDetails extends PureComponent {
     <div className="content-container">
       {modalType === 'slack' && this.renderSlackDetails(modalContent)}
       {modalType === 'email' && this.renderEmailDetails(modalContent)}
-      {modalType === 'freckle' && this.renderFreckleDetails(modalContent)}
+      {modalType === 'noko' && this.renderNokoDetails(modalContent)}
     </div>
   );
 
   renderSlackDetails = (modalContent) => {
     const { slackAutomations } = modalContent;
     const slackActivities = (slackAutomations && slackAutomations.slackActivities) || [];
-    return (slackActivities.map(content => (
+    return slackActivities.map(content => (
       <div key={content.slackUserId}>
         <div className="automation-content">
           <div className="content-row name">{content.channelName}</div>
@@ -130,13 +160,13 @@ class AutomationDetails extends PureComponent {
           {this.renderCommonDetails(content)}
         </div>
       </div>
-    )));
-  }
+    ));
+  };
 
   renderEmailDetails = (modalContent) => {
     const { emailAutomations } = modalContent;
-    const emailActivities = (emailAutomations && emailAutomations.emailActivities) || [];    
-    return (emailActivities.map(content => (
+    const emailActivities = (emailAutomations && emailAutomations.emailActivities) || [];
+    return emailActivities.map(content => (
       <div key={content.id}>
         <div className="automation-content">
           <div className="content-row name">{content.emailTo}</div>
@@ -144,13 +174,13 @@ class AutomationDetails extends PureComponent {
           {this.renderCommonDetails(content)}
         </div>
       </div>
-    )));
-  }
+    ));
+  };
 
-  renderFreckleDetails = (modalContent) => {
-    const { freckleAutomations } = modalContent;
-    const freckleActivities = (freckleAutomations && freckleAutomations.freckleActivities) || [];
-    return (freckleActivities.map(content => (
+  renderNokoDetails = (modalContent) => {
+    const { nokoAutomations } = modalContent;
+    const nokoActivities = (nokoAutomations && nokoAutomations.nokoActivities) || [];
+    return nokoActivities.map(content => (
       <div key={content.id}>
         <div className="automation-content">
           <div className="content-row name">{content.projectId}</div>
@@ -158,21 +188,21 @@ class AutomationDetails extends PureComponent {
           {this.renderCommonDetails(content)}
         </div>
       </div>
-    )));
-  }
+    ));
+  };
 
   renderCommonDetails = content => (
     <React.Fragment>
-      { content.status === 'failure' ? <div className="content-row status">{content.status}</div> : <div className="content-row status success">{content.status}</div> }
+      {content.status === 'failure' ? (
+        <div className="content-row status">{content.status}</div>
+      ) : (
+        <div className="content-row status success">{content.status}</div>
+      )}
     </React.Fragment>
-  )
+  );
 
   render() {
-    const {
-      isModalOpen,
-      closeModal,
-      modalContent,
-    } = this.props;
+    const { isModalOpen, closeModal, modalContent } = this.props;
     const modalClass = isModalOpen ? 'modal-open' : 'modal-closed';
     const { modalType } = this.state;
     return (
@@ -184,7 +214,14 @@ class AutomationDetails extends PureComponent {
           {this.renderTitles(modalType)}
           {this.renderDetails(modalType, modalContent)}
           <div className="modal-close">
-            <button type="button" onClick={() => { this.setState({ modalType: 'slack' }); closeModal(); }} className="modal-close-button-group">
+            <button
+              type="button"
+              onClick={() => {
+                this.setState({ modalType: 'slack' });
+                closeModal();
+              }}
+              className="modal-close-button-group"
+            >
               <h1 className="close">CLOSE</h1>
             </button>
           </div>
@@ -207,7 +244,7 @@ AutomationDetails.propTypes = {
 AutomationDetails.defaultProps = {
   retryingAutomation: false,
   data: [],
-  handleRetryAutomation: () => {},
+  handleRetryAutomation: () => { },
 };
 
 export default AutomationDetails;
