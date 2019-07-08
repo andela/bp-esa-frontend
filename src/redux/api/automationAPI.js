@@ -4,7 +4,6 @@ import URL from 'url';
 import resolveUrl from '.';
 
 const baseUrl = resolveUrl();
-const mockUrl = 'http://www.mocky.io/v2/5cabcd7a300000680010325b?mocky-delay=2000ms';
 class AutomationAPI {
   static async getAutomations(pagination, filters) {
     const filterCopy = { ...filters };
@@ -35,8 +34,8 @@ class AutomationAPI {
     return axios.get(filterURL);
   }
 
-  static async retryAutomation() {
-    return axios.put(`${mockUrl}`);
+  static async retryAutomation(automationId) {
+    return axios.get(`${baseUrl}/automations/${automationId}`);
   }
 }
 

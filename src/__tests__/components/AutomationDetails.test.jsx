@@ -80,11 +80,13 @@ describe('Automation details', () => {
   });
 
   it('should redirect user to AIS profile', () => {
-    const component = getComponent().find('.fas');
+    const wrapper = getComponent().setProps({
+      ...props,
+    });
+    const component = wrapper.find('.fas');
     component.simulate('click');
     expect(component.props().title).toEqual('Open Tunmise, Tunmise AIS profile');
   });
-  
 
   it('should render freckle details', () => {
     const component = getComponent();

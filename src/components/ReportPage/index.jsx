@@ -354,13 +354,16 @@ export class ReportPage extends Component {
               openModal={this.toggleModal}
               changeModalTypes={this.changeModalTypes}
               retryingAutomation={retryingAutomation}
-              handleRetryAutomation={() => this.handleRetryAutomation()}
+              handleRetryAutomation={this.handleRetryAutomation}
             />
             <AutomationDetails
+              data={data}
               isModalOpen={isModalOpen}
               closeModal={this.toggleModal}
               modalContent={modalContent}
               formatDates={this.formatDates}
+              retryingAutomation={retryingAutomation}
+              handleRetryAutomation={this.handleRetryAutomation}
             />
           </div>
         )
@@ -452,8 +455,8 @@ export const mapDispatchToProps = dispatch => ({
   fetchAllAutomation: (pagination, filters) => dispatch(fetchAutomation(pagination, filters)),
   fetchUpdates: () => dispatch(fetchRealTimeReport()),
   resetUpdates: () => dispatch(resetRealTimeReport()),
-  fetchStat: (period) => dispatch(fetchStatsRequest(period)),
-  retryFailedAutomation: () => dispatch(retryAutomation()),
+  fetchStat: period => dispatch(fetchStatsRequest(period)),
+  retryFailedAutomation: automationId => dispatch(retryAutomation(automationId)),
 });
 
 ReportPage.propTypes = {

@@ -181,6 +181,11 @@ describe('ReportPage Component', () => {
       expect(dispatch).toHaveBeenCalled();
     });
 
+    it('should ensure that retryFailedAutomation is mapped to props', () => {
+      expectedProps.retryFailedAutomation();
+      expect(dispatch).toHaveBeenCalled();
+    });
+
     it('should ensure that fetchAllAutomation is mapped to props', () => {
       expectedProps.fetchAllAutomation();
       expect(dispatch).toHaveBeenCalled();
