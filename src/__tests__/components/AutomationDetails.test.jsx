@@ -30,13 +30,13 @@ const props = {
         },
       ],
     },
-    freckleAutomations: {
+    nokoAutomations: {
       status: 'failure',
-      freckleActivities: [
+      nokoActivities: [
         {
           status: 'failure',
           statusMessage: 'Request failed with status code 403',
-          freckleUserId: null,
+          nokoUserId: null,
           projectId: null,
           type: 'projectCreation',
         },
@@ -88,13 +88,13 @@ describe('Automation details', () => {
     expect(component.props().title).toEqual('Open Tunmise, Tunmise AIS profile');
   });
 
-  it('should render freckle details', () => {
+  it('should render noko details', () => {
     const component = getComponent();
-    component.find('#freckle').simulate('click');
-    expect(component.instance().state.modalType).toEqual('freckle');
+    component.find('#noko').simulate('click');
+    expect(component.instance().state.modalType).toEqual('noko');
   });
 
-  it('should render freckle details with no activities', () => {
+  it('should render noko details with no activities', () => {
     const prop = {
       history: {},
       currentUser: {
@@ -123,7 +123,7 @@ describe('Automation details', () => {
             },
           ],
         },
-        freckleAutomations: {
+        nokoAutomations: {
           status: 'failure',
         },
         emailAutomations: {
@@ -146,8 +146,8 @@ describe('Automation details', () => {
       },
     };
     const component = mount(<AutomationDetails {...prop} />);
-    component.find('#freckle').simulate('click');
-    expect(component.instance().state.modalType).toEqual('freckle');
+    component.find('#noko').simulate('click');
+    expect(component.instance().state.modalType).toEqual('noko');
   });
   it('should render email details with no activities', () => {
     const prop = {
@@ -178,7 +178,7 @@ describe('Automation details', () => {
             },
           ],
         },
-        freckleAutomations: {
+        nokoAutomations: {
           status: 'failure',
         },
         emailAutomations: {
