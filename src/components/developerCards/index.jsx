@@ -83,7 +83,7 @@ class DeveloperCard extends Component {
       const name = card.fellowName;
       const newName = _.split(name, ',');
       const firstInitials = newName[0].charAt(0);
-      const secondInitials = newName[1].charAt(1);
+      const secondInitials = newName[1] && newName[1].charAt(1);
       return (
         <div className="card" key={card.id}>
           <div className="info-cont">
@@ -91,17 +91,17 @@ class DeveloperCard extends Component {
               ? (
                 <div className="tooltip-container" id="onboarding-info-icon">
                   <img className="info-icon onBoarding-icon" src={onboarding} alt="onboarding icon" />
-                  <span class="tooltiptext">On-boarding</span>
+                  <span className="tooltiptext">On-boarding</span>
                 </div>
               ) : (
                 <div className="tooltip-container" id="offboarding-info-icon">
                   <img className="info-icon onBoarding-icon" src={offboarding} alt="offboarding icon" />
-                  <span class="tooltiptext">Off-boarding</span>
+                  <span className="tooltiptext">Off-boarding</span>
                 </div>
               )}
             <div id="more-info-icon" className="tooltip-container" onClick={() => { openModal(); changeModalTypes(card); }}>
               <img className="info-icon" src={InfoIcon} alt="info icon" role="presentation" id={`${index}-id`} />
-              <span class="tooltiptext">Details</span>
+              <span className="tooltiptext">Details</span>
             </div>
           </div>
           {this.renderDeveloperPic(firstInitials, secondInitials)}
