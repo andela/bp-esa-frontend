@@ -1,11 +1,11 @@
 /* eslint-disable no-unused-expressions */
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import PropTypes from 'proptypes';
 import _ from 'lodash';
 import './styles.scss';
 import RetryButton from '../Buttons/RetryButton/RetryButton';
 
-class AutomationDetails extends Component {
+class AutomationDetails extends PureComponent {
   state = {
     modalType: 'slack',
     updatedModalContext: {},
@@ -26,9 +26,9 @@ class AutomationDetails extends Component {
       formatDates, retryingAutomation, handleRetryAutomation, data,
     } = this.props;
     const { slackAutomations, emailAutomations, nokoAutomations } = modalContent;
-    const slackStatus = (slackAutomations && slackAutomations.status) || '';
-    const emailStatus = (emailAutomations && emailAutomations.status) || '';
-    const nokoStatus = (nokoAutomations && nokoAutomations.slackActivities) || '';
+    const slackStatus = !!(slackAutomations && slackAutomations.status === 'success');
+    const emailStatus = !!(emailAutomations && emailAutomations.status === 'success');
+    const nokoStatus = !!(nokoAutomations && nokoAutomations.slackActivities === 'success');
     const name = _.split(modalContent.fellowName, ',');
     const firstInitial = (modalContent.fellowName && name[0].charAt(0)) || '';
     const secondInitial = (modalContent.fellowName && name[1].charAt(1)) || '';
@@ -47,8 +47,7 @@ class AutomationDetails extends Component {
               <i
                 className="fas fa-external-link-alt"
                 title={`Open ${modalContent.fellowName} AIS profile`}
-                onClick={() => window.open(`https://ais.andela.com/people/${modalContent.fellowId}`)
-                }
+                onClick={() => window.open(`https://ais.andela.com/people/${modalContent.fellowId}`)}
               />
               <span className="tooltiptext">Link to AIS</span>
             </div>
@@ -57,11 +56,9 @@ class AutomationDetails extends Component {
           <div className="automation-action">
             <h1 className="automation-type">{modalContent.type}</h1>
             <h1 className="dot">.</h1>
-            {slackStatus === 'failure' || emailStatus === 'failure' || nokoStatus === 'failure' ? (
-              <h1 className="automation-status">Failed</h1>
-            ) : (
-              <h1 className="automation-status success">Success</h1>
-            )}
+            {slackStatus === false || emailStatus === false || nokoStatus === false
+              ? <h1 className="automation-status">Failed</h1>
+              : <h1 className="automation-status success">Success</h1>}
             <RetryButton
               retryingAutomation={retryingAutomation}
               handleRetryAutomation={() => handleRetryAutomation(cardId)}
@@ -87,6 +84,7 @@ class AutomationDetails extends Component {
             onClick={this.setCurrentAutomationType}
           >
             Slack
+
           </button>
           <button
             type="button"
@@ -95,6 +93,7 @@ class AutomationDetails extends Component {
             onClick={this.setCurrentAutomationType}
           >
             Email
+
           </button>
           <button
             type="button"
@@ -103,6 +102,7 @@ class AutomationDetails extends Component {
             onClick={this.setCurrentAutomationType}
           >
             Noko
+
           </button>
         </div>
       </div>
