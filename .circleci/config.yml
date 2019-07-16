@@ -97,7 +97,12 @@ jobs:
           when: on_success
   
   deploy_staging: # Deploy application to GCP staging
-    <<: *defaults
+    docker:
+      - image: circleci/node:10.15.0
+        environment:
+          GOOGLE_PROJECT_ID: bench-projects
+          GOOGLE_COMPUTE_ZONE: us-central1-a
+    working_directory: ~/esa_frontend_repo
     steps:
       - setup_remote_docker
       - *attach_workspace
@@ -129,5 +134,5 @@ workflows:
           requires:
             - checkout_repo
             - test_javascript_report
-            - test_ui_flow
+            # - test_ui_flow
           <<: *filters
