@@ -4,7 +4,7 @@ import FilterComponent, { filterInitialState } from '../../../components/FilterC
 import FilterDropdown, {
   emailAutomations,
   failure, fellowName,
-  freckleAutomations, offboarding, onboarding, partnerName, slackAutomations,
+  nokoAutomations, offboarding, onboarding, partnerName, slackAutomations,
   success,
 } from '../../../components/FilterComponent/FilterDropdown';
 
@@ -251,7 +251,7 @@ describe('The FilterComponent Mounted', () => {
         });
       });
 
-      describe('Freckle Automations', () => {
+      describe('noko Automations', () => {
         beforeEach(() => {
           onChangeSpy.resetHistory();
           filterComponent.setState({ ...filterInitialState, showFilterDropdown: true });
@@ -259,44 +259,44 @@ describe('The FilterComponent Mounted', () => {
         });
 
         it('success', () => {
-          let successInput = filterComponent.find(`input#${freckleAutomations}-${success}`);
+          let successInput = filterComponent.find(`input#${nokoAutomations}-${success}`);
           expect(successInput).toHaveLength(1);
           successInput.instance().checked = true;
           successInput.simulate('change');
           const [arg] = onChangeSpy.lastCall.args;
-          expect(arg.target.name).toEqual(freckleAutomations);
+          expect(arg.target.name).toEqual(nokoAutomations);
           expect(arg.target.value).toEqual(success);
-          expect(filterComponent.state()[freckleAutomations]).toEqual(arg.target.value);
-          successInput = filterComponent.find(`input#${freckleAutomations}-${success}`);
+          expect(filterComponent.state()[nokoAutomations]).toEqual(arg.target.value);
+          successInput = filterComponent.find(`input#${nokoAutomations}-${success}`);
           successInput.instance().checked = false;
           successInput.simulate('change');
-          expect(filterComponent.state()[freckleAutomations]).toBeFalsy();
+          expect(filterComponent.state()[nokoAutomations]).toBeFalsy();
         });
 
         it('failure', () => {
-          let failureInput = filterComponent.find(`input#${freckleAutomations}-${failure}`);
+          let failureInput = filterComponent.find(`input#${nokoAutomations}-${failure}`);
           expect(failureInput).toHaveLength(1);
           failureInput.instance().checked = true;
           failureInput.simulate('change');
           const [arg] = onChangeSpy.lastCall.args;
-          expect(arg.target.name).toEqual(freckleAutomations);
+          expect(arg.target.name).toEqual(nokoAutomations);
           expect(arg.target.value).toEqual(failure);
-          expect(filterComponent.state()[freckleAutomations]).toEqual(arg.target.value);
-          failureInput = filterComponent.find(`input#${freckleAutomations}-${failure}`);
+          expect(filterComponent.state()[nokoAutomations]).toEqual(arg.target.value);
+          failureInput = filterComponent.find(`input#${nokoAutomations}-${failure}`);
           failureInput.instance().checked = false;
           failureInput.simulate('change');
-          expect(filterComponent.state()[freckleAutomations]).toBeFalsy();
+          expect(filterComponent.state()[nokoAutomations]).toBeFalsy();
         });
 
         it('should be mutually exclusive', () => {
-          const successInput = filterComponent.find(`input#${freckleAutomations}-${success}`);
+          const successInput = filterComponent.find(`input#${nokoAutomations}-${success}`);
           successInput.instance().checked = true;
           successInput.simulate('change');
-          expect(filterComponent.state()[freckleAutomations]).toEqual(success);
-          const failureInput = filterComponent.find(`input#${freckleAutomations}-${failure}`);
+          expect(filterComponent.state()[nokoAutomations]).toEqual(success);
+          const failureInput = filterComponent.find(`input#${nokoAutomations}-${failure}`);
           failureInput.instance().checked = true;
           failureInput.simulate('change');
-          expect(filterComponent.state()[freckleAutomations]).toEqual(failure);
+          expect(filterComponent.state()[nokoAutomations]).toEqual(failure);
         });
       });
     });

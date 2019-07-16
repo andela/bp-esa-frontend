@@ -7,7 +7,7 @@ const props = {
     success: 1,
     total: 191,
   },
-  type: 'Freckle',
+  type: 'Noko',
 };
 
 const getComponent = () => shallow(<StatsCard {...props} />);

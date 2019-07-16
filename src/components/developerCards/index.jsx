@@ -108,8 +108,8 @@ class DeveloperCard extends Component {
           {this.renderDetails('developerDetails', 'developerName', card.fellowName)}
           {this.renderDetails('partnerName', '', card.partnerName)}
           {this.renderDetails('developerDetails', 'date', moment(card.updatedAt).format('MM/DD/YYYY, h:mm a'))}
-          {this.renderStatusBand('status-band', card.freckleAutomations.status.toUpperCase(), card.id)}
-          {this.renderActivity(['slack', 'email', 'freckle'], metric, card)}
+          {this.renderStatusBand('status-band', card.nokoAutomations.status.toUpperCase(), card.id)}
+          {this.renderActivity(['slack', 'email', 'noko'], metric, card)}
         </div>
       );
     });

@@ -45,7 +45,7 @@ const stats = {
       success: 1,
       total: 191,
     },
-    freckle: {
+    noko: {
       success: 1,
       total: 191,
     },

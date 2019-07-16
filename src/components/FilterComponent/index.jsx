@@ -9,7 +9,7 @@ export const filterInitialState = {
   'automation-type': '',
   emailAutomation: '',
   slackAutomation: '',
-  freckleAutomation: '',
+  nokoAutomation: '',
   searchTerm: '',
   'search-by': '',
   date: {
