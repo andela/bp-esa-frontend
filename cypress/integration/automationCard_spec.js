@@ -38,6 +38,22 @@ describe('Automation Card', () => {
       .should('exist');
   });
 
+  it('sould show a tooltip when fellow name is hovered over in card view', () => {
+    cy.get('.cont')
+      .get('.card')
+      .get('#fellow-name')
+      .trigger('mouseover')
+      .get('.tooltip-icon')
+      .should('exist');
+  });
+
+  it('should redirect to AIS profile when fellow name is clicked in card view', () => {
+    cy.get('.cont')
+      .get('.card')
+      .get('#fellow-name')
+      .click();
+  });
+
   it('sould show a tooltip when more information icon hovered over', () => {
     cy.get('.cont')
       .get('.card')
@@ -51,14 +67,14 @@ describe('Automation Card', () => {
     cy.get('.cont')
       .get('.card')
       .get('#more-info-icon')
-      .click({force: true})
+      .click({ force: true })
       .get('#ais-link-icon')
       .trigger('mouseover')
       .get('.tooltiptext')
       .should('exist');
   });
 
-  it('should contain automation status for success/total', ()=>{
+  it('should contain automation status for success/total', () => {
     cy.get('.close')
       .click({ force: true })
       .get(':nth-child(1) > .status-container > :nth-child(2) > span');
@@ -95,7 +111,7 @@ describe('Automation Card', () => {
   });
 
   it('should redirect to AIS profile when fellow name is clicked', () => {
-    cy.get('table')
+    cy.get('table');
     cy.get('tr:nth-of-type(9)').click()
       .find('td:nth-of-type(3)').click()
       .should('have.class', 'fellow');

@@ -1,4 +1,5 @@
 import React from 'react';
+import { mount } from 'enzyme';
 import DeveloperCardComponent from '../../../components/developerCards';
 
 
@@ -18,7 +19,7 @@ const props = {
         {
           status: 'failure',
           statusMessage:
-        'An API error occurred: channel_not_found', 
+        'An API error occurred: channel_not_found',
           type: 'invite',
           channelId: null,
           channelName: null,
@@ -75,5 +76,12 @@ describe('rendering', () => {
     const stat = wrapper.find('.status-container > div > span');
     expect(stat.at(0).contains('0/2')).toEqual(true);
     expect(stat.at(1).contains('0/1')).toEqual(true);
+  });
+
+  it('should open new tab to AIS when fellow name is clicked', () => {
+    global.open = jest.fn();
+    const fellowNAme = wrapper.find('.clickableCardContent');
+    fellowNAme.simulate('click');
+    expect(global.open).toBeCalled();
   });
 });

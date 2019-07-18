@@ -10,7 +10,7 @@ ShallowWrapper {
         "total": 191,
       }
     }
-    type="Freckle"
+    type="Noko"
   />,
   Symbol(enzyme.__renderer__): Object {
     "batchedUpdates": [Function],
@@ -32,15 +32,15 @@ ShallowWrapper {
         >
           <img
             alt="icon"
-            src="/Freckle.png"
+            src="/Noko.png"
           />
           <p>
-            Freckle
+            Noko
           </p>
         </div>,
         <div
           className="stat-content"
-          id="Freckle"
+          id="Noko"
         />,
       ],
       "className": "stat-container",
@@ -55,10 +55,10 @@ ShallowWrapper {
           "children": Array [
             <img
               alt="icon"
-              src="/Freckle.png"
+              src="/Noko.png"
             />,
             <p>
-              Freckle
+              Noko
             </p>,
           ],
           "className": "stat-icon",
@@ -71,7 +71,7 @@ ShallowWrapper {
             "nodeType": "host",
             "props": Object {
               "alt": "icon",
-              "src": "/Freckle.png",
+              "src": "/Noko.png",
             },
             "ref": null,
             "rendered": null,
@@ -82,10 +82,10 @@ ShallowWrapper {
             "key": undefined,
             "nodeType": "host",
             "props": Object {
-              "children": "Freckle",
+              "children": "Noko",
             },
             "ref": null,
-            "rendered": "Freckle",
+            "rendered": "Noko",
             "type": "p",
           },
         ],
@@ -97,7 +97,7 @@ ShallowWrapper {
         "nodeType": "host",
         "props": Object {
           "className": "stat-content",
-          "id": "Freckle",
+          "id": "Noko",
         },
         "ref": null,
         "rendered": null,
@@ -118,15 +118,15 @@ ShallowWrapper {
           >
             <img
               alt="icon"
-              src="/Freckle.png"
+              src="/Noko.png"
             />
             <p>
-              Freckle
+              Noko
             </p>
           </div>,
           <div
             className="stat-content"
-            id="Freckle"
+            id="Noko"
           />,
         ],
         "className": "stat-container",
@@ -141,10 +141,10 @@ ShallowWrapper {
             "children": Array [
               <img
                 alt="icon"
-                src="/Freckle.png"
+                src="/Noko.png"
               />,
               <p>
-                Freckle
+                Noko
               </p>,
             ],
             "className": "stat-icon",
@@ -157,7 +157,7 @@ ShallowWrapper {
               "nodeType": "host",
               "props": Object {
                 "alt": "icon",
-                "src": "/Freckle.png",
+                "src": "/Noko.png",
               },
               "ref": null,
               "rendered": null,
@@ -168,10 +168,10 @@ ShallowWrapper {
               "key": undefined,
               "nodeType": "host",
               "props": Object {
-                "children": "Freckle",
+                "children": "Noko",
               },
               "ref": null,
-              "rendered": "Freckle",
+              "rendered": "Noko",
               "type": "p",
             },
           ],
@@ -183,7 +183,7 @@ ShallowWrapper {
           "nodeType": "host",
           "props": Object {
             "className": "stat-content",
-            "id": "Freckle",
+            "id": "Noko",
           },
           "ref": null,
           "rendered": null,

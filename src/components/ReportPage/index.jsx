@@ -270,11 +270,15 @@ export class ReportPage extends Component {
           <td className="numbering">{index + 1}</td>
           <td className="column1">{this.formatDates(updatedAt)}</td>
           <td
-            className="fellow"
+            className="fellow tooltip-container"
+            id="fellow-name"
             onClick={() => window.open(`https://ais.andela.com/people/${developerId}`)}
             title={developerName}
           >
             {developerName}
+            <span className="tooltip-icon-black">
+              <i className="fas fa-external-link-alt" />
+            </span>
           </td>
           <td title={report.partnerName}>{partnerName}</td>
           <td>{type}</td>

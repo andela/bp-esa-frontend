@@ -64,6 +64,9 @@
         }
       }
     }
+    .clickableCardContent {
+      margin: 0 auto;
+    }
     .developerDetails {
       margin: 0 auto;
       display: inline-block;
@@ -74,6 +77,8 @@
         font-size: 13px;
         color: #667;
         line-height: 20px;
+        margin: -20px auto 0 auto;
+        text-align: center;
       }
 
       .date {
