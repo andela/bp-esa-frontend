@@ -139,6 +139,8 @@ body {
     position: relative;
     display: inline-block;
 }
+
+/* Tooltip with text in it */
 .tooltip-container .tooltiptext {
     visibility: hidden;
     width: 100px;
@@ -164,6 +166,44 @@ body {
     border-color: #fff transparent transparent transparent;
 }
 .tooltip-container:hover .tooltiptext {
+    visibility: visible;
+    opacity: 1;
+}
+
+/* Tooltip with small grey icon */
+.tooltip-container .tooltip-icon {
+    visibility: hidden;
+    background-color: #fff;
+    color: #889;
+    text-align: center;
+    border-radius: 5px;
+    position: absolute;
+    z-index: 1;
+    bottom: 13%;
+    margin-left: 4px;
+    opacity: 0;
+    font-size: 10px;
+}
+.tooltip-container:hover .tooltip-icon {
+    visibility: visible;
+    opacity: 1;
+}
+
+/* Tooltip with small black icon */
+.tooltip-container .tooltip-icon-black {
+    visibility: hidden;
+    background-color: #f3f3f3;
+    color: black;
+    text-align: center;
+    border-radius: 5px;
+    position: absolute;
+    z-index: 1;
+    bottom: 33%;
+    margin-left: 4px;
+    opacity: 0;
+    font-size: 10px;
+}
+.tooltip-container:hover .tooltip-icon-black {
     visibility: visible;
     opacity: 1;
 }

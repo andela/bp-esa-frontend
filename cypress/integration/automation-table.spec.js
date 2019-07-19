@@ -49,4 +49,11 @@ describe('Automation Table', () => {
       .get('tr>th')
       .contains('Slack');
   });
+
+  it('sould show a tooltip when fellow name is hovered over in table view', () => {
+    cy.get('#fellow-name')
+      .trigger('mouseover')
+      .get('.tooltip-icon-black')
+      .should('exist');
+  });
 });

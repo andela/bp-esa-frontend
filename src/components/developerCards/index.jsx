@@ -105,7 +105,12 @@ class DeveloperCard extends Component {
             </div>
           </div>
           {this.renderDeveloperPic(firstInitials, secondInitials)}
-          {this.renderDetails('developerDetails', 'developerName', card.fellowName)}
+          <div className="clickableCardContent tooltip-container" id="fellow-name" onClick={() => window.open(`https://ais.andela.com/people/${card.fellowId}`)}>
+            {this.renderDetails('developerDetails', 'developerName', card.fellowName)}
+            <span className="tooltip-icon">
+              <i className="fas fa-external-link-alt" />
+            </span>
+          </div>
           {this.renderDetails('partnerName', '', card.partnerName)}
           {this.renderDetails('developerDetails', 'date', moment(card.updatedAt).format('MM/DD/YYYY, h:mm a'))}
           {this.renderStatusBand('status-band', card.nokoAutomations.status.toUpperCase(), card.id)}
