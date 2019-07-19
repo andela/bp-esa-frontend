@@ -708,7 +708,7 @@ ReactWrapper {
           "_debugIsCurrentlyTiming": false,
           "_debugOwner": [Circular],
           "_debugSource": Object {
-            "fileName": "/Users/davidmuhanguzi/Documents/Andela/D1/bp-esa-frontend/src/components/Dashboard/Card.jsx",
+            "fileName": "/Users/kizitoakhilome/code/projects/bp-esa-frontend/src/components/Dashboard/Card.jsx",
             "lineNumber": 20,
           },
           "actualDuration": 0,
@@ -720,7 +720,7 @@ ReactWrapper {
             "_debugIsCurrentlyTiming": false,
             "_debugOwner": [Circular],
             "_debugSource": Object {
-              "fileName": "/Users/davidmuhanguzi/Documents/Andela/D1/bp-esa-frontend/src/components/Dashboard/Card.jsx",
+              "fileName": "/Users/kizitoakhilome/code/projects/bp-esa-frontend/src/components/Dashboard/Card.jsx",
               "lineNumber": 21,
             },
             "actualDuration": 0,
@@ -2299,7 +2299,7 @@ ReactWrapper {
             "_debugIsCurrentlyTiming": false,
             "_debugOwner": [Circular],
             "_debugSource": Object {
-              "fileName": "/Users/davidmuhanguzi/Documents/Andela/D1/bp-esa-frontend/src/components/Dashboard/Card.jsx",
+              "fileName": "/Users/kizitoakhilome/code/projects/bp-esa-frontend/src/components/Dashboard/Card.jsx",
               "lineNumber": 20,
             },
             "actualDuration": 0,
@@ -2311,7 +2311,7 @@ ReactWrapper {
               "_debugIsCurrentlyTiming": false,
               "_debugOwner": [Circular],
               "_debugSource": Object {
-                "fileName": "/Users/davidmuhanguzi/Documents/Andela/D1/bp-esa-frontend/src/components/Dashboard/Card.jsx",
+                "fileName": "/Users/kizitoakhilome/code/projects/bp-esa-frontend/src/components/Dashboard/Card.jsx",
                 "lineNumber": 21,
               },
               "actualDuration": 0,
