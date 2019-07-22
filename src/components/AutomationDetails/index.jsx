@@ -166,7 +166,7 @@ class AutomationDetails extends Component {
     const automations = modalContent[automationType];
     const appActivities = (automations && automations[automationActivities]) || [];
     return appActivities.map(content => (
-      <div key={content.slackUserId}>
+      <div key={content.id}>
         <div className="automation-content">
           <div className="content-row name">{content[contentData]}</div>
           <div className="content-row type">{content[contentType]}</div>

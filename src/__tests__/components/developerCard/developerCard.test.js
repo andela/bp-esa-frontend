@@ -7,7 +7,7 @@ const props = {
   isLoading: false,
   openModal: jest.fn(),
   changeModalTypes: jest.fn(),
-  data: [{
+  card: {
     id: '10516',
     emailAutomations: { emailActivities: [13] },
     fellowName: 'Reyes, Kozey',
@@ -33,7 +33,7 @@ const props = {
           channelName: null,
         }],
     },
-  }],
+  },
   retryingAutomation: false,
   handleRetryAutomation: jest.fn(),
 };
@@ -51,7 +51,7 @@ describe('rendering', () => {
   });
 
   it('should render DeveloperCard correctly', () => {
-    const cardContainer = wrapper.find('.cont');
+    const cardContainer = wrapper.find('.card');
     expect(cardContainer.length).toEqual(1);
   });
 

@@ -62,6 +62,11 @@ describe('ReportPage Component', () => {
     expect(title.text()).toEqual('ESA');
   });
 
+  it('should render as two difference developerCard components', () => {
+    const card = component.find('DeveloperCard');
+    expect(card.length).toEqual(2);
+  });
+
   it('should redirect to the AIS page when you click the engineer\'s name', () => {
     component.setState({ viewMode: 'listView' });
     const redirectToAIS = component.find('.table-body')
@@ -131,7 +136,7 @@ describe('ReportPage Component', () => {
       wrapper = mount(<ReportPage {...props} />);
       const instance = wrapper.instance();
       jest.spyOn(instance, 'handleRetryAutomation');
-      const button = wrapper.find('#retry-automation');
+      const button = wrapper.find('#retry-automation').at(0);
       button.simulate('click');
       // eslint-disable-next-line no-unused-expressions
       expect(instance.handleRetryAutomation).toBeCalled;

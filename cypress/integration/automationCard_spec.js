@@ -81,6 +81,12 @@ describe('Automation Card', () => {
     // .contains('0/0');
   });
 
+  it('should contain more than one DeveloperCard component', () => {
+    cy.getReactComponent('DeveloperCard').should(($developerCard) => {
+      expect($developerCard.length).to.be.greaterThan(3);
+    });
+  });
+
   it('should ensure that the retry automations button works', () => {
     cy.get(':nth-child(1) > .status-band > #failure > .retry-btn')
       .click()
