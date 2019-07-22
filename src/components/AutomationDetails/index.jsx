@@ -31,7 +31,7 @@ class AutomationDetails extends PureComponent {
     const nokoStatus = !!(nokoAutomations && nokoAutomations.slackActivities === 'success');
     const name = _.split(modalContent.fellowName, ',');
     const firstInitial = (modalContent.fellowName && name[0].charAt(0)) || '';
-    const secondInitial = (modalContent.fellowName && name[1].charAt(1)) || '';
+    const secondInitial = (modalContent.fellowName && name[1] && name[1].charAt(1)) || '';
     return (
       <div className="developer-info">
         <div className="devPicture">
@@ -165,7 +165,7 @@ class AutomationDetails extends PureComponent {
   ) => {
     const automations = modalContent[automationType];
     const appActivities = (automations && automations[automationActivities]) || [];
-    return appActivities.map((content, index )=> (
+    return appActivities.map((content, index) => (
       <div key={index}>
         <div className="automation-content">
           <div className="content-row name">{content[contentData]}</div>

@@ -81,7 +81,7 @@ class DeveloperCard extends Component {
     const name = card.fellowName;
     const newName = _.split(name, ',');
     const firstInitials = newName[0].charAt(0);
-    const secondInitials = newName[1].charAt(1);
+    const secondInitials = newName[1] && newName[1].charAt(1);
     return (
       <div className="card" key={card.id}>
         <div className="info-cont">
