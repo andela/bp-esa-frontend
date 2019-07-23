@@ -142,7 +142,7 @@ class AutomationDetails extends Component {
           modalContent,
           'emailAutomations',
           'emailActivities',
-          'emailTo',
+          'recipient',
           'subject',
         )}
       {modalType === 'noko'
