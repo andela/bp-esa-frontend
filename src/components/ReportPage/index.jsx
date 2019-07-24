@@ -256,6 +256,7 @@ export class ReportPage extends Component {
 
   renderTableRows() {
     const { automation: { data } } = this.props;
+    const { pagination: { currentPage, limit } } = this.state;
     return (data.map((report, index) => {
       const {
         id,
@@ -267,7 +268,7 @@ export class ReportPage extends Component {
       } = report;
       return (
         <tr key={id}>
-          <td className="numbering">{index + 1}</td>
+          <td className="numbering">{((currentPage * limit) + (index + 1)) - limit}</td>
           <td className="column1">{this.formatDates(updatedAt)}</td>
           <td
             className="fellow tooltip-container"
