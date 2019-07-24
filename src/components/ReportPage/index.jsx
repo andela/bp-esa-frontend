@@ -286,7 +286,7 @@ export class ReportPage extends Component {
           <td>{this.renderAutomationStatus(report.slackAutomations.status, report, 'slack')}</td>
           <td>{this.renderAutomationStatus(report.emailAutomations.status, report, 'email')}</td>
           <td>
-            {this.renderAutomationStatus(report.nokoAutomations.status, report, 'noko')}
+            {report.nokoAutomations && this.renderAutomationStatus(report.nokoAutomations.status, report, 'noko')}
           </td>
           <td>{this.renderInfoIcon(report)}</td>
         </tr>

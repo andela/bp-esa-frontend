@@ -22,7 +22,7 @@ class DeveloperCard extends Component {
     const { retryingAutomation, handleRetryAutomation } = this.props;
     return (
       <div className={className}>
-        <span id={`${status.toLowerCase()}`}>
+        <span id={`${status && status.toLowerCase()}`}>
           {status}
           {
             status === 'FAILURE'
@@ -43,13 +43,13 @@ class DeveloperCard extends Component {
     <div className="status-container">
       {
         channels.map((name, index) => {
-          const fieldName = card[`${name}Automations`][`${name}Activities`];
+          const fieldName = card[`${name}Automations`] && card[`${name}Automations`][`${name}Activities`];
           return (
             // eslint-disable-next-line react/no-array-index-key
             <div key={index}>
               {_.upperCase(name)}
               <span>
-                {`${metric(fieldName, 'success')}/${fieldName.length}`}
+                {`${metric(fieldName, 'success')}/${fieldName ? fieldName.length : 0}`}
               </span>
             </div>
           );
@@ -75,8 +75,8 @@ class DeveloperCard extends Component {
     const automationMetric = (activities, status) => (
       _.filter(activities, { status }).length
     );
-    const metric = (activities, status) => (
-      automation(activities.length) ? automationMetric(activities, status) : 0
+    const metric = (activities, status) => (activities
+      && automation(activities.length) ? automationMetric(activities, status) : 0
     );
     const name = card.fellowName;
     const newName = _.split(name, ',');
@@ -111,7 +111,7 @@ class DeveloperCard extends Component {
         </div>
         {this.renderDetails('partnerName', '', card.partnerName)}
         {this.renderDetails('developerDetails', 'date', moment(card.updatedAt).format('MM/DD/YYYY, h:mm a'))}
-        {this.renderStatusBand('status-band', card.nokoAutomations.status.toUpperCase(), card.id)}
+        {card.nokoAutomations && this.renderStatusBand('status-band', card.nokoAutomations.status.toUpperCase(), card.id)}
         {this.renderActivity(['slack', 'email', 'noko'], metric, card)}
       </div>
     );
