@@ -1,17 +1,14 @@
 /* eslint-disable no-unused-expressions */
-import React, { PureComponent } from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'proptypes';
 import _ from 'lodash';
 import './styles.scss';
 import RetryButton from '../Buttons/RetryButton/RetryButton';
 
-class AutomationDetails extends PureComponent {
-  constructor() {
-    super();
-    this.state = {
-      modalType: 'slack',
-      updatedModalContext: {},
-    };
+class AutomationDetails extends Component {
+  state = {
+    modalType: 'slack',
+    updatedModalContext: {},
   }
 
   componentWillReceiveProps(nextProps) {
@@ -51,7 +48,7 @@ class AutomationDetails extends PureComponent {
                 className="fas fa-external-link-alt"
                 title={`Open ${modalContent.fellowName} AIS profile`}
                 onClick={() => window.open(`https://ais.andela.com/people/${modalContent.fellowId}`)
-                    }
+                }
               />
               <span className="tooltiptext">Link to AIS</span>
             </div>
@@ -89,8 +86,7 @@ class AutomationDetails extends PureComponent {
             id="slack"
             onClick={this.setCurrentAutomationType}
           >
-                Slack
-
+            Slack
           </button>
           <button
             type="button"
@@ -98,8 +94,7 @@ class AutomationDetails extends PureComponent {
             id="email"
             onClick={this.setCurrentAutomationType}
           >
-                Email
-
+            Email
           </button>
           <button
             type="button"
@@ -107,8 +102,7 @@ class AutomationDetails extends PureComponent {
             id="noko"
             onClick={this.setCurrentAutomationType}
           >
-                Noko
-
+            Noko
           </button>
         </div>
       </div>
@@ -117,82 +111,65 @@ class AutomationDetails extends PureComponent {
 
   renderTitles(modalType) {
     return (
-      <React.Fragment>
-        {modalType === 'slack' && this.renderSlackTitles()}
-        {modalType === 'email' && this.renderEmailTitles()}
-        {modalType === 'noko' && this.renderNokoTitles()}
-      </React.Fragment>
+      <>
+        {modalType === 'slack' && this.renderAppTitles('Channel', 'Action', 'Status')}
+        {modalType === 'email' && this.renderAppTitles('Recipient', 'Subject', 'Status')}
+        {modalType === 'noko' && this.renderAppTitles('Project Tag', 'Action', 'Status')}
+      </>
     );
   }
 
-  renderSlackTitles = () => (
+  renderAppTitles = (titleOne, titleTwo, titleThree) => (
     <div className="slack-table">
-      <div className="content-title">Channel</div>
-      <div className="content-title">Action</div>
-      <div className="content-title">Status</div>
-    </div>
-  );
-
-  renderEmailTitles = () => (
-    <div className="slack-table">
-      <div className="content-title">Recipient</div>
-      <div className="content-title">Subject</div>
-      <div className="content-title">Status</div>
-    </div>
-  );
-
-  renderNokoTitles = () => (
-    <div className="slack-table">
-      <div className="content-title">Project Tag</div>
-      <div className="content-title">Action</div>
-      <div className="content-title">Status</div>
+      <div className="content-title">{titleOne}</div>
+      <div className="content-title">{titleTwo}</div>
+      <div className="content-title">{titleThree}</div>
     </div>
   );
 
   renderDetails = (modalType, modalContent) => (
     <div className="content-container">
-      {modalType === 'slack' && this.renderSlackDetails(modalContent)}
-      {modalType === 'email' && this.renderEmailDetails(modalContent)}
-      {modalType === 'noko' && this.renderNokoDetails(modalContent)}
+      {modalType === 'slack'
+        && this.renderAppDetails(
+          modalContent,
+          'slackAutomations',
+          'slackActivities',
+          'channelName',
+          'type',
+        )}
+      {modalType === 'email'
+        && this.renderAppDetails(
+          modalContent,
+          'emailAutomations',
+          'emailActivities',
+          'emailTo',
+          'subject',
+        )}
+      {modalType === 'noko'
+        && this.renderAppDetails(
+          modalContent,
+          'nokoAutomations',
+          'nokoActivities',
+          'projectId',
+          'type',
+        )}
     </div>
   );
 
-  renderSlackDetails = (modalContent) => {
-    const { slackAutomations } = modalContent;
-    const slackActivities = (slackAutomations && slackAutomations.slackActivities) || [];
-    return slackActivities.map(content => (
+  renderAppDetails = (
+    modalContent,
+    automationType,
+    automationActivities,
+    contentData,
+    contentType,
+  ) => {
+    const automations = modalContent[automationType];
+    const appActivities = (automations && automations[automationActivities]) || [];
+    return appActivities.map(content => (
       <div key={content.slackUserId}>
         <div className="automation-content">
-          <div className="content-row name">{content.channelName}</div>
-          <div className="content-row type">{content.type}</div>
-          {this.renderCommonDetails(content)}
-        </div>
-      </div>
-    ));
-  };
-
-  renderEmailDetails = (modalContent) => {
-    const { emailAutomations } = modalContent;
-    const emailActivities = (emailAutomations && emailAutomations.emailActivities) || [];
-    return emailActivities.map(content => (
-      <div key={content.id}>
-        <div className="automation-content">
-          <div className="content-row name">{content.emailTo}</div>
-          <div className="content-row subject">{content.subject}</div>
-          {this.renderCommonDetails(content)}
-        </div>
-      </div>
-    ));
-  };
-
-  renderNokoDetails = (modalContent) => {
-    const { nokoAutomations } = modalContent;
-    const nokoActivities = (nokoAutomations && nokoAutomations.nokoActivities) || [];
-    return nokoActivities.map(content => (
-      <div key={content.id}>
-        <div className="automation-content">
-          <div className="content-row name">{content.projectId}</div>
-          <div className="content-row type">{content.type}</div>
+          <div className="content-row name">{content[contentData]}</div>
+          <div className="content-row type">{content[contentType]}</div>
           {this.renderCommonDetails(content)}
         </div>
       </div>
@@ -200,13 +177,13 @@ class AutomationDetails extends PureComponent {
   };
 
   renderCommonDetails = content => (
-    <React.Fragment>
+    <>
       {content.status === 'failure' ? (
         <div className="content-row status">{content.status}</div>
       ) : (
         <div className="content-row status success">{content.status}</div>
       )}
-    </React.Fragment>
+    </>
   );
 
   render() {
@@ -253,7 +230,7 @@ AutomationDetails.propTypes = {
 AutomationDetails.defaultProps = {
   retryingAutomation: false,
   data: [],
-  handleRetryAutomation: () => {},
+  handleRetryAutomation: () => { },
 };
 
 export default AutomationDetails;
