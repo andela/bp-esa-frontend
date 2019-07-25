@@ -1,6 +1,9 @@
+import cypressGetReactComponent from 'cypress-get-react-component';
 /* eslint-disable no-undef */
 const userState = Cypress.env('state');
 const apiUrl = Cypress.env('apiUrl');
+
+cypressGetReactComponent.install();
 
 Cypress.Commands.add('authenticateUser', (state = userState) => {
   window.localStorage.setItem('state', JSON.stringify(state));

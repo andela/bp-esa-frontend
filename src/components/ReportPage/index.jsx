@@ -307,6 +307,32 @@ export class ReportPage extends Component {
     );
   }
 
+  renderDeveloperCard = (
+    data,
+    isLoading,
+    toggleModal,
+    changeModalTypes,
+    retryingAutomation,
+    handleRetryAutomation,
+  ) => {
+    const dataDetails = data.map(cardData => (
+      <DeveloperCard
+        key={cardData.id}
+        card={cardData}
+        isLoading={isLoading}
+        openModal={this.toggleModal}
+        changeModalTypes={changeModalTypes}
+        retryingAutomation={retryingAutomation}
+        handleRetryAutomation={handleRetryAutomation}
+      />
+    ));
+    return (
+      <div className="cont">
+        {dataDetails}
+      </div>
+    );
+  }
+
   renderListCard = () => {
     const { viewMode, isModalOpen, modalContent } = this.state;
     const { automation: { data, isLoading, retryingAutomation } } = this.props;
@@ -353,14 +379,15 @@ export class ReportPage extends Component {
         : (
           <div>
             {this.renderUpdateTab()}
-            <DeveloperCard
-              data={data}
-              isLoading={isLoading}
-              openModal={this.toggleModal}
-              changeModalTypes={this.changeModalTypes}
-              retryingAutomation={retryingAutomation}
-              handleRetryAutomation={this.handleRetryAutomation}
-            />
+            {this.renderDeveloperCard(
+              data,
+              isLoading,
+              this.toggleModal,
+              this.changeModalTypes,
+              retryingAutomation,
+              this.handleRetryAutomation,
+            )}
+
             <AutomationDetails
               data={data}
               isModalOpen={isModalOpen}
