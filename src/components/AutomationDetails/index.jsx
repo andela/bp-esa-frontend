@@ -165,8 +165,8 @@ class AutomationDetails extends PureComponent {
   ) => {
     const automations = modalContent[automationType];
     const appActivities = (automations && automations[automationActivities]) || [];
-    return appActivities.map(content => (
-      <div key={content.id}>
+    return appActivities.map((content, index )=> (
+      <div key={index}>
         <div className="automation-content">
           <div className="content-row name">{content[contentData]}</div>
           <div className="content-row type">{content[contentType]}</div>

@@ -88,6 +88,11 @@ describe('Filter Component Integration', () => {
     expect(reportPage.find(FilterComponent)).toHaveLength(1);
   });
 
+  it('should render the list view', () => {
+    reportPage.find('.view-button-active').simulate('click');
+    expect(reportPage.find('div.table-header')).toHaveLength(1);
+  })
+
   it('should call the filter function when the filters are applied', () => {
     reportPage.find('div.filter-button').simulate('click');
     expect(reportPage.find(FilterDropdown)).toHaveLength(1);

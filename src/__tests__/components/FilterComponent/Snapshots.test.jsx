@@ -50,8 +50,9 @@ describe('The DatePicker component', () => {
 
 describe('The FilterComponent component', () => {
   it('should not regress', () => {
+    const  filter = jest.fn;
     const filterComponent = shallow(
-      <FilterComponent filter={filterInitialState} />,
+      <FilterComponent filter={filter} />,
     );
     expect(filterComponent).toMatchSnapshot();
   });

@@ -14,7 +14,7 @@ const Checkbox = ({
         type="checkbox"
         id={id}
         name={name}
-        checked={checkCondition}
+        defaultChecked={checkCondition}
         {...rest}
       />
       <span className="checkmark" />
