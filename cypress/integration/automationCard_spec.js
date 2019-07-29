@@ -105,6 +105,10 @@ describe('Automation Card', () => {
       .get('.toast')
       .should('be.visible')
       .contains('Successfully fetched individual automation')
+      .get('.channels-tab-background > #email')
+      .click()
+      .get(':nth-child(1) > .automation-content > .name')
+      .should('be.visible')
       .wait(2000)
       .get('.close')
       .click();

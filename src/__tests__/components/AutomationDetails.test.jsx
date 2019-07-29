@@ -191,4 +191,42 @@ describe('Automation details', () => {
     component.find('#email').simulate('click');
     expect(component.instance().state.modalType).toEqual('email');
   });
+
+  it('should render email details with activities including the recipient', () => {
+    const prop = {
+      formatDates: jest.fn(),
+      isModalOpen: false,
+      closeModal: jest.fn(),
+      modalContent: {
+        id: 1,
+        fellowName: 'Tunmise, Tunmise',
+        partnerName: 'Andela',
+        type: 'Onboarding',
+        slackAutomations: {
+          status: 'success',
+        },
+        nokoAutomations: {
+          status: 'failure',
+        },
+        emailAutomations: {
+          status: 'success',
+          emailActivities: [{
+            id: 1,
+            recipient: 'Tunmise.ogunniyi@andela.com',
+            subject: 'Onboarding',
+            status: 'success',
+          },
+          ],
+        },
+        date: '2017-09-29 01:22',
+      },
+    };
+    const component = mount(<AutomationDetails {...prop} />);
+    component.setState({
+      updatedModalContext: component.props().modalContent,
+    });
+    component.find('#email').simulate('click');
+    const recipient = component.find('.automation-content .content-row').at(0);
+    expect(recipient.text()).toEqual('Tunmise.ogunniyi@andela.com');
+  });
 });
