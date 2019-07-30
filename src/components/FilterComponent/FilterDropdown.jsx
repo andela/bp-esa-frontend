@@ -85,10 +85,10 @@ FilterDropdown.propTypes = {
     nokoAutomation: PropTypes.string,
     searchTerm: PropTypes.string,
     searchBy: PropTypes.string,
-    date: {
-      from: PropTypes.oneOf([PropTypes.string, PropTypes.object]),
-      to: PropTypes.oneOf([PropTypes.string, PropTypes.object]),
-    },
+    date: PropTypes.shape({
+      from: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
+      to: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
+    }),
   }).isRequired,
   handleInputChange: PropTypes.func.isRequired,
 };

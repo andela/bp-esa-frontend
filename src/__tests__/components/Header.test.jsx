@@ -7,6 +7,7 @@ import Header from '../../components/Header';
 
 jest.mock('../../firebase');
 const props = {
+  activeTab: 'active',
   currentUser: {
     additionalUserInfo: {
       profile: {

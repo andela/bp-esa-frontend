@@ -2,6 +2,8 @@ import React from 'react';
 import { mount } from 'enzyme';
 import AutomationDetails from '../../components/AutomationDetails';
 
+const jsdomOpen = window.open;
+
 const props = {
   history: {},
   currentUser: {
@@ -68,6 +70,13 @@ const props = {
 const getComponent = () => mount(<AutomationDetails {...props} />);
 
 describe('Automation details', () => {
+  beforeEach( () => {
+    window.open = () => {};
+  });
+  afterEach( () => {
+    window.open = jsdomOpen;
+  });
+
   it('should render slack details', () => {
     const component = getComponent();
     expect(component.instance().state.modalType).toEqual('slack');

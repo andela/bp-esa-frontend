@@ -32,8 +32,8 @@ const ActivityFeed = (props) => {
     );
   }
   return (
-    reportData.map(data => (
-      <div className="activity-feed-container" key={data.id}>
+    reportData.map((data, index) => (
+      <div className="activity-feed-container" key={index}>
         <div className="feeds-initials">
           <span>{getInitials(data.fellowName)}</span>
         </div>

@@ -4,6 +4,7 @@ exports[`onLogout() method should get initials given a username 1`] = `
 ShallowWrapper {
   Symbol(enzyme.__root__): [Circular],
   Symbol(enzyme.__unrendered__): <Header
+    activeTab="active"
     currentUser={
       Object {
         "additionalUserInfo": Object {
@@ -87,7 +88,9 @@ ShallowWrapper {
           <div
             className="nav-links "
           >
-            <div>
+            <div
+              className="active"
+            >
               <a
                 href="/dashboard"
               >
@@ -268,7 +271,9 @@ ShallowWrapper {
             <div
               className="nav-links "
             >
-              <div>
+              <div
+                className="active"
+              >
                 <a
                   href="/dashboard"
                 >
@@ -352,7 +357,9 @@ ShallowWrapper {
             "key": undefined,
             "nodeType": "host",
             "props": Object {
-              "children": <div>
+              "children": <div
+                className="active"
+              >
                 <a
                   href="/dashboard"
                 >
@@ -372,7 +379,7 @@ ShallowWrapper {
                 >
                   Dashboard
                 </a>,
-                "className": undefined,
+                "className": "active",
               },
               "ref": null,
               "rendered": Object {
@@ -745,7 +752,9 @@ ShallowWrapper {
             <div
               className="nav-links "
             >
-              <div>
+              <div
+                className="active"
+              >
                 <a
                   href="/dashboard"
                 >
@@ -926,7 +935,9 @@ ShallowWrapper {
               <div
                 className="nav-links "
               >
-                <div>
+                <div
+                  className="active"
+                >
                   <a
                     href="/dashboard"
                   >
@@ -1010,7 +1021,9 @@ ShallowWrapper {
               "key": undefined,
               "nodeType": "host",
               "props": Object {
-                "children": <div>
+                "children": <div
+                  className="active"
+                >
                   <a
                     href="/dashboard"
                   >
@@ -1030,7 +1043,7 @@ ShallowWrapper {
                   >
                     Dashboard
                   </a>,
-                  "className": undefined,
+                  "className": "active",
                 },
                 "ref": null,
                 "rendered": Object {
@@ -1402,6 +1415,7 @@ exports[`should render as expected 1`] = `
 ShallowWrapper {
   Symbol(enzyme.__root__): [Circular],
   Symbol(enzyme.__unrendered__): <Header
+    activeTab="active"
     currentUser={
       Object {
         "additionalUserInfo": Object {
@@ -1461,7 +1475,9 @@ ShallowWrapper {
           <div
             className="nav-links "
           >
-            <div>
+            <div
+              className="active"
+            >
               <a
                 href="/dashboard"
               >
@@ -1640,7 +1656,9 @@ ShallowWrapper {
             <div
               className="nav-links "
             >
-              <div>
+              <div
+                className="active"
+              >
                 <a
                   href="/dashboard"
                 >
@@ -1722,7 +1740,9 @@ ShallowWrapper {
             "key": undefined,
             "nodeType": "host",
             "props": Object {
-              "children": <div>
+              "children": <div
+                className="active"
+              >
                 <a
                   href="/dashboard"
                 >
@@ -1742,7 +1762,7 @@ ShallowWrapper {
                 >
                   Dashboard
                 </a>,
-                "className": undefined,
+                "className": "active",
               },
               "ref": null,
               "rendered": Object {
@@ -2107,7 +2127,9 @@ ShallowWrapper {
             <div
               className="nav-links "
             >
-              <div>
+              <div
+                className="active"
+              >
                 <a
                   href="/dashboard"
                 >
@@ -2286,7 +2308,9 @@ ShallowWrapper {
               <div
                 className="nav-links "
               >
-                <div>
+                <div
+                  className="active"
+                >
                   <a
                     href="/dashboard"
                   >
@@ -2368,7 +2392,9 @@ ShallowWrapper {
               "key": undefined,
               "nodeType": "host",
               "props": Object {
-                "children": <div>
+                "children": <div
+                  className="active"
+                >
                   <a
                     href="/dashboard"
                   >
@@ -2388,7 +2414,7 @@ ShallowWrapper {
                   >
                     Dashboard
                   </a>,
-                  "className": undefined,
+                  "className": "active",
                 },
                 "ref": null,
                 "rendered": Object {

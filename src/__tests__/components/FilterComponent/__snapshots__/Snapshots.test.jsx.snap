@@ -197,7 +197,7 @@ ShallowWrapper {
       "disabled": false,
       "disabledKeyboardNavigation": false,
       "dropdownMode": "select",
-      "maxDate": "2019-07-26T03:33:24.810Z",
+      "maxDate": "2019-07-28T21:50:31.971Z",
       "monthsShown": 1,
       "nextMonthButtonLabel": "Next month",
       "onBlur": [Function],
@@ -238,7 +238,7 @@ ShallowWrapper {
         "disabled": false,
         "disabledKeyboardNavigation": false,
         "dropdownMode": "select",
-        "maxDate": "2019-07-26T03:33:24.810Z",
+        "maxDate": "2019-07-28T21:50:31.971Z",
         "monthsShown": 1,
         "nextMonthButtonLabel": "Next month",
         "onBlur": [Function],
@@ -298,21 +298,7 @@ exports[`The FilterComponent component should not regress 1`] = `
 ShallowWrapper {
   Symbol(enzyme.__root__): [Circular],
   Symbol(enzyme.__unrendered__): <FilterComponent
-    filter={
-      Object {
-        "automation-type": "",
-        "date": Object {
-          "from": "",
-          "to": "",
-        },
-        "emailAutomation": "",
-        "nokoAutomation": "",
-        "search-by": "",
-        "searchTerm": "",
-        "showFilterDropdown": false,
-        "slackAutomation": "",
-      }
-    }
+    filter={[Function]}
   />,
   Symbol(enzyme.__renderer__): Object {
     "batchedUpdates": [Function],
