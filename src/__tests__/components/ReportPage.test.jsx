@@ -1,23 +1,9 @@
-/* global mount */
 import React from 'react';
-import configureStore from 'redux-mock-store';
-import ReportComponent, { ReportPage, mapDispatchToProps, mapStateToProps } from '../../components/ReportPage';
+import { mount } from 'enzyme';
+import ReactRouterEnzymeContext from 'react-router-enzyme-context';
+import { ReportPage, mapDispatchToProps, mapStateToProps } from '../../components/ReportPage';
 import { sampleReports, stats } from '../../fixtures/fixtures';
 
-const state = {
-  automation: {
-    data: sampleReports.data,
-    error: { error: '' },
-    isLoading: false,
-    pagination: sampleReports.pagination,
-  },
-  stats,
-  error: {},
-  isLoading: false,
-};
-
-const mockStore = configureStore();
-const store = mockStore(state);
 
 describe('ReportPage Component', () => {
   const props = {
@@ -49,13 +35,18 @@ describe('ReportPage Component', () => {
   };
   let component;
 
+  const options = new ReactRouterEnzymeContext();
+
   beforeEach(() => {
-    component = mount(<ReportPage {...props} />);
+    component = mount(
+      <ReportPage {...props} />,
+      options.get(),
+    );
   });
 
   afterEach(() => {
     component.unmount();
-  })
+  });
 
   it('should render as expected', () => {
     const title = component.find('.text');
@@ -133,7 +124,7 @@ describe('ReportPage Component', () => {
     });
 
     it('should call handleRetryAutomation for the card view', () => {
-      wrapper = mount(<ReportPage {...props} />);
+      wrapper = component;
       const instance = wrapper.instance();
       jest.spyOn(instance, 'handleRetryAutomation');
       const button = wrapper.find('#retry-automation').at(0);

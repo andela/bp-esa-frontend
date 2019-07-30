@@ -1,4 +1,5 @@
 import React, { PureComponent } from 'react';
+import { Link } from 'react-router-dom';
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
 import { notify } from 'react-notify-toast';
@@ -36,6 +37,7 @@ class Header extends PureComponent {
     removeCurrentUser();
     history.push('/login');
     notify.show('You have Logged out Successfully!', 'success');
+    return false;
   };
 
   userInfo = () => {
@@ -112,13 +114,11 @@ class Header extends PureComponent {
       <div className="pills">
         {/* dashboard pill */}
         <div className={`nav-links ${active('dashboard')}`}>
-          <div className={activeTab}>
-            <a href="/dashboard">Dashboard</a>
-          </div>
+          <Link to="/dashboard">Dashboard</Link>
         </div>
         {/* automations pill */}
         <div className={`nav-links ${active('automations')}`}>
-          <a href="/">Automations</a>
+          <Link to="/">Automations</Link>
         </div>
         {/* user pill */}
         {this.userInfo()}
@@ -130,10 +130,10 @@ class Header extends PureComponent {
     return (
       <div id="header" ref={(node) => { this.node = node; }}>
         <div className="brand">
-          <a href="/">
+          <Link to="/">
             <div className="header-logo"><img src="/logo.png" alt="Andela Logo" /></div>
             <span className="text">ESA</span>
-          </a>
+          </Link>
         </div>
         {this.navigationPills()}
       </div>
@@ -145,11 +145,12 @@ Header.propTypes = {
   currentUser: PropTypes.object.isRequired,
   removeCurrentUser: PropTypes.func,
   history: PropTypes.object.isRequired,
-  activeTab: PropTypes.string.isRequired,
+  activeTab: PropTypes.string,
 };
 
 Header.defaultProps = {
   removeCurrentUser: () => {},
+  activeTab: 'automations',
 };
 
 export default Header;

@@ -1,10 +1,12 @@
 /* global mount */
 import React from 'react';
+import ReactRouterEnzymeContext from 'react-router-enzyme-context';
 import { notify } from 'react-notify-toast';
 import sinon from 'sinon';
 import { doSignOut } from '../../firebase';
 import Header from '../../components/Header';
 
+const options = new ReactRouterEnzymeContext();
 jest.mock('../../firebase');
 const props = {
   activeTab: 'active',
@@ -36,7 +38,10 @@ it('should render as expected', () => {
 });
 
 describe('onLogout() method', () => {
-  const renderedComponent = mount(<Header {...props} />);
+  const renderedComponent = mount(
+    <Header {...props} />,
+    options.get(),
+  );
   Object.defineProperty(notify, 'show', { value: () => jest.fn(), writable: true });
   it('should call onLogout()', () => {
     const spy = jest.spyOn(renderedComponent.instance(), 'onLogout');
@@ -83,7 +88,10 @@ describe('toggleSignoutDropDown() method', () => {
   });
 
   it('sign out button should close on clicking away', () => {
-    const component = mount(<Header {...props} />);
+    const component = mount(
+      <Header {...props} />,
+      options.get(),
+    );
     component.setState({ signoutDropDownIsVisible: true });
     const event = document.createEvent('HTMLEvents');
     event.initEvent('click', true, true);

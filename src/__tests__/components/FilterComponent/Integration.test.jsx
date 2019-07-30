@@ -2,9 +2,12 @@
 
 import React from 'react';
 import axios from 'axios';
+import ReactRouterEnzymeContext from 'react-router-enzyme-context';
 import { ReportPage } from '../../../components/ReportPage';
 import FilterDropdown from '../../../components/FilterComponent/FilterDropdown';
 import FilterComponent, { filterInitialState } from '../../../components/FilterComponent';
+
+const options = new ReactRouterEnzymeContext();
 
 jest.mock('axios');
 const axiosGetMock = jest.fn().mockResolvedValue({});
@@ -66,16 +69,19 @@ const fetchAllAutomationMock = jest.fn();
 describe('Filter Component Integration', () => {
   let reportPage;
   beforeAll(() => {
-    reportPage = mount(<ReportPage
-      currentUser={currentUserMock}
-      history={historyMock}
-      automation={mockAutomations}
-      fetchAllAutomation={fetchAllAutomationMock}
-      location={{ search: '?view=listView' }}
-      fetchStat={() => {}}
-      stats={stats}
-      retryFailedAutomation={jest.fn()}
-    />);
+    reportPage = mount(
+      <ReportPage
+        currentUser={currentUserMock}
+        history={historyMock}
+        automation={mockAutomations}
+        fetchAllAutomation={fetchAllAutomationMock}
+        location={{ search: '?view=listView' }}
+        fetchStat={() => {}}
+        stats={stats}
+        retryFailedAutomation={jest.fn()}
+      />,
+      options.get(),
+    );
   });
 
   beforeEach(() => {
