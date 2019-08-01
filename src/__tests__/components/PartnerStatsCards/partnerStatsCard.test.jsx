@@ -1,5 +1,5 @@
 import React from 'react';
-import PartnerStats from '../../../components/PartnerStatsCard';
+import PartnerStats from '../../../components/Dashboard/PartnerStatsCard';
 
 describe('Partner Stats Card', () => {
   let wrapper;

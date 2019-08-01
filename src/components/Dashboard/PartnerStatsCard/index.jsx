@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Card from '../Dashboard/Card';
+import Card from '../Card';
 import './partnersStatsCard.scss';
 
 class PartnerStats extends Component {
