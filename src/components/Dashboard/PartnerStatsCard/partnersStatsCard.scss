@@ -1,6 +1,6 @@
 .partner-stats-container {
   display: grid;
-  grid-template-columns: repeat(2, 297.5px);
+  grid-template-columns: repeat(2, 313px);
   grid-column-gap: 35px;
   grid-row-gap: 17px;
   margin: 20px;
@@ -8,7 +8,7 @@
   .partner-stats {
     box-sizing: border-box;
     height: 108px;
-    width: 297.5px;
+    width: 313px;
     border-radius: 5px;
     background-color: #FFF;
     border: 1px solid #EEF;

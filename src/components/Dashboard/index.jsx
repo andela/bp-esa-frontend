@@ -7,6 +7,7 @@ import { fetchRealTimeReport } from '../../redux/actions/realTimeReport';
 import listenToSocketEvent from '../../realTime';
 import ActivityFeed from './ActivityFeed';
 import Header from '../Header';
+import PartnerStats from './PartnerStatsCard';
 
 class Dashboard extends React.Component {
   state = {
@@ -81,6 +82,7 @@ class Dashboard extends React.Component {
           component={() => ActivityFeed(this.state)}
           title="Activity Feeds"
         />
+        <PartnerStats />
       </div>
     );
   }
