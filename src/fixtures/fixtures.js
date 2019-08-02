@@ -1,4 +1,4 @@
-import moment from "moment";
+import moment from 'moment';
 
 const sampleReports = {
   data: [
@@ -23,7 +23,7 @@ const sampleReports = {
         status: 'success',
         emailActivities: [10],
       },
-      updatedAt: moment("2017-09-29", "YYYY-MM-DD"),
+      updatedAt: moment('2017-09-29', 'YYYY-MM-DD'),
     },
     {
       id: 8631,

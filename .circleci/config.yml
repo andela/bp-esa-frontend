@@ -124,15 +124,12 @@ workflows:
       - test_javascript_report:
           requires:
             - checkout_repo
-            - run_vulnerability_check
       - test_ui_flow:
           requires:
             - checkout_repo
-            - run_vulnerability_check
-            - test_javascript_report
       - deploy_staging:
           requires:
-            - checkout_repo
+            - run_vulnerability_check
             - test_javascript_report
-            # - test_ui_flow
+            - test_ui_flow
           <<: *filters
