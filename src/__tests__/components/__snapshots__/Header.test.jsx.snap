@@ -64,8 +64,9 @@ ShallowWrapper {
         <div
           className="brand"
         >
-          <a
-            href="/"
+          <Link
+            replace={false}
+            to="/"
           >
             <div
               className="header-logo"
@@ -80,7 +81,7 @@ ShallowWrapper {
             >
               ESA
             </span>
-          </a>
+          </Link>
         </div>,
         <div
           className="pills"
@@ -88,24 +89,22 @@ ShallowWrapper {
           <div
             className="nav-links "
           >
-            <div
-              className="active"
+            <Link
+              replace={false}
+              to="/dashboard"
             >
-              <a
-                href="/dashboard"
-              >
-                Dashboard
-              </a>
-            </div>
+              Dashboard
+            </Link>
           </div>
           <div
             className="nav-links "
           >
-            <a
-              href="/"
+            <Link
+              replace={false}
+              to="/"
             >
               Automations
-            </a>
+            </Link>
           </div>
           <div
             className="user-info-container"
@@ -175,8 +174,9 @@ ShallowWrapper {
         "key": undefined,
         "nodeType": "host",
         "props": Object {
-          "children": <a
-            href="/"
+          "children": <Link
+            replace={false}
+            to="/"
           >
             <div
               className="header-logo"
@@ -191,14 +191,14 @@ ShallowWrapper {
             >
               ESA
             </span>
-          </a>,
+          </Link>,
           "className": "brand",
         },
         "ref": null,
         "rendered": Object {
           "instance": null,
           "key": undefined,
-          "nodeType": "host",
+          "nodeType": "class",
           "props": Object {
             "children": Array [
               <div
@@ -215,7 +215,8 @@ ShallowWrapper {
                 ESA
               </span>,
             ],
-            "href": "/",
+            "replace": false,
+            "to": "/",
           },
           "ref": null,
           "rendered": Array [
@@ -258,7 +259,7 @@ ShallowWrapper {
               "type": "span",
             },
           ],
-          "type": "a",
+          "type": [Function],
         },
         "type": "div",
       },
@@ -271,24 +272,22 @@ ShallowWrapper {
             <div
               className="nav-links "
             >
-              <div
-                className="active"
+              <Link
+                replace={false}
+                to="/dashboard"
               >
-                <a
-                  href="/dashboard"
-                >
-                  Dashboard
-                </a>
-              </div>
+                Dashboard
+              </Link>
             </div>,
             <div
               className="nav-links "
             >
-              <a
-                href="/"
+              <Link
+                replace={false}
+                to="/"
               >
                 Automations
-              </a>
+              </Link>
             </div>,
             <div
               className="user-info-container"
@@ -357,44 +356,27 @@ ShallowWrapper {
             "key": undefined,
             "nodeType": "host",
             "props": Object {
-              "children": <div
-                className="active"
+              "children": <Link
+                replace={false}
+                to="/dashboard"
               >
-                <a
-                  href="/dashboard"
-                >
-                  Dashboard
-                </a>
-              </div>,
+                Dashboard
+              </Link>,
               "className": "nav-links ",
             },
             "ref": null,
             "rendered": Object {
               "instance": null,
               "key": undefined,
-              "nodeType": "host",
+              "nodeType": "class",
               "props": Object {
-                "children": <a
-                  href="/dashboard"
-                >
-                  Dashboard
-                </a>,
-                "className": "active",
+                "children": "Dashboard",
+                "replace": false,
+                "to": "/dashboard",
               },
               "ref": null,
-              "rendered": Object {
-                "instance": null,
-                "key": undefined,
-                "nodeType": "host",
-                "props": Object {
-                  "children": "Dashboard",
-                  "href": "/dashboard",
-                },
-                "ref": null,
-                "rendered": "Dashboard",
-                "type": "a",
-              },
-              "type": "div",
+              "rendered": "Dashboard",
+              "type": [Function],
             },
             "type": "div",
           },
@@ -403,25 +385,27 @@ ShallowWrapper {
             "key": undefined,
             "nodeType": "host",
             "props": Object {
-              "children": <a
-                href="/"
+              "children": <Link
+                replace={false}
+                to="/"
               >
                 Automations
-              </a>,
+              </Link>,
               "className": "nav-links ",
             },
             "ref": null,
             "rendered": Object {
               "instance": null,
               "key": undefined,
-              "nodeType": "host",
+              "nodeType": "class",
               "props": Object {
                 "children": "Automations",
-                "href": "/",
+                "replace": false,
+                "to": "/",
               },
               "ref": null,
               "rendered": "Automations",
-              "type": "a",
+              "type": [Function],
             },
             "type": "div",
           },
@@ -728,8 +712,9 @@ ShallowWrapper {
           <div
             className="brand"
           >
-            <a
-              href="/"
+            <Link
+              replace={false}
+              to="/"
             >
               <div
                 className="header-logo"
@@ -744,7 +729,7 @@ ShallowWrapper {
               >
                 ESA
               </span>
-            </a>
+            </Link>
           </div>,
           <div
             className="pills"
@@ -752,24 +737,22 @@ ShallowWrapper {
             <div
               className="nav-links "
             >
-              <div
-                className="active"
+              <Link
+                replace={false}
+                to="/dashboard"
               >
-                <a
-                  href="/dashboard"
-                >
-                  Dashboard
-                </a>
-              </div>
+                Dashboard
+              </Link>
             </div>
             <div
               className="nav-links "
             >
-              <a
-                href="/"
+              <Link
+                replace={false}
+                to="/"
               >
                 Automations
-              </a>
+              </Link>
             </div>
             <div
               className="user-info-container"
@@ -839,8 +822,9 @@ ShallowWrapper {
           "key": undefined,
           "nodeType": "host",
           "props": Object {
-            "children": <a
-              href="/"
+            "children": <Link
+              replace={false}
+              to="/"
             >
               <div
                 className="header-logo"
@@ -855,14 +839,14 @@ ShallowWrapper {
               >
                 ESA
               </span>
-            </a>,
+            </Link>,
             "className": "brand",
           },
           "ref": null,
           "rendered": Object {
             "instance": null,
             "key": undefined,
-            "nodeType": "host",
+            "nodeType": "class",
             "props": Object {
               "children": Array [
                 <div
@@ -879,7 +863,8 @@ ShallowWrapper {
                   ESA
                 </span>,
               ],
-              "href": "/",
+              "replace": false,
+              "to": "/",
             },
             "ref": null,
             "rendered": Array [
@@ -922,7 +907,7 @@ ShallowWrapper {
                 "type": "span",
               },
             ],
-            "type": "a",
+            "type": [Function],
           },
           "type": "div",
         },
@@ -935,24 +920,22 @@ ShallowWrapper {
               <div
                 className="nav-links "
               >
-                <div
-                  className="active"
+                <Link
+                  replace={false}
+                  to="/dashboard"
                 >
-                  <a
-                    href="/dashboard"
-                  >
-                    Dashboard
-                  </a>
-                </div>
+                  Dashboard
+                </Link>
               </div>,
               <div
                 className="nav-links "
               >
-                <a
-                  href="/"
+                <Link
+                  replace={false}
+                  to="/"
                 >
                   Automations
-                </a>
+                </Link>
               </div>,
               <div
                 className="user-info-container"
@@ -1021,44 +1004,27 @@ ShallowWrapper {
               "key": undefined,
               "nodeType": "host",
               "props": Object {
-                "children": <div
-                  className="active"
+                "children": <Link
+                  replace={false}
+                  to="/dashboard"
                 >
-                  <a
-                    href="/dashboard"
-                  >
-                    Dashboard
-                  </a>
-                </div>,
+                  Dashboard
+                </Link>,
                 "className": "nav-links ",
               },
               "ref": null,
               "rendered": Object {
                 "instance": null,
                 "key": undefined,
-                "nodeType": "host",
+                "nodeType": "class",
                 "props": Object {
-                  "children": <a
-                    href="/dashboard"
-                  >
-                    Dashboard
-                  </a>,
-                  "className": "active",
+                  "children": "Dashboard",
+                  "replace": false,
+                  "to": "/dashboard",
                 },
                 "ref": null,
-                "rendered": Object {
-                  "instance": null,
-                  "key": undefined,
-                  "nodeType": "host",
-                  "props": Object {
-                    "children": "Dashboard",
-                    "href": "/dashboard",
-                  },
-                  "ref": null,
-                  "rendered": "Dashboard",
-                  "type": "a",
-                },
-                "type": "div",
+                "rendered": "Dashboard",
+                "type": [Function],
               },
               "type": "div",
             },
@@ -1067,25 +1033,27 @@ ShallowWrapper {
               "key": undefined,
               "nodeType": "host",
               "props": Object {
-                "children": <a
-                  href="/"
+                "children": <Link
+                  replace={false}
+                  to="/"
                 >
                   Automations
-                </a>,
+                </Link>,
                 "className": "nav-links ",
               },
               "ref": null,
               "rendered": Object {
                 "instance": null,
                 "key": undefined,
-                "nodeType": "host",
+                "nodeType": "class",
                 "props": Object {
                   "children": "Automations",
-                  "href": "/",
+                  "replace": false,
+                  "to": "/",
                 },
                 "ref": null,
                 "rendered": "Automations",
-                "type": "a",
+                "type": [Function],
               },
               "type": "div",
             },
@@ -1451,8 +1419,9 @@ ShallowWrapper {
         <div
           className="brand"
         >
-          <a
-            href="/"
+          <Link
+            replace={false}
+            to="/"
           >
             <div
               className="header-logo"
@@ -1467,7 +1436,7 @@ ShallowWrapper {
             >
               ESA
             </span>
-          </a>
+          </Link>
         </div>,
         <div
           className="pills"
@@ -1475,24 +1444,22 @@ ShallowWrapper {
           <div
             className="nav-links "
           >
-            <div
-              className="active"
+            <Link
+              replace={false}
+              to="/dashboard"
             >
-              <a
-                href="/dashboard"
-              >
-                Dashboard
-              </a>
-            </div>
+              Dashboard
+            </Link>
           </div>
           <div
             className="nav-links "
           >
-            <a
-              href="/"
+            <Link
+              replace={false}
+              to="/"
             >
               Automations
-            </a>
+            </Link>
           </div>
           <div
             className="user-info-container"
@@ -1560,8 +1527,9 @@ ShallowWrapper {
         "key": undefined,
         "nodeType": "host",
         "props": Object {
-          "children": <a
-            href="/"
+          "children": <Link
+            replace={false}
+            to="/"
           >
             <div
               className="header-logo"
@@ -1576,14 +1544,14 @@ ShallowWrapper {
             >
               ESA
             </span>
-          </a>,
+          </Link>,
           "className": "brand",
         },
         "ref": null,
         "rendered": Object {
           "instance": null,
           "key": undefined,
-          "nodeType": "host",
+          "nodeType": "class",
           "props": Object {
             "children": Array [
               <div
@@ -1600,7 +1568,8 @@ ShallowWrapper {
                 ESA
               </span>,
             ],
-            "href": "/",
+            "replace": false,
+            "to": "/",
           },
           "ref": null,
           "rendered": Array [
@@ -1643,7 +1612,7 @@ ShallowWrapper {
               "type": "span",
             },
           ],
-          "type": "a",
+          "type": [Function],
         },
         "type": "div",
       },
@@ -1656,24 +1625,22 @@ ShallowWrapper {
             <div
               className="nav-links "
             >
-              <div
-                className="active"
+              <Link
+                replace={false}
+                to="/dashboard"
               >
-                <a
-                  href="/dashboard"
-                >
-                  Dashboard
-                </a>
-              </div>
+                Dashboard
+              </Link>
             </div>,
             <div
               className="nav-links "
             >
-              <a
-                href="/"
+              <Link
+                replace={false}
+                to="/"
               >
                 Automations
-              </a>
+              </Link>
             </div>,
             <div
               className="user-info-container"
@@ -1740,44 +1707,27 @@ ShallowWrapper {
             "key": undefined,
             "nodeType": "host",
             "props": Object {
-              "children": <div
-                className="active"
+              "children": <Link
+                replace={false}
+                to="/dashboard"
               >
-                <a
-                  href="/dashboard"
-                >
-                  Dashboard
-                </a>
-              </div>,
+                Dashboard
+              </Link>,
               "className": "nav-links ",
             },
             "ref": null,
             "rendered": Object {
               "instance": null,
               "key": undefined,
-              "nodeType": "host",
+              "nodeType": "class",
               "props": Object {
-                "children": <a
-                  href="/dashboard"
-                >
-                  Dashboard
-                </a>,
-                "className": "active",
+                "children": "Dashboard",
+                "replace": false,
+                "to": "/dashboard",
               },
               "ref": null,
-              "rendered": Object {
-                "instance": null,
-                "key": undefined,
-                "nodeType": "host",
-                "props": Object {
-                  "children": "Dashboard",
-                  "href": "/dashboard",
-                },
-                "ref": null,
-                "rendered": "Dashboard",
-                "type": "a",
-              },
-              "type": "div",
+              "rendered": "Dashboard",
+              "type": [Function],
             },
             "type": "div",
           },
@@ -1786,25 +1736,27 @@ ShallowWrapper {
             "key": undefined,
             "nodeType": "host",
             "props": Object {
-              "children": <a
-                href="/"
+              "children": <Link
+                replace={false}
+                to="/"
               >
                 Automations
-              </a>,
+              </Link>,
               "className": "nav-links ",
             },
             "ref": null,
             "rendered": Object {
               "instance": null,
               "key": undefined,
-              "nodeType": "host",
+              "nodeType": "class",
               "props": Object {
                 "children": "Automations",
-                "href": "/",
+                "replace": false,
+                "to": "/",
               },
               "ref": null,
               "rendered": "Automations",
-              "type": "a",
+              "type": [Function],
             },
             "type": "div",
           },
@@ -2103,8 +2055,9 @@ ShallowWrapper {
           <div
             className="brand"
           >
-            <a
-              href="/"
+            <Link
+              replace={false}
+              to="/"
             >
               <div
                 className="header-logo"
@@ -2119,7 +2072,7 @@ ShallowWrapper {
               >
                 ESA
               </span>
-            </a>
+            </Link>
           </div>,
           <div
             className="pills"
@@ -2127,24 +2080,22 @@ ShallowWrapper {
             <div
               className="nav-links "
             >
-              <div
-                className="active"
+              <Link
+                replace={false}
+                to="/dashboard"
               >
-                <a
-                  href="/dashboard"
-                >
-                  Dashboard
-                </a>
-              </div>
+                Dashboard
+              </Link>
             </div>
             <div
               className="nav-links "
             >
-              <a
-                href="/"
+              <Link
+                replace={false}
+                to="/"
               >
                 Automations
-              </a>
+              </Link>
             </div>
             <div
               className="user-info-container"
@@ -2212,8 +2163,9 @@ ShallowWrapper {
           "key": undefined,
           "nodeType": "host",
           "props": Object {
-            "children": <a
-              href="/"
+            "children": <Link
+              replace={false}
+              to="/"
             >
               <div
                 className="header-logo"
@@ -2228,14 +2180,14 @@ ShallowWrapper {
               >
                 ESA
               </span>
-            </a>,
+            </Link>,
             "className": "brand",
           },
           "ref": null,
           "rendered": Object {
             "instance": null,
             "key": undefined,
-            "nodeType": "host",
+            "nodeType": "class",
             "props": Object {
               "children": Array [
                 <div
@@ -2252,7 +2204,8 @@ ShallowWrapper {
                   ESA
                 </span>,
               ],
-              "href": "/",
+              "replace": false,
+              "to": "/",
             },
             "ref": null,
             "rendered": Array [
@@ -2295,7 +2248,7 @@ ShallowWrapper {
                 "type": "span",
               },
             ],
-            "type": "a",
+            "type": [Function],
           },
           "type": "div",
         },
@@ -2308,24 +2261,22 @@ ShallowWrapper {
               <div
                 className="nav-links "
               >
-                <div
-                  className="active"
+                <Link
+                  replace={false}
+                  to="/dashboard"
                 >
-                  <a
-                    href="/dashboard"
-                  >
-                    Dashboard
-                  </a>
-                </div>
+                  Dashboard
+                </Link>
               </div>,
               <div
                 className="nav-links "
               >
-                <a
-                  href="/"
+                <Link
+                  replace={false}
+                  to="/"
                 >
                   Automations
-                </a>
+                </Link>
               </div>,
               <div
                 className="user-info-container"
@@ -2392,44 +2343,27 @@ ShallowWrapper {
               "key": undefined,
               "nodeType": "host",
               "props": Object {
-                "children": <div
-                  className="active"
+                "children": <Link
+                  replace={false}
+                  to="/dashboard"
                 >
-                  <a
-                    href="/dashboard"
-                  >
-                    Dashboard
-                  </a>
-                </div>,
+                  Dashboard
+                </Link>,
                 "className": "nav-links ",
               },
               "ref": null,
               "rendered": Object {
                 "instance": null,
                 "key": undefined,
-                "nodeType": "host",
+                "nodeType": "class",
                 "props": Object {
-                  "children": <a
-                    href="/dashboard"
-                  >
-                    Dashboard
-                  </a>,
-                  "className": "active",
+                  "children": "Dashboard",
+                  "replace": false,
+                  "to": "/dashboard",
                 },
                 "ref": null,
-                "rendered": Object {
-                  "instance": null,
-                  "key": undefined,
-                  "nodeType": "host",
-                  "props": Object {
-                    "children": "Dashboard",
-                    "href": "/dashboard",
-                  },
-                  "ref": null,
-                  "rendered": "Dashboard",
-                  "type": "a",
-                },
-                "type": "div",
+                "rendered": "Dashboard",
+                "type": [Function],
               },
               "type": "div",
             },
@@ -2438,25 +2372,27 @@ ShallowWrapper {
               "key": undefined,
               "nodeType": "host",
               "props": Object {
-                "children": <a
-                  href="/"
+                "children": <Link
+                  replace={false}
+                  to="/"
                 >
                   Automations
-                </a>,
+                </Link>,
                 "className": "nav-links ",
               },
               "ref": null,
               "rendered": Object {
                 "instance": null,
                 "key": undefined,
-                "nodeType": "host",
+                "nodeType": "class",
                 "props": Object {
                   "children": "Automations",
-                  "href": "/",
+                  "replace": false,
+                  "to": "/",
                 },
                 "ref": null,
                 "rendered": "Automations",
-                "type": "a",
+                "type": [Function],
               },
               "type": "div",
             },
