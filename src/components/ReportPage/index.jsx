@@ -256,6 +256,7 @@ export class ReportPage extends Component {
 
   renderTableRows() {
     const { automation: { data } } = this.props;
+    const { pagination: { currentPage, limit } } = this.state;
     return (data.map((report, index) => {
       const {
         id,
@@ -267,21 +268,25 @@ export class ReportPage extends Component {
       } = report;
       return (
         <tr key={id}>
-          <td className="numbering">{index + 1}</td>
+          <td className="numbering">{((currentPage * limit) + (index + 1)) - limit}</td>
           <td className="column1">{this.formatDates(updatedAt)}</td>
           <td
-            className="fellow"
+            className="fellow tooltip-container"
+            id="fellow-name"
             onClick={() => window.open(`https://ais.andela.com/people/${developerId}`)}
             title={developerName}
           >
             {developerName}
+            <span className="tooltip-icon-black">
+              <i className="fas fa-external-link-alt" />
+            </span>
           </td>
           <td title={report.partnerName}>{partnerName}</td>
           <td>{type}</td>
           <td>{this.renderAutomationStatus(report.slackAutomations.status, report, 'slack')}</td>
           <td>{this.renderAutomationStatus(report.emailAutomations.status, report, 'email')}</td>
           <td>
-            {this.renderAutomationStatus(report.freckleAutomations.status, report, 'freckle')}
+            {report.nokoAutomations && this.renderAutomationStatus(report.nokoAutomations.status, report, 'noko')}
           </td>
           <td>{this.renderInfoIcon(report)}</td>
         </tr>
@@ -299,6 +304,32 @@ export class ReportPage extends Component {
       handleUpdates={this.handleUpdates}
       view={viewMode}
     />
+    );
+  }
+
+  renderDeveloperCard = (
+    data,
+    isLoading,
+    toggleModal,
+    changeModalTypes,
+    retryingAutomation,
+    handleRetryAutomation,
+  ) => {
+    const dataDetails = data.map(cardData => (
+      <DeveloperCard
+        key={cardData.id}
+        card={cardData}
+        isLoading={isLoading}
+        openModal={this.toggleModal}
+        changeModalTypes={changeModalTypes}
+        retryingAutomation={retryingAutomation}
+        handleRetryAutomation={handleRetryAutomation}
+      />
+    ));
+    return (
+      <div className="cont">
+        {dataDetails}
+      </div>
     );
   }
 
@@ -321,7 +352,7 @@ export class ReportPage extends Component {
                     <th>Type</th>
                     <th>Slack</th>
                     <th>Email</th>
-                    <th>Freckle</th>
+                    <th>Noko</th>
                     <th />
                   </tr>
                 </thead>
@@ -348,19 +379,23 @@ export class ReportPage extends Component {
         : (
           <div>
             {this.renderUpdateTab()}
-            <DeveloperCard
-              data={data}
-              isLoading={isLoading}
-              openModal={this.toggleModal}
-              changeModalTypes={this.changeModalTypes}
-              retryingAutomation={retryingAutomation}
-              handleRetryAutomation={() => this.handleRetryAutomation()}
-            />
+            {this.renderDeveloperCard(
+              data,
+              isLoading,
+              this.toggleModal,
+              this.changeModalTypes,
+              retryingAutomation,
+              this.handleRetryAutomation,
+            )}
+
             <AutomationDetails
+              data={data}
               isModalOpen={isModalOpen}
               closeModal={this.toggleModal}
               modalContent={modalContent}
               formatDates={this.formatDates}
+              retryingAutomation={retryingAutomation}
+              handleRetryAutomation={this.handleRetryAutomation}
             />
           </div>
         )
@@ -452,8 +487,8 @@ export const mapDispatchToProps = dispatch => ({
   fetchAllAutomation: (pagination, filters) => dispatch(fetchAutomation(pagination, filters)),
   fetchUpdates: () => dispatch(fetchRealTimeReport()),
   resetUpdates: () => dispatch(resetRealTimeReport()),
-  fetchStat: (period) => dispatch(fetchStatsRequest(period)),
-  retryFailedAutomation: () => dispatch(retryAutomation()),
+  fetchStat: period => dispatch(fetchStatsRequest(period)),
+  retryFailedAutomation: automationId => dispatch(retryAutomation(automationId)),
 });
 
 ReportPage.propTypes = {

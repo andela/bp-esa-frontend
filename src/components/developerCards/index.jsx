@@ -5,6 +5,7 @@ import _ from 'lodash';
 import Spinner from '../Spinner';
 import InfoIcon from '../../assets/icons/Info.svg';
 import offboarding from '../../assets/icons/offboarding.svg';
+import onboarding from '../../assets/icons/onboarding.svg';
 import './developerCard.scss';
 import RetryButton from '../Buttons/RetryButton/RetryButton';
 
@@ -18,10 +19,10 @@ class DeveloperCard extends Component {
   );
 
   renderStatusBand = (className, status, cardId) => {
-    const { retryingAutomation, handleRetryAutomation, data } = this.props;
+    const { retryingAutomation, handleRetryAutomation } = this.props;
     return (
       <div className={className}>
-        <span id={`${status.toLowerCase()}`}>
+        <span id={`${status && status.toLowerCase()}`}>
           {status}
           {
             status === 'FAILURE'
@@ -29,7 +30,6 @@ class DeveloperCard extends Component {
               <RetryButton
                 retryingAutomation={retryingAutomation}
                 handleRetryAutomation={() => handleRetryAutomation(cardId)}
-                data={data}
                 id="retry-automation"
               />
             )
@@ -43,13 +43,13 @@ class DeveloperCard extends Component {
     <div className="status-container">
       {
         channels.map((name, index) => {
-          const fieldName = card[`${name}Automations`][`${name}Activities`];
+          const fieldName = card[`${name}Automations`] && card[`${name}Automations`][`${name}Activities`];
           return (
             // eslint-disable-next-line react/no-array-index-key
             <div key={index}>
               {_.upperCase(name)}
               <span>
-                {`${metric(fieldName, 'success')}/${fieldName.length}`}
+                {`${metric(fieldName, 'success')}/${fieldName ? fieldName.length : 0}`}
               </span>
             </div>
           );
@@ -70,49 +70,61 @@ class DeveloperCard extends Component {
   );
 
   renderCards = () => {
-    const { data, openModal, changeModalTypes } = this.props;
+    const { card, openModal, changeModalTypes } = this.props;
     const automation = length => length !== 0;
     const automationMetric = (activities, status) => (
       _.filter(activities, { status }).length
     );
-    const metric = (activities, status) => (
-      automation(activities.length) ? automationMetric(activities, status) : 0
+    const metric = (activities, status) => (activities
+      && automation(activities.length) ? automationMetric(activities, status) : 0
     );
-    return data.map((card, index) => {
-      const name = card.fellowName;
-      const newName = _.split(name, ',');
-      const firstInitials = newName[0].charAt(0);
-      const secondInitials = newName[1].charAt(1);
-      return (
-        <div className="card" key={card.id}>
-          <div className="info-cont">
-            { /* TODO Update the onboarding icon to match mockups */}
-            <img className="info-icon onBoarding-icon" src={offboarding} alt="onboarding icon" />
-            <img className="info-icon" src={InfoIcon} alt="info icon" role="presentation" onClick={() => { openModal(); changeModalTypes(card); }} id={`${index}-id`} />
+    const name = card.fellowName;
+    const newName = _.split(name, ',');
+    const firstInitials = newName[0].charAt(0);
+    const secondInitials = newName[1] && newName[1].charAt(1);
+    return (
+      <div className="card" key={card.id}>
+        <div className="info-cont">
+          {card.type === 'onboarding'
+            ? (
+              <div className="tooltip-container" id="onboarding-info-icon">
+                <img className="info-icon onBoarding-icon" src={onboarding} alt="onboarding icon" />
+                <span className="tooltiptext">On-boarding</span>
+              </div>
+            ) : (
+              <div className="tooltip-container" id="offboarding-info-icon">
+                <img className="info-icon onBoarding-icon" src={offboarding} alt="offboarding icon" />
+                <span className="tooltiptext">Off-boarding</span>
+              </div>
+            )}
+          <div id="more-info-icon" className="tooltip-container" onClick={() => { openModal(); changeModalTypes(card); }}>
+            <img className="info-icon" src={InfoIcon} alt="info icon" role="presentation" id={`${card.id}-id`} />
+            <span className="tooltiptext">Details</span>
           </div>
-          {this.renderDeveloperPic(firstInitials, secondInitials)}
-          {this.renderDetails('developerDetails', 'developerName', card.fellowName)}
-          {this.renderDetails('partnerName', '', card.partnerName)}
-          {this.renderDetails('developerDetails', 'date', moment(card.updatedAt).format('MM/DD/YYYY, h:mm a'))}
-          {this.renderStatusBand('status-band', card.freckleAutomations.status.toUpperCase(), card.id)}
-          {this.renderActivity(['slack', 'email', 'freckle'], metric, card)}
         </div>
-      );
-    });
+        {this.renderDeveloperPic(firstInitials, secondInitials)}
+        <div className="clickableCardContent tooltip-container" id="fellow-name" onClick={() => window.open(`https://ais.andela.com/people/${card.fellowId}`)}>
+          {this.renderDetails('developerDetails', 'developerName', card.fellowName)}
+          <span className="tooltip-icon">
+            <i className="fas fa-external-link-alt" />
+          </span>
+        </div>
+        {this.renderDetails('partnerName', '', card.partnerName)}
+        {this.renderDetails('developerDetails', 'date', moment(card.updatedAt).format('MM/DD/YYYY, h:mm a'))}
+        {card.nokoAutomations && this.renderStatusBand('status-band', card.nokoAutomations.status.toUpperCase(), card.id)}
+        {this.renderActivity(['slack', 'email', 'noko'], metric, card)}
+      </div>
+    );
   };
 
   render() {
     const { isLoading } = this.props;
-    return (
-      <div className="cont">
-        {isLoading ? <Spinner /> : this.renderCards()}
-      </div>
-    );
+    return (isLoading ? <Spinner /> : this.renderCards());
   }
 }
 
 DeveloperCard.propTypes = {
-  data: PropTypes.array.isRequired,
+  card: PropTypes.object.isRequired,
   openModal: PropTypes.func.isRequired,
   changeModalTypes: PropTypes.func.isRequired,
   isLoading: PropTypes.bool,

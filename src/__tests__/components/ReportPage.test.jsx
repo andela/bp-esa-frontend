@@ -1,23 +1,9 @@
-/* global mount */
 import React from 'react';
-import configureStore from 'redux-mock-store';
-import ReportComponent, { ReportPage, mapDispatchToProps, mapStateToProps } from '../../components/ReportPage';
+import { mount } from 'enzyme';
+import ReactRouterEnzymeContext from 'react-router-enzyme-context';
+import { ReportPage, mapDispatchToProps, mapStateToProps } from '../../components/ReportPage';
 import { sampleReports, stats } from '../../fixtures/fixtures';
 
-const state = {
-  automation: {
-    data: sampleReports.data,
-    error: { error: '' },
-    isLoading: false,
-    pagination: sampleReports.pagination,
-  },
-  stats,
-  error: {},
-  isLoading: false,
-};
-
-const mockStore = configureStore();
-const store = mockStore(state);
 
 describe('ReportPage Component', () => {
   const props = {
@@ -49,17 +35,27 @@ describe('ReportPage Component', () => {
   };
   let component;
 
+  const options = new ReactRouterEnzymeContext();
+
   beforeEach(() => {
-    component = mount(<ReportPage {...props} />);
+    component = mount(
+      <ReportPage {...props} />,
+      options.get(),
+    );
   });
 
   afterEach(() => {
     component.unmount();
-  })
+  });
 
   it('should render as expected', () => {
     const title = component.find('.text');
     expect(title.text()).toEqual('ESA');
+  });
+
+  it('should render as two difference developerCard components', () => {
+    const card = component.find('DeveloperCard');
+    expect(card.length).toEqual(2);
   });
 
   it('should redirect to the AIS page when you click the engineer\'s name', () => {
@@ -128,10 +124,10 @@ describe('ReportPage Component', () => {
     });
 
     it('should call handleRetryAutomation for the card view', () => {
-      wrapper = mount(<ReportPage {...props} />);
+      wrapper = component;
       const instance = wrapper.instance();
       jest.spyOn(instance, 'handleRetryAutomation');
-      const button = wrapper.find('#retry-automation');
+      const button = wrapper.find('#retry-automation').at(0);
       button.simulate('click');
       // eslint-disable-next-line no-unused-expressions
       expect(instance.handleRetryAutomation).toBeCalled;
@@ -178,6 +174,11 @@ describe('ReportPage Component', () => {
 
     it('should ensure that fetchStat is mapped to props', () => {
       expectedProps.fetchStat();
+      expect(dispatch).toHaveBeenCalled();
+    });
+
+    it('should ensure that retryFailedAutomation is mapped to props', () => {
+      expectedProps.retryFailedAutomation();
       expect(dispatch).toHaveBeenCalled();
     });
 

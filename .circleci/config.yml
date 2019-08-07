@@ -1,19 +1,41 @@
 # Javascript Node CircleCI 2.0 configuration file
 #
 # Check https://circleci.com/docs/2.0/language-javascript/ for more details
-# Just testing to see if this triggers a build 
+
 version: 2
 defaults: &defaults
-    docker:
-      # specify the version you desire here
-      - image: cypress/base:10
-      # Specify service dependencies here if necessary
-      # CircleCI maintains a library of pre-built images
-      # documented at https://circleci.com/docs/2.0/circleci-images/
-    working_directory: ~/repo
-    parallelism: 1
+  docker:
+    - image: cypress/base:10
+    - image: circleci/node:10.15.0
+      environment:
+        GOOGLE_PROJECT_ID: bench-projects
+        GOOGLE_COMPUTE_ZONE: us-central1-a
+  working_directory: ~/esa_frontend_repo
+
+attach_workspace: &attach_workspace
+  attach_workspace:
+    at: ~/esa_frontend_repo
+
+persist_to_workspace: &persist_to_workspace
+  persist_to_workspace:
+    root: .
+    paths: .
+
+install_npm_packages: &install_npm_packages
+  run:
+    name: Install ESA Frontend dependencies
+    command: |
+      yarn install
+
+filters: &filters
+  filters:
+    branches:
+      only:
+        - develop
+        - master
+
 jobs:
-  build:
+  checkout_repo:
     <<: *defaults
     steps:
       - checkout
@@ -22,19 +44,31 @@ jobs:
           keys:
           - v1-dependencies-{{ checksum "yarn.lock" }}
           # fallback to using the latest cache if no exact match is found
-          - v1-dependencies-
-      - run:
-            name: Install dependencies
-            command: yarn install
+          - v1-dependencies-   
+      - *install_npm_packages
       - save_cache:
           paths:
             - node_modules
+            - ~/.cache/Cypress
           key: v1-dependencies-{{ checksum "yarn.lock" }}
+      - *persist_to_workspace
 
-      - attach_workspace:
-          at: ~/repo/tmp
+  run_vulnerability_check:
+    <<: *defaults
+    steps:
+      - *attach_workspace
+      - *install_npm_packages
       - run:
-          name: Install code coverage dependencies
+          name: Scan for vulnerabilities in npm packages
+          command: |
+            yarn check --integrity
+
+  test_javascript_report:
+    <<: *defaults
+    steps:
+      - *attach_workspace
+      - run:
+          name: Set up codeclimate test reporter
           command: |
             curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
             chmod +x ./cc-test-reporter
@@ -44,23 +78,34 @@ jobs:
             ./cc-test-reporter before-build
             yarn test
             ./cc-test-reporter after-build --coverage-input-type lcov --exit-code $?
-      - run:
-          name: Run end to end test
-          command: yarn test:e2e
-
       - store_artifacts:
           path: coverage
           prefix: coverage
 
+  test_ui_flow:
+    <<: *defaults
+    steps:
+      - *attach_workspace
+      - run:
+          name: Starting ESA frontend in the background
+          command: yarn start
+          background: true
+      - run:
+          name: Run E2E tests
+          command: |
+            yarn cy:run
+          when: on_success
+  
   deploy_staging: # Deploy application to GCP staging
     docker:
       - image: circleci/node:10.15.0
         environment:
           GOOGLE_PROJECT_ID: bench-projects
           GOOGLE_COMPUTE_ZONE: us-central1-a
+    working_directory: ~/esa_frontend_repo
     steps:
-      - checkout
       - setup_remote_docker
+      - *attach_workspace
       - run:
           name: Building Production files
           command: yarn install && yarn build
@@ -72,13 +117,19 @@ workflows:
   version: 2
   build_deploy:
     jobs:
-      - build
+      - checkout_repo
+      - run_vulnerability_check:
+          requires:
+            - checkout_repo
+      - test_javascript_report:
+          requires:
+            - checkout_repo
+      - test_ui_flow:
+          requires:
+            - checkout_repo
       - deploy_staging:
           requires:
-            - build
-          filters:
-            branches:
-              only:
-                - "develop"
-                - "master"
-          
+            - run_vulnerability_check
+            - test_javascript_report
+            - test_ui_flow
+          <<: *filters

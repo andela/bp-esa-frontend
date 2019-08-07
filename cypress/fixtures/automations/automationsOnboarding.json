@@ -28,9 +28,9 @@
               "status": "failure",
               "emailActivities": []
           },
-          "freckleAutomations": {
+          "nokoAutomations": {
               "status": "failure",
-              "freckleActivities": []
+              "nokoActivities": []
           }
       }],
   "pagination": {

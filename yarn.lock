@@ -3298,6 +3298,11 @@ cyclist@~0.2.2:
   version "0.2.2"
   resolved "https://registry.yarnpkg.com/cyclist/-/cyclist-0.2.2.tgz#1b33792e11e914a2fd6d6ed6447464444e5fa640"
 
+cypress-get-react-component@^1.0.0-dev4:
+  version "1.0.0-dev4"
+  resolved "https://registry.yarnpkg.com/cypress-get-react-component/-/cypress-get-react-component-1.0.0-dev4.tgz#64cd6c0af1c880bebfce714479f064be8df54109"
+  integrity sha512-+26irD2NTUbNNsLaCVehH7T9wkUDGI5yoAC1ZNuWvsJZn/odXW2BAJl7aXhAN0JawEbPCzEOaaUMjmFMJfZ6PQ==
+
 cypress@^3.3.1:
   version "3.3.2"
   resolved "https://registry.yarnpkg.com/cypress/-/cypress-3.3.2.tgz#105d9283c747884d534b88a8e6c857d977887024"
@@ -9522,6 +9527,14 @@ react-router-dom@^4.3.1:
     prop-types "^15.6.1"
     react-router "^4.3.1"
     warning "^4.0.1"
+
+react-router-enzyme-context@^1.2.0:
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/react-router-enzyme-context/-/react-router-enzyme-context-1.2.0.tgz#7aa11c80e23278fa31f8a29845f7b37760d99350"
+  integrity sha512-z6+PQ6sdOHsRk9u4gSfsbeEuWZeogffrmgHo4dFXX5t/K8mUFftZBJQ+imzL3f3T6rkIIp+J7I0CeREYgcqe9A==
+  dependencies:
+    history "^4.7.2"
+    prop-types "^15.6.0"
 
 react-router@^4.3.1:
   version "4.3.1"

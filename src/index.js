@@ -13,6 +13,7 @@ import { unregister } from './serviceWorker';
 
 /* istanbul ignore file */
 ReactDOM.render(
+  // eslint-disable-next-line react/jsx-filename-extension
   <Provider store={store}>
     <App />
   </Provider>,

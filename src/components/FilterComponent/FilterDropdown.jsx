@@ -12,7 +12,7 @@ export const partnerName = 'partner';
 export const fellowName = 'fellow';
 export const emailAutomations = 'emailAutomation';
 export const slackAutomations = 'slackAutomation';
-export const freckleAutomations = 'freckleAutomation';
+export const nokoAutomations = 'nokoAutomation';
 const searchByDuo = [fellowName, partnerName];
 const automationTypeDuo = [onboarding, offboarding];
 const successFailureDuo = [success, failure];
@@ -25,7 +25,7 @@ const onChangeDate = handleInputChange => (selectedDate, selection) => {
 const FilterDropdown = (props) => {
   const {
     filters: {
-      'search-by': searchBy, 'automation-type': type, emailAutomation, slackAutomation, freckleAutomation, date,
+      'search-by': searchBy, 'automation-type': type, emailAutomation, slackAutomation, nokoAutomation, date,
     },
     handleInputChange,
   } = props;
@@ -53,9 +53,9 @@ const FilterDropdown = (props) => {
             checkboxes: generateCheckboxDuo(slackAutomations, slackAutomation, successFailureDuo),
           },
           {
-            section: 'freckle',
+            section: 'noko',
             checkboxes: generateCheckboxDuo(
-              freckleAutomations, freckleAutomation, successFailureDuo,
+              nokoAutomations, nokoAutomation, successFailureDuo,
             ),
           },
         ]}
@@ -82,13 +82,13 @@ FilterDropdown.propTypes = {
     type: PropTypes.string,
     emailAutomation: PropTypes.string,
     slackAutomation: PropTypes.string,
-    freckleAutomation: PropTypes.string,
+    nokoAutomation: PropTypes.string,
     searchTerm: PropTypes.string,
     searchBy: PropTypes.string,
-    date: {
-      from: PropTypes.oneOf([PropTypes.string, PropTypes.object]),
-      to: PropTypes.oneOf([PropTypes.string, PropTypes.object]),
-    },
+    date: PropTypes.shape({
+      from: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
+      to: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
+    }),
   }).isRequired,
   handleInputChange: PropTypes.func.isRequired,
 };

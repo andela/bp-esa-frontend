@@ -1,4 +1,5 @@
 import React from 'react';
+import { mount } from 'enzyme';
 import DeveloperCardComponent from '../../../components/developerCards';
 
 
@@ -6,11 +7,11 @@ const props = {
   isLoading: false,
   openModal: jest.fn(),
   changeModalTypes: jest.fn(),
-  data: [{
+  card: {
     id: '10516',
     emailAutomations: { emailActivities: [13] },
     fellowName: 'Reyes, Kozey',
-    freckleAutomations: { status: 'success', freckleActivities: [14] },
+    nokoAutomations: { status: 'success', nokoActivities: [14] },
     partnerName: "Hammes, O'Keefe and Hilll",
     slackAutomations: {
       status: 'failure',
@@ -18,7 +19,7 @@ const props = {
         {
           status: 'failure',
           statusMessage:
-        'An API error occurred: channel_not_found', 
+        'An API error occurred: channel_not_found',
           type: 'invite',
           channelId: null,
           channelName: null,
@@ -32,7 +33,7 @@ const props = {
           channelName: null,
         }],
     },
-  }],
+  },
   retryingAutomation: false,
   handleRetryAutomation: jest.fn(),
 };
@@ -50,7 +51,7 @@ describe('rendering', () => {
   });
 
   it('should render DeveloperCard correctly', () => {
-    const cardContainer = wrapper.find('.cont');
+    const cardContainer = wrapper.find('.card');
     expect(cardContainer.length).toEqual(1);
   });
 
@@ -75,5 +76,12 @@ describe('rendering', () => {
     const stat = wrapper.find('.status-container > div > span');
     expect(stat.at(0).contains('0/2')).toEqual(true);
     expect(stat.at(1).contains('0/1')).toEqual(true);
+  });
+
+  it('should open new tab to AIS when fellow name is clicked', () => {
+    global.open = jest.fn();
+    const fellowNAme = wrapper.find('.clickableCardContent');
+    fellowNAme.simulate('click');
+    expect(global.open).toBeCalled();
   });
 });

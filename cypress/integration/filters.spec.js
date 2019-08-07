@@ -7,7 +7,7 @@ import {
   stubbedPartnerOffboarding,
   stubbedDateFilter,
   onboardingFixtures,
-  offboardingFixtures
+  offboardingFixtures,
 } from '../stubs/filterStubs';
 
 
@@ -43,33 +43,33 @@ describe('Filter test', () => {
       cy.get('.filter-button')
         .click();
       cy.get('.automation-type-onboarding-label')
-        .click()
+        .click();
       cy.get('button.apply-filters')
         .click();
       cy.wait(2000);
-      cy.get('#0-id')
-        .click()
+      cy.get('#more-info-icon')
+        .click();
       cy.get('.automation-type')
         .contains('onboarding');
       cy.get('.modal-close-button-group')
         .click();
-    })
+    });
 
     it('filters data to get offboarding results only', () => {
       cy.get('.filter-button')
         .click();
       cy.get('.automation-type-offboarding-label')
-        .click()
+        .click();
       cy.get('button.apply-filters')
         .click();
       cy.wait(2000);
-      cy.get('#0-id')
-        .click()
+      cy.get('#more-info-icon')
+        .click();
       cy.get('.automation-type')
         .contains('offboarding');
       cy.get('.modal-close-button-group')
         .click();
-    })
+    });
 
     it('searches for a specified engineer name for onboarding activities ', () => {
       cy.get('input.search-input')
@@ -81,19 +81,19 @@ describe('Filter test', () => {
       cy.get('.search-by-fellow-label')
         .click();
       cy.get('.automation-type-onboarding-label')
-        .click()
+        .click();
       cy.get('button.apply-filters')
         .click();
       cy.wait(2000);
-      cy.get('#0-id')
-        .click()
+      cy.get('#more-info-icon')
+        .click();
       cy.get('.developer-name')
-        .contains('Kory')
+        .contains('Kory');
       cy.get('.automation-type')
         .contains('onboarding');
       cy.get('.modal-close-button-group')
         .click();
-    })
+    });
 
     it('searches for a specified engineer name for offboarding activities ', () => {
       cy.get('input.search-input')
@@ -105,19 +105,19 @@ describe('Filter test', () => {
       cy.get('.search-by-fellow-label')
         .click();
       cy.get('.automation-type-offboarding-label')
-        .click()
+        .click();
       cy.get('button.apply-filters')
         .click();
       cy.wait(2000);
-      cy.get('#0-id')
-        .click()
+      cy.get('#more-info-icon')
+        .click();
       cy.get('.developer-name')
-        .contains('Annabelle')
+        .contains('Annabelle');
       cy.get('.automation-type')
         .contains('offboarding');
       cy.get('.modal-close-button-group')
         .click();
-    })
+    });
 
     it('searches for a specified partner name for onboarding activities ', () => {
       cy.get('input.search-input')
@@ -129,19 +129,19 @@ describe('Filter test', () => {
       cy.get('.search-by-partner-label')
         .click();
       cy.get('.automation-type-onboarding-label')
-        .click()
+        .click();
       cy.get('button.apply-filters')
         .click();
       cy.wait(2000);
-      cy.get('#0-id')
-        .click()
+      cy.get('#more-info-icon')
+        .click();
       cy.get('.partner-name')
-        .contains('Fadel')
+        .contains('Fadel');
       cy.get('.automation-type')
         .contains('onboarding');
       cy.get('.modal-close-button-group')
         .click();
-    })
+    });
 
     it('searches for a specified partner name for offboarding activities ', () => {
       cy.get('input.search-input')
@@ -153,40 +153,40 @@ describe('Filter test', () => {
       cy.get('.search-by-partner-label')
         .click();
       cy.get('.automation-type-offboarding-label')
-        .click()
+        .click();
       cy.get('button.apply-filters')
         .click();
       cy.wait(2000);
-      cy.get('#0-id')
-        .click()
+      cy.get('#more-info-icon')
+        .click();
       cy.get('.partner-name')
-        .contains('Lincon')
+        .contains('Lincon');
       cy.get('.automation-type')
         .contains('offboarding');
       cy.get('.modal-close-button-group')
         .click();
-    })
+    });
 
     it('filters by automation date ', () => {
       cy.get('.filter-button')
         .click();
       cy.get('#from')
         .click()
-        .type('May 01, 2019')
+        .type('May 01, 2019');
       cy.get('#to')
         .click()
-        .type('May 01, 2019')
+        .type('May 01, 2019');
       cy.get('.filter-dropdown-parent')
         .click();
       cy.get('button.apply-filters')
         .click();
       cy.wait(2000);
-      cy.get('#0-id')
-        .click()
+      cy.get('#more-info-icon')
+        .click();
       cy.get('.automation-date')
-        .contains('5/1/2019')
+        .contains('5/1/2019');
       cy.get('.modal-close-button-group')
         .click();
-    })
-  });  
+    });
+  });
 });

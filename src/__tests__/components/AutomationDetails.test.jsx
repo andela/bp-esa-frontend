@@ -2,6 +2,8 @@ import React from 'react';
 import { mount } from 'enzyme';
 import AutomationDetails from '../../components/AutomationDetails';
 
+const jsdomOpen = window.open;
+
 const props = {
   history: {},
   currentUser: {
@@ -30,13 +32,13 @@ const props = {
         },
       ],
     },
-    freckleAutomations: {
+    nokoAutomations: {
       status: 'failure',
-      freckleActivities: [
+      nokoActivities: [
         {
           status: 'failure',
           statusMessage: 'Request failed with status code 403',
-          freckleUserId: null,
+          nokoUserId: null,
           projectId: null,
           type: 'projectCreation',
         },
@@ -68,6 +70,13 @@ const props = {
 const getComponent = () => mount(<AutomationDetails {...props} />);
 
 describe('Automation details', () => {
+  beforeEach( () => {
+    window.open = () => {};
+  });
+  afterEach( () => {
+    window.open = jsdomOpen;
+  });
+
   it('should render slack details', () => {
     const component = getComponent();
     expect(component.instance().state.modalType).toEqual('slack');
@@ -80,19 +89,21 @@ describe('Automation details', () => {
   });
 
   it('should redirect user to AIS profile', () => {
-    const component = getComponent().find('.fas');
+    const wrapper = getComponent().setProps({
+      ...props,
+    });
+    const component = wrapper.find('.fas');
     component.simulate('click');
     expect(component.props().title).toEqual('Open Tunmise, Tunmise AIS profile');
   });
-  
 
-  it('should render freckle details', () => {
+  it('should render noko details', () => {
     const component = getComponent();
-    component.find('#freckle').simulate('click');
-    expect(component.instance().state.modalType).toEqual('freckle');
+    component.find('#noko').simulate('click');
+    expect(component.instance().state.modalType).toEqual('noko');
   });
 
-  it('should render freckle details with no activities', () => {
+  it('should render noko details with no activities', () => {
     const prop = {
       history: {},
       currentUser: {
@@ -121,7 +132,7 @@ describe('Automation details', () => {
             },
           ],
         },
-        freckleAutomations: {
+        nokoAutomations: {
           status: 'failure',
         },
         emailAutomations: {
@@ -144,8 +155,8 @@ describe('Automation details', () => {
       },
     };
     const component = mount(<AutomationDetails {...prop} />);
-    component.find('#freckle').simulate('click');
-    expect(component.instance().state.modalType).toEqual('freckle');
+    component.find('#noko').simulate('click');
+    expect(component.instance().state.modalType).toEqual('noko');
   });
   it('should render email details with no activities', () => {
     const prop = {
@@ -176,7 +187,7 @@ describe('Automation details', () => {
             },
           ],
         },
-        freckleAutomations: {
+        nokoAutomations: {
           status: 'failure',
         },
         emailAutomations: {
@@ -188,5 +199,43 @@ describe('Automation details', () => {
     const component = mount(<AutomationDetails {...prop} />);
     component.find('#email').simulate('click');
     expect(component.instance().state.modalType).toEqual('email');
+  });
+
+  it('should render email details with activities including the recipient', () => {
+    const prop = {
+      formatDates: jest.fn(),
+      isModalOpen: false,
+      closeModal: jest.fn(),
+      modalContent: {
+        id: 1,
+        fellowName: 'Tunmise, Tunmise',
+        partnerName: 'Andela',
+        type: 'Onboarding',
+        slackAutomations: {
+          status: 'success',
+        },
+        nokoAutomations: {
+          status: 'failure',
+        },
+        emailAutomations: {
+          status: 'success',
+          emailActivities: [{
+            id: 1,
+            recipient: 'Tunmise.ogunniyi@andela.com',
+            subject: 'Onboarding',
+            status: 'success',
+          },
+          ],
+        },
+        date: '2017-09-29 01:22',
+      },
+    };
+    const component = mount(<AutomationDetails {...prop} />);
+    component.setState({
+      updatedModalContext: component.props().modalContent,
+    });
+    component.find('#email').simulate('click');
+    const recipient = component.find('.automation-content .content-row').at(0);
+    expect(recipient.text()).toEqual('Tunmise.ogunniyi@andela.com');
   });
 });

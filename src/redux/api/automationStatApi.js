@@ -5,7 +5,7 @@ const baseUrl = resolveUrl();
 
 class StatsAPI {
   static async getStats(period) {
-    return axios.get(`${baseUrl}/automations/stats/?duration=${period}`, );
+    return axios.get(`${baseUrl}/automations/stats/?duration=${period}`);
   }
 }
 

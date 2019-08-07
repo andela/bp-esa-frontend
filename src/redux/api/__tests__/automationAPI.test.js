@@ -5,7 +5,7 @@ import AutomationAPI from '../automationAPI';
 import { filterInitialState } from '../../../components/FilterComponent';
 import {
   emailAutomations,
-  freckleAutomations,
+  nokoAutomations,
   slackAutomations,
 } from '../../../components/FilterComponent/FilterDropdown';
 
@@ -30,7 +30,7 @@ describe('Automation API', () => {
     const [[url]] = axios.get.mock.calls;
     const { query } = URL.parse(url, true);
     expect(query).toHaveProperty(emailAutomations);
-    expect(query).toHaveProperty(freckleAutomations);
+    expect(query).toHaveProperty(nokoAutomations);
     expect(query).toHaveProperty(slackAutomations);
     expect(query).toHaveProperty('searchTerm');
     expect(query).toHaveProperty('searchBy');

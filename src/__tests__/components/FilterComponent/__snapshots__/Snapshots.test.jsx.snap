@@ -197,7 +197,7 @@ ShallowWrapper {
       "disabled": false,
       "disabledKeyboardNavigation": false,
       "dropdownMode": "select",
-      "maxDate": "2019-07-08T08:44:06.677Z",
+      "maxDate": "2019-08-01T14:43:27.233Z",
       "monthsShown": 1,
       "nextMonthButtonLabel": "Next month",
       "onBlur": [Function],
@@ -238,7 +238,7 @@ ShallowWrapper {
         "disabled": false,
         "disabledKeyboardNavigation": false,
         "dropdownMode": "select",
-        "maxDate": "2019-07-08T08:44:06.677Z",
+        "maxDate": "2019-08-01T14:43:27.233Z",
         "monthsShown": 1,
         "nextMonthButtonLabel": "Next month",
         "onBlur": [Function],
@@ -298,21 +298,7 @@ exports[`The FilterComponent component should not regress 1`] = `
 ShallowWrapper {
   Symbol(enzyme.__root__): [Circular],
   Symbol(enzyme.__unrendered__): <FilterComponent
-    filter={
-      Object {
-        "automation-type": "",
-        "date": Object {
-          "from": "",
-          "to": "",
-        },
-        "emailAutomation": "",
-        "freckleAutomation": "",
-        "search-by": "",
-        "searchTerm": "",
-        "showFilterDropdown": false,
-        "slackAutomation": "",
-      }
-    }
+    filter={[Function]}
   />,
   Symbol(enzyme.__renderer__): Object {
     "batchedUpdates": [Function],
@@ -595,7 +581,7 @@ ShallowWrapper {
           "to": "",
         },
         "emailAutomation": "",
-        "freckleAutomation": "",
+        "nokoAutomation": "",
         "search-by": "",
         "searchTerm": "",
         "showFilterDropdown": false,
@@ -714,22 +700,22 @@ ShallowWrapper {
                 "checkboxes": Array [
                   Object {
                     "checkCondition": false,
-                    "id": "freckleAutomation-success",
+                    "id": "nokoAutomation-success",
                     "label": "",
-                    "name": "freckleAutomation",
+                    "name": "nokoAutomation",
                     "noLabel": true,
                     "value": "success",
                   },
                   Object {
                     "checkCondition": false,
-                    "id": "freckleAutomation-failure",
+                    "id": "nokoAutomation-failure",
                     "label": undefined,
-                    "name": "freckleAutomation",
+                    "name": "nokoAutomation",
                     "noLabel": true,
                     "value": "failure",
                   },
                 ],
-                "section": "freckle",
+                "section": "noko",
               },
             ]
           }
@@ -872,22 +858,22 @@ ShallowWrapper {
               "checkboxes": Array [
                 Object {
                   "checkCondition": false,
-                  "id": "freckleAutomation-success",
+                  "id": "nokoAutomation-success",
                   "label": "",
-                  "name": "freckleAutomation",
+                  "name": "nokoAutomation",
                   "noLabel": true,
                   "value": "success",
                 },
                 Object {
                   "checkCondition": false,
-                  "id": "freckleAutomation-failure",
+                  "id": "nokoAutomation-failure",
                   "label": undefined,
-                  "name": "freckleAutomation",
+                  "name": "nokoAutomation",
                   "noLabel": true,
                   "value": "failure",
                 },
               ],
-              "section": "freckle",
+              "section": "noko",
             },
           ],
         },
@@ -1036,22 +1022,22 @@ ShallowWrapper {
                   "checkboxes": Array [
                     Object {
                       "checkCondition": false,
-                      "id": "freckleAutomation-success",
+                      "id": "nokoAutomation-success",
                       "label": "",
-                      "name": "freckleAutomation",
+                      "name": "nokoAutomation",
                       "noLabel": true,
                       "value": "success",
                     },
                     Object {
                       "checkCondition": false,
-                      "id": "freckleAutomation-failure",
+                      "id": "nokoAutomation-failure",
                       "label": undefined,
-                      "name": "freckleAutomation",
+                      "name": "nokoAutomation",
                       "noLabel": true,
                       "value": "failure",
                     },
                   ],
-                  "section": "freckle",
+                  "section": "noko",
                 },
               ]
             }
@@ -1194,22 +1180,22 @@ ShallowWrapper {
                 "checkboxes": Array [
                   Object {
                     "checkCondition": false,
-                    "id": "freckleAutomation-success",
+                    "id": "nokoAutomation-success",
                     "label": "",
-                    "name": "freckleAutomation",
+                    "name": "nokoAutomation",
                     "noLabel": true,
                     "value": "success",
                   },
                   Object {
                     "checkCondition": false,
-                    "id": "freckleAutomation-failure",
+                    "id": "nokoAutomation-failure",
                     "label": undefined,
-                    "name": "freckleAutomation",
+                    "name": "nokoAutomation",
                     "noLabel": true,
                     "value": "failure",
                   },
                 ],
-                "section": "freckle",
+                "section": "noko",
               },
             ],
           },

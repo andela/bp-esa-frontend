@@ -1,8 +1,11 @@
 import React from 'react';
 import configureStore from 'redux-mock-store';
+import ReactRouterEnzymeContext from 'react-router-enzyme-context';
 import { Provider } from 'react-redux';
 import { mount } from 'enzyme';
 import Dashboard from '../../../components/Dashboard';
+
+const options = new ReactRouterEnzymeContext();
 
 describe('test dashboard', () => {
   const state = {};
@@ -28,6 +31,7 @@ describe('test dashboard', () => {
       <Provider store={store}>
         <Dashboard {...props} />
       </Provider>,
+      options.get(),
     );
     expect(wrapper.find('#header').length).toEqual(1);
   });

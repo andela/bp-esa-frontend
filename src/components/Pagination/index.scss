@@ -56,7 +56,6 @@
 }
 
  .nav-icon{
-  height: 20px;
   width: 20px;
 }
 
@@ -65,6 +64,11 @@
   min-width: 40px;
   border: none;
   margin: 5px;
+  color: #385de0;
+  border: none;
+  border-radius: 50%;
+  transition: background-color, 0.2s;
+  font-size: 1rem;
 }
 
  .form-input{
@@ -83,8 +87,6 @@
 }
 
  .select{
-    border: none;
-    background-color: inherit;
     color: #385de0;
 
      &:focus{

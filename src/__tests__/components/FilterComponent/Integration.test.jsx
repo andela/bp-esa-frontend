@@ -2,9 +2,12 @@
 
 import React from 'react';
 import axios from 'axios';
+import ReactRouterEnzymeContext from 'react-router-enzyme-context';
 import { ReportPage } from '../../../components/ReportPage';
 import FilterDropdown from '../../../components/FilterComponent/FilterDropdown';
 import FilterComponent, { filterInitialState } from '../../../components/FilterComponent';
+
+const options = new ReactRouterEnzymeContext();
 
 jest.mock('axios');
 const axiosGetMock = jest.fn().mockResolvedValue({});
@@ -45,7 +48,7 @@ const stats = {
       success: 1,
       total: 191,
     },
-    freckle: {
+    noko: {
       success: 1,
       total: 191,
     },
@@ -66,16 +69,19 @@ const fetchAllAutomationMock = jest.fn();
 describe('Filter Component Integration', () => {
   let reportPage;
   beforeAll(() => {
-    reportPage = mount(<ReportPage
-      currentUser={currentUserMock}
-      history={historyMock}
-      automation={mockAutomations}
-      fetchAllAutomation={fetchAllAutomationMock}
-      location={{ search: '?view=listView' }}
-      fetchStat={() => {}}
-      stats={stats}
-      retryFailedAutomation={jest.fn()}
-    />);
+    reportPage = mount(
+      <ReportPage
+        currentUser={currentUserMock}
+        history={historyMock}
+        automation={mockAutomations}
+        fetchAllAutomation={fetchAllAutomationMock}
+        location={{ search: '?view=listView' }}
+        fetchStat={() => {}}
+        stats={stats}
+        retryFailedAutomation={jest.fn()}
+      />,
+      options.get(),
+    );
   });
 
   beforeEach(() => {
@@ -87,6 +93,11 @@ describe('Filter Component Integration', () => {
   it('should render the filter component', () => {
     expect(reportPage.find(FilterComponent)).toHaveLength(1);
   });
+
+  it('should render the list view', () => {
+    reportPage.find('.view-button-active').simulate('click');
+    expect(reportPage.find('div.table-header')).toHaveLength(1);
+  })
 
   it('should call the filter function when the filters are applied', () => {
     reportPage.find('div.filter-button').simulate('click');

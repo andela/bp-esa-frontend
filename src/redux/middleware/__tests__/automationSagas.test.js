@@ -74,10 +74,10 @@ describe('Automation Saga', () => {
     const automationId = 3014;
     const response = {
       data: {
-        data: {
+        data: [{
           message: 'Resource successfully retried',
           data: {},
-        },
+        }],
       },
     };
 

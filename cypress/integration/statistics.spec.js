@@ -19,33 +19,33 @@ describe('statistic cards', () => {
   it('calculates stats percentage effectively', () => {
     cy.wait(6000)
       .get('.stat-container:last')
-      .contains('13%')
+      .contains('0%')
       .get('.stat-container:first')
       .contains('0%')
       .get('.stat-container:nth-child(2)')
-      .contains('50%')
+      .contains('0%')
       .get('.stat-container:nth-child(3)')
-      .contains('17%')
+      .contains('0%')
       .get('.stat-container:nth-child(5)')
-      .contains('13%');
+      .contains('0%');
   });
 
   describe('stats dropdown', () => {
     beforeEach(() => {
       cy.get('.stat-dropdown-caret')
-      .click({force: true})
-    })
+        .click({ force: true });
+    });
 
     it('shows a dropdown when the stats dropdown caret is clicked', () => {
       cy.get('.stat-dropdown-content')
-        .should('be.visible')
+        .should('be.visible');
     });
-  
+
     it('closes the dropdown when the stats dropdown caret is clicked with the dropdown already showing', () => {
       cy.get('.stat-dropdown-caret')
-        .click({force: true})
+        .click({ force: true })
         .get('.stat-dropdown-content')
-        .should('not.be.visible')
+        .should('not.be.visible');
     });
 
     it('selects today as the timeframe when today is clicked in the dropdown', () => {
@@ -54,7 +54,7 @@ describe('statistic cards', () => {
         .get('.stat-dropdown-content')
         .should('not.be.visible')
         .get('.stat-dropdown-container')
-        .contains('today')
+        .contains('today');
     });
 
     it('selects this week as the timeframe when this week is clicked in the dropdown', () => {
@@ -63,7 +63,7 @@ describe('statistic cards', () => {
         .get('.stat-dropdown-content')
         .should('not.be.visible')
         .get('.stat-dropdown-container')
-        .contains('this week')
+        .contains('this week');
     });
 
     it('selects this month as the timeframe when this month is clicked in the dropdown', () => {
@@ -72,7 +72,7 @@ describe('statistic cards', () => {
         .get('.stat-dropdown-content')
         .should('not.be.visible')
         .get('.stat-dropdown-container')
-        .contains('this month')
+        .contains('this month');
     });
 
     it('selects this year as the timeframe when this year is clicked in the dropdown', () => {
@@ -81,7 +81,7 @@ describe('statistic cards', () => {
         .get('.stat-dropdown-content')
         .should('not.be.visible')
         .get('.stat-dropdown-container')
-        .contains('this year')
+        .contains('this year');
     });
-  })
+  });
 });

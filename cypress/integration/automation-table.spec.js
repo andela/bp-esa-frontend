@@ -43,10 +43,17 @@ describe('Automation Table', () => {
     cy
       .get('.report-table-header')
       .get('tr>th')
-      .contains('Freckle');
+      .contains('Noko');
     cy
       .get('.report-table-header')
       .get('tr>th')
       .contains('Slack');
+  });
+
+  it('sould show a tooltip when fellow name is hovered over in table view', () => {
+    cy.get('#fellow-name')
+      .trigger('mouseover')
+      .get('.tooltip-icon-black')
+      .should('exist');
   });
 });
