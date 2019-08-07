@@ -7,6 +7,9 @@ import Login from '../../components/Login';
 jest.mock('../../firebase');
 
 const props = {
+  location: {
+    search: 'url=theToken',
+  },
   history: {
     push: jest.fn(),
   },
@@ -46,23 +49,10 @@ describe('onLogin() method', () => {
     expect(spy).toHaveBeenCalled();
   });
 
-  it('should call onLogin() successfully', () => {
-    const renderedComponent = getComponent();
-    user.user.email.match = () => false;
-    doSignInWithGoogle.mockImplementationOnce(() => new Promise(resolve => resolve(user)));
-    const spy = jest.spyOn(renderedComponent.instance().props, 'setCurrentUser');
-    renderedComponent.find('.sign-in-button-container').simulate('click');
-    expect(spy).toHaveBeenCalled();
-  });
-
-  it('should call onLogin() error', () => {
-    const renderedComponent = getComponent();
-    user.user.email.match = () => false;
-    doSignInWithGoogle.mockImplementationOnce(
-      () => new Promise((resolve, reject) => reject(new Error('something is wrong'))),
-    );
-    const spy = jest.spyOn(renderedComponent.instance().props, 'setCurrentUser');
-    renderedComponent.find('.sign-in-button-container').simulate('click');
-    expect(spy).toHaveBeenCalled();
+  it('should redirect to the Andela API', () => {
+    const redirectUrl = `${process.env.REACT_APP_ANDELA_AUTH_HOST}/login?redirect_url=${process.env.REACT_APP_URL}`;
+    window.location.replace = jest.fn();
+    wrapper.find('.sign-in-button-container').simulate('click');
+    expect(window.location.replace).toHaveBeenCalledWith(redirectUrl);
   });
 });

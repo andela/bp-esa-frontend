@@ -42,17 +42,19 @@ class Header extends PureComponent {
 
   userInfo = () => {
     const { signoutDropDownIsVisible } = this.state;
-    const { currentUser } = this.props;
     const {
-      additionalUserInfo: {
-        profile: { name, picture },
+      currentUser: {
+        UserInfo: {
+          firstName,
+          lastName,
+          picture,
+        },
       },
-    } = currentUser;
+    } = this.props;
 
-    const [firstName, secondName] = name.split(' ');
     let initials = '';
-    if (firstName && secondName) {
-      initials = `${firstName[0]}${secondName[0]}`;
+    if (firstName && lastName) {
+      initials = `${firstName[0]}${lastName[0]}`;
     }
     return (
       <div
@@ -67,7 +69,7 @@ class Header extends PureComponent {
           <div
             className="user-name"
             data-initials={initials}
-            data-name={name}
+            data-name={`${firstName} ${lastName}`}
             data-toggle="signout-dropdown-toggler"
           />
           <div

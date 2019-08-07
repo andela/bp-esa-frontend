@@ -1,26 +1,21 @@
 import React, { Component } from 'react';
+import Cookies from 'cookies-js';
 import PropTypes from 'prop-types';
-import { notify } from 'react-notify-toast';
-import { doSignInWithGoogle } from '../../firebase';
 import './styles.scss';
 
 class Login extends Component {
+  componentDidMount() {
+    const { location: { search }, history } = this.props;
+    if (search && search.length > 0) {
+      const token = search.split('=')[1];
+      Cookies.set('jwt-token', token);
+      history.push('/');
+    }
+  }
+
   onLogin = () => {
-    const { setCurrentUser, history } = this.props;
-    doSignInWithGoogle().then((user) => {
-      if (user.user.email.match(/.*@andela.com$/)) {
-        setCurrentUser(user);
-        history.push('/');
-        notify.show(`Hello ${user.user.displayName} ! You have Logged in Successfully!`, 'success');
-      } else {
-        notify.show('Login failed! Please login with your andela email!', 'error');
-      }
-    })
-      .catch((error) => {
-        if (error) {
-          notify.show('Unable to login with google!', 'error');
-        }
-      });
+    const url = `${process.env.REACT_APP_ANDELA_AUTH_HOST}/login?redirect_url=${process.env.REACT_APP_URL}`;
+    window.location.replace(url);
   }
 
   render() {
@@ -50,12 +45,8 @@ class Login extends Component {
 }
 
 Login.propTypes = {
-  setCurrentUser: PropTypes.func,
   history: PropTypes.object.isRequired,
-};
-
-Login.defaultProps = {
-  setCurrentUser: () => {},
+  location: PropTypes.object.isRequired,
 };
 
 export default Login;

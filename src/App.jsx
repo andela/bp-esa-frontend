@@ -3,7 +3,9 @@ import {
   BrowserRouter, Route, Switch, Redirect,
 } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import Notifications from 'react-notify-toast';
+import Notifications, { notify } from 'react-notify-toast';
+import Cookies from 'cookies-js';
+import jwtDecode from 'jwt-decode';
 import Login from './components/Login';
 import ReportPage from './components/ReportPage';
 import Dashboard from './components/Dashboard';
@@ -24,15 +26,35 @@ AuthenticatedRoute.propTypes = {
 class App extends React.PureComponent {
   constructor(props) {
     super(props);
-    let userState = localStorage.getItem('state');
-    if (userState) {
-      userState = JSON.parse(userState);
-      this.state = userState;
-    } else {
-      this.state = {
-        authenticated: false,
-        currentUser: null,
-      };
+    this.state = {
+      authenticated: false,
+      currentUser: {},
+    };
+  }
+
+  componentDidMount() {
+    this.checkAuthorization();
+  }
+
+  checkAuthorization = () => {
+    const token = Cookies.get('jwt-token');
+    if (token) {
+      const userDetails = this.decodeToken(token);
+      if (userDetails) {
+        this.setCurrentUser(userDetails);
+      }
+    }
+  }
+
+  decodeToken = (token) => {
+    try {
+      const decodedToken = jwtDecode(token);
+      if (decodedToken.UserInfo.email.match(/.*@andela.com$/)) {
+        return decodedToken;
+      }
+      return notify.show('Please use your Andela Email to Login', 'error');
+    } catch (err) {
+      return false;
     }
   }
 
@@ -55,6 +77,7 @@ class App extends React.PureComponent {
       currentUser: null,
     });
     localStorage.removeItem('state');
+    Cookies.expire('jwt-token');
   };
 
   render() {
@@ -68,7 +91,7 @@ class App extends React.PureComponent {
               exact
               path="/login"
               render={props => ((authenticated === true)
-                ? <Redirect to="/" /> : <Login setCurrentUser={this.setCurrentUser} {...props} />)}
+                ? <Redirect to="/" /> : <Login {...props} />)}
             />
             <AuthenticatedRoute
               path="/dashboard"

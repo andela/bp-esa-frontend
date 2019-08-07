@@ -6,7 +6,24 @@ ShallowWrapper {
   Symbol(enzyme.__unrendered__): <Login
     history={
       Object {
-        "push": [MockFunction],
+        "push": [MockFunction] {
+          "calls": Array [
+            Array [
+              "/",
+            ],
+          ],
+          "results": Array [
+            Object {
+              "isThrow": false,
+              "value": undefined,
+            },
+          ],
+        },
+      }
+    }
+    location={
+      Object {
+        "search": "url=theToken",
       }
     }
     setCurrentUser={[MockFunction]}
