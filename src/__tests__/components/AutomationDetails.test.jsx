@@ -238,4 +238,40 @@ describe('Automation details', () => {
     const recipient = component.find('.automation-content .content-row').at(0);
     expect(recipient.text()).toEqual('Tunmise.ogunniyi@andela.com');
   });
+
+  it('should open new tab to partner profile when partner name is clicked', () => {
+    const prop = {
+      formatDates: jest.fn(),
+      isModalOpen: false,
+      closeModal: jest.fn(),
+      modalContent: {
+        id: 1,
+        fellowName: 'Tunmise, Tunmise',
+        partnerName: 'Andela',
+        type: 'Onboarding',
+        slackAutomations: {
+          status: 'success',
+        },
+        nokoAutomations: {
+          status: 'failure',
+        },
+        emailAutomations: {
+          status: 'success',
+          emailActivities: [{
+            id: 1,
+            recipient: 'Tunmise.ogunniyi@andela.com',
+            subject: 'Onboarding',
+            status: 'success',
+          },
+          ],
+        },
+        date: '2017-09-29 01:22',
+      },
+    };
+    const component = mount(<AutomationDetails {...prop} />);
+    global.open = jest.fn();
+    const partnerName = component.find('.partner-name');
+    partnerName.simulate('click');
+    expect(global.open).toBeCalled();
+  });
 });

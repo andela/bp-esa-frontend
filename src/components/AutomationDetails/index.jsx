@@ -52,7 +52,7 @@ class AutomationDetails extends PureComponent {
               <span className="tooltiptext">Link to AIS</span>
             </div>
           </div>
-          <h1 className="partner-name">{modalContent.partnerName}</h1>
+          <h1 className="partner-name" onClick={() => window.open(`https://ais.andela.com/partners/${modalContent.partnerId}`)}>{modalContent.partnerName} <i className="fa fa-link" aria-hidden="true"/></h1>
           <div className="automation-action">
             <h1 className="automation-type">{modalContent.type}</h1>
             <h1 className="dot">.</h1>

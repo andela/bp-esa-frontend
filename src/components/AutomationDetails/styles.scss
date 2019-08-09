@@ -91,6 +91,11 @@
             font-size: 20px;
             line-height: 22px;
         }
+
+        .partner-name { cursor: pointer; }
+        .fa.fa-link {
+            font-size: 16px;
+        }
         .automation-action{
             display: flex;
             .automation-type {

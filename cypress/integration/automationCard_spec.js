@@ -47,13 +47,6 @@ describe('Automation Card', () => {
       .should('exist');
   });
 
-  it('should redirect to AIS profile when fellow name is clicked in card view', () => {
-    cy.get('.cont')
-      .get('.card')
-      .get('#fellow-name')
-      .click();
-  });
-
   it('sould show a tooltip when more information icon hovered over', () => {
     cy.get('.cont')
       .get('.card')
