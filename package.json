@@ -60,10 +60,10 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "start:prod": "pushstate-server build 3000",
-    "test": "react-scripts test -u --coverage",
+    "test": "yarn lint && react-scripts test -u --coverage",
     "test:watch": "react-scripts test -u --coverage --watch",
     "eject": "react-scripts eject",
-    "lint": "eslint ./src/components",
+    "lint": "eslint ./src",
     "test:end2end": "cypress open",
     "cy:run": "cypress run --record false",
     "test:e2e": "start-server-and-test start http://localhost:3000 cy:run"

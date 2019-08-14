@@ -9,7 +9,7 @@ let wrapper;
 describe('Dropdown', () => {
   beforeEach(() => {
     wrapper = mount(<Dropdown fetchStat={fetchStat} />);
-  })
+  });
   it('should render as expected', () => {
     expect(wrapper.instance()).toMatchSnapshot();
   });
@@ -33,14 +33,14 @@ describe('Dropdown', () => {
   it('should set state and call the fetchStat prop with form input id passed as a parameter', () => {
     wrapper.setState({
       collapse: false,
-      categoryTitle: 'this week'
+      categoryTitle: 'this week',
     });
     const event = {
       target: {
         id: 'days',
         innerHTML: 'today',
-      }
-    }
+      },
+    };
     wrapper.instance().selectPeriod(event);
     expect(wrapper.state().collapse).toEqual(true);
     expect(wrapper.state().categoryTitle).toEqual('today');
@@ -54,8 +54,8 @@ describe('Dropdown', () => {
     const event = {
       target: {
         notStatsDropDown: true,
-      }
-    }
+      },
+    };
     wrapper.instance().closeStatDropdown(event);
     expect(wrapper.state().collapse).toEqual(true);
   });
