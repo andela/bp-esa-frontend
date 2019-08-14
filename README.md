@@ -31,6 +31,30 @@ The following should be installed in your machine:
 - Use `$ yarn start` to start the application.
 - Use `$ yarn test` to execute the tests of the application.
 
+## Docker Development Setup
+
+### Prerequisite
+
+- [Install docker](https://docs.docker.com/install/)
+- [Deployments](https://create-react-app.dev/docs/deployment)
+
+### Setup
+
+On the terminal run the following  commands:
+
+1. docker-compose
+`docker-compose -f docker-compose.local.yml up`
+
+2. Using a shell script and static server
+
+- Build application files by running the following shell script
+`./docker-serve`
+- Exist the terminal process
+- Run the finished build by using the following command
+`serve -s build -l PORT-NUMBER`
+- If you donot supply a port number the application would be run using the default port 5000
+- Open your browser and navigate to localhost:3000 to view the application
+
 ## How To Contribute
 
 ### Issues
