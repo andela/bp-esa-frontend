@@ -7,11 +7,10 @@ ShallowWrapper {
     activeTab="active"
     currentUser={
       Object {
-        "additionalUserInfo": Object {
-          "profile": Object {
-            "name": "My Name",
-            "picture": "image",
-          },
+        "UserInfo": Object {
+          "firstName": "David",
+          "lastName": "Muhanguzi",
+          "picture": "https://test-image.jpg",
         },
       }
     }
@@ -117,8 +116,8 @@ ShallowWrapper {
             >
               <div
                 className="user-name"
-                data-initials="MN"
-                data-name="My Name"
+                data-initials="DM"
+                data-name="David Muhanguzi"
                 data-toggle="signout-dropdown-toggler"
               />
               <div
@@ -129,7 +128,7 @@ ShallowWrapper {
                   alt="user-icon"
                   className="user-image"
                   data-toggle="signout-dropdown-toggler"
-                  src="image"
+                  src="https://test-image.jpg"
                 />
               </div>
             </div>
@@ -300,8 +299,8 @@ ShallowWrapper {
               >
                 <div
                   className="user-name"
-                  data-initials="MN"
-                  data-name="My Name"
+                  data-initials="DM"
+                  data-name="David Muhanguzi"
                   data-toggle="signout-dropdown-toggler"
                 />
                 <div
@@ -312,7 +311,7 @@ ShallowWrapper {
                     alt="user-icon"
                     className="user-image"
                     data-toggle="signout-dropdown-toggler"
-                    src="image"
+                    src="https://test-image.jpg"
                   />
                 </div>
               </div>
@@ -421,8 +420,8 @@ ShallowWrapper {
                 >
                   <div
                     className="user-name"
-                    data-initials="MN"
-                    data-name="My Name"
+                    data-initials="DM"
+                    data-name="David Muhanguzi"
                     data-toggle="signout-dropdown-toggler"
                   />
                   <div
@@ -433,7 +432,7 @@ ShallowWrapper {
                       alt="user-icon"
                       className="user-image"
                       data-toggle="signout-dropdown-toggler"
-                      src="image"
+                      src="https://test-image.jpg"
                     />
                   </div>
                 </div>,
@@ -481,8 +480,8 @@ ShallowWrapper {
                   "children": Array [
                     <div
                       className="user-name"
-                      data-initials="MN"
-                      data-name="My Name"
+                      data-initials="DM"
+                      data-name="David Muhanguzi"
                       data-toggle="signout-dropdown-toggler"
                     />,
                     <div
@@ -493,7 +492,7 @@ ShallowWrapper {
                         alt="user-icon"
                         className="user-image"
                         data-toggle="signout-dropdown-toggler"
-                        src="image"
+                        src="https://test-image.jpg"
                       />
                     </div>,
                   ],
@@ -508,8 +507,8 @@ ShallowWrapper {
                     "nodeType": "host",
                     "props": Object {
                       "className": "user-name",
-                      "data-initials": "MN",
-                      "data-name": "My Name",
+                      "data-initials": "DM",
+                      "data-name": "David Muhanguzi",
                       "data-toggle": "signout-dropdown-toggler",
                     },
                     "ref": null,
@@ -525,7 +524,7 @@ ShallowWrapper {
                         alt="user-icon"
                         className="user-image"
                         data-toggle="signout-dropdown-toggler"
-                        src="image"
+                        src="https://test-image.jpg"
                       />,
                       "className": "image-container",
                       "data-toggle": "signout-dropdown-toggler",
@@ -539,7 +538,7 @@ ShallowWrapper {
                         "alt": "user-icon",
                         "className": "user-image",
                         "data-toggle": "signout-dropdown-toggler",
-                        "src": "image",
+                        "src": "https://test-image.jpg",
                       },
                       "ref": null,
                       "rendered": null,
@@ -765,8 +764,8 @@ ShallowWrapper {
               >
                 <div
                   className="user-name"
-                  data-initials="MN"
-                  data-name="My Name"
+                  data-initials="DM"
+                  data-name="David Muhanguzi"
                   data-toggle="signout-dropdown-toggler"
                 />
                 <div
@@ -777,7 +776,7 @@ ShallowWrapper {
                     alt="user-icon"
                     className="user-image"
                     data-toggle="signout-dropdown-toggler"
-                    src="image"
+                    src="https://test-image.jpg"
                   />
                 </div>
               </div>
@@ -948,8 +947,8 @@ ShallowWrapper {
                 >
                   <div
                     className="user-name"
-                    data-initials="MN"
-                    data-name="My Name"
+                    data-initials="DM"
+                    data-name="David Muhanguzi"
                     data-toggle="signout-dropdown-toggler"
                   />
                   <div
@@ -960,7 +959,7 @@ ShallowWrapper {
                       alt="user-icon"
                       className="user-image"
                       data-toggle="signout-dropdown-toggler"
-                      src="image"
+                      src="https://test-image.jpg"
                     />
                   </div>
                 </div>
@@ -1069,8 +1068,8 @@ ShallowWrapper {
                   >
                     <div
                       className="user-name"
-                      data-initials="MN"
-                      data-name="My Name"
+                      data-initials="DM"
+                      data-name="David Muhanguzi"
                       data-toggle="signout-dropdown-toggler"
                     />
                     <div
@@ -1081,7 +1080,7 @@ ShallowWrapper {
                         alt="user-icon"
                         className="user-image"
                         data-toggle="signout-dropdown-toggler"
-                        src="image"
+                        src="https://test-image.jpg"
                       />
                     </div>
                   </div>,
@@ -1129,8 +1128,8 @@ ShallowWrapper {
                     "children": Array [
                       <div
                         className="user-name"
-                        data-initials="MN"
-                        data-name="My Name"
+                        data-initials="DM"
+                        data-name="David Muhanguzi"
                         data-toggle="signout-dropdown-toggler"
                       />,
                       <div
@@ -1141,7 +1140,7 @@ ShallowWrapper {
                           alt="user-icon"
                           className="user-image"
                           data-toggle="signout-dropdown-toggler"
-                          src="image"
+                          src="https://test-image.jpg"
                         />
                       </div>,
                     ],
@@ -1156,8 +1155,8 @@ ShallowWrapper {
                       "nodeType": "host",
                       "props": Object {
                         "className": "user-name",
-                        "data-initials": "MN",
-                        "data-name": "My Name",
+                        "data-initials": "DM",
+                        "data-name": "David Muhanguzi",
                         "data-toggle": "signout-dropdown-toggler",
                       },
                       "ref": null,
@@ -1173,7 +1172,7 @@ ShallowWrapper {
                           alt="user-icon"
                           className="user-image"
                           data-toggle="signout-dropdown-toggler"
-                          src="image"
+                          src="https://test-image.jpg"
                         />,
                         "className": "image-container",
                         "data-toggle": "signout-dropdown-toggler",
@@ -1187,7 +1186,7 @@ ShallowWrapper {
                           "alt": "user-icon",
                           "className": "user-image",
                           "data-toggle": "signout-dropdown-toggler",
-                          "src": "image",
+                          "src": "https://test-image.jpg",
                         },
                         "ref": null,
                         "rendered": null,
@@ -1386,11 +1385,10 @@ ShallowWrapper {
     activeTab="active"
     currentUser={
       Object {
-        "additionalUserInfo": Object {
-          "profile": Object {
-            "name": "",
-            "picture": "",
-          },
+        "UserInfo": Object {
+          "firstName": "David",
+          "lastName": "Muhanguzi",
+          "picture": "https://test-image.jpg",
         },
       }
     }
@@ -1472,17 +1470,19 @@ ShallowWrapper {
             >
               <div
                 className="user-name"
-                data-initials=""
-                data-name=""
+                data-initials="DM"
+                data-name="David Muhanguzi"
                 data-toggle="signout-dropdown-toggler"
               />
               <div
                 className="image-container"
                 data-toggle="signout-dropdown-toggler"
               >
-                <i
-                  className="fa fa-user-circle"
+                <img
+                  alt="user-icon"
+                  className="user-image"
                   data-toggle="signout-dropdown-toggler"
+                  src="https://test-image.jpg"
                 />
               </div>
             </div>
@@ -1653,17 +1653,19 @@ ShallowWrapper {
               >
                 <div
                   className="user-name"
-                  data-initials=""
-                  data-name=""
+                  data-initials="DM"
+                  data-name="David Muhanguzi"
                   data-toggle="signout-dropdown-toggler"
                 />
                 <div
                   className="image-container"
                   data-toggle="signout-dropdown-toggler"
                 >
-                  <i
-                    className="fa fa-user-circle"
+                  <img
+                    alt="user-icon"
+                    className="user-image"
                     data-toggle="signout-dropdown-toggler"
+                    src="https://test-image.jpg"
                   />
                 </div>
               </div>
@@ -1772,17 +1774,19 @@ ShallowWrapper {
                 >
                   <div
                     className="user-name"
-                    data-initials=""
-                    data-name=""
+                    data-initials="DM"
+                    data-name="David Muhanguzi"
                     data-toggle="signout-dropdown-toggler"
                   />
                   <div
                     className="image-container"
                     data-toggle="signout-dropdown-toggler"
                   >
-                    <i
-                      className="fa fa-user-circle"
+                    <img
+                      alt="user-icon"
+                      className="user-image"
                       data-toggle="signout-dropdown-toggler"
+                      src="https://test-image.jpg"
                     />
                   </div>
                 </div>,
@@ -1830,17 +1834,19 @@ ShallowWrapper {
                   "children": Array [
                     <div
                       className="user-name"
-                      data-initials=""
-                      data-name=""
+                      data-initials="DM"
+                      data-name="David Muhanguzi"
                       data-toggle="signout-dropdown-toggler"
                     />,
                     <div
                       className="image-container"
                       data-toggle="signout-dropdown-toggler"
                     >
-                      <i
-                        className="fa fa-user-circle"
+                      <img
+                        alt="user-icon"
+                        className="user-image"
                         data-toggle="signout-dropdown-toggler"
+                        src="https://test-image.jpg"
                       />
                     </div>,
                   ],
@@ -1855,8 +1861,8 @@ ShallowWrapper {
                     "nodeType": "host",
                     "props": Object {
                       "className": "user-name",
-                      "data-initials": "",
-                      "data-name": "",
+                      "data-initials": "DM",
+                      "data-name": "David Muhanguzi",
                       "data-toggle": "signout-dropdown-toggler",
                     },
                     "ref": null,
@@ -1868,9 +1874,11 @@ ShallowWrapper {
                     "key": undefined,
                     "nodeType": "host",
                     "props": Object {
-                      "children": <i
-                        className="fa fa-user-circle"
+                      "children": <img
+                        alt="user-icon"
+                        className="user-image"
                         data-toggle="signout-dropdown-toggler"
+                        src="https://test-image.jpg"
                       />,
                       "className": "image-container",
                       "data-toggle": "signout-dropdown-toggler",
@@ -1881,12 +1889,14 @@ ShallowWrapper {
                       "key": undefined,
                       "nodeType": "host",
                       "props": Object {
-                        "className": "fa fa-user-circle",
+                        "alt": "user-icon",
+                        "className": "user-image",
                         "data-toggle": "signout-dropdown-toggler",
+                        "src": "https://test-image.jpg",
                       },
                       "ref": null,
                       "rendered": null,
-                      "type": "i",
+                      "type": "img",
                     },
                     "type": "div",
                   },
@@ -2108,17 +2118,19 @@ ShallowWrapper {
               >
                 <div
                   className="user-name"
-                  data-initials=""
-                  data-name=""
+                  data-initials="DM"
+                  data-name="David Muhanguzi"
                   data-toggle="signout-dropdown-toggler"
                 />
                 <div
                   className="image-container"
                   data-toggle="signout-dropdown-toggler"
                 >
-                  <i
-                    className="fa fa-user-circle"
+                  <img
+                    alt="user-icon"
+                    className="user-image"
                     data-toggle="signout-dropdown-toggler"
+                    src="https://test-image.jpg"
                   />
                 </div>
               </div>
@@ -2289,17 +2301,19 @@ ShallowWrapper {
                 >
                   <div
                     className="user-name"
-                    data-initials=""
-                    data-name=""
+                    data-initials="DM"
+                    data-name="David Muhanguzi"
                     data-toggle="signout-dropdown-toggler"
                   />
                   <div
                     className="image-container"
                     data-toggle="signout-dropdown-toggler"
                   >
-                    <i
-                      className="fa fa-user-circle"
+                    <img
+                      alt="user-icon"
+                      className="user-image"
                       data-toggle="signout-dropdown-toggler"
+                      src="https://test-image.jpg"
                     />
                   </div>
                 </div>
@@ -2408,17 +2422,19 @@ ShallowWrapper {
                   >
                     <div
                       className="user-name"
-                      data-initials=""
-                      data-name=""
+                      data-initials="DM"
+                      data-name="David Muhanguzi"
                       data-toggle="signout-dropdown-toggler"
                     />
                     <div
                       className="image-container"
                       data-toggle="signout-dropdown-toggler"
                     >
-                      <i
-                        className="fa fa-user-circle"
+                      <img
+                        alt="user-icon"
+                        className="user-image"
                         data-toggle="signout-dropdown-toggler"
+                        src="https://test-image.jpg"
                       />
                     </div>
                   </div>,
@@ -2466,17 +2482,19 @@ ShallowWrapper {
                     "children": Array [
                       <div
                         className="user-name"
-                        data-initials=""
-                        data-name=""
+                        data-initials="DM"
+                        data-name="David Muhanguzi"
                         data-toggle="signout-dropdown-toggler"
                       />,
                       <div
                         className="image-container"
                         data-toggle="signout-dropdown-toggler"
                       >
-                        <i
-                          className="fa fa-user-circle"
+                        <img
+                          alt="user-icon"
+                          className="user-image"
                           data-toggle="signout-dropdown-toggler"
+                          src="https://test-image.jpg"
                         />
                       </div>,
                     ],
@@ -2491,8 +2509,8 @@ ShallowWrapper {
                       "nodeType": "host",
                       "props": Object {
                         "className": "user-name",
-                        "data-initials": "",
-                        "data-name": "",
+                        "data-initials": "DM",
+                        "data-name": "David Muhanguzi",
                         "data-toggle": "signout-dropdown-toggler",
                       },
                       "ref": null,
@@ -2504,9 +2522,11 @@ ShallowWrapper {
                       "key": undefined,
                       "nodeType": "host",
                       "props": Object {
-                        "children": <i
-                          className="fa fa-user-circle"
+                        "children": <img
+                          alt="user-icon"
+                          className="user-image"
                           data-toggle="signout-dropdown-toggler"
+                          src="https://test-image.jpg"
                         />,
                         "className": "image-container",
                         "data-toggle": "signout-dropdown-toggler",
@@ -2517,12 +2537,14 @@ ShallowWrapper {
                         "key": undefined,
                         "nodeType": "host",
                         "props": Object {
-                          "className": "fa fa-user-circle",
+                          "alt": "user-icon",
+                          "className": "user-image",
                           "data-toggle": "signout-dropdown-toggler",
+                          "src": "https://test-image.jpg",
                         },
                         "ref": null,
                         "rendered": null,
-                        "type": "i",
+                        "type": "img",
                       },
                       "type": "div",
                     },

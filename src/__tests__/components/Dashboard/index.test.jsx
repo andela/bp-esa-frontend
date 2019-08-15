@@ -11,11 +11,10 @@ describe('test dashboard', () => {
   const state = {};
   const props = {
     currentUser: {
-      additionalUserInfo: {
-        profile: {
-          name: 'kevin koech',
-          picture: '',
-        },
+      UserInfo: {
+        firstName: 'David',
+        lastName: 'Muhanguzi',
+        picture: 'https://test-image.jpg',
       },
     },
     removeCurrentUser: jest.fn(),

@@ -2,7 +2,9 @@ describe('Automation Table', () => {
   beforeEach(() => {
     cy
       .authenticateUser()
-      .visit('http://localhost:3000/?view=listView');
+      .visit('http://localhost:3000/?view=listView')
+      .get('#list-icon')
+      .click();
   });
 
   it('shows the table header', () => {

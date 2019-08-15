@@ -16,11 +16,10 @@ describe('ReportPage Component', () => {
     stats,
     location: { search: '?view=cardView' },
     currentUser: {
-      additionalUserInfo: {
-        profile: {
-          name: '',
-          picture: '',
-        },
+      UserInfo: {
+        firstName: 'David',
+        lastName: 'Muhanguzi',
+        picture: 'https://test-image.jpg',
       },
     },
     history: { push: jest.fn() },

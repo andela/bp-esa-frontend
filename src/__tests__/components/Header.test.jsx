@@ -11,11 +11,10 @@ jest.mock('../../firebase');
 const props = {
   activeTab: 'active',
   currentUser: {
-    additionalUserInfo: {
-      profile: {
-        name: '',
-        picture: '',
-      },
+    UserInfo: {
+      firstName: 'David',
+      lastName: 'Muhanguzi',
+      picture: 'https://test-image.jpg',
     },
   },
   removeCurrentUser: jest.fn(),
@@ -64,11 +63,10 @@ describe('onLogout() method', () => {
     const newProps = {
       ...props,
       currentUser: {
-        additionalUserInfo: {
-          profile: {
-            name: 'My Name',
-            picture: 'image',
-          },
+        UserInfo: {
+          firstName: 'David',
+          lastName: 'Muhanguzi',
+          picture: 'https://test-image.jpg',
         },
       },
     };

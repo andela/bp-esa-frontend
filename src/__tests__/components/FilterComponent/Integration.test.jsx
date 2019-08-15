@@ -16,11 +16,10 @@ axios.get = axiosGetMock;
 const filterSpy = sinon.spy(ReportPage.prototype, 'filter');
 const historyMock = { push: jest.fn() };
 const currentUserMock = {
-  additionalUserInfo: {
-    profile: {
-      name: 'Mock User',
-      picture: 'https://img.mock',
-    },
+  UserInfo: {
+    firstName: 'David',
+    lastName: 'Muhanguzi',
+    picture: 'https://test-image.jpg',
   },
 };
 const mockAutomations = {
@@ -97,7 +96,7 @@ describe('Filter Component Integration', () => {
   it('should render the list view', () => {
     reportPage.find('.view-button-active').simulate('click');
     expect(reportPage.find('div.table-header')).toHaveLength(1);
-  })
+  });
 
   it('should call the filter function when the filters are applied', () => {
     reportPage.find('div.filter-button').simulate('click');

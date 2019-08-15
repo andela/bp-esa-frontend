@@ -7,7 +7,11 @@ const jsdomOpen = window.open;
 const props = {
   history: {},
   currentUser: {
-    additionalUserInfo: { profile: { name: 'Kelvin', picture: 'ddff' } },
+    UserInfo: {
+      firstName: 'David',
+      lastName: 'Muhanguzi',
+      picture: 'https://test-image.jpg',
+    },
   },
   formatDates: jest.fn(),
   isModalOpen: false,
@@ -70,10 +74,10 @@ const props = {
 const getComponent = () => mount(<AutomationDetails {...props} />);
 
 describe('Automation details', () => {
-  beforeEach( () => {
+  beforeEach(() => {
     window.open = () => {};
   });
-  afterEach( () => {
+  afterEach(() => {
     window.open = jsdomOpen;
   });
 
@@ -107,7 +111,11 @@ describe('Automation details', () => {
     const prop = {
       history: {},
       currentUser: {
-        additionalUserInfo: { profile: { name: 'Kelvin', picture: 'ddff' } },
+        UserInfo: {
+          firstName: 'David',
+          lastName: 'Muhanguzi',
+          picture: 'https://test-image.jpg',
+        },
       },
       formatDates: jest.fn(),
       isModalOpen: false,
@@ -162,7 +170,11 @@ describe('Automation details', () => {
     const prop = {
       history: {},
       currentUser: {
-        additionalUserInfo: { profile: { name: 'Kelvin', picture: 'ddff' } },
+        UserInfo: {
+          firstName: 'David',
+          lastName: 'Muhanguzi',
+          picture: 'https://test-image.jpg',
+        },
       },
       formatDates: jest.fn(),
       isModalOpen: false,
