@@ -8,11 +8,44 @@ import listenToSocketEvent from '../../realTime';
 import ActivityFeed from './ActivityFeed';
 import Header from '../Header';
 import PartnerStats from './PartnerStatsCard';
+import ProgressBar from './UpSellingPartners/index';
 
 class Dashboard extends React.Component {
   state = {
     reportData: [],
+    partnerStats: [
+      {
+        id: 1,
+        name: 'Git Prime Git Prime',
+        devNum: 30,
+        expectedDevNum: 30,
+      },
+      {
+        id: 2,
+        name: 'Medeable, inc',
+        devNum: 20,
+        expectedDevNum: 40,
+      },
+      {
+        id: 3,
+        name: 'Building Robotics inc',
+        devNum: 10,
+        expectedDevNum: 30,
+      },
+    ],
   };
+
+  upSellData = (partnerStats) => {
+    const devs = partnerStats.map((dev) => {
+      const finalDev = (dev.devNum / dev.expectedDevNum) * 100;
+      const devStats = {
+        upSellPercentage: finalDev,
+        ...dev,
+      };
+      return devStats;
+    });
+    return devs;
+  }
 
   componentDidMount = () => {
     // triggers event to fetch data from the API
@@ -53,14 +86,31 @@ class Dashboard extends React.Component {
     return newArr;
   };
 
+  renderUpsellingStats = partnerStats => () => {
+    const result = this.upSellData(partnerStats);
+    return (
+      <ul className="upSellList">
+        { result.map(stat => (
+          <li key={stat.id}>
+            <span className="partner-name">{stat.name}</span>
+            <span className="developers">{stat.devNum}</span>
+            <ProgressBar upselledDevs={stat.upSellPercentage} />
+          </li>
+        ))}
+      </ul>
+    );
+  };
+
+
   render() {
     const {
       currentUser,
       removeCurrentUser,
       history,
     } = this.props;
+    const { partnerStats } = this.state;
     return (
-      <div className="dashboard">
+      <div className="dashboard-content">
         <Header
           currentUser={currentUser}
           history={history}
@@ -73,9 +123,9 @@ class Dashboard extends React.Component {
           component={() => {}}
         />
         <Card
-          classes="upselling"
+          classes="upSelling"
           title="Upselling Partners"
-          component={() => {}}
+          component={this.renderUpsellingStats(partnerStats)}
         />
         <Card
           classes="activity-feed-card"
