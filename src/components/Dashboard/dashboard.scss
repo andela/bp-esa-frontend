@@ -1,3 +1,5 @@
+
+
 .dashboard-card {
   background-color: white;
   padding: 16px;
@@ -5,8 +7,8 @@
 }
 .title {
   color: #667;
-  font-family: DinPro;
-  font-weight: normal;
+  font-family: Din Pro;
+  font-weight: 501;
   text-align: left;
   line-height: 24px;
   letter-spacing: -0.11px;
@@ -14,7 +16,7 @@
 }
 
 .engagement {
-  width: 60%;
+  width: 66%;
   float: left;
   height: 350px;
   border-radius: 5px;
@@ -24,8 +26,8 @@
   margin: 20px;
 }
 
-.upselling {
-  width: 36%;
+.upSelling {
+  width: 30%;
   height: 350px;
   border-radius: 5px;
   background-color: #FFF;
@@ -33,3 +35,40 @@
   padding: 10px 10px;
   margin: 20px;
 }
+
+ul {
+  padding: 10px;
+  box-sizing: border-box;
+
+   li {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    background:rgba(255, 255, 255, .1);
+    padding: 5px 5px;
+    color: black;
+    transition: .5s;
+  };
+};
+
+ .partner-name {
+  width: 68%;
+  color: #667;
+  font-family: "DIN Pro";
+  font-size: 18px;
+  font-weight: 200;
+  letter-spacing: -0.1px;
+  line-height: 22px;
+  height: 22px;
+};
+.developers {
+  width: 30%;
+  color: #667;
+  font-family: "DIN Pro";
+  font-size: 18px;
+  font-weight: 500;
+  letter-spacing: -0.1px;
+  line-height: 22px;
+  text-align: right;
+};

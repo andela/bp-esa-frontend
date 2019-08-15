@@ -10,7 +10,7 @@ const calculatePercentage = (sum, successValue) => {
 };
 
 const createDonut = (stat, container) => {
-  const { total, success } = stat ? stat : {};
+  const { total, success } = stat || {};
 
   const successValue = calculatePercentage(total, success);
   const dataset = {

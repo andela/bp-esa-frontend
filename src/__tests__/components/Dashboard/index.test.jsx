@@ -25,14 +25,20 @@ describe('test dashboard', () => {
   };
   const mockStore = configureStore();
   const store = mockStore(state);
+
+  const wrapper = mount(
+    <Provider store={store}>
+      <Dashboard {...props} />
+    </Provider>,
+    options.get(),
+  );
   it('renders a header', () => {
-    const wrapper = mount(
-      // eslint-disable-next-line react/jsx-filename-extension
-      <Provider store={store}>
-        <Dashboard {...props} />
-      </Provider>,
-      options.get(),
-    );
     expect(wrapper.find('#header').length).toEqual(1);
+  });
+
+  it('should render the partners upselling card', () => {
+    const upsellingCard = wrapper.find('.upSelling');
+    const title = upsellingCard.find('.title');
+    expect(title.text()).toEqual('Upselling Partners');
   });
 });
