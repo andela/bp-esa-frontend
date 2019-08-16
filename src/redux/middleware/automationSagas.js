@@ -16,9 +16,8 @@ export function* fetchAutomations(payload) {
     const response = yield call(AutomationAPI.getAutomations, pagination, filters);
     yield put(fetchAutomationSuccess(response.data));
   } catch (e) {
-    const error = 'Possible Network error, Please reload!';
+    const error = (e.response && e.response.data.error) || 'Possible Network error, Please reload!';
     yield put(fetchAutomationError({ error }));
-    toastr.error(error);
   }
 }
 

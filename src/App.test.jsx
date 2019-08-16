@@ -2,7 +2,10 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import sinon from 'sinon';
 import { notify } from 'react-notify-toast';
-import App from './App';
+import { mount } from 'enzyme';
+import { BrowserRouter } from 'react-router-dom';
+import App, { AuthenticatedRoute } from './App';
+import Dashboard from './components/Dashboard';
 
 it('renders without crashing', () => {
   const div = document.createElement('div');
@@ -15,9 +18,8 @@ let props;
 let wrapper;
 
 // Tokens belonging to Jane Doe, a fictional andelan
-const randomAndelaToken = 'jwt-token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJVc2VySW5mbyI6eyJpZCI6Ii10aGVJZCIsImZpcnN0X25hbWUiOiJKYW5lIiwibGFzdF9uYW1lIjoiRG9lIiwiZmlyc3ROYW1lIjoiSmFuZSIsImxhc3ROYW1lIjoiRG9lIiwiZW1haWwiOiJqYW5lLmRvZUBhbmRlbGEuY29tIiwibmFtZSI6IkphbmUgRG9lIiwicGljdHVyZSI6InRoZVBob3RvIiwicm9sZXMiOnsiRmVsbG93IjoiLWZlbGxvd1JvbGUiLCJBbmRlbGFuIjoiLWFuZGVsYW5Sb2xlIn19LCJpYXQiOjE1NjMxMzc1NjksImV4cCI6MTQ3NjIwMTY4NSwiYXVkIjoiYW5kZWxhLmNvbSIsImlzcyI6ImFjY291bnRzLmFuZGVsYS5jb20ifQ.u2OcvFKgrCKuYECVs7p2XoGLq6wY-7mEFpW26psgnoA';
-const randomGmailToken = 'jwt-token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJVc2VySW5mbyI6eyJpZCI6Ii10aGVJZCIsImZpcnN0X25hbWUiOiJKYW5lIiwibGFzdF9uYW1lIjoiRG9lIiwiZmlyc3ROYW1lIjoiSmFuZSIsImxhc3ROYW1lIjoiRG9lIiwiZW1haWwiOiJqYW5lLmRvZUBnbWFpbC5jb20iLCJuYW1lIjoiSmFuZSBEb2UiLCJwaWN0dXJlIjoidGhlUGhvdG8iLCJyb2xlcyI6eyJGZWxsb3ciOiItZmVsbG93Um9sZSIsIkFuZGVsYW4iOiItYW5kZWxhblJvbGUifX0sImlhdCI6MTU2MzEzNzU2OSwiZXhwIjoxNDc2MjAxNjg1LCJhdWQiOiJhbmRlbGEuY29tIiwiaXNzIjoiYWNjb3VudHMuYW5kZWxhLmNvbSJ9.cf1gcz1vQPhnw-Vn20HzS0yc4UC4XEoDO_L30xvluHI';
-
+const randomAndelaToken =	'jwt-token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJVc2VySW5mbyI6eyJpZCI6Ii10aGVJZCIsImZpcnN0X25hbWUiOiJKYW5lIiwibGFzdF9uYW1lIjoiRG9lIiwiZmlyc3ROYW1lIjoiSmFuZSIsImxhc3ROYW1lIjoiRG9lIiwiZW1haWwiOiJqYW5lLmRvZUBhbmRlbGEuY29tIiwibmFtZSI6IkphbmUgRG9lIiwicGljdHVyZSI6InRoZVBob3RvIiwicm9sZXMiOnsiRmVsbG93IjoiLWZlbGxvd1JvbGUiLCJBbmRlbGFuIjoiLWFuZGVsYW5Sb2xlIn19LCJpYXQiOjE1NjMxMzc1NjksImV4cCI6MTQ3NjIwMTY4NSwiYXVkIjoiYW5kZWxhLmNvbSIsImlzcyI6ImFjY291bnRzLmFuZGVsYS5jb20ifQ.u2OcvFKgrCKuYECVs7p2XoGLq6wY-7mEFpW26psgnoA';
+const randomGmailToken =	'jwt-token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJVc2VySW5mbyI6eyJpZCI6Ii10aGVJZCIsImZpcnN0X25hbWUiOiJKYW5lIiwibGFzdF9uYW1lIjoiRG9lIiwiZmlyc3ROYW1lIjoiSmFuZSIsImxhc3ROYW1lIjoiRG9lIiwiZW1haWwiOiJqYW5lLmRvZUBnbWFpbC5jb20iLCJuYW1lIjoiSmFuZSBEb2UiLCJwaWN0dXJlIjoidGhlUGhvdG8iLCJyb2xlcyI6eyJGZWxsb3ciOiItZmVsbG93Um9sZSIsIkFuZGVsYW4iOiItYW5kZWxhblJvbGUifX0sImlhdCI6MTU2MzEzNzU2OSwiZXhwIjoxNDc2MjAxNjg1LCJhdWQiOiJhbmRlbGEuY29tIiwiaXNzIjoiYWNjb3VudHMuYW5kZWxhLmNvbSJ9.cf1gcz1vQPhnw-Vn20HzS0yc4UC4XEoDO_L30xvluHI';
 
 const getComponent = () => {
   if (!wrapper) {
@@ -56,7 +58,9 @@ describe('setCurrentUser() method', () => {
 
 describe('removeCurrentUser() method', () => {
   afterEach(() => {
-    getComponent().instance().setCurrentUser.restore();
+    getComponent()
+      .instance()
+      .setCurrentUser.restore();
   });
 
   it('should call removeCurrentUser()', () => {
@@ -70,9 +74,11 @@ describe('removeCurrentUser() method', () => {
   });
 });
 
-describe('checkAuthorization() method', () => {
+describe.only('checkAuthorization() method', () => {
   afterEach(() => {
-    getComponent().instance().setCurrentUser.restore();
+    getComponent()
+      .instance()
+      .setCurrentUser.restore();
   });
 
   it('should pass user details to the setCurrentUser method', () => {
@@ -107,5 +113,16 @@ describe('decodeToken() method', () => {
     const renderedComponent = getComponent().instance();
     renderedComponent.decodeToken(randomGmailToken);
     expect(notify.show).toBeCalled();
+  });
+});
+
+describe.only('Authenticate route', () => {
+  it('should run the authenticated route component', () => {
+    const authenticateRouteWrapper = mount(
+      <BrowserRouter>
+        <AuthenticatedRoute path="/dashboard" authenticated component={Dashboard} />
+      </BrowserRouter>,
+    );
+    expect(authenticateRouteWrapper).toMatchSnapshot();
   });
 });
