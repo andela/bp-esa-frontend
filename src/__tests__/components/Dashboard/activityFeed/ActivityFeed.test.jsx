@@ -7,6 +7,7 @@ describe('Activity Feed', () => {
   const props = {
     reportData: [
       {
+        id: 1,
         fellowName: 'Kitika, Kelvin',
         type: 'offboarding',
         updatedAt: '2019-05-15T13:47:04.608Z',

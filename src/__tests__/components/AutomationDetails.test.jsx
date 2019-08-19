@@ -25,11 +25,13 @@ const props = {
       status: 'success',
       slackActivities: [
         {
+          id: 1,
           channelName: 'andela-int',
           type: 'Addition',
           status: 'success',
         },
         {
+          id: 2,
           channelName: 'andela',
           type: 'Removal',
           status: 'success',
@@ -40,6 +42,7 @@ const props = {
       status: 'failure',
       nokoActivities: [
         {
+          id: 1,
           status: 'failure',
           statusMessage: 'Request failed with status code 403',
           nokoUserId: null,
@@ -129,11 +132,13 @@ describe('Automation details', () => {
           status: 'success',
           slackActivities: [
             {
+              id: 1,
               channelName: 'andela-int',
               type: 'Addition',
               status: 'success',
             },
             {
+              id: 2,
               channelName: 'andela',
               type: 'Removal',
               status: 'success',
@@ -188,11 +193,13 @@ describe('Automation details', () => {
           status: 'success',
           slackActivities: [
             {
+              id: 1,
               channelName: 'andela-int',
               type: 'Addition',
               status: 'success',
             },
             {
+              id: 2,
               channelName: 'andela',
               type: 'Removal',
               status: 'success',
