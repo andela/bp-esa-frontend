@@ -117,7 +117,7 @@ class FilterComponent extends React.PureComponent {
 }
 
 FilterComponent.propTypes = {
-  filter: PropTypes.func.isRequired,
+  filter: PropTypes.object.isRequired,
 };
 
 export default FilterComponent;
