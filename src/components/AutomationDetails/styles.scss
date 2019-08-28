@@ -66,10 +66,18 @@
     .developer-details{
         width: 70%;
         margin-left: 5%;
+        position: relative;
+        .close-button {
+            position: absolute;
+            cursor: pointer;
+            color: #AABA;
+            font-size: 1.2rem;
+        }
         .name-group{
             display: flex;
-            justify-content: space-between;
+            // justify-content: space-between;
             .developer-name {
+                margin-right: 10px;
                 height: 27px;
                 color: #667;
                 font-family: Arial;
@@ -80,7 +88,7 @@
             .fa-external-link-alt{
                 height: 17px;
                 width: 17px;
-                color: #AAB;
+                color: #AABA;
                 padding-top: 2%;
             }
         }

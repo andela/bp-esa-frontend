@@ -92,7 +92,7 @@ describe('Automation details', () => {
     const wrapper = getComponent().setProps({
       ...props,
     });
-    const component = wrapper.find('.fas');
+    const component = wrapper.find('.fas.fa-external-link-alt');
     component.simulate('click');
     expect(component.props().title).toEqual('Open Tunmise, Tunmise AIS profile');
   });

@@ -23,7 +23,7 @@ class AutomationDetails extends PureComponent {
 
   renderDeveloperInfo = (modalContent, cardId) => {
     const {
-      formatDates, retryingAutomation, handleRetryAutomation, data,
+      formatDates, retryingAutomation, handleRetryAutomation, data, closeModal
     } = this.props;
     const { slackAutomations, emailAutomations, nokoAutomations } = modalContent;
     const slackStatus = !!(slackAutomations && slackAutomations.status === 'success');
@@ -41,6 +41,12 @@ class AutomationDetails extends PureComponent {
           </span>
         </div>
         <div className="developer-details">
+          <i 
+            className="fas fa-times close-button"
+            onClick={() => {
+              closeModal();
+            }}
+            ></i>
           <div className="name-group">
             <h1 className="developer-name">{modalContent.fellowName}</h1>
             <div className="tooltip-container" id="ais-link-icon">
