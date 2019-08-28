@@ -4,7 +4,6 @@ import ReactRouterEnzymeContext from 'react-router-enzyme-context';
 import { ReportPage, mapDispatchToProps, mapStateToProps } from '../../components/ReportPage';
 import { sampleReports, stats } from '../../fixtures/fixtures';
 
-
 describe('ReportPage Component', () => {
   const props = {
     automation: {
@@ -90,7 +89,6 @@ describe('ReportPage Component', () => {
     expect(component.state('pagination').limit).toEqual(25);
     expect(props.fetchAllAutomation).toHaveBeenCalledWith(pagination, filters);
   });
-
   it('updates the current page state when user types in the input box', () => {
     const currentPageInput = component.find('.form-input');
     currentPageInput.simulate('change', { target: { value: 30 } });

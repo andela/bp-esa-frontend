@@ -98,9 +98,7 @@ ShallowWrapper {
         },
       },
     },
-    Symbol(enzyme.__providerValues__): undefined,
   },
-  Symbol(enzyme.__providerValues__): Map {},
 }
 `;
 
@@ -166,9 +164,7 @@ ShallowWrapper {
         },
       },
     },
-    Symbol(enzyme.__providerValues__): undefined,
   },
-  Symbol(enzyme.__providerValues__): Map {},
 }
 `;
 
@@ -201,7 +197,7 @@ ShallowWrapper {
       "disabled": false,
       "disabledKeyboardNavigation": false,
       "dropdownMode": "select",
-      "maxDate": "2019-08-28T14:28:06.659Z",
+      "maxDate": "2019-09-13T06:49:17.309Z",
       "monthsShown": 1,
       "nextMonthButtonLabel": "Next month",
       "onBlur": [Function],
@@ -242,7 +238,7 @@ ShallowWrapper {
         "disabled": false,
         "disabledKeyboardNavigation": false,
         "dropdownMode": "select",
-        "maxDate": "2019-08-28T14:28:06.659Z",
+        "maxDate": "2019-09-13T06:49:17.309Z",
         "monthsShown": 1,
         "nextMonthButtonLabel": "Next month",
         "onBlur": [Function],
@@ -294,9 +290,7 @@ ShallowWrapper {
         },
       },
     },
-    Symbol(enzyme.__providerValues__): undefined,
   },
-  Symbol(enzyme.__providerValues__): Map {},
 }
 `;
 
@@ -570,9 +564,7 @@ ShallowWrapper {
         },
       },
     },
-    Symbol(enzyme.__providerValues__): undefined,
   },
-  Symbol(enzyme.__providerValues__): Map {},
   Symbol(enzyme.__childContext__): null,
 }
 `;
@@ -1274,8 +1266,6 @@ ShallowWrapper {
         },
       },
     },
-    Symbol(enzyme.__providerValues__): undefined,
   },
-  Symbol(enzyme.__providerValues__): Map {},
 }
 `;

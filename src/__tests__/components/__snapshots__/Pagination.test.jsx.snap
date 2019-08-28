@@ -2,6 +2,21 @@
 
 exports[`Pagination Component renders the pagination component 1`] = `
 ReactWrapper {
+  Symbol(enzyme.__unrendered__): <Pagination
+    currentPage={2}
+    handlePagination={[MockFunction]}
+    limit={10}
+    onChangeRowCount={[MockFunction]}
+    onPageChange={[MockFunction]}
+    pageNumber={1}
+    pagination={
+      Object {
+        "currentPage": 1,
+        "numberOfPages": 1120,
+      }
+    }
+    tempCurrentPage={false}
+  />,
   Symbol(enzyme.__renderer__): Object {
     "batchedUpdates": [Function],
     "getNode": [Function],
@@ -1692,22 +1707,5 @@ ReactWrapper {
       },
     },
   },
-  Symbol(enzyme.__linkedRoots__): Array [],
-  Symbol(enzyme.__unrendered__): <Pagination
-    currentPage={2}
-    handlePagination={[MockFunction]}
-    limit={10}
-    onChangeRowCount={[MockFunction]}
-    onPageChange={[MockFunction]}
-    pageNumber={1}
-    pagination={
-      Object {
-        "currentPage": 1,
-        "numberOfPages": 1120,
-      }
-    }
-    tempCurrentPage={false}
-  />,
-  Symbol(enzyme.__updatedBy__): null,
 }
 `;

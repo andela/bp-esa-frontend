@@ -89,6 +89,12 @@ const sampleReports = {
     dataCount: '13112',
     nextPage: 2,
   },
+  newPagination: {
+    currentPage: 1,
+    numberOfPages: 1,
+    dataCount: '13112',
+    nextPage: 2,
+  },
 };
 
 const stats = {
