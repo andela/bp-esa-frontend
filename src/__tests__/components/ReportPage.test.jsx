@@ -71,6 +71,18 @@ describe('ReportPage Component', () => {
     expect(global.open).toHaveBeenCalled();
   });
 
+  it('should redirect to allocations page when you click partner\'s name', () => {
+    component.setState({ viewMode: 'listView' });
+    const redirectToAllocations = component.find('.table-body')
+      .find('tbody')
+      .find('tr')
+      .find('#partnerName')
+      .at(0);
+    global.open = jest.fn();
+    redirectToAllocations.simulate('click');
+    expect(global.open).toHaveBeenCalled();
+  });
+
   it('updates the page limit', () => {
     const { pagination, filters } = component.state();
     const limitSelection = component.find('.select');
