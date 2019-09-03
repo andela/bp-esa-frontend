@@ -28,7 +28,7 @@ class AutomationDetails extends PureComponent {
     const { slackAutomations, emailAutomations, nokoAutomations } = modalContent;
     const slackStatus = !!(slackAutomations && slackAutomations.status === 'success');
     const emailStatus = !!(emailAutomations && emailAutomations.status === 'success');
-    const nokoStatus = !!(nokoAutomations && nokoAutomations.slackActivities === 'success');
+    const nokoStatus = !!(nokoAutomations && nokoAutomations.status === 'success');
     const name = _.split(modalContent.fellowName, ',');
     const firstInitial = (modalContent.fellowName && name[0].charAt(0)) || '';
     const secondInitial = (modalContent.fellowName && name[1] && name[1].charAt(1)) || '';
@@ -52,19 +52,26 @@ class AutomationDetails extends PureComponent {
               <span className="tooltiptext">Link to AIS</span>
             </div>
           </div>
-          <h1 className="partner-name" onClick={() => window.open(`https://ais.andela.com/partners/${modalContent.partnerId}`)}>{modalContent.partnerName} <i className="fa fa-link" aria-hidden="true"/></h1>
+          <h1 className="partner-name" role="presentation" onClick={() => window.open(`https://ais.andela.com/partners/${modalContent.partnerId}`)}>
+            {modalContent.partnerName}
+            <i className="fa fa-link" aria-hidden="true" />
+          </h1>
           <div className="automation-action">
             <h1 className="automation-type">{modalContent.type}</h1>
             <h1 className="dot">.</h1>
             {slackStatus === false || emailStatus === false || nokoStatus === false
-              ? <h1 className="automation-status">Failed</h1>
+              ? (
+                <React.Fragment>
+                  <h1 className="automation-status">Failed</h1>
+                  <RetryButton
+                    retryingAutomation={retryingAutomation}
+                    handleRetryAutomation={() => handleRetryAutomation(cardId)}
+                    data={data}
+                    id="retry-automation-details"
+                  />
+                </React.Fragment>
+              )
               : <h1 className="automation-status success">Success</h1>}
-            <RetryButton
-              retryingAutomation={retryingAutomation}
-              handleRetryAutomation={() => handleRetryAutomation(cardId)}
-              data={data}
-              id="retry-automation-details"
-            />
           </div>
           <h1 className="automation-date">{formatDates(modalContent.updatedAt)}</h1>
         </div>
@@ -165,8 +172,8 @@ class AutomationDetails extends PureComponent {
   ) => {
     const automations = modalContent[automationType];
     const appActivities = (automations && automations[automationActivities]) || [];
-    return appActivities.map((content, index) => (
-      <div key={index}>
+    return appActivities.map(content => (
+      <div key={content.id}>
         <div className="automation-content">
           <div className="content-row name">{content[contentData]}</div>
           <div className="content-row type">{content[contentType]}</div>

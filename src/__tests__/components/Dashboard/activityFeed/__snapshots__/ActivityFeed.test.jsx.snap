@@ -7,6 +7,7 @@ ReactWrapper {
       Array [
         Object {
           "fellowName": "Kitika, Kelvin",
+          "id": 1,
           "type": "offboarding",
           "updatedAt": "2019-05-15T13:47:04.608Z",
         },
@@ -31,6 +32,7 @@ ReactWrapper {
       "reportData": Array [
         Object {
           "fellowName": "Kitika, Kelvin",
+          "id": 1,
           "type": "offboarding",
           "updatedAt": "2019-05-15T13:47:04.608Z",
         },
@@ -407,6 +409,7 @@ ReactWrapper {
         "reportData": Array [
           Object {
             "fellowName": "Kitika, Kelvin",
+            "id": 1,
             "type": "offboarding",
             "updatedAt": "2019-05-15T13:47:04.608Z",
           },
