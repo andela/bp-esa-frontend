@@ -172,10 +172,10 @@ describe('Filter test', () => {
         .click();
       cy.get('#from')
         .click()
-        .type('May 01, 2019');
+        .type('September 12, 2019');
       cy.get('#to')
         .click()
-        .type('May 01, 2019');
+        .type('September 12, 2019');
       cy.get('.filter-dropdown-parent')
         .click();
       cy.get('button.apply-filters')
@@ -184,7 +184,7 @@ describe('Filter test', () => {
       cy.get('#more-info-icon')
         .click();
       cy.get('.automation-date')
-        .contains('5/1/2019');
+        .contains('9/12/2019');
       cy.get('.modal-close-button-group')
         .click();
     });
