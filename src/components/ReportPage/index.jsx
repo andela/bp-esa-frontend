@@ -264,6 +264,7 @@ export class ReportPage extends Component {
         fellowId: developerId,
         fellowName: developerName,
         partnerName,
+        partnerId,
         type,
       } = report;
       return (
@@ -281,7 +282,13 @@ export class ReportPage extends Component {
               <i className="fas fa-external-link-alt" />
             </span>
           </td>
-          <td title={report.partnerName}>{partnerName}</td>
+          <td
+            title={partnerName}
+            id="partnerName"
+            onClick={() => window.open(`https://ais.andela.com/partners/${partnerId}`)}
+          >
+            {partnerName}
+          </td>
           <td>{type}</td>
           <td>{this.renderAutomationStatus(report.slackAutomations.status, report, 'slack')}</td>
           <td>{this.renderAutomationStatus(report.emailAutomations.status, report, 'email')}</td>
