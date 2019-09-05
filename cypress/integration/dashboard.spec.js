@@ -18,6 +18,8 @@ describe('pill navigation', () => {
       .get(':nth-child(1) > .developers')
       .should('be.visible')
       .get(':nth-child(1) > .partner-name')
+      .should('be.visible')
+      .get('.svgDiv')
       .should('be.visible');
   });
 });

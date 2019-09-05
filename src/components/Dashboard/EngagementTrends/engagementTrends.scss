@@ -1,0 +1,54 @@
+
+text{
+    font-family: sans-serif
+}
+
+.tick text{
+    font-size: .8em;
+    fill: #635F5D
+}
+
+.tick line{
+    stroke: black
+}
+
+.on-boarding-label{
+    font-size: .7em;
+    fill: black
+}
+
+.off-boarding-label{
+    font-size: .7em;
+    fill: black
+}
+
+.area-path{
+    stroke: none;
+}
+
+// add position of xAxis ticks
+
+.x11{
+    transform: translate(0, 0);
+}
+.x12{
+    transform: translate(117.5px, 0);
+}
+.x13{
+    transform: translate(235px, 0);
+}
+.x14{
+    transform: translate(352.5px, 0);
+}
+.x15{
+    transform: translate(470px, 0);
+}
+.x16{
+    transform: translate(587.5px, 0);
+}
+.x17{
+    transform: translate(705px, 0);
+}
+.x18{
+    transform: translate(822.5px, 0);
+}

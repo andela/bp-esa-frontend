@@ -4,12 +4,14 @@ exports[`Dropdown should render as expected 1`] = `
 Dropdown {
   "_reactInternalFiber": FiberNode {
     "_debugHookTypes": null,
-    "_debugID": 63,
+    "_debugID": 123,
     "_debugIsCurrentlyTiming": false,
+    "_debugNeedsRemount": false,
     "_debugOwner": FiberNode {
       "_debugHookTypes": null,
-      "_debugID": 62,
+      "_debugID": 121,
       "_debugIsCurrentlyTiming": false,
+      "_debugNeedsRemount": false,
       "_debugOwner": null,
       "_debugSource": null,
       "actualDuration": 0,
@@ -17,7 +19,7 @@ Dropdown {
       "alternate": null,
       "child": [Circular],
       "childExpirationTime": 0,
-      "contextDependencies": null,
+      "dependencies": null,
       "effectTag": 1,
       "elementType": [Function],
       "expirationTime": 0,
@@ -42,229 +44,7 @@ Dropdown {
         "wrappingComponentProps": null,
       },
       "mode": 0,
-      "nextEffect": FiberNode {
-        "_debugHookTypes": null,
-        "_debugID": 60,
-        "_debugIsCurrentlyTiming": false,
-        "_debugOwner": null,
-        "_debugSource": null,
-        "actualDuration": 0,
-        "actualStartTime": -1,
-        "alternate": FiberNode {
-          "_debugHookTypes": null,
-          "_debugID": 60,
-          "_debugIsCurrentlyTiming": false,
-          "_debugOwner": null,
-          "_debugSource": null,
-          "actualDuration": 0,
-          "actualStartTime": -1,
-          "alternate": [Circular],
-          "child": null,
-          "childExpirationTime": 0,
-          "contextDependencies": null,
-          "effectTag": 0,
-          "elementType": null,
-          "expirationTime": 1073741823,
-          "firstEffect": null,
-          "index": 0,
-          "key": null,
-          "lastEffect": null,
-          "memoizedProps": null,
-          "memoizedState": null,
-          "mode": 0,
-          "nextEffect": null,
-          "pendingProps": null,
-          "ref": null,
-          "return": null,
-          "selfBaseDuration": 0,
-          "sibling": null,
-          "stateNode": Object {
-            "containerInfo": <div>
-              <div
-                class="stat-dropdown-container"
-              >
-                Automations stats for
-                <span
-                  class="stat-dropdown-caret"
-                >
-                   today
-                  <img
-                    alt="down"
-                    src="/drop-down.png"
-                  />
-                </span>
-              </div>
-            </div>,
-            "context": Object {},
-            "current": [Circular],
-            "didError": false,
-            "earliestPendingTime": 0,
-            "earliestSuspendedTime": 0,
-            "expirationTime": 0,
-            "finishedWork": null,
-            "firstBatch": null,
-            "hydrate": false,
-            "interactionThreadID": 15,
-            "latestPendingTime": 0,
-            "latestPingedTime": 0,
-            "latestSuspendedTime": 0,
-            "memoizedInteractions": Set {},
-            "nextExpirationTimeToWorkOn": 0,
-            "nextScheduledRoot": null,
-            "pendingChildren": null,
-            "pendingCommitExpirationTime": 0,
-            "pendingContext": null,
-            "pendingInteractionMap": Map {},
-            "pingCache": null,
-            "timeoutHandle": -1,
-          },
-          "tag": 3,
-          "treeBaseDuration": 0,
-          "type": null,
-          "updateQueue": Object {
-            "baseState": null,
-            "firstCapturedEffect": null,
-            "firstCapturedUpdate": null,
-            "firstEffect": null,
-            "firstUpdate": Object {
-              "callback": null,
-              "expirationTime": 1073741823,
-              "next": null,
-              "nextEffect": null,
-              "payload": Object {
-                "element": <WrapperComponent
-                  Component={[Function]}
-                  context={null}
-                  props={
-                    Object {
-                      "fetchStat": [MockFunction],
-                    }
-                  }
-                  wrappingComponentProps={null}
-                />,
-              },
-              "tag": 0,
-            },
-            "lastCapturedEffect": null,
-            "lastCapturedUpdate": null,
-            "lastEffect": null,
-            "lastUpdate": Object {
-              "callback": null,
-              "expirationTime": 1073741823,
-              "next": null,
-              "nextEffect": null,
-              "payload": Object {
-                "element": <WrapperComponent
-                  Component={[Function]}
-                  context={null}
-                  props={
-                    Object {
-                      "fetchStat": [MockFunction],
-                    }
-                  }
-                  wrappingComponentProps={null}
-                />,
-              },
-              "tag": 0,
-            },
-          },
-        },
-        "child": [Circular],
-        "childExpirationTime": 0,
-        "contextDependencies": null,
-        "effectTag": 32,
-        "elementType": null,
-        "expirationTime": 0,
-        "firstEffect": [Circular],
-        "index": 0,
-        "key": null,
-        "lastEffect": [Circular],
-        "memoizedProps": null,
-        "memoizedState": Object {
-          "element": <WrapperComponent
-            Component={[Function]}
-            context={null}
-            props={
-              Object {
-                "fetchStat": [MockFunction],
-              }
-            }
-            wrappingComponentProps={null}
-          />,
-        },
-        "mode": 0,
-        "nextEffect": null,
-        "pendingProps": null,
-        "ref": null,
-        "return": null,
-        "selfBaseDuration": 0,
-        "sibling": null,
-        "stateNode": Object {
-          "containerInfo": <div>
-            <div
-              class="stat-dropdown-container"
-            >
-              Automations stats for
-              <span
-                class="stat-dropdown-caret"
-              >
-                 today
-                <img
-                  alt="down"
-                  src="/drop-down.png"
-                />
-              </span>
-            </div>
-          </div>,
-          "context": Object {},
-          "current": [Circular],
-          "didError": false,
-          "earliestPendingTime": 0,
-          "earliestSuspendedTime": 0,
-          "expirationTime": 0,
-          "finishedWork": null,
-          "firstBatch": null,
-          "hydrate": false,
-          "interactionThreadID": 15,
-          "latestPendingTime": 0,
-          "latestPingedTime": 0,
-          "latestSuspendedTime": 0,
-          "memoizedInteractions": Set {},
-          "nextExpirationTimeToWorkOn": 0,
-          "nextScheduledRoot": null,
-          "pendingChildren": null,
-          "pendingCommitExpirationTime": 0,
-          "pendingContext": null,
-          "pendingInteractionMap": Map {},
-          "pingCache": null,
-          "timeoutHandle": -1,
-        },
-        "tag": 3,
-        "treeBaseDuration": 0,
-        "type": null,
-        "updateQueue": Object {
-          "baseState": Object {
-            "element": <WrapperComponent
-              Component={[Function]}
-              context={null}
-              props={
-                Object {
-                  "fetchStat": [MockFunction],
-                }
-              }
-              wrappingComponentProps={null}
-            />,
-          },
-          "firstCapturedEffect": null,
-          "firstCapturedUpdate": null,
-          "firstEffect": null,
-          "firstUpdate": null,
-          "lastCapturedEffect": null,
-          "lastCapturedUpdate": null,
-          "lastEffect": null,
-          "lastUpdate": null,
-        },
-      },
+      "nextEffect": null,
       "pendingProps": Object {
         "Component": [Function],
         "context": null,
@@ -276,16 +56,18 @@ Dropdown {
       "ref": null,
       "return": FiberNode {
         "_debugHookTypes": null,
-        "_debugID": 60,
+        "_debugID": 118,
         "_debugIsCurrentlyTiming": false,
+        "_debugNeedsRemount": false,
         "_debugOwner": null,
         "_debugSource": null,
         "actualDuration": 0,
         "actualStartTime": -1,
         "alternate": FiberNode {
           "_debugHookTypes": null,
-          "_debugID": 60,
+          "_debugID": 118,
           "_debugIsCurrentlyTiming": false,
+          "_debugNeedsRemount": false,
           "_debugOwner": null,
           "_debugSource": null,
           "actualDuration": 0,
@@ -293,7 +75,7 @@ Dropdown {
           "alternate": [Circular],
           "child": null,
           "childExpirationTime": 0,
-          "contextDependencies": null,
+          "dependencies": null,
           "effectTag": 0,
           "elementType": null,
           "expirationTime": 1073741823,
@@ -310,7 +92,9 @@ Dropdown {
           "return": null,
           "selfBaseDuration": 0,
           "sibling": null,
-          "stateNode": Object {
+          "stateNode": FiberRootNode {
+            "callbackExpirationTime": 0,
+            "callbackNode": null,
             "containerInfo": <div>
               <div
                 class="stat-dropdown-container"
@@ -329,25 +113,20 @@ Dropdown {
             </div>,
             "context": Object {},
             "current": [Circular],
-            "didError": false,
-            "earliestPendingTime": 0,
-            "earliestSuspendedTime": 0,
-            "expirationTime": 0,
+            "finishedExpirationTime": 0,
             "finishedWork": null,
             "firstBatch": null,
+            "firstPendingTime": 0,
             "hydrate": false,
-            "interactionThreadID": 15,
-            "latestPendingTime": 0,
-            "latestPingedTime": 0,
-            "latestSuspendedTime": 0,
+            "interactionThreadID": 16,
+            "lastPendingTime": 0,
             "memoizedInteractions": Set {},
-            "nextExpirationTimeToWorkOn": 0,
-            "nextScheduledRoot": null,
             "pendingChildren": null,
-            "pendingCommitExpirationTime": 0,
             "pendingContext": null,
             "pendingInteractionMap": Map {},
             "pingCache": null,
+            "pingTime": 0,
+            "tag": 0,
             "timeoutHandle": -1,
           },
           "tag": 3,
@@ -375,6 +154,8 @@ Dropdown {
                   wrappingComponentProps={null}
                 />,
               },
+              "priority": 97,
+              "suspenseConfig": null,
               "tag": 0,
             },
             "lastCapturedEffect": null,
@@ -397,14 +178,16 @@ Dropdown {
                   wrappingComponentProps={null}
                 />,
               },
+              "priority": 97,
+              "suspenseConfig": null,
               "tag": 0,
             },
           },
         },
         "child": [Circular],
         "childExpirationTime": 0,
-        "contextDependencies": null,
-        "effectTag": 32,
+        "dependencies": null,
+        "effectTag": 0,
         "elementType": null,
         "expirationTime": 0,
         "firstEffect": [Circular],
@@ -431,7 +214,9 @@ Dropdown {
         "return": null,
         "selfBaseDuration": 0,
         "sibling": null,
-        "stateNode": Object {
+        "stateNode": FiberRootNode {
+          "callbackExpirationTime": 0,
+          "callbackNode": null,
           "containerInfo": <div>
             <div
               class="stat-dropdown-container"
@@ -450,25 +235,20 @@ Dropdown {
           </div>,
           "context": Object {},
           "current": [Circular],
-          "didError": false,
-          "earliestPendingTime": 0,
-          "earliestSuspendedTime": 0,
-          "expirationTime": 0,
+          "finishedExpirationTime": 0,
           "finishedWork": null,
           "firstBatch": null,
+          "firstPendingTime": 0,
           "hydrate": false,
-          "interactionThreadID": 15,
-          "latestPendingTime": 0,
-          "latestPingedTime": 0,
-          "latestSuspendedTime": 0,
+          "interactionThreadID": 16,
+          "lastPendingTime": 0,
           "memoizedInteractions": Set {},
-          "nextExpirationTimeToWorkOn": 0,
-          "nextScheduledRoot": null,
           "pendingChildren": null,
-          "pendingCommitExpirationTime": 0,
           "pendingContext": null,
           "pendingInteractionMap": Map {},
           "pingCache": null,
+          "pingTime": 0,
+          "tag": 0,
           "timeoutHandle": -1,
         },
         "tag": 3,
@@ -539,8 +319,9 @@ Dropdown {
     "alternate": null,
     "child": FiberNode {
       "_debugHookTypes": null,
-      "_debugID": 64,
+      "_debugID": 125,
       "_debugIsCurrentlyTiming": false,
+      "_debugNeedsRemount": false,
       "_debugOwner": [Circular],
       "_debugSource": Object {
         "fileName": "/Users/arnold/Andela-Project/bp-esa-frontend/src/components/StatsCard/Dropdown.jsx",
@@ -551,8 +332,9 @@ Dropdown {
       "alternate": null,
       "child": FiberNode {
         "_debugHookTypes": null,
-        "_debugID": 65,
+        "_debugID": 127,
         "_debugIsCurrentlyTiming": false,
+        "_debugNeedsRemount": false,
         "_debugOwner": null,
         "_debugSource": null,
         "actualDuration": 0,
@@ -560,7 +342,7 @@ Dropdown {
         "alternate": null,
         "child": null,
         "childExpirationTime": 0,
-        "contextDependencies": null,
+        "dependencies": null,
         "effectTag": 0,
         "elementType": null,
         "expirationTime": 0,
@@ -578,8 +360,9 @@ Dropdown {
         "selfBaseDuration": 0,
         "sibling": FiberNode {
           "_debugHookTypes": null,
-          "_debugID": 66,
+          "_debugID": 128,
           "_debugIsCurrentlyTiming": false,
+          "_debugNeedsRemount": false,
           "_debugOwner": [Circular],
           "_debugSource": Object {
             "fileName": "/Users/arnold/Andela-Project/bp-esa-frontend/src/components/StatsCard/Dropdown.jsx",
@@ -590,8 +373,9 @@ Dropdown {
           "alternate": null,
           "child": FiberNode {
             "_debugHookTypes": null,
-            "_debugID": 67,
+            "_debugID": 131,
             "_debugIsCurrentlyTiming": false,
+            "_debugNeedsRemount": false,
             "_debugOwner": null,
             "_debugSource": null,
             "actualDuration": 0,
@@ -599,7 +383,7 @@ Dropdown {
             "alternate": null,
             "child": null,
             "childExpirationTime": 0,
-            "contextDependencies": null,
+            "dependencies": null,
             "effectTag": 0,
             "elementType": null,
             "expirationTime": 0,
@@ -617,8 +401,9 @@ Dropdown {
             "selfBaseDuration": 0,
             "sibling": FiberNode {
               "_debugHookTypes": null,
-              "_debugID": 68,
+              "_debugID": 132,
               "_debugIsCurrentlyTiming": false,
+              "_debugNeedsRemount": false,
               "_debugOwner": [Circular],
               "_debugSource": Object {
                 "fileName": "/Users/arnold/Andela-Project/bp-esa-frontend/src/components/StatsCard/Dropdown.jsx",
@@ -629,7 +414,7 @@ Dropdown {
               "alternate": null,
               "child": null,
               "childExpirationTime": 0,
-              "contextDependencies": null,
+              "dependencies": null,
               "effectTag": 0,
               "elementType": "img",
               "expirationTime": 0,
@@ -668,7 +453,7 @@ Dropdown {
             "updateQueue": null,
           },
           "childExpirationTime": 0,
-          "contextDependencies": null,
+          "dependencies": null,
           "effectTag": 0,
           "elementType": "span",
           "expirationTime": 0,
@@ -726,7 +511,7 @@ Dropdown {
         "updateQueue": null,
       },
       "childExpirationTime": 0,
-      "contextDependencies": null,
+      "dependencies": null,
       "effectTag": 0,
       "elementType": "div",
       "expirationTime": 0,
@@ -795,7 +580,7 @@ Dropdown {
       "updateQueue": null,
     },
     "childExpirationTime": 0,
-    "contextDependencies": null,
+    "dependencies": null,
     "effectTag": 1,
     "elementType": [Function],
     "expirationTime": 0,
@@ -818,8 +603,9 @@ Dropdown {
     "ref": null,
     "return": FiberNode {
       "_debugHookTypes": null,
-      "_debugID": 62,
+      "_debugID": 121,
       "_debugIsCurrentlyTiming": false,
+      "_debugNeedsRemount": false,
       "_debugOwner": null,
       "_debugSource": null,
       "actualDuration": 0,
@@ -827,7 +613,7 @@ Dropdown {
       "alternate": null,
       "child": [Circular],
       "childExpirationTime": 0,
-      "contextDependencies": null,
+      "dependencies": null,
       "effectTag": 1,
       "elementType": [Function],
       "expirationTime": 0,
@@ -852,229 +638,7 @@ Dropdown {
         "wrappingComponentProps": null,
       },
       "mode": 0,
-      "nextEffect": FiberNode {
-        "_debugHookTypes": null,
-        "_debugID": 60,
-        "_debugIsCurrentlyTiming": false,
-        "_debugOwner": null,
-        "_debugSource": null,
-        "actualDuration": 0,
-        "actualStartTime": -1,
-        "alternate": FiberNode {
-          "_debugHookTypes": null,
-          "_debugID": 60,
-          "_debugIsCurrentlyTiming": false,
-          "_debugOwner": null,
-          "_debugSource": null,
-          "actualDuration": 0,
-          "actualStartTime": -1,
-          "alternate": [Circular],
-          "child": null,
-          "childExpirationTime": 0,
-          "contextDependencies": null,
-          "effectTag": 0,
-          "elementType": null,
-          "expirationTime": 1073741823,
-          "firstEffect": null,
-          "index": 0,
-          "key": null,
-          "lastEffect": null,
-          "memoizedProps": null,
-          "memoizedState": null,
-          "mode": 0,
-          "nextEffect": null,
-          "pendingProps": null,
-          "ref": null,
-          "return": null,
-          "selfBaseDuration": 0,
-          "sibling": null,
-          "stateNode": Object {
-            "containerInfo": <div>
-              <div
-                class="stat-dropdown-container"
-              >
-                Automations stats for
-                <span
-                  class="stat-dropdown-caret"
-                >
-                   today
-                  <img
-                    alt="down"
-                    src="/drop-down.png"
-                  />
-                </span>
-              </div>
-            </div>,
-            "context": Object {},
-            "current": [Circular],
-            "didError": false,
-            "earliestPendingTime": 0,
-            "earliestSuspendedTime": 0,
-            "expirationTime": 0,
-            "finishedWork": null,
-            "firstBatch": null,
-            "hydrate": false,
-            "interactionThreadID": 15,
-            "latestPendingTime": 0,
-            "latestPingedTime": 0,
-            "latestSuspendedTime": 0,
-            "memoizedInteractions": Set {},
-            "nextExpirationTimeToWorkOn": 0,
-            "nextScheduledRoot": null,
-            "pendingChildren": null,
-            "pendingCommitExpirationTime": 0,
-            "pendingContext": null,
-            "pendingInteractionMap": Map {},
-            "pingCache": null,
-            "timeoutHandle": -1,
-          },
-          "tag": 3,
-          "treeBaseDuration": 0,
-          "type": null,
-          "updateQueue": Object {
-            "baseState": null,
-            "firstCapturedEffect": null,
-            "firstCapturedUpdate": null,
-            "firstEffect": null,
-            "firstUpdate": Object {
-              "callback": null,
-              "expirationTime": 1073741823,
-              "next": null,
-              "nextEffect": null,
-              "payload": Object {
-                "element": <WrapperComponent
-                  Component={[Function]}
-                  context={null}
-                  props={
-                    Object {
-                      "fetchStat": [MockFunction],
-                    }
-                  }
-                  wrappingComponentProps={null}
-                />,
-              },
-              "tag": 0,
-            },
-            "lastCapturedEffect": null,
-            "lastCapturedUpdate": null,
-            "lastEffect": null,
-            "lastUpdate": Object {
-              "callback": null,
-              "expirationTime": 1073741823,
-              "next": null,
-              "nextEffect": null,
-              "payload": Object {
-                "element": <WrapperComponent
-                  Component={[Function]}
-                  context={null}
-                  props={
-                    Object {
-                      "fetchStat": [MockFunction],
-                    }
-                  }
-                  wrappingComponentProps={null}
-                />,
-              },
-              "tag": 0,
-            },
-          },
-        },
-        "child": [Circular],
-        "childExpirationTime": 0,
-        "contextDependencies": null,
-        "effectTag": 32,
-        "elementType": null,
-        "expirationTime": 0,
-        "firstEffect": [Circular],
-        "index": 0,
-        "key": null,
-        "lastEffect": [Circular],
-        "memoizedProps": null,
-        "memoizedState": Object {
-          "element": <WrapperComponent
-            Component={[Function]}
-            context={null}
-            props={
-              Object {
-                "fetchStat": [MockFunction],
-              }
-            }
-            wrappingComponentProps={null}
-          />,
-        },
-        "mode": 0,
-        "nextEffect": null,
-        "pendingProps": null,
-        "ref": null,
-        "return": null,
-        "selfBaseDuration": 0,
-        "sibling": null,
-        "stateNode": Object {
-          "containerInfo": <div>
-            <div
-              class="stat-dropdown-container"
-            >
-              Automations stats for
-              <span
-                class="stat-dropdown-caret"
-              >
-                 today
-                <img
-                  alt="down"
-                  src="/drop-down.png"
-                />
-              </span>
-            </div>
-          </div>,
-          "context": Object {},
-          "current": [Circular],
-          "didError": false,
-          "earliestPendingTime": 0,
-          "earliestSuspendedTime": 0,
-          "expirationTime": 0,
-          "finishedWork": null,
-          "firstBatch": null,
-          "hydrate": false,
-          "interactionThreadID": 15,
-          "latestPendingTime": 0,
-          "latestPingedTime": 0,
-          "latestSuspendedTime": 0,
-          "memoizedInteractions": Set {},
-          "nextExpirationTimeToWorkOn": 0,
-          "nextScheduledRoot": null,
-          "pendingChildren": null,
-          "pendingCommitExpirationTime": 0,
-          "pendingContext": null,
-          "pendingInteractionMap": Map {},
-          "pingCache": null,
-          "timeoutHandle": -1,
-        },
-        "tag": 3,
-        "treeBaseDuration": 0,
-        "type": null,
-        "updateQueue": Object {
-          "baseState": Object {
-            "element": <WrapperComponent
-              Component={[Function]}
-              context={null}
-              props={
-                Object {
-                  "fetchStat": [MockFunction],
-                }
-              }
-              wrappingComponentProps={null}
-            />,
-          },
-          "firstCapturedEffect": null,
-          "firstCapturedUpdate": null,
-          "firstEffect": null,
-          "firstUpdate": null,
-          "lastCapturedEffect": null,
-          "lastCapturedUpdate": null,
-          "lastEffect": null,
-          "lastUpdate": null,
-        },
-      },
+      "nextEffect": null,
       "pendingProps": Object {
         "Component": [Function],
         "context": null,
@@ -1086,16 +650,18 @@ Dropdown {
       "ref": null,
       "return": FiberNode {
         "_debugHookTypes": null,
-        "_debugID": 60,
+        "_debugID": 118,
         "_debugIsCurrentlyTiming": false,
+        "_debugNeedsRemount": false,
         "_debugOwner": null,
         "_debugSource": null,
         "actualDuration": 0,
         "actualStartTime": -1,
         "alternate": FiberNode {
           "_debugHookTypes": null,
-          "_debugID": 60,
+          "_debugID": 118,
           "_debugIsCurrentlyTiming": false,
+          "_debugNeedsRemount": false,
           "_debugOwner": null,
           "_debugSource": null,
           "actualDuration": 0,
@@ -1103,7 +669,7 @@ Dropdown {
           "alternate": [Circular],
           "child": null,
           "childExpirationTime": 0,
-          "contextDependencies": null,
+          "dependencies": null,
           "effectTag": 0,
           "elementType": null,
           "expirationTime": 1073741823,
@@ -1120,7 +686,9 @@ Dropdown {
           "return": null,
           "selfBaseDuration": 0,
           "sibling": null,
-          "stateNode": Object {
+          "stateNode": FiberRootNode {
+            "callbackExpirationTime": 0,
+            "callbackNode": null,
             "containerInfo": <div>
               <div
                 class="stat-dropdown-container"
@@ -1139,25 +707,20 @@ Dropdown {
             </div>,
             "context": Object {},
             "current": [Circular],
-            "didError": false,
-            "earliestPendingTime": 0,
-            "earliestSuspendedTime": 0,
-            "expirationTime": 0,
+            "finishedExpirationTime": 0,
             "finishedWork": null,
             "firstBatch": null,
+            "firstPendingTime": 0,
             "hydrate": false,
-            "interactionThreadID": 15,
-            "latestPendingTime": 0,
-            "latestPingedTime": 0,
-            "latestSuspendedTime": 0,
+            "interactionThreadID": 16,
+            "lastPendingTime": 0,
             "memoizedInteractions": Set {},
-            "nextExpirationTimeToWorkOn": 0,
-            "nextScheduledRoot": null,
             "pendingChildren": null,
-            "pendingCommitExpirationTime": 0,
             "pendingContext": null,
             "pendingInteractionMap": Map {},
             "pingCache": null,
+            "pingTime": 0,
+            "tag": 0,
             "timeoutHandle": -1,
           },
           "tag": 3,
@@ -1185,6 +748,8 @@ Dropdown {
                   wrappingComponentProps={null}
                 />,
               },
+              "priority": 97,
+              "suspenseConfig": null,
               "tag": 0,
             },
             "lastCapturedEffect": null,
@@ -1207,14 +772,16 @@ Dropdown {
                   wrappingComponentProps={null}
                 />,
               },
+              "priority": 97,
+              "suspenseConfig": null,
               "tag": 0,
             },
           },
         },
         "child": [Circular],
         "childExpirationTime": 0,
-        "contextDependencies": null,
-        "effectTag": 32,
+        "dependencies": null,
+        "effectTag": 0,
         "elementType": null,
         "expirationTime": 0,
         "firstEffect": [Circular],
@@ -1241,7 +808,9 @@ Dropdown {
         "return": null,
         "selfBaseDuration": 0,
         "sibling": null,
-        "stateNode": Object {
+        "stateNode": FiberRootNode {
+          "callbackExpirationTime": 0,
+          "callbackNode": null,
           "containerInfo": <div>
             <div
               class="stat-dropdown-container"
@@ -1260,25 +829,20 @@ Dropdown {
           </div>,
           "context": Object {},
           "current": [Circular],
-          "didError": false,
-          "earliestPendingTime": 0,
-          "earliestSuspendedTime": 0,
-          "expirationTime": 0,
+          "finishedExpirationTime": 0,
           "finishedWork": null,
           "firstBatch": null,
+          "firstPendingTime": 0,
           "hydrate": false,
-          "interactionThreadID": 15,
-          "latestPendingTime": 0,
-          "latestPingedTime": 0,
-          "latestSuspendedTime": 0,
+          "interactionThreadID": 16,
+          "lastPendingTime": 0,
           "memoizedInteractions": Set {},
-          "nextExpirationTimeToWorkOn": 0,
-          "nextScheduledRoot": null,
           "pendingChildren": null,
-          "pendingCommitExpirationTime": 0,
           "pendingContext": null,
           "pendingInteractionMap": Map {},
           "pingCache": null,
+          "pingTime": 0,
+          "tag": 0,
           "timeoutHandle": -1,
         },
         "tag": 3,
