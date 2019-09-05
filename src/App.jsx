@@ -6,11 +6,12 @@ import PropTypes from 'prop-types';
 import Notifications, { notify } from 'react-notify-toast';
 import Cookies from 'cookies-js';
 import jwtDecode from 'jwt-decode';
+import axios from 'axios';
 import Login from './components/Login';
 import ReportPage from './components/ReportPage';
 import Dashboard from './components/Dashboard';
 
-const AuthenticatedRoute = ({ component: Component, authenticated, ...rest }) => (
+export const AuthenticatedRoute = ({ component: Component, authenticated, ...rest }) => (
   <Route
     {...rest}
     render={props => (authenticated === true ? <Component {...props} {...rest} /> : <Redirect to="/login" />)
@@ -38,13 +39,21 @@ class App extends React.PureComponent {
 
   checkAuthorization = () => {
     const token = Cookies.get('jwt-token');
+    axios.defaults.headers.common.authorization = token;
     if (token) {
       const userDetails = this.decodeToken(token);
-      if (userDetails) {
+      const { UserInfo } = userDetails;
+      const roles = UserInfo ? UserInfo.roles : [];
+      const USER_ROLE = process.env.REACT_APP_USER_ROLE || 'Andelan';
+      const adminRole = Object.keys(roles).includes(USER_ROLE);
+      if (userDetails && adminRole) {
         this.setCurrentUser(userDetails);
+      } else {
+        notify.show("The user doesn't have permissions to log into the app");
+        this.removeCurrentUser();
       }
     }
-  }
+  };
 
   decodeToken = (token) => {
     try {
@@ -56,7 +65,7 @@ class App extends React.PureComponent {
     } catch (err) {
       return false;
     }
-  }
+  };
 
   setCurrentUser = (user) => {
     if (user) {
@@ -66,8 +75,6 @@ class App extends React.PureComponent {
       };
       localStorage.setItem('state', JSON.stringify(sessionState));
       this.setState(sessionState);
-    } else {
-      this.removeCurrentUser();
     }
   };
 
@@ -90,8 +97,8 @@ class App extends React.PureComponent {
             <Route
               exact
               path="/login"
-              render={props => ((authenticated === true)
-                ? <Redirect to="/" /> : <Login {...props} />)}
+              render={props => (authenticated === true ? <Redirect to="/" /> : <Login {...props} />)
+              }
             />
             <AuthenticatedRoute
               path="/dashboard"

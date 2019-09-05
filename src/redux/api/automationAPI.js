@@ -1,5 +1,4 @@
 import axios from 'axios';
-
 import URL from 'url';
 import resolveUrl from '.';
 
@@ -16,8 +15,8 @@ class AutomationAPI {
     /* eslint-disable no-mixed-operators */
     const filterQuery = {
       ...filterCopy,
-      'date[from]': filters.date.from && filters.date.from.toISOString() || undefined,
-      'date[to]': filters.date.to && filters.date.to.toISOString() || undefined,
+      'date[from]': (filters.date.from && filters.date.from.toISOString()) || undefined,
+      'date[to]': (filters.date.to && filters.date.to.toISOString()) || undefined,
     };
     /* eslint-enable no-mixed-operators */
 
