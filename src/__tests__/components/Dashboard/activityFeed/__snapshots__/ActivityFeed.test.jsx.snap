@@ -802,5 +802,18 @@ ReactWrapper {
       },
     },
   },
+  Symbol(enzyme.__linkedRoots__): Array [],
+  Symbol(enzyme.__unrendered__): <ActivityFeed
+    reportData={
+      Array [
+        Object {
+          "fellowName": "Kitika, Kelvin",
+          "type": "offboarding",
+          "updatedAt": "2019-05-15T13:47:04.608Z",
+        },
+      ]
+    }
+  />,
+  Symbol(enzyme.__updatedBy__): null,
 }
 `;

@@ -6,9 +6,11 @@ import Card from './Card';
 import { fetchRealTimeReport } from '../../redux/actions/realTimeReport';
 import listenToSocketEvent from '../../realTime';
 import ActivityFeed from './ActivityFeed';
+import { EngagementTrends, createEngagementTrend } from './EngagementTrends';
 import Header from '../Header';
 import PartnerStats from './PartnerStatsCard';
 import ProgressBar from './UpSellingPartners/index';
+import dummyData from './dummyData';
 
 class Dashboard extends React.Component {
   state = {
@@ -33,6 +35,7 @@ class Dashboard extends React.Component {
         expectedDevNum: 30,
       },
     ],
+    trendData: dummyData,
   };
 
   upSellData = (partnerStats) => {
@@ -50,6 +53,8 @@ class Dashboard extends React.Component {
   componentDidMount = () => {
     // triggers event to fetch data from the API
     this.connectToSocket('newAutomation');
+    const { trendData } = this.state;
+    createEngagementTrend(trendData);
   };
 
   connectToSocket = (event) => {
@@ -120,7 +125,7 @@ class Dashboard extends React.Component {
         <Card
           classes="engagement"
           title="Engagement Trends"
-          component={() => {}}
+          component={() => EngagementTrends()}
         />
         <Card
           classes="upSelling"
@@ -153,7 +158,7 @@ const mapStateToProps = state => ({
   automation: state.automation,
 });
 
-const mapDispatchToProps = dispatch => ({
+export const mapDispatchToProps = dispatch => ({
   fetchUpdates: () => dispatch(fetchRealTimeReport()),
 });
 

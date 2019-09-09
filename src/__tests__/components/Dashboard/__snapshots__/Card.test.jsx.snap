@@ -2,23 +2,6 @@
 
 exports[`Dashboard card renders appropriately 1`] = `
 ReactWrapper {
-  Symbol(enzyme.__unrendered__): <Card
-    classes="class"
-    component={
-      [MockFunction] {
-        "calls": Array [
-          Array [],
-        ],
-        "results": Array [
-          Object {
-            "isThrow": false,
-            "value": undefined,
-          },
-        ],
-      }
-    }
-    title="Title Card"
-  />,
   Symbol(enzyme.__renderer__): Object {
     "batchedUpdates": [Function],
     "getNode": [Function],
@@ -33,12 +16,14 @@ ReactWrapper {
     "instance": Card {
       "_reactInternalFiber": FiberNode {
         "_debugHookTypes": null,
-        "_debugID": 63,
+        "_debugID": 123,
         "_debugIsCurrentlyTiming": false,
+        "_debugNeedsRemount": false,
         "_debugOwner": FiberNode {
           "_debugHookTypes": null,
-          "_debugID": 62,
+          "_debugID": 121,
           "_debugIsCurrentlyTiming": false,
+          "_debugNeedsRemount": false,
           "_debugOwner": null,
           "_debugSource": null,
           "actualDuration": 0,
@@ -46,7 +31,7 @@ ReactWrapper {
           "alternate": null,
           "child": [Circular],
           "childExpirationTime": 0,
-          "contextDependencies": null,
+          "dependencies": null,
           "effectTag": 1,
           "elementType": [Function],
           "expirationTime": 0,
@@ -95,267 +80,7 @@ ReactWrapper {
             "wrappingComponentProps": null,
           },
           "mode": 0,
-          "nextEffect": FiberNode {
-            "_debugHookTypes": null,
-            "_debugID": 60,
-            "_debugIsCurrentlyTiming": false,
-            "_debugOwner": null,
-            "_debugSource": null,
-            "actualDuration": 0,
-            "actualStartTime": -1,
-            "alternate": FiberNode {
-              "_debugHookTypes": null,
-              "_debugID": 60,
-              "_debugIsCurrentlyTiming": false,
-              "_debugOwner": null,
-              "_debugSource": null,
-              "actualDuration": 0,
-              "actualStartTime": -1,
-              "alternate": [Circular],
-              "child": null,
-              "childExpirationTime": 0,
-              "contextDependencies": null,
-              "effectTag": 0,
-              "elementType": null,
-              "expirationTime": 1073741823,
-              "firstEffect": null,
-              "index": 0,
-              "key": null,
-              "lastEffect": null,
-              "memoizedProps": null,
-              "memoizedState": null,
-              "mode": 0,
-              "nextEffect": null,
-              "pendingProps": null,
-              "ref": null,
-              "return": null,
-              "selfBaseDuration": 0,
-              "sibling": null,
-              "stateNode": Object {
-                "containerInfo": <div>
-                  <div
-                    class="dashboard-card class"
-                  >
-                    <div
-                      class="title"
-                    >
-                      Title Card
-                    </div>
-                  </div>
-                </div>,
-                "context": Object {},
-                "current": [Circular],
-                "didError": false,
-                "earliestPendingTime": 0,
-                "earliestSuspendedTime": 0,
-                "expirationTime": 0,
-                "finishedWork": null,
-                "firstBatch": null,
-                "hydrate": false,
-                "interactionThreadID": 15,
-                "latestPendingTime": 0,
-                "latestPingedTime": 0,
-                "latestSuspendedTime": 0,
-                "memoizedInteractions": Set {},
-                "nextExpirationTimeToWorkOn": 0,
-                "nextScheduledRoot": null,
-                "pendingChildren": null,
-                "pendingCommitExpirationTime": 0,
-                "pendingContext": null,
-                "pendingInteractionMap": Map {},
-                "pingCache": null,
-                "timeoutHandle": -1,
-              },
-              "tag": 3,
-              "treeBaseDuration": 0,
-              "type": null,
-              "updateQueue": Object {
-                "baseState": null,
-                "firstCapturedEffect": null,
-                "firstCapturedUpdate": null,
-                "firstEffect": null,
-                "firstUpdate": Object {
-                  "callback": null,
-                  "expirationTime": 1073741823,
-                  "next": null,
-                  "nextEffect": null,
-                  "payload": Object {
-                    "element": <WrapperComponent
-                      Component={[Function]}
-                      context={null}
-                      props={
-                        Object {
-                          "classes": "class",
-                          "component": [MockFunction] {
-                            "calls": Array [
-                              Array [],
-                            ],
-                            "results": Array [
-                              Object {
-                                "isThrow": false,
-                                "value": undefined,
-                              },
-                            ],
-                          },
-                          "title": "Title Card",
-                        }
-                      }
-                      wrappingComponentProps={null}
-                    />,
-                  },
-                  "tag": 0,
-                },
-                "lastCapturedEffect": null,
-                "lastCapturedUpdate": null,
-                "lastEffect": null,
-                "lastUpdate": Object {
-                  "callback": null,
-                  "expirationTime": 1073741823,
-                  "next": null,
-                  "nextEffect": null,
-                  "payload": Object {
-                    "element": <WrapperComponent
-                      Component={[Function]}
-                      context={null}
-                      props={
-                        Object {
-                          "classes": "class",
-                          "component": [MockFunction] {
-                            "calls": Array [
-                              Array [],
-                            ],
-                            "results": Array [
-                              Object {
-                                "isThrow": false,
-                                "value": undefined,
-                              },
-                            ],
-                          },
-                          "title": "Title Card",
-                        }
-                      }
-                      wrappingComponentProps={null}
-                    />,
-                  },
-                  "tag": 0,
-                },
-              },
-            },
-            "child": [Circular],
-            "childExpirationTime": 0,
-            "contextDependencies": null,
-            "effectTag": 32,
-            "elementType": null,
-            "expirationTime": 0,
-            "firstEffect": [Circular],
-            "index": 0,
-            "key": null,
-            "lastEffect": [Circular],
-            "memoizedProps": null,
-            "memoizedState": Object {
-              "element": <WrapperComponent
-                Component={[Function]}
-                context={null}
-                props={
-                  Object {
-                    "classes": "class",
-                    "component": [MockFunction] {
-                      "calls": Array [
-                        Array [],
-                      ],
-                      "results": Array [
-                        Object {
-                          "isThrow": false,
-                          "value": undefined,
-                        },
-                      ],
-                    },
-                    "title": "Title Card",
-                  }
-                }
-                wrappingComponentProps={null}
-              />,
-            },
-            "mode": 0,
-            "nextEffect": null,
-            "pendingProps": null,
-            "ref": null,
-            "return": null,
-            "selfBaseDuration": 0,
-            "sibling": null,
-            "stateNode": Object {
-              "containerInfo": <div>
-                <div
-                  class="dashboard-card class"
-                >
-                  <div
-                    class="title"
-                  >
-                    Title Card
-                  </div>
-                </div>
-              </div>,
-              "context": Object {},
-              "current": [Circular],
-              "didError": false,
-              "earliestPendingTime": 0,
-              "earliestSuspendedTime": 0,
-              "expirationTime": 0,
-              "finishedWork": null,
-              "firstBatch": null,
-              "hydrate": false,
-              "interactionThreadID": 15,
-              "latestPendingTime": 0,
-              "latestPingedTime": 0,
-              "latestSuspendedTime": 0,
-              "memoizedInteractions": Set {},
-              "nextExpirationTimeToWorkOn": 0,
-              "nextScheduledRoot": null,
-              "pendingChildren": null,
-              "pendingCommitExpirationTime": 0,
-              "pendingContext": null,
-              "pendingInteractionMap": Map {},
-              "pingCache": null,
-              "timeoutHandle": -1,
-            },
-            "tag": 3,
-            "treeBaseDuration": 0,
-            "type": null,
-            "updateQueue": Object {
-              "baseState": Object {
-                "element": <WrapperComponent
-                  Component={[Function]}
-                  context={null}
-                  props={
-                    Object {
-                      "classes": "class",
-                      "component": [MockFunction] {
-                        "calls": Array [
-                          Array [],
-                        ],
-                        "results": Array [
-                          Object {
-                            "isThrow": false,
-                            "value": undefined,
-                          },
-                        ],
-                      },
-                      "title": "Title Card",
-                    }
-                  }
-                  wrappingComponentProps={null}
-                />,
-              },
-              "firstCapturedEffect": null,
-              "firstCapturedUpdate": null,
-              "firstEffect": null,
-              "firstUpdate": null,
-              "lastCapturedEffect": null,
-              "lastCapturedUpdate": null,
-              "lastEffect": null,
-              "lastUpdate": null,
-            },
-          },
+          "nextEffect": null,
           "pendingProps": Object {
             "Component": [Function],
             "context": null,
@@ -379,16 +104,18 @@ ReactWrapper {
           "ref": null,
           "return": FiberNode {
             "_debugHookTypes": null,
-            "_debugID": 60,
+            "_debugID": 118,
             "_debugIsCurrentlyTiming": false,
+            "_debugNeedsRemount": false,
             "_debugOwner": null,
             "_debugSource": null,
             "actualDuration": 0,
             "actualStartTime": -1,
             "alternate": FiberNode {
               "_debugHookTypes": null,
-              "_debugID": 60,
+              "_debugID": 118,
               "_debugIsCurrentlyTiming": false,
+              "_debugNeedsRemount": false,
               "_debugOwner": null,
               "_debugSource": null,
               "actualDuration": 0,
@@ -396,7 +123,7 @@ ReactWrapper {
               "alternate": [Circular],
               "child": null,
               "childExpirationTime": 0,
-              "contextDependencies": null,
+              "dependencies": null,
               "effectTag": 0,
               "elementType": null,
               "expirationTime": 1073741823,
@@ -413,7 +140,9 @@ ReactWrapper {
               "return": null,
               "selfBaseDuration": 0,
               "sibling": null,
-              "stateNode": Object {
+              "stateNode": FiberRootNode {
+                "callbackExpirationTime": 0,
+                "callbackNode": null,
                 "containerInfo": <div>
                   <div
                     class="dashboard-card class"
@@ -427,25 +156,20 @@ ReactWrapper {
                 </div>,
                 "context": Object {},
                 "current": [Circular],
-                "didError": false,
-                "earliestPendingTime": 0,
-                "earliestSuspendedTime": 0,
-                "expirationTime": 0,
+                "finishedExpirationTime": 0,
                 "finishedWork": null,
                 "firstBatch": null,
+                "firstPendingTime": 0,
                 "hydrate": false,
-                "interactionThreadID": 15,
-                "latestPendingTime": 0,
-                "latestPingedTime": 0,
-                "latestSuspendedTime": 0,
+                "interactionThreadID": 16,
+                "lastPendingTime": 0,
                 "memoizedInteractions": Set {},
-                "nextExpirationTimeToWorkOn": 0,
-                "nextScheduledRoot": null,
                 "pendingChildren": null,
-                "pendingCommitExpirationTime": 0,
                 "pendingContext": null,
                 "pendingInteractionMap": Map {},
                 "pingCache": null,
+                "pingTime": 0,
+                "tag": 0,
                 "timeoutHandle": -1,
               },
               "tag": 3,
@@ -485,6 +209,8 @@ ReactWrapper {
                       wrappingComponentProps={null}
                     />,
                   },
+                  "priority": 97,
+                  "suspenseConfig": null,
                   "tag": 0,
                 },
                 "lastCapturedEffect": null,
@@ -519,14 +245,16 @@ ReactWrapper {
                       wrappingComponentProps={null}
                     />,
                   },
+                  "priority": 97,
+                  "suspenseConfig": null,
                   "tag": 0,
                 },
               },
             },
             "child": [Circular],
             "childExpirationTime": 0,
-            "contextDependencies": null,
-            "effectTag": 32,
+            "dependencies": null,
+            "effectTag": 0,
             "elementType": null,
             "expirationTime": 0,
             "firstEffect": [Circular],
@@ -565,7 +293,9 @@ ReactWrapper {
             "return": null,
             "selfBaseDuration": 0,
             "sibling": null,
-            "stateNode": Object {
+            "stateNode": FiberRootNode {
+              "callbackExpirationTime": 0,
+              "callbackNode": null,
               "containerInfo": <div>
                 <div
                   class="dashboard-card class"
@@ -579,25 +309,20 @@ ReactWrapper {
               </div>,
               "context": Object {},
               "current": [Circular],
-              "didError": false,
-              "earliestPendingTime": 0,
-              "earliestSuspendedTime": 0,
-              "expirationTime": 0,
+              "finishedExpirationTime": 0,
               "finishedWork": null,
               "firstBatch": null,
+              "firstPendingTime": 0,
               "hydrate": false,
-              "interactionThreadID": 15,
-              "latestPendingTime": 0,
-              "latestPingedTime": 0,
-              "latestSuspendedTime": 0,
+              "interactionThreadID": 16,
+              "lastPendingTime": 0,
               "memoizedInteractions": Set {},
-              "nextExpirationTimeToWorkOn": 0,
-              "nextScheduledRoot": null,
               "pendingChildren": null,
-              "pendingCommitExpirationTime": 0,
               "pendingContext": null,
               "pendingInteractionMap": Map {},
               "pingCache": null,
+              "pingTime": 0,
+              "tag": 0,
               "timeoutHandle": -1,
             },
             "tag": 3,
@@ -704,8 +429,9 @@ ReactWrapper {
         "alternate": null,
         "child": FiberNode {
           "_debugHookTypes": null,
-          "_debugID": 64,
+          "_debugID": 125,
           "_debugIsCurrentlyTiming": false,
+          "_debugNeedsRemount": false,
           "_debugOwner": [Circular],
           "_debugSource": Object {
             "fileName": "/Users/arnold/Andela-Project/bp-esa-frontend/src/components/Dashboard/Card.jsx",
@@ -716,8 +442,9 @@ ReactWrapper {
           "alternate": null,
           "child": FiberNode {
             "_debugHookTypes": null,
-            "_debugID": 65,
+            "_debugID": 127,
             "_debugIsCurrentlyTiming": false,
+            "_debugNeedsRemount": false,
             "_debugOwner": [Circular],
             "_debugSource": Object {
               "fileName": "/Users/arnold/Andela-Project/bp-esa-frontend/src/components/Dashboard/Card.jsx",
@@ -728,7 +455,7 @@ ReactWrapper {
             "alternate": null,
             "child": null,
             "childExpirationTime": 0,
-            "contextDependencies": null,
+            "dependencies": null,
             "effectTag": 0,
             "elementType": "div",
             "expirationTime": 0,
@@ -762,7 +489,7 @@ ReactWrapper {
             "updateQueue": null,
           },
           "childExpirationTime": 0,
-          "contextDependencies": null,
+          "dependencies": null,
           "effectTag": 0,
           "elementType": "div",
           "expirationTime": 0,
@@ -814,7 +541,7 @@ ReactWrapper {
           "updateQueue": null,
         },
         "childExpirationTime": 0,
-        "contextDependencies": null,
+        "dependencies": null,
         "effectTag": 1,
         "elementType": [Function],
         "expirationTime": 0,
@@ -858,8 +585,9 @@ ReactWrapper {
         "ref": null,
         "return": FiberNode {
           "_debugHookTypes": null,
-          "_debugID": 62,
+          "_debugID": 121,
           "_debugIsCurrentlyTiming": false,
+          "_debugNeedsRemount": false,
           "_debugOwner": null,
           "_debugSource": null,
           "actualDuration": 0,
@@ -867,7 +595,7 @@ ReactWrapper {
           "alternate": null,
           "child": [Circular],
           "childExpirationTime": 0,
-          "contextDependencies": null,
+          "dependencies": null,
           "effectTag": 1,
           "elementType": [Function],
           "expirationTime": 0,
@@ -916,267 +644,7 @@ ReactWrapper {
             "wrappingComponentProps": null,
           },
           "mode": 0,
-          "nextEffect": FiberNode {
-            "_debugHookTypes": null,
-            "_debugID": 60,
-            "_debugIsCurrentlyTiming": false,
-            "_debugOwner": null,
-            "_debugSource": null,
-            "actualDuration": 0,
-            "actualStartTime": -1,
-            "alternate": FiberNode {
-              "_debugHookTypes": null,
-              "_debugID": 60,
-              "_debugIsCurrentlyTiming": false,
-              "_debugOwner": null,
-              "_debugSource": null,
-              "actualDuration": 0,
-              "actualStartTime": -1,
-              "alternate": [Circular],
-              "child": null,
-              "childExpirationTime": 0,
-              "contextDependencies": null,
-              "effectTag": 0,
-              "elementType": null,
-              "expirationTime": 1073741823,
-              "firstEffect": null,
-              "index": 0,
-              "key": null,
-              "lastEffect": null,
-              "memoizedProps": null,
-              "memoizedState": null,
-              "mode": 0,
-              "nextEffect": null,
-              "pendingProps": null,
-              "ref": null,
-              "return": null,
-              "selfBaseDuration": 0,
-              "sibling": null,
-              "stateNode": Object {
-                "containerInfo": <div>
-                  <div
-                    class="dashboard-card class"
-                  >
-                    <div
-                      class="title"
-                    >
-                      Title Card
-                    </div>
-                  </div>
-                </div>,
-                "context": Object {},
-                "current": [Circular],
-                "didError": false,
-                "earliestPendingTime": 0,
-                "earliestSuspendedTime": 0,
-                "expirationTime": 0,
-                "finishedWork": null,
-                "firstBatch": null,
-                "hydrate": false,
-                "interactionThreadID": 15,
-                "latestPendingTime": 0,
-                "latestPingedTime": 0,
-                "latestSuspendedTime": 0,
-                "memoizedInteractions": Set {},
-                "nextExpirationTimeToWorkOn": 0,
-                "nextScheduledRoot": null,
-                "pendingChildren": null,
-                "pendingCommitExpirationTime": 0,
-                "pendingContext": null,
-                "pendingInteractionMap": Map {},
-                "pingCache": null,
-                "timeoutHandle": -1,
-              },
-              "tag": 3,
-              "treeBaseDuration": 0,
-              "type": null,
-              "updateQueue": Object {
-                "baseState": null,
-                "firstCapturedEffect": null,
-                "firstCapturedUpdate": null,
-                "firstEffect": null,
-                "firstUpdate": Object {
-                  "callback": null,
-                  "expirationTime": 1073741823,
-                  "next": null,
-                  "nextEffect": null,
-                  "payload": Object {
-                    "element": <WrapperComponent
-                      Component={[Function]}
-                      context={null}
-                      props={
-                        Object {
-                          "classes": "class",
-                          "component": [MockFunction] {
-                            "calls": Array [
-                              Array [],
-                            ],
-                            "results": Array [
-                              Object {
-                                "isThrow": false,
-                                "value": undefined,
-                              },
-                            ],
-                          },
-                          "title": "Title Card",
-                        }
-                      }
-                      wrappingComponentProps={null}
-                    />,
-                  },
-                  "tag": 0,
-                },
-                "lastCapturedEffect": null,
-                "lastCapturedUpdate": null,
-                "lastEffect": null,
-                "lastUpdate": Object {
-                  "callback": null,
-                  "expirationTime": 1073741823,
-                  "next": null,
-                  "nextEffect": null,
-                  "payload": Object {
-                    "element": <WrapperComponent
-                      Component={[Function]}
-                      context={null}
-                      props={
-                        Object {
-                          "classes": "class",
-                          "component": [MockFunction] {
-                            "calls": Array [
-                              Array [],
-                            ],
-                            "results": Array [
-                              Object {
-                                "isThrow": false,
-                                "value": undefined,
-                              },
-                            ],
-                          },
-                          "title": "Title Card",
-                        }
-                      }
-                      wrappingComponentProps={null}
-                    />,
-                  },
-                  "tag": 0,
-                },
-              },
-            },
-            "child": [Circular],
-            "childExpirationTime": 0,
-            "contextDependencies": null,
-            "effectTag": 32,
-            "elementType": null,
-            "expirationTime": 0,
-            "firstEffect": [Circular],
-            "index": 0,
-            "key": null,
-            "lastEffect": [Circular],
-            "memoizedProps": null,
-            "memoizedState": Object {
-              "element": <WrapperComponent
-                Component={[Function]}
-                context={null}
-                props={
-                  Object {
-                    "classes": "class",
-                    "component": [MockFunction] {
-                      "calls": Array [
-                        Array [],
-                      ],
-                      "results": Array [
-                        Object {
-                          "isThrow": false,
-                          "value": undefined,
-                        },
-                      ],
-                    },
-                    "title": "Title Card",
-                  }
-                }
-                wrappingComponentProps={null}
-              />,
-            },
-            "mode": 0,
-            "nextEffect": null,
-            "pendingProps": null,
-            "ref": null,
-            "return": null,
-            "selfBaseDuration": 0,
-            "sibling": null,
-            "stateNode": Object {
-              "containerInfo": <div>
-                <div
-                  class="dashboard-card class"
-                >
-                  <div
-                    class="title"
-                  >
-                    Title Card
-                  </div>
-                </div>
-              </div>,
-              "context": Object {},
-              "current": [Circular],
-              "didError": false,
-              "earliestPendingTime": 0,
-              "earliestSuspendedTime": 0,
-              "expirationTime": 0,
-              "finishedWork": null,
-              "firstBatch": null,
-              "hydrate": false,
-              "interactionThreadID": 15,
-              "latestPendingTime": 0,
-              "latestPingedTime": 0,
-              "latestSuspendedTime": 0,
-              "memoizedInteractions": Set {},
-              "nextExpirationTimeToWorkOn": 0,
-              "nextScheduledRoot": null,
-              "pendingChildren": null,
-              "pendingCommitExpirationTime": 0,
-              "pendingContext": null,
-              "pendingInteractionMap": Map {},
-              "pingCache": null,
-              "timeoutHandle": -1,
-            },
-            "tag": 3,
-            "treeBaseDuration": 0,
-            "type": null,
-            "updateQueue": Object {
-              "baseState": Object {
-                "element": <WrapperComponent
-                  Component={[Function]}
-                  context={null}
-                  props={
-                    Object {
-                      "classes": "class",
-                      "component": [MockFunction] {
-                        "calls": Array [
-                          Array [],
-                        ],
-                        "results": Array [
-                          Object {
-                            "isThrow": false,
-                            "value": undefined,
-                          },
-                        ],
-                      },
-                      "title": "Title Card",
-                    }
-                  }
-                  wrappingComponentProps={null}
-                />,
-              },
-              "firstCapturedEffect": null,
-              "firstCapturedUpdate": null,
-              "firstEffect": null,
-              "firstUpdate": null,
-              "lastCapturedEffect": null,
-              "lastCapturedUpdate": null,
-              "lastEffect": null,
-              "lastUpdate": null,
-            },
-          },
+          "nextEffect": null,
           "pendingProps": Object {
             "Component": [Function],
             "context": null,
@@ -1200,16 +668,18 @@ ReactWrapper {
           "ref": null,
           "return": FiberNode {
             "_debugHookTypes": null,
-            "_debugID": 60,
+            "_debugID": 118,
             "_debugIsCurrentlyTiming": false,
+            "_debugNeedsRemount": false,
             "_debugOwner": null,
             "_debugSource": null,
             "actualDuration": 0,
             "actualStartTime": -1,
             "alternate": FiberNode {
               "_debugHookTypes": null,
-              "_debugID": 60,
+              "_debugID": 118,
               "_debugIsCurrentlyTiming": false,
+              "_debugNeedsRemount": false,
               "_debugOwner": null,
               "_debugSource": null,
               "actualDuration": 0,
@@ -1217,7 +687,7 @@ ReactWrapper {
               "alternate": [Circular],
               "child": null,
               "childExpirationTime": 0,
-              "contextDependencies": null,
+              "dependencies": null,
               "effectTag": 0,
               "elementType": null,
               "expirationTime": 1073741823,
@@ -1234,7 +704,9 @@ ReactWrapper {
               "return": null,
               "selfBaseDuration": 0,
               "sibling": null,
-              "stateNode": Object {
+              "stateNode": FiberRootNode {
+                "callbackExpirationTime": 0,
+                "callbackNode": null,
                 "containerInfo": <div>
                   <div
                     class="dashboard-card class"
@@ -1248,25 +720,20 @@ ReactWrapper {
                 </div>,
                 "context": Object {},
                 "current": [Circular],
-                "didError": false,
-                "earliestPendingTime": 0,
-                "earliestSuspendedTime": 0,
-                "expirationTime": 0,
+                "finishedExpirationTime": 0,
                 "finishedWork": null,
                 "firstBatch": null,
+                "firstPendingTime": 0,
                 "hydrate": false,
-                "interactionThreadID": 15,
-                "latestPendingTime": 0,
-                "latestPingedTime": 0,
-                "latestSuspendedTime": 0,
+                "interactionThreadID": 16,
+                "lastPendingTime": 0,
                 "memoizedInteractions": Set {},
-                "nextExpirationTimeToWorkOn": 0,
-                "nextScheduledRoot": null,
                 "pendingChildren": null,
-                "pendingCommitExpirationTime": 0,
                 "pendingContext": null,
                 "pendingInteractionMap": Map {},
                 "pingCache": null,
+                "pingTime": 0,
+                "tag": 0,
                 "timeoutHandle": -1,
               },
               "tag": 3,
@@ -1306,6 +773,8 @@ ReactWrapper {
                       wrappingComponentProps={null}
                     />,
                   },
+                  "priority": 97,
+                  "suspenseConfig": null,
                   "tag": 0,
                 },
                 "lastCapturedEffect": null,
@@ -1340,14 +809,16 @@ ReactWrapper {
                       wrappingComponentProps={null}
                     />,
                   },
+                  "priority": 97,
+                  "suspenseConfig": null,
                   "tag": 0,
                 },
               },
             },
             "child": [Circular],
             "childExpirationTime": 0,
-            "contextDependencies": null,
-            "effectTag": 32,
+            "dependencies": null,
+            "effectTag": 0,
             "elementType": null,
             "expirationTime": 0,
             "firstEffect": [Circular],
@@ -1386,7 +857,9 @@ ReactWrapper {
             "return": null,
             "selfBaseDuration": 0,
             "sibling": null,
-            "stateNode": Object {
+            "stateNode": FiberRootNode {
+              "callbackExpirationTime": 0,
+              "callbackNode": null,
               "containerInfo": <div>
                 <div
                   class="dashboard-card class"
@@ -1400,25 +873,20 @@ ReactWrapper {
               </div>,
               "context": Object {},
               "current": [Circular],
-              "didError": false,
-              "earliestPendingTime": 0,
-              "earliestSuspendedTime": 0,
-              "expirationTime": 0,
+              "finishedExpirationTime": 0,
               "finishedWork": null,
               "firstBatch": null,
+              "firstPendingTime": 0,
               "hydrate": false,
-              "interactionThreadID": 15,
-              "latestPendingTime": 0,
-              "latestPingedTime": 0,
-              "latestSuspendedTime": 0,
+              "interactionThreadID": 16,
+              "lastPendingTime": 0,
               "memoizedInteractions": Set {},
-              "nextExpirationTimeToWorkOn": 0,
-              "nextScheduledRoot": null,
               "pendingChildren": null,
-              "pendingCommitExpirationTime": 0,
               "pendingContext": null,
               "pendingInteractionMap": Map {},
               "pingCache": null,
+              "pingTime": 0,
+              "tag": 0,
               "timeoutHandle": -1,
             },
             "tag": 3,
@@ -1624,12 +1092,14 @@ ReactWrapper {
       "instance": Card {
         "_reactInternalFiber": FiberNode {
           "_debugHookTypes": null,
-          "_debugID": 63,
+          "_debugID": 123,
           "_debugIsCurrentlyTiming": false,
+          "_debugNeedsRemount": false,
           "_debugOwner": FiberNode {
             "_debugHookTypes": null,
-            "_debugID": 62,
+            "_debugID": 121,
             "_debugIsCurrentlyTiming": false,
+            "_debugNeedsRemount": false,
             "_debugOwner": null,
             "_debugSource": null,
             "actualDuration": 0,
@@ -1637,7 +1107,7 @@ ReactWrapper {
             "alternate": null,
             "child": [Circular],
             "childExpirationTime": 0,
-            "contextDependencies": null,
+            "dependencies": null,
             "effectTag": 1,
             "elementType": [Function],
             "expirationTime": 0,
@@ -1686,267 +1156,7 @@ ReactWrapper {
               "wrappingComponentProps": null,
             },
             "mode": 0,
-            "nextEffect": FiberNode {
-              "_debugHookTypes": null,
-              "_debugID": 60,
-              "_debugIsCurrentlyTiming": false,
-              "_debugOwner": null,
-              "_debugSource": null,
-              "actualDuration": 0,
-              "actualStartTime": -1,
-              "alternate": FiberNode {
-                "_debugHookTypes": null,
-                "_debugID": 60,
-                "_debugIsCurrentlyTiming": false,
-                "_debugOwner": null,
-                "_debugSource": null,
-                "actualDuration": 0,
-                "actualStartTime": -1,
-                "alternate": [Circular],
-                "child": null,
-                "childExpirationTime": 0,
-                "contextDependencies": null,
-                "effectTag": 0,
-                "elementType": null,
-                "expirationTime": 1073741823,
-                "firstEffect": null,
-                "index": 0,
-                "key": null,
-                "lastEffect": null,
-                "memoizedProps": null,
-                "memoizedState": null,
-                "mode": 0,
-                "nextEffect": null,
-                "pendingProps": null,
-                "ref": null,
-                "return": null,
-                "selfBaseDuration": 0,
-                "sibling": null,
-                "stateNode": Object {
-                  "containerInfo": <div>
-                    <div
-                      class="dashboard-card class"
-                    >
-                      <div
-                        class="title"
-                      >
-                        Title Card
-                      </div>
-                    </div>
-                  </div>,
-                  "context": Object {},
-                  "current": [Circular],
-                  "didError": false,
-                  "earliestPendingTime": 0,
-                  "earliestSuspendedTime": 0,
-                  "expirationTime": 0,
-                  "finishedWork": null,
-                  "firstBatch": null,
-                  "hydrate": false,
-                  "interactionThreadID": 15,
-                  "latestPendingTime": 0,
-                  "latestPingedTime": 0,
-                  "latestSuspendedTime": 0,
-                  "memoizedInteractions": Set {},
-                  "nextExpirationTimeToWorkOn": 0,
-                  "nextScheduledRoot": null,
-                  "pendingChildren": null,
-                  "pendingCommitExpirationTime": 0,
-                  "pendingContext": null,
-                  "pendingInteractionMap": Map {},
-                  "pingCache": null,
-                  "timeoutHandle": -1,
-                },
-                "tag": 3,
-                "treeBaseDuration": 0,
-                "type": null,
-                "updateQueue": Object {
-                  "baseState": null,
-                  "firstCapturedEffect": null,
-                  "firstCapturedUpdate": null,
-                  "firstEffect": null,
-                  "firstUpdate": Object {
-                    "callback": null,
-                    "expirationTime": 1073741823,
-                    "next": null,
-                    "nextEffect": null,
-                    "payload": Object {
-                      "element": <WrapperComponent
-                        Component={[Function]}
-                        context={null}
-                        props={
-                          Object {
-                            "classes": "class",
-                            "component": [MockFunction] {
-                              "calls": Array [
-                                Array [],
-                              ],
-                              "results": Array [
-                                Object {
-                                  "isThrow": false,
-                                  "value": undefined,
-                                },
-                              ],
-                            },
-                            "title": "Title Card",
-                          }
-                        }
-                        wrappingComponentProps={null}
-                      />,
-                    },
-                    "tag": 0,
-                  },
-                  "lastCapturedEffect": null,
-                  "lastCapturedUpdate": null,
-                  "lastEffect": null,
-                  "lastUpdate": Object {
-                    "callback": null,
-                    "expirationTime": 1073741823,
-                    "next": null,
-                    "nextEffect": null,
-                    "payload": Object {
-                      "element": <WrapperComponent
-                        Component={[Function]}
-                        context={null}
-                        props={
-                          Object {
-                            "classes": "class",
-                            "component": [MockFunction] {
-                              "calls": Array [
-                                Array [],
-                              ],
-                              "results": Array [
-                                Object {
-                                  "isThrow": false,
-                                  "value": undefined,
-                                },
-                              ],
-                            },
-                            "title": "Title Card",
-                          }
-                        }
-                        wrappingComponentProps={null}
-                      />,
-                    },
-                    "tag": 0,
-                  },
-                },
-              },
-              "child": [Circular],
-              "childExpirationTime": 0,
-              "contextDependencies": null,
-              "effectTag": 32,
-              "elementType": null,
-              "expirationTime": 0,
-              "firstEffect": [Circular],
-              "index": 0,
-              "key": null,
-              "lastEffect": [Circular],
-              "memoizedProps": null,
-              "memoizedState": Object {
-                "element": <WrapperComponent
-                  Component={[Function]}
-                  context={null}
-                  props={
-                    Object {
-                      "classes": "class",
-                      "component": [MockFunction] {
-                        "calls": Array [
-                          Array [],
-                        ],
-                        "results": Array [
-                          Object {
-                            "isThrow": false,
-                            "value": undefined,
-                          },
-                        ],
-                      },
-                      "title": "Title Card",
-                    }
-                  }
-                  wrappingComponentProps={null}
-                />,
-              },
-              "mode": 0,
-              "nextEffect": null,
-              "pendingProps": null,
-              "ref": null,
-              "return": null,
-              "selfBaseDuration": 0,
-              "sibling": null,
-              "stateNode": Object {
-                "containerInfo": <div>
-                  <div
-                    class="dashboard-card class"
-                  >
-                    <div
-                      class="title"
-                    >
-                      Title Card
-                    </div>
-                  </div>
-                </div>,
-                "context": Object {},
-                "current": [Circular],
-                "didError": false,
-                "earliestPendingTime": 0,
-                "earliestSuspendedTime": 0,
-                "expirationTime": 0,
-                "finishedWork": null,
-                "firstBatch": null,
-                "hydrate": false,
-                "interactionThreadID": 15,
-                "latestPendingTime": 0,
-                "latestPingedTime": 0,
-                "latestSuspendedTime": 0,
-                "memoizedInteractions": Set {},
-                "nextExpirationTimeToWorkOn": 0,
-                "nextScheduledRoot": null,
-                "pendingChildren": null,
-                "pendingCommitExpirationTime": 0,
-                "pendingContext": null,
-                "pendingInteractionMap": Map {},
-                "pingCache": null,
-                "timeoutHandle": -1,
-              },
-              "tag": 3,
-              "treeBaseDuration": 0,
-              "type": null,
-              "updateQueue": Object {
-                "baseState": Object {
-                  "element": <WrapperComponent
-                    Component={[Function]}
-                    context={null}
-                    props={
-                      Object {
-                        "classes": "class",
-                        "component": [MockFunction] {
-                          "calls": Array [
-                            Array [],
-                          ],
-                          "results": Array [
-                            Object {
-                              "isThrow": false,
-                              "value": undefined,
-                            },
-                          ],
-                        },
-                        "title": "Title Card",
-                      }
-                    }
-                    wrappingComponentProps={null}
-                  />,
-                },
-                "firstCapturedEffect": null,
-                "firstCapturedUpdate": null,
-                "firstEffect": null,
-                "firstUpdate": null,
-                "lastCapturedEffect": null,
-                "lastCapturedUpdate": null,
-                "lastEffect": null,
-                "lastUpdate": null,
-              },
-            },
+            "nextEffect": null,
             "pendingProps": Object {
               "Component": [Function],
               "context": null,
@@ -1970,16 +1180,18 @@ ReactWrapper {
             "ref": null,
             "return": FiberNode {
               "_debugHookTypes": null,
-              "_debugID": 60,
+              "_debugID": 118,
               "_debugIsCurrentlyTiming": false,
+              "_debugNeedsRemount": false,
               "_debugOwner": null,
               "_debugSource": null,
               "actualDuration": 0,
               "actualStartTime": -1,
               "alternate": FiberNode {
                 "_debugHookTypes": null,
-                "_debugID": 60,
+                "_debugID": 118,
                 "_debugIsCurrentlyTiming": false,
+                "_debugNeedsRemount": false,
                 "_debugOwner": null,
                 "_debugSource": null,
                 "actualDuration": 0,
@@ -1987,7 +1199,7 @@ ReactWrapper {
                 "alternate": [Circular],
                 "child": null,
                 "childExpirationTime": 0,
-                "contextDependencies": null,
+                "dependencies": null,
                 "effectTag": 0,
                 "elementType": null,
                 "expirationTime": 1073741823,
@@ -2004,7 +1216,9 @@ ReactWrapper {
                 "return": null,
                 "selfBaseDuration": 0,
                 "sibling": null,
-                "stateNode": Object {
+                "stateNode": FiberRootNode {
+                  "callbackExpirationTime": 0,
+                  "callbackNode": null,
                   "containerInfo": <div>
                     <div
                       class="dashboard-card class"
@@ -2018,25 +1232,20 @@ ReactWrapper {
                   </div>,
                   "context": Object {},
                   "current": [Circular],
-                  "didError": false,
-                  "earliestPendingTime": 0,
-                  "earliestSuspendedTime": 0,
-                  "expirationTime": 0,
+                  "finishedExpirationTime": 0,
                   "finishedWork": null,
                   "firstBatch": null,
+                  "firstPendingTime": 0,
                   "hydrate": false,
-                  "interactionThreadID": 15,
-                  "latestPendingTime": 0,
-                  "latestPingedTime": 0,
-                  "latestSuspendedTime": 0,
+                  "interactionThreadID": 16,
+                  "lastPendingTime": 0,
                   "memoizedInteractions": Set {},
-                  "nextExpirationTimeToWorkOn": 0,
-                  "nextScheduledRoot": null,
                   "pendingChildren": null,
-                  "pendingCommitExpirationTime": 0,
                   "pendingContext": null,
                   "pendingInteractionMap": Map {},
                   "pingCache": null,
+                  "pingTime": 0,
+                  "tag": 0,
                   "timeoutHandle": -1,
                 },
                 "tag": 3,
@@ -2076,6 +1285,8 @@ ReactWrapper {
                         wrappingComponentProps={null}
                       />,
                     },
+                    "priority": 97,
+                    "suspenseConfig": null,
                     "tag": 0,
                   },
                   "lastCapturedEffect": null,
@@ -2110,14 +1321,16 @@ ReactWrapper {
                         wrappingComponentProps={null}
                       />,
                     },
+                    "priority": 97,
+                    "suspenseConfig": null,
                     "tag": 0,
                   },
                 },
               },
               "child": [Circular],
               "childExpirationTime": 0,
-              "contextDependencies": null,
-              "effectTag": 32,
+              "dependencies": null,
+              "effectTag": 0,
               "elementType": null,
               "expirationTime": 0,
               "firstEffect": [Circular],
@@ -2156,7 +1369,9 @@ ReactWrapper {
               "return": null,
               "selfBaseDuration": 0,
               "sibling": null,
-              "stateNode": Object {
+              "stateNode": FiberRootNode {
+                "callbackExpirationTime": 0,
+                "callbackNode": null,
                 "containerInfo": <div>
                   <div
                     class="dashboard-card class"
@@ -2170,25 +1385,20 @@ ReactWrapper {
                 </div>,
                 "context": Object {},
                 "current": [Circular],
-                "didError": false,
-                "earliestPendingTime": 0,
-                "earliestSuspendedTime": 0,
-                "expirationTime": 0,
+                "finishedExpirationTime": 0,
                 "finishedWork": null,
                 "firstBatch": null,
+                "firstPendingTime": 0,
                 "hydrate": false,
-                "interactionThreadID": 15,
-                "latestPendingTime": 0,
-                "latestPingedTime": 0,
-                "latestSuspendedTime": 0,
+                "interactionThreadID": 16,
+                "lastPendingTime": 0,
                 "memoizedInteractions": Set {},
-                "nextExpirationTimeToWorkOn": 0,
-                "nextScheduledRoot": null,
                 "pendingChildren": null,
-                "pendingCommitExpirationTime": 0,
                 "pendingContext": null,
                 "pendingInteractionMap": Map {},
                 "pingCache": null,
+                "pingTime": 0,
+                "tag": 0,
                 "timeoutHandle": -1,
               },
               "tag": 3,
@@ -2295,8 +1505,9 @@ ReactWrapper {
           "alternate": null,
           "child": FiberNode {
             "_debugHookTypes": null,
-            "_debugID": 64,
+            "_debugID": 125,
             "_debugIsCurrentlyTiming": false,
+            "_debugNeedsRemount": false,
             "_debugOwner": [Circular],
             "_debugSource": Object {
               "fileName": "/Users/arnold/Andela-Project/bp-esa-frontend/src/components/Dashboard/Card.jsx",
@@ -2307,8 +1518,9 @@ ReactWrapper {
             "alternate": null,
             "child": FiberNode {
               "_debugHookTypes": null,
-              "_debugID": 65,
+              "_debugID": 127,
               "_debugIsCurrentlyTiming": false,
+              "_debugNeedsRemount": false,
               "_debugOwner": [Circular],
               "_debugSource": Object {
                 "fileName": "/Users/arnold/Andela-Project/bp-esa-frontend/src/components/Dashboard/Card.jsx",
@@ -2319,7 +1531,7 @@ ReactWrapper {
               "alternate": null,
               "child": null,
               "childExpirationTime": 0,
-              "contextDependencies": null,
+              "dependencies": null,
               "effectTag": 0,
               "elementType": "div",
               "expirationTime": 0,
@@ -2353,7 +1565,7 @@ ReactWrapper {
               "updateQueue": null,
             },
             "childExpirationTime": 0,
-            "contextDependencies": null,
+            "dependencies": null,
             "effectTag": 0,
             "elementType": "div",
             "expirationTime": 0,
@@ -2405,7 +1617,7 @@ ReactWrapper {
             "updateQueue": null,
           },
           "childExpirationTime": 0,
-          "contextDependencies": null,
+          "dependencies": null,
           "effectTag": 1,
           "elementType": [Function],
           "expirationTime": 0,
@@ -2449,8 +1661,9 @@ ReactWrapper {
           "ref": null,
           "return": FiberNode {
             "_debugHookTypes": null,
-            "_debugID": 62,
+            "_debugID": 121,
             "_debugIsCurrentlyTiming": false,
+            "_debugNeedsRemount": false,
             "_debugOwner": null,
             "_debugSource": null,
             "actualDuration": 0,
@@ -2458,7 +1671,7 @@ ReactWrapper {
             "alternate": null,
             "child": [Circular],
             "childExpirationTime": 0,
-            "contextDependencies": null,
+            "dependencies": null,
             "effectTag": 1,
             "elementType": [Function],
             "expirationTime": 0,
@@ -2507,267 +1720,7 @@ ReactWrapper {
               "wrappingComponentProps": null,
             },
             "mode": 0,
-            "nextEffect": FiberNode {
-              "_debugHookTypes": null,
-              "_debugID": 60,
-              "_debugIsCurrentlyTiming": false,
-              "_debugOwner": null,
-              "_debugSource": null,
-              "actualDuration": 0,
-              "actualStartTime": -1,
-              "alternate": FiberNode {
-                "_debugHookTypes": null,
-                "_debugID": 60,
-                "_debugIsCurrentlyTiming": false,
-                "_debugOwner": null,
-                "_debugSource": null,
-                "actualDuration": 0,
-                "actualStartTime": -1,
-                "alternate": [Circular],
-                "child": null,
-                "childExpirationTime": 0,
-                "contextDependencies": null,
-                "effectTag": 0,
-                "elementType": null,
-                "expirationTime": 1073741823,
-                "firstEffect": null,
-                "index": 0,
-                "key": null,
-                "lastEffect": null,
-                "memoizedProps": null,
-                "memoizedState": null,
-                "mode": 0,
-                "nextEffect": null,
-                "pendingProps": null,
-                "ref": null,
-                "return": null,
-                "selfBaseDuration": 0,
-                "sibling": null,
-                "stateNode": Object {
-                  "containerInfo": <div>
-                    <div
-                      class="dashboard-card class"
-                    >
-                      <div
-                        class="title"
-                      >
-                        Title Card
-                      </div>
-                    </div>
-                  </div>,
-                  "context": Object {},
-                  "current": [Circular],
-                  "didError": false,
-                  "earliestPendingTime": 0,
-                  "earliestSuspendedTime": 0,
-                  "expirationTime": 0,
-                  "finishedWork": null,
-                  "firstBatch": null,
-                  "hydrate": false,
-                  "interactionThreadID": 15,
-                  "latestPendingTime": 0,
-                  "latestPingedTime": 0,
-                  "latestSuspendedTime": 0,
-                  "memoizedInteractions": Set {},
-                  "nextExpirationTimeToWorkOn": 0,
-                  "nextScheduledRoot": null,
-                  "pendingChildren": null,
-                  "pendingCommitExpirationTime": 0,
-                  "pendingContext": null,
-                  "pendingInteractionMap": Map {},
-                  "pingCache": null,
-                  "timeoutHandle": -1,
-                },
-                "tag": 3,
-                "treeBaseDuration": 0,
-                "type": null,
-                "updateQueue": Object {
-                  "baseState": null,
-                  "firstCapturedEffect": null,
-                  "firstCapturedUpdate": null,
-                  "firstEffect": null,
-                  "firstUpdate": Object {
-                    "callback": null,
-                    "expirationTime": 1073741823,
-                    "next": null,
-                    "nextEffect": null,
-                    "payload": Object {
-                      "element": <WrapperComponent
-                        Component={[Function]}
-                        context={null}
-                        props={
-                          Object {
-                            "classes": "class",
-                            "component": [MockFunction] {
-                              "calls": Array [
-                                Array [],
-                              ],
-                              "results": Array [
-                                Object {
-                                  "isThrow": false,
-                                  "value": undefined,
-                                },
-                              ],
-                            },
-                            "title": "Title Card",
-                          }
-                        }
-                        wrappingComponentProps={null}
-                      />,
-                    },
-                    "tag": 0,
-                  },
-                  "lastCapturedEffect": null,
-                  "lastCapturedUpdate": null,
-                  "lastEffect": null,
-                  "lastUpdate": Object {
-                    "callback": null,
-                    "expirationTime": 1073741823,
-                    "next": null,
-                    "nextEffect": null,
-                    "payload": Object {
-                      "element": <WrapperComponent
-                        Component={[Function]}
-                        context={null}
-                        props={
-                          Object {
-                            "classes": "class",
-                            "component": [MockFunction] {
-                              "calls": Array [
-                                Array [],
-                              ],
-                              "results": Array [
-                                Object {
-                                  "isThrow": false,
-                                  "value": undefined,
-                                },
-                              ],
-                            },
-                            "title": "Title Card",
-                          }
-                        }
-                        wrappingComponentProps={null}
-                      />,
-                    },
-                    "tag": 0,
-                  },
-                },
-              },
-              "child": [Circular],
-              "childExpirationTime": 0,
-              "contextDependencies": null,
-              "effectTag": 32,
-              "elementType": null,
-              "expirationTime": 0,
-              "firstEffect": [Circular],
-              "index": 0,
-              "key": null,
-              "lastEffect": [Circular],
-              "memoizedProps": null,
-              "memoizedState": Object {
-                "element": <WrapperComponent
-                  Component={[Function]}
-                  context={null}
-                  props={
-                    Object {
-                      "classes": "class",
-                      "component": [MockFunction] {
-                        "calls": Array [
-                          Array [],
-                        ],
-                        "results": Array [
-                          Object {
-                            "isThrow": false,
-                            "value": undefined,
-                          },
-                        ],
-                      },
-                      "title": "Title Card",
-                    }
-                  }
-                  wrappingComponentProps={null}
-                />,
-              },
-              "mode": 0,
-              "nextEffect": null,
-              "pendingProps": null,
-              "ref": null,
-              "return": null,
-              "selfBaseDuration": 0,
-              "sibling": null,
-              "stateNode": Object {
-                "containerInfo": <div>
-                  <div
-                    class="dashboard-card class"
-                  >
-                    <div
-                      class="title"
-                    >
-                      Title Card
-                    </div>
-                  </div>
-                </div>,
-                "context": Object {},
-                "current": [Circular],
-                "didError": false,
-                "earliestPendingTime": 0,
-                "earliestSuspendedTime": 0,
-                "expirationTime": 0,
-                "finishedWork": null,
-                "firstBatch": null,
-                "hydrate": false,
-                "interactionThreadID": 15,
-                "latestPendingTime": 0,
-                "latestPingedTime": 0,
-                "latestSuspendedTime": 0,
-                "memoizedInteractions": Set {},
-                "nextExpirationTimeToWorkOn": 0,
-                "nextScheduledRoot": null,
-                "pendingChildren": null,
-                "pendingCommitExpirationTime": 0,
-                "pendingContext": null,
-                "pendingInteractionMap": Map {},
-                "pingCache": null,
-                "timeoutHandle": -1,
-              },
-              "tag": 3,
-              "treeBaseDuration": 0,
-              "type": null,
-              "updateQueue": Object {
-                "baseState": Object {
-                  "element": <WrapperComponent
-                    Component={[Function]}
-                    context={null}
-                    props={
-                      Object {
-                        "classes": "class",
-                        "component": [MockFunction] {
-                          "calls": Array [
-                            Array [],
-                          ],
-                          "results": Array [
-                            Object {
-                              "isThrow": false,
-                              "value": undefined,
-                            },
-                          ],
-                        },
-                        "title": "Title Card",
-                      }
-                    }
-                    wrappingComponentProps={null}
-                  />,
-                },
-                "firstCapturedEffect": null,
-                "firstCapturedUpdate": null,
-                "firstEffect": null,
-                "firstUpdate": null,
-                "lastCapturedEffect": null,
-                "lastCapturedUpdate": null,
-                "lastEffect": null,
-                "lastUpdate": null,
-              },
-            },
+            "nextEffect": null,
             "pendingProps": Object {
               "Component": [Function],
               "context": null,
@@ -2791,16 +1744,18 @@ ReactWrapper {
             "ref": null,
             "return": FiberNode {
               "_debugHookTypes": null,
-              "_debugID": 60,
+              "_debugID": 118,
               "_debugIsCurrentlyTiming": false,
+              "_debugNeedsRemount": false,
               "_debugOwner": null,
               "_debugSource": null,
               "actualDuration": 0,
               "actualStartTime": -1,
               "alternate": FiberNode {
                 "_debugHookTypes": null,
-                "_debugID": 60,
+                "_debugID": 118,
                 "_debugIsCurrentlyTiming": false,
+                "_debugNeedsRemount": false,
                 "_debugOwner": null,
                 "_debugSource": null,
                 "actualDuration": 0,
@@ -2808,7 +1763,7 @@ ReactWrapper {
                 "alternate": [Circular],
                 "child": null,
                 "childExpirationTime": 0,
-                "contextDependencies": null,
+                "dependencies": null,
                 "effectTag": 0,
                 "elementType": null,
                 "expirationTime": 1073741823,
@@ -2825,7 +1780,9 @@ ReactWrapper {
                 "return": null,
                 "selfBaseDuration": 0,
                 "sibling": null,
-                "stateNode": Object {
+                "stateNode": FiberRootNode {
+                  "callbackExpirationTime": 0,
+                  "callbackNode": null,
                   "containerInfo": <div>
                     <div
                       class="dashboard-card class"
@@ -2839,25 +1796,20 @@ ReactWrapper {
                   </div>,
                   "context": Object {},
                   "current": [Circular],
-                  "didError": false,
-                  "earliestPendingTime": 0,
-                  "earliestSuspendedTime": 0,
-                  "expirationTime": 0,
+                  "finishedExpirationTime": 0,
                   "finishedWork": null,
                   "firstBatch": null,
+                  "firstPendingTime": 0,
                   "hydrate": false,
-                  "interactionThreadID": 15,
-                  "latestPendingTime": 0,
-                  "latestPingedTime": 0,
-                  "latestSuspendedTime": 0,
+                  "interactionThreadID": 16,
+                  "lastPendingTime": 0,
                   "memoizedInteractions": Set {},
-                  "nextExpirationTimeToWorkOn": 0,
-                  "nextScheduledRoot": null,
                   "pendingChildren": null,
-                  "pendingCommitExpirationTime": 0,
                   "pendingContext": null,
                   "pendingInteractionMap": Map {},
                   "pingCache": null,
+                  "pingTime": 0,
+                  "tag": 0,
                   "timeoutHandle": -1,
                 },
                 "tag": 3,
@@ -2897,6 +1849,8 @@ ReactWrapper {
                         wrappingComponentProps={null}
                       />,
                     },
+                    "priority": 97,
+                    "suspenseConfig": null,
                     "tag": 0,
                   },
                   "lastCapturedEffect": null,
@@ -2931,14 +1885,16 @@ ReactWrapper {
                         wrappingComponentProps={null}
                       />,
                     },
+                    "priority": 97,
+                    "suspenseConfig": null,
                     "tag": 0,
                   },
                 },
               },
               "child": [Circular],
               "childExpirationTime": 0,
-              "contextDependencies": null,
-              "effectTag": 32,
+              "dependencies": null,
+              "effectTag": 0,
               "elementType": null,
               "expirationTime": 0,
               "firstEffect": [Circular],
@@ -2977,7 +1933,9 @@ ReactWrapper {
               "return": null,
               "selfBaseDuration": 0,
               "sibling": null,
-              "stateNode": Object {
+              "stateNode": FiberRootNode {
+                "callbackExpirationTime": 0,
+                "callbackNode": null,
                 "containerInfo": <div>
                   <div
                     class="dashboard-card class"
@@ -2991,25 +1949,20 @@ ReactWrapper {
                 </div>,
                 "context": Object {},
                 "current": [Circular],
-                "didError": false,
-                "earliestPendingTime": 0,
-                "earliestSuspendedTime": 0,
-                "expirationTime": 0,
+                "finishedExpirationTime": 0,
                 "finishedWork": null,
                 "firstBatch": null,
+                "firstPendingTime": 0,
                 "hydrate": false,
-                "interactionThreadID": 15,
-                "latestPendingTime": 0,
-                "latestPingedTime": 0,
-                "latestSuspendedTime": 0,
+                "interactionThreadID": 16,
+                "lastPendingTime": 0,
                 "memoizedInteractions": Set {},
-                "nextExpirationTimeToWorkOn": 0,
-                "nextScheduledRoot": null,
                 "pendingChildren": null,
-                "pendingCommitExpirationTime": 0,
                 "pendingContext": null,
                 "pendingInteractionMap": Map {},
                 "pingCache": null,
+                "pingTime": 0,
+                "tag": 0,
                 "timeoutHandle": -1,
               },
               "tag": 3,
@@ -3235,5 +2188,24 @@ ReactWrapper {
       },
     },
   },
+  Symbol(enzyme.__linkedRoots__): Array [],
+  Symbol(enzyme.__unrendered__): <Card
+    classes="class"
+    component={
+      [MockFunction] {
+        "calls": Array [
+          Array [],
+        ],
+        "results": Array [
+          Object {
+            "isThrow": false,
+            "value": undefined,
+          },
+        ],
+      }
+    }
+    title="Title Card"
+  />,
+  Symbol(enzyme.__updatedBy__): null,
 }
 `;
