@@ -99,7 +99,6 @@ describe.only('checkAuthorization() method', () => {
       value: 'jwt-token=wrongToken',
     });
     sinon.spy(renderedComponent, 'setCurrentUser');
-    renderedComponent.checkAuthorization();
     expect(renderedComponent.setCurrentUser.calledOnce).toEqual(false);
   });
 });
@@ -116,7 +115,7 @@ describe('decodeToken() method', () => {
   });
 });
 
-describe.only('Authenticate route', () => {
+describe('Authenticate route', () => {
   it('should run the authenticated route component', () => {
     const authenticateRouteWrapper = mount(
       <BrowserRouter>

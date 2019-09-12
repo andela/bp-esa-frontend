@@ -100,3 +100,58 @@
     margin-bottom: 0.5rem;
   }
 }
+
+@media only screen and (max-width: 600px) {
+  #header{
+    display: flex;
+    flex-direction: column;
+  }
+  .pills{
+    display: flex !important;
+    flex-direction: column ;
+    align-items: stretch;
+  }
+
+  #header .pills .nav-links {
+    margin-right: 1em;
+    margin-top: 0.5em;
+    padding-left: 50px;
+    padding-right: 50px;;
+    margin-top: 10px;
+}
+
+.user-info-container{
+  margin-top: 10px !important;
+}
+.user-name{
+  padding-left: 50px !important;
+}
+
+.dashboard-items{
+  display: flex;
+  flex-direction: column;
+}
+.partner-stats-container{
+  display: flex !important;
+  flex-direction: column;
+}
+.partner-stats-container .partner-stats {
+    margin-top: 10px;
+    width: 100% !important;
+}
+.dashboard-card{
+  width:90% !important;
+}
+.modal-body{
+  width: 100%;
+}
+.developer-info {
+    margin: 10px;
+}
+.fa, .fa-link{
+  display: none;
+}
+.channel-tabs-group, .channels-tab-background {
+    padding-right: 8.75rem;
+}
+}

@@ -117,22 +117,25 @@ class Dashboard extends React.Component {
           removeCurrentUser={removeCurrentUser}
           activeTab="dashboard"
         />
-        <Card
-          classes="engagement"
-          title="Engagement Trends"
-          component={() => {}}
-        />
-        <Card
-          classes="upSelling"
-          title="Upselling Partners"
-          component={this.renderUpsellingStats(partnerStats)}
-        />
-        <Card
-          classes="activity-feed-card"
-          component={() => ActivityFeed(this.state)}
-          title="Activity Feeds"
-        />
-        <PartnerStats />
+        <div className="dashboard-items">
+          <Card
+            classes="engagement"
+            title="Engagement Trends"
+            component={() => {}}
+          />
+          <Card
+            classes="upSelling"
+            title="Upselling Partners"
+            component={this.renderUpsellingStats(partnerStats)}
+          />
+          <Card
+            classes="activity-feed-card"
+            component={() => ActivityFeed(this.state)}
+            title="Activity Feeds"
+          />
+          <PartnerStats />
+
+        </div>
       </div>
     );
   }
