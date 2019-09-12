@@ -158,6 +158,33 @@
 }
 
 
+@media only screen and (max-width: 600px) {
+  .card {
+    min-width: 100%;
 
+  }
+  #list-icon, .view-button-active{
+    display: none;
+  }
+  .filter-box{
+    width:325px;
+    margin-right: 30px !important;
+  }
+  .stat-container{
+    background-color: #43A047;
+    width: 100% !important;
+    margin-bottom: 5%;
+  }
+  .pagination{
+    flex-direction: column-reverse;
+  }
+
+  .filter-container {
+    display: grid;
+    justify-self: right;
+    width: 0;
+    max-width: 90%;
+}
+}
 
 

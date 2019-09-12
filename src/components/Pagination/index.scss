@@ -48,6 +48,7 @@
  .page-panel{
   display: flex;
   justify-content: center;
+  flex-direction: row;
   place-items: center;
   margin-left: 20px;
   margin-bottom: 6px;
@@ -98,4 +99,31 @@
    >p {
     margin-bottom: 0.5rem;
   }
+}
+
+@media only screen and (max-width: 600px) {
+  #header{
+    display: flex;
+    flex-direction: column;
+  }
+  .pills{
+    display: flex !important;
+    flex-direction: column ;
+    align-items: stretch;
+  }
+
+  #header .pills .nav-links {
+    margin-right: 1em;
+    margin-top: 0.5em;
+    padding-left: 50px;
+    padding-right: 50px;;
+    margin-top: 10px;
+}
+
+.user-info-container{
+  margin-top: 10px !important;
+}
+.user-name{
+  padding-left: 50px !important;
+}
 }
