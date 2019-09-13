@@ -1,12 +1,13 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import ReportNavBar from '../../../components/ReportNavBar';
-import Dropdown from "../../../components/StatsCard/Dropdown";
+import Dropdown from '../../../components/StatsCard/Dropdown';
 
 const props = {
   renderView: jest.fn,
   isStats: true,
   fetchStat: jest.fn,
+  toggleOpen: jest.fn,
 };
 
 const getComponent = () => shallow(<ReportNavBar  {...props} />);
@@ -17,6 +18,9 @@ describe('ReportNavBar', () => {
 
   it('should render Dropdown component', () => {
     expect(getComponent().find(Dropdown)).toHaveLength(1)
+  });
+  it('should expect toggleOpen to have been called', () => {
+    // expect(getComponent()).find
   });
 
 });

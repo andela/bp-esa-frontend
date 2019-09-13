@@ -7,6 +7,7 @@ ShallowWrapper {
     fetchStat={[Function]}
     isStats={true}
     renderView={[Function]}
+    toggleOpen={[Function]}
     viewMode="cardView"
   />,
   Symbol(enzyme.__renderer__): Object {
@@ -29,6 +30,9 @@ ShallowWrapper {
         <React.Fragment>
           <Dropdown
             fetchStat={[Function]}
+            renderView={[Function]}
+            toggleOpen={[Function]}
+            viewMode="cardView"
           />
         </React.Fragment>
       </div>,
@@ -42,6 +46,9 @@ ShallowWrapper {
         "children": <React.Fragment>
           <Dropdown
             fetchStat={[Function]}
+            renderView={[Function]}
+            toggleOpen={[Function]}
+            viewMode="cardView"
           />
         </React.Fragment>,
         "className": "left-navbar",
@@ -54,6 +61,9 @@ ShallowWrapper {
         "props": Object {
           "children": <Dropdown
             fetchStat={[Function]}
+            renderView={[Function]}
+            toggleOpen={[Function]}
+            viewMode="cardView"
           />,
         },
         "ref": null,
@@ -63,6 +73,9 @@ ShallowWrapper {
           "nodeType": "class",
           "props": Object {
             "fetchStat": [Function],
+            "renderView": [Function],
+            "toggleOpen": [Function],
+            "viewMode": "cardView",
           },
           "ref": null,
           "rendered": null,
@@ -86,6 +99,9 @@ ShallowWrapper {
           <React.Fragment>
             <Dropdown
               fetchStat={[Function]}
+              renderView={[Function]}
+              toggleOpen={[Function]}
+              viewMode="cardView"
             />
           </React.Fragment>
         </div>,
@@ -99,6 +115,9 @@ ShallowWrapper {
           "children": <React.Fragment>
             <Dropdown
               fetchStat={[Function]}
+              renderView={[Function]}
+              toggleOpen={[Function]}
+              viewMode="cardView"
             />
           </React.Fragment>,
           "className": "left-navbar",
@@ -111,6 +130,9 @@ ShallowWrapper {
           "props": Object {
             "children": <Dropdown
               fetchStat={[Function]}
+              renderView={[Function]}
+              toggleOpen={[Function]}
+              viewMode="cardView"
             />,
           },
           "ref": null,
@@ -120,6 +142,9 @@ ShallowWrapper {
             "nodeType": "class",
             "props": Object {
               "fetchStat": [Function],
+              "renderView": [Function],
+              "toggleOpen": [Function],
+              "viewMode": "cardView",
             },
             "ref": null,
             "rendered": null,
@@ -155,8 +180,7 @@ ShallowWrapper {
         },
       },
     },
-    Symbol(enzyme.__providerValues__): undefined,
   },
-  Symbol(enzyme.__providerValues__): Map {},
+  Symbol(enzyme.__childContext__): null,
 }
 `;

@@ -7,6 +7,8 @@ import PropTypes from 'prop-types';
 import 'toastr/toastr.scss';
 import { connect } from 'react-redux';
 import _ from 'lodash';
+import axios from 'axios';
+import { saveAs } from 'file-saver';
 import { fetchAutomation, retryAutomation } from '../../redux/actions/automationActions';
 import AutomationDetails from '../AutomationDetails';
 import Header from '../Header';
@@ -20,6 +22,7 @@ import './styles.scss';
 import { filterInitialState } from '../FilterComponent';
 import StatsCard from '../StatsCard/index';
 import { fetchStatsRequest } from '../../redux/actions/automationStats';
+import AutomationAPI from '../../redux/api/automationAPI';
 import { fetchRealTimeReport, resetRealTimeReport } from '../../redux/actions/realTimeReport';
 
 /* eslint-disable class-methods-use-this */
@@ -35,6 +38,11 @@ export class ReportPage extends Component {
         currentPage: 1,
         limit: 10,
       },
+      newPagination: {
+        currentPage: 1,
+        limit: -1,
+      },
+      fileType: 'csv',
       searchResult: false,
       filteredReport: [],
       isModalOpen: false,
@@ -228,6 +236,20 @@ export class ReportPage extends Component {
     });
     return `(${stats.successCount}/${activities.length})`;
   }
+
+  createAndDownloadFile = (e) => {
+    const { newPagination, filters } = this.state;
+    const url = AutomationAPI.getReportURL(newPagination, filters);
+    this.setState({ [e.target.name]: e.target.value }, () => {
+      axios.get(`${url}`)
+        .then(() => AutomationAPI.fetchReport())
+        .then((res) => {
+          const { fileType } = this.state;
+          const fileBlob = new Blob([res.data]);
+          saveAs(fileBlob, `Report.${fileType}`);
+        });
+    });
+  };
 
   renderAutomationStatus(automationStatus, report, type) {
     return (
@@ -444,15 +466,21 @@ export class ReportPage extends Component {
           history={history}
           activeTab="automations"
         />
-        <ReportNavBar isStats fetchStat={fetchStat} />
+        <ReportNavBar isStats fetchStat={fetchStat} onClick={this.createAndDownloadFile} />
         <div className="stats-wrapper">
+
           {
             stats.isLoading
               ? <div className="loader-container"><Spinner size="medium" /></div>
               : this.renderStatisticsCards()
           }
         </div>
-        <ReportNavBar renderView={this.renderView} filter={this.filter} viewMode={viewMode} />
+        <ReportNavBar
+          renderView={this.renderView}
+          filter={this.filter}
+          viewMode={viewMode}
+          onClick={this.createAndDownloadFile}
+        />
         {
           isLoading ? <Spinner /> : (
             <React.Fragment>

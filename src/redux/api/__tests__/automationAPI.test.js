@@ -52,4 +52,26 @@ describe('Automation API', () => {
     await AutomationAPI.retryAutomation();
     done();
   });
+
+  it('should return unpaginated data from the API', async (done) => {
+    const newPagination = { currentPage: 1, limit: -1 };
+    moxios.stubRequest(`${mockUrl}`, {
+      status: 200,
+      response: {
+        message: 'Resource successfully retried',
+      },
+    });
+    await AutomationAPI.getReportURL(newPagination, filterInitialState);
+    done();
+  });
+  it('should return unpaginated data from the API', async (done) => {
+    moxios.stubRequest(`${mockUrl}`, {
+      status: 200,
+      response: {
+        message: 'Resource successfully retried',
+      },
+    });
+    await AutomationAPI.fetchReport();
+    done();
+  });
 });
