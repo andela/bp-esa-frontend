@@ -175,14 +175,23 @@ class AutomationDetails extends PureComponent {
     return appActivities.map(content => (
       <div key={content.id}>
         <div className="automation-content">
-          <div className="content-row name">{content[contentData]}</div>
+        {this.renderProjectTag(content)}
           <div className="content-row type">{content[contentType]}</div>
           {this.renderCommonDetails(content)}
         </div>
       </div>
     ));
   };
-
+  renderProjectTag = content => (
+    <>
+    {content.projectId === null ? (
+      <div className="content-row name"><p>N/A</p></div>
+    ) : (
+      <div className="content-row name">{content.projectId}</div>
+    )}
+    </>
+  );
+  
   renderCommonDetails = content => (
     <>
       {content.status === 'failure' ? (
