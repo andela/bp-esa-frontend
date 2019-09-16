@@ -38,20 +38,25 @@ class App extends React.PureComponent {
   }
 
   checkAuthorization = () => {
-    const token = Cookies.get('jwt-token');
-    axios.defaults.headers.common.authorization = token;
-    if (token) {
-      const userDetails = this.decodeToken(token);
-      const { UserInfo } = userDetails;
-      const roles = UserInfo ? UserInfo.roles : [];
-      const USER_ROLE = process.env.REACT_APP_USER_ROLE || 'Andelan';
-      const adminRole = Object.keys(roles).includes(USER_ROLE);
-      if (userDetails && adminRole) {
-        this.setCurrentUser(userDetails);
-      } else {
-        notify.show("The user doesn't have permissions to log into the app");
-        this.removeCurrentUser();
+    try {
+      const token = Cookies.get('jwt-token');
+      axios.defaults.headers.common.authorization = token;
+      if (token) {
+        const userDetails = this.decodeToken(token);
+        const { UserInfo } = userDetails;
+        const roles = UserInfo ? UserInfo.roles : [];
+        const USER_ROLE = process.env.REACT_APP_USER_ROLE || 'Andelan';
+        const adminRole = Object.keys(roles).includes(USER_ROLE);
+        if (userDetails && adminRole) {
+          this.setCurrentUser(userDetails);
+        } else {
+          notify.show("The user doesn't have permissions to log into the app");
+          this.removeCurrentUser();
+        }
       }
+      return null;
+    } catch (error) {
+      return 'This token is invalid, please try again';
     }
   };
 

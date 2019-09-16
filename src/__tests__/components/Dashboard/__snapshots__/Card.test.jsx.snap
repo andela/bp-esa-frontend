@@ -434,7 +434,7 @@ ReactWrapper {
           "_debugNeedsRemount": false,
           "_debugOwner": [Circular],
           "_debugSource": Object {
-            "fileName": "/Users/arnold/Andela-Project/bp-esa-frontend/src/components/Dashboard/Card.jsx",
+            "fileName": "/Users/davidmuhanguzi/Documents/Andela/D1/bp-esa-frontend/src/components/Dashboard/Card.jsx",
             "lineNumber": 20,
           },
           "actualDuration": 0,
@@ -447,7 +447,7 @@ ReactWrapper {
             "_debugNeedsRemount": false,
             "_debugOwner": [Circular],
             "_debugSource": Object {
-              "fileName": "/Users/arnold/Andela-Project/bp-esa-frontend/src/components/Dashboard/Card.jsx",
+              "fileName": "/Users/davidmuhanguzi/Documents/Andela/D1/bp-esa-frontend/src/components/Dashboard/Card.jsx",
               "lineNumber": 21,
             },
             "actualDuration": 0,
@@ -1510,7 +1510,7 @@ ReactWrapper {
             "_debugNeedsRemount": false,
             "_debugOwner": [Circular],
             "_debugSource": Object {
-              "fileName": "/Users/arnold/Andela-Project/bp-esa-frontend/src/components/Dashboard/Card.jsx",
+              "fileName": "/Users/davidmuhanguzi/Documents/Andela/D1/bp-esa-frontend/src/components/Dashboard/Card.jsx",
               "lineNumber": 20,
             },
             "actualDuration": 0,
@@ -1523,7 +1523,7 @@ ReactWrapper {
               "_debugNeedsRemount": false,
               "_debugOwner": [Circular],
               "_debugSource": Object {
-                "fileName": "/Users/arnold/Andela-Project/bp-esa-frontend/src/components/Dashboard/Card.jsx",
+                "fileName": "/Users/davidmuhanguzi/Documents/Andela/D1/bp-esa-frontend/src/components/Dashboard/Card.jsx",
                 "lineNumber": 21,
               },
               "actualDuration": 0,

@@ -9,12 +9,12 @@ const props = {
   changeModalTypes: jest.fn(),
   card: {
     id: '10516',
-    emailAutomations: { emailActivities: [13] },
+    emailAutomations: { status: 'success', emailActivities: [13] },
     fellowName: 'Reyes, Kozey',
     nokoAutomations: { status: 'success', nokoActivities: [14] },
     partnerName: "Hammes, O'Keefe and Hilll",
     slackAutomations: {
-      status: 'failure',
+      status: 'success',
       slackActivities: [
         {
           status: 'failure',

@@ -111,7 +111,10 @@ class DeveloperCard extends Component {
         </div>
         {this.renderDetails('partnerName', '', card.partnerName)}
         {this.renderDetails('developerDetails', 'date', moment(card.updatedAt).format('MM/DD/YYYY, h:mm a'))}
-        {card.nokoAutomations && this.renderStatusBand('status-band', card.nokoAutomations.status.toUpperCase(), card.id)}
+        {card.nokoAutomations.status === 'success' && card.emailAutomations.status === 'success' && card.slackAutomations.status === 'success'
+          ? card.nokoAutomations && this.renderStatusBand('status-band', 'SUCCESS', card.id)
+          : card.nokoAutomations && this.renderStatusBand('status-band', 'FAILURE', card.id)
+        }
         {this.renderActivity(['slack', 'email', 'noko'], metric, card)}
       </div>
     );
