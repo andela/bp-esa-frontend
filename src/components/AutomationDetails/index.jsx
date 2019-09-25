@@ -23,7 +23,7 @@ class AutomationDetails extends PureComponent {
 
   renderDeveloperInfo = (modalContent, cardId) => {
     const {
-      formatDates, retryingAutomation, handleRetryAutomation, data,
+      formatDates, retryingAutomation, handleRetryAutomation, data, closeModal,
     } = this.props;
     const { slackAutomations, emailAutomations, nokoAutomations } = modalContent;
     const slackStatus = !!(slackAutomations && slackAutomations.status === 'success');
@@ -50,6 +50,17 @@ class AutomationDetails extends PureComponent {
                 onClick={() => window.open(`https://ais.andela.com/people/${modalContent.fellowId}`)}
               />
               <span className="tooltiptext">Link to AIS</span>
+            </div>
+            <div className="tooltip-container" id="modal-close">
+              <i
+                className="fas fa-times"
+                aria-hidden="true"
+                onClick={() => {
+                  this.setState({ modalType: 'slack' });
+                  closeModal();
+                }}
+              />
+              <span className="tooltiptext">Close</span>
             </div>
           </div>
           <h1 className="partner-name" role="presentation" onClick={() => window.open(`https://ais.andela.com/partners/${modalContent.partnerId}`)}>
@@ -206,18 +217,6 @@ class AutomationDetails extends PureComponent {
           {this.renderChannelTabs()}
           {this.renderTitles(modalType)}
           {this.renderDetails(modalType, ModalContentData)}
-          <div className="modal-close">
-            <button
-              type="button"
-              onClick={() => {
-                this.setState({ modalType: 'slack' });
-                closeModal();
-              }}
-              className="modal-close-button-group"
-            >
-              <h1 className="close">CLOSE</h1>
-            </button>
-          </div>
         </div>
       </div>
     );
